@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#004677</color>
+    <color name="colorPrimaryDark">#012D4B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorNavigationBar">#004677</color>
+    <color name="colorWindowBackground">#FFFFFF</color>
+
+   <!-- Initial Colors -->
+    <color name="color_green_havale_635555">#635555</color>
+    <color name="color_red_havale_FF0000">#FF0000</color>
+    <color name="color_gray_837171">#837171</color>
+    <color name="color_black_000000">#000000</color>
+    <color name="color_white_FFFFFF">#FFFFFF</color>
+    <color name="color_background_homepage">#F6F6F6</color>
+    <color name="color_blue_theme_004677">#004677</color>
+    <color name="black">#000000</color>
+    <color name="color_yellow_F1E5D4">#F3EBDD</color>
+    <color name="color_gray_DD808080">#A9A7A7</color>
+    <color name="color_blue_5268FD">#1F285C</color>
+    <color name="color_gray_border">#707070</color>
+    <color name="color_green_confirm">#1B7A07</color>
+    <color name="color_red_refuse">#FF0000</color>
+    <color name="color_gray_text">#706C6C</color>
+    <color name="my_spinner_text_color">@color/color_blue_theme_004677</color>
+    <color name="gray_spinner">#DF858484</color>
+
+</resources>

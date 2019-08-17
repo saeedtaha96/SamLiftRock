@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".activity.DraftListActivity">
+
+    <include
+        android:id="@+id/activity_draft_appbar"
+        layout="@layout/toolbar_custom_back_btn" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin32"
+            android:layout_marginTop="@dimen/margin32"
+            android:layout_marginBottom="@dimen/margin32"
+            android:layout_weight="5"
+            android:gravity="start"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="@color/color_black_000000"
+            app:boxStrokeWidth="0dp"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_input_datepicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin24"
+                android:layout_marginBottom="@dimen/margin8"
+                android:gravity="start|center"
+                android:hint="@string/login_hint_username"
+                android:inputType="text"
+                android:paddingStart="@dimen/margin32"
+                android:paddingTop="@dimen/margin24"
+                android:paddingEnd="@dimen/margin32"
+                android:paddingBottom="@dimen/margin24"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_black_000000"
+                android:textSize="@dimen/text_size24" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin32"
+            android:layout_marginEnd="@dimen/margin32"
+            android:padding="@dimen/margin16"
+            android:src="@drawable/ic_date_range_black_24dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

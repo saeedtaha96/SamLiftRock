@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">SamLiftRock</string>
+
+    <!-- initial -->
+    <string name="app_toolbar_subject">قطعات سام</string>
+    <string name="btn_enter">ورود</string>
+    <string name="tv_search">جستوجو</string>
+
+
+    <!-- menu items text -->
+    <string name="eslah_ghafase">اصلاح قفسه</string>
+    <string name="sabt_shomaresh">ثبت شمارش</string>
+    <string name="list_havale">لیست حواله</string>
+    <string name="list_mojavez">لیست مجوز</string>
+    <string name="list_resid">لیست رسید</string>
+    <string name="kardex">کاردکس</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="login_hint_username">نام کاربری</string>
+    <string name="login_hint_password">رمز عبور</string>
+    <string name="login_vurud">ورود</string>
+    <string name="menu_txt_product">تعریف محصول</string>
+    <string name="menu_txt_mojavez_havale">حواله از مجوز</string>
+    <string name="menu_txt_gozaresh_mojudi">گزارش موجودی</string>
+    <string name="menu_txt_control">کنترل میاندوره</string>
+    <string name="shomare_fanni">شماره فنی</string>
+    <string name="tv_product_name">نام کالا:</string>
+    <string name="tv_product_name_simple">نام کالا</string>
+    <string name="tv_shelf_numb">شماره قفسه:</string>
+    <string name="tv_enter_new_shelf_num">شماره قفسه جدید را وارد کنید:</string>
+    <string name="confirm">تایید</string>
+
+    <!-- QRcode -->
+    <string name="qrcode_toast_premission_granted_persian">مجوز اعطا شد، اکنون قادر به استفاده از دوربین هستید</string>
+    <string name="qrcode_toast_premission_denied_persian">مجوز رد شد، دسترسی به دوربین امکان پذیر نیست</string>
+    <string name="qrcode_toast_premission_allow_persian">برای دسترسی نیاز به تایید هر دو مجوز دارید</string>
+    <string name="tv_shelf_unit">واحد:</string>
+    <string name="tv_enter_new_counting">شمارش جدید را وارد کنید :</string>
+    <string name="tv_inventory">موجودی:</string>
+    <string name="tv_current_counting">شمارش فعلی:</string>
+    <string name="save">ذخیره</string>
+    <string name="tv_shelf_numb_simple">شماره قفسه</string>
+    <string name="txt_noghte_sefaresh">نقطه سفارش</string>
+    <string name="txt_tedad_sefaresh">تعداد سفارش</string>
+    <string name="txt_cost">قیمت واحد</string>
+    <string name="txt_baste">بسته</string>
+    <string name="txt_product_checkbox_arzesh_afzoode">دارای مالیات ارزش افزوده</string>
+    <string name="txt_unit">واحد</string>
+    <string name="txt_spin_type">نوع قطعه</string>
+    <string name="txt_product_descrip">توضیحات</string>
+</resources>

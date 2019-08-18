@@ -4,11 +4,7 @@
 
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius8"/>
-            <gradient
-                android:centerColor="#33A21E"
-                android:endColor="#2C722E"
-                android:startColor="#49B64F"
-                />
+           <solid android:color="@color/color_blue_theme_004677"/>
         </shape>
     </item>
 
@@ -16,11 +12,7 @@
 
         <shape android:shape="rectangle">
             <corners android:radius="@dimen/radius8"/>
-            <gradient
-                android:centerColor="#318121"
-                android:endColor="#265727"
-                android:startColor="#3DA344"
-                />
+           <solid android:color="@color/color_blue_5268FD"/>
         </shape>
     </item>
 </selector>

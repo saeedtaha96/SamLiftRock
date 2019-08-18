@@ -26,12 +26,12 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="9"
-                android:fontFamily="@font/b_nazanin"
+                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:text="@string/app_toolbar_subject"
                 android:textColor="@color/color_white_FFFFFF"
-                android:textSize="@dimen/text_size37"
-                android:textStyle="bold" />
+                android:textSize="@dimen/text_size32"
+               />
 
 
         </LinearLayout>

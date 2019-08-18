@@ -64,7 +64,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
     private void setGlide() {
         setGlideMethod(R.drawable.kardex, R.id.img_menu_kardex);
-        setGlideMethod(R.drawable.product, R.id.img_menu_product);
+        setGlideMethod(R.drawable.product2, R.id.img_menu_product);
         setGlideMethod(R.drawable.shelfedit, R.id.img_menu_shelf_edit);
         setGlideMethod(R.drawable.control, R.id.img_menu_midterm_control);
         setGlideMethod(R.drawable.mojavez, R.id.img_menu_permission_list);

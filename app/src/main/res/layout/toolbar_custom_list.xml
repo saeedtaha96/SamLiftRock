@@ -40,11 +40,11 @@
                 android:layout_weight="9"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:fontFamily="@font/b_nazanin"
+                android:fontFamily="@font/iran_sans_web"
                 android:text="@string/app_toolbar_subject"
                 android:textColor="@color/color_white_FFFFFF"
-                android:textSize="@dimen/text_size37"
-                android:textStyle="bold" />
+                android:textSize="@dimen/text_size32"
+                 />
 
             <ImageButton
                 android:layout_width="0dp"

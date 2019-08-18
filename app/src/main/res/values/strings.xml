@@ -60,4 +60,9 @@
     <string name="txt_unit">واحد</string>
     <string name="txt_spin_type">نوع قطعه</string>
     <string name="txt_product_descrip">توضیحات</string>
+    <string name="txt_date">تاریخ: 1398/08/02</string>
+    <string name="txt_shomare_havale">شماره حواله:</string>
+    <string name="txt_perm_num">شماره مجوز:</string>
+    <string name="txt_cust_name">نام مشتری:</string>
+    <string name="txt_exit_app">خروج</string>
 </resources>

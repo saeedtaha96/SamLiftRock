@@ -42,6 +42,8 @@
     <dimen name="margin48">48dp</dimen>
     <dimen name="text_size22">22sp</dimen>
     <dimen name="text_size28">28sp</dimen>
+    <dimen name="menu_text_size">22sp</dimen>
+    <dimen name="menu_main_text_size">28sp</dimen>
 
 
 </resources>

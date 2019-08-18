@@ -16,16 +16,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.DraftListActivity"></activity>
+        <activity android:name=".activity.DraftListActivity" />
         <activity
             android:name=".activity.ProdcutActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.MidtermCountingActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".activity.ShelfEditActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activity.HomePageActivity" />
         <activity
             android:name=".activity.LoginActivity"

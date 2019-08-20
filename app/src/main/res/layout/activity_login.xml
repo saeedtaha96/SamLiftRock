@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -127,5 +127,21 @@
         android:gravity="center"
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size32" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/device_id"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:drawableEnd="@drawable/ic_info_outline_black_24dp"
+        android:layout_margin="@dimen/margin16"
+        tools:text="192.168.1.1"
+        android:textColor="@color/color_gray_text"
+        android:gravity="center"
+        android:textSize="@dimen/text_size18"
+        android:drawablePadding="@dimen/margin4"
+
+        />
 
 </RelativeLayout>

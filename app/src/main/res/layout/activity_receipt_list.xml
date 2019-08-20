@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white_FFFFFF"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".activity.DraftListActivity">
+
+    <include
+        android:id="@+id/activity_receipt_appbar"
+        layout="@layout/toolbar_custom_back_btn" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin32"
+        android:layout_marginBottom="@dimen/margin32"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="8">
+
+        <EditText
+            android:id="@+id/login_input_datepicker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="7"
+            android:background="@drawable/shape_borderless_datepicker"
+            android:fontFamily="@font/iran_sans_web"
+            android:gravity="center"
+            android:hint="@string/txt_date"
+            android:inputType="text"
+            android:paddingStart="@dimen/margin32"
+            android:paddingTop="@dimen/margin24"
+            android:paddingEnd="@dimen/margin32"
+            android:paddingBottom="@dimen/margin16"
+            android:singleLine="true"
+            android:textAlignment="gravity"
+            android:textColor="@color/color_black_000000"
+            android:textColorHint="@color/color_gray_text"
+            android:textDirection="rtl"
+            android:textSize="@dimen/text_size20" />
+
+        <ImageView
+            android:id="@+id/activity_draft_imgv_datepicker"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/shape_borderless_datepickerleft"
+            android:padding="@dimen/margin12"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_date_range_black_24dp" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_draft_recyclerview"
+        android:layout_width="match_parent"
+        android:paddingStart="@dimen/margin32"
+        android:paddingEnd="@dimen/margin32"
+        android:clipToPadding="true"
+        android:paddingBottom="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin12"
+        android:layout_height="match_parent"
+        android:background="@color/color_white_FFFFFF">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

@@ -17,11 +17,11 @@ import com.samlifttruck.activity.Models.DraftListModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyViewHolder> {
+public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.MyViewHolder> {
 
     private List<DraftListModel> list;
 
-    public DraftListAdapter(List<DraftListModel> draft) {
+    public ReceiptListAdapter(List<DraftListModel> draft) {
         this.list = (draft == null) ? new ArrayList<DraftListModel>() : draft;
     }
 

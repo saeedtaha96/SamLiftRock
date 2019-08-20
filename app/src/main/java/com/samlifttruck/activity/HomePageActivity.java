@@ -63,8 +63,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setGlide() {
-        setGlideMethod(R.drawable.kardex, R.id.img_menu_kardex);
-        setGlideMethod(R.drawable.product2, R.id.img_menu_product);
+        /*setGlideMethod(R.drawable.kardex, R.id.img_menu_kardex);
+        setGlideMethod(R.drawable.product, R.id.img_menu_product);
         setGlideMethod(R.drawable.shelfedit, R.id.img_menu_shelf_edit);
         setGlideMethod(R.drawable.control, R.id.img_menu_midterm_control);
         setGlideMethod(R.drawable.mojavez, R.id.img_menu_permission_list);
@@ -72,7 +72,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlideMethod(R.drawable.resid, R.id.img_menu_receipt_list);
         setGlideMethod(R.drawable.sodur, R.id.img_menu_havale_az_mojavez);
         setGlideMethod(R.drawable.shomaresh, R.id.img_menu_register_counting);
-        setGlideMethod(R.drawable.ordering_icon, R.id.img_menu_inventory_report);
+        setGlideMethod(R.drawable.ordering_icon, R.id.img_menu_inventory_report);*/
         setGlideMethod(R.drawable.sam_liftrock_2, R.id.img_sam_liftrock);
     }
 

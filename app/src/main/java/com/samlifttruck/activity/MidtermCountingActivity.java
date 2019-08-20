@@ -98,12 +98,12 @@ public class MidtermCountingActivity extends AppCompatActivity implements ZXingS
 
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     if (cameraAccepted) {
-                        Toast.makeText(getApplicationContext(), getString(R.string.qrcode_toast_premission_granted_persian), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.state_toast_premission_granted_persian), Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), getString(R.string.qrcode_toast_premission_denied_persian), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.state_toast_premission_denied_persian), Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CAMERA)) {
-                                showMessageOKCancel((getString(R.string.qrcode_toast_premission_allow_persian)),
+                                showMessageOKCancel((getString(R.string.state_toast_premission_allow_persian)),
                                         new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {

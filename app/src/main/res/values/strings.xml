@@ -43,9 +43,10 @@
     <string name="confirm">تایید</string>
 
     <!-- QRcode -->
-    <string name="qrcode_toast_premission_granted_persian">مجوز اعطا شد، اکنون قادر به استفاده از دوربین هستید</string>
-    <string name="qrcode_toast_premission_denied_persian">مجوز رد شد، دسترسی به دوربین امکان پذیر نیست</string>
-    <string name="qrcode_toast_premission_allow_persian">برای دسترسی نیاز به تایید هر دو مجوز دارید</string>
+    <string name="state_toast_premission_granted_persian">مجوز اعطا شد، اکنون قادر به استفاده از وضعیت گوشی هستید</string>
+    <string name="state_toast_premission_denied_persian">مجوز رد شد، دسترسی به وضعیت گوشی امکان پذیر نیست</string>
+    <string name="state_toast_premission_allow_persian">برای ورود نیاز به تایید مجوز دارید</string>
+
     <string name="tv_shelf_unit">واحد:</string>
     <string name="tv_enter_new_counting">شمارش جدید را وارد کنید :</string>
     <string name="tv_inventory">موجودی:</string>
@@ -65,4 +66,6 @@
     <string name="txt_perm_num">شماره مجوز:</string>
     <string name="txt_cust_name">نام مشتری:</string>
     <string name="txt_exit_app">خروج</string>
+    <string name="txt_receipt_type">نوع رسید:</string>
+    <string name="txt_pre_factor_numb">شماره پیش فاکنور:</string>
 </resources>

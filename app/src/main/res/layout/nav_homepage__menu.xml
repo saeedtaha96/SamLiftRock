@@ -28,13 +28,14 @@
         <ImageView
             android:id="@+id/img_menu_product"
             android:layout_width="0dp"
-            android:layout_height="62dp"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:tint="@color/color_blue_theme_004677"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/product2" />
+            android:src="@drawable/product3" />
 
         <TextView
             android:layout_width="0dp"
@@ -68,10 +69,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/sodur" />
+            android:src="@drawable/licensing" />
 
         <TextView
             android:layout_width="0dp"
@@ -105,10 +107,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/shomaresh" />
+            android:src="@drawable/checklist" />
 
         <TextView
             android:layout_width="0dp"
@@ -142,10 +145,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/ordering_icon" />
+            android:src="@drawable/clipboard" />
 
         <TextView
             android:layout_width="0dp"
@@ -187,10 +191,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/control" />
+            android:src="@drawable/ticket" />
 
         <TextView
             android:layout_width="0dp"
@@ -224,10 +229,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/shelfedit" />
+            android:src="@drawable/warehouse" />
 
         <TextView
             android:layout_width="0dp"
@@ -261,10 +267,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/kardex" />
+            android:src="@drawable/living_room_books_group"
+            android:tint="@color/color_blue_theme_004677" />
 
         <TextView
             android:layout_width="0dp"
@@ -305,10 +312,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/mojavez" />
+            android:src="@drawable/accept" />
 
         <TextView
             android:layout_width="0dp"
@@ -342,10 +350,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/havale" />
+            android:tint="@color/color_blue_theme_004677"
+            android:src="@drawable/ic_draft_list" />
 
         <TextView
             android:layout_width="0dp"
@@ -377,11 +386,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:tint="@color/color_blue_theme_004677"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            tools:src="@drawable/resid" />
+            android:src="@drawable/ic_receipt_type_24dp" />
 
         <TextView
             android:layout_width="0dp"
@@ -422,8 +432,9 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:tint="@color/color_blue_theme_004677"
+            android:paddingStart="@dimen/padding_imgv_menu"
+            android:paddingEnd="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_exit_to_app_black_24dp" />
 

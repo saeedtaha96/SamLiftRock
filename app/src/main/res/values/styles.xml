@@ -36,4 +36,9 @@
     <style name="spinnerTheme" parent="AppTheme">
         <item name="android:spinnerDropDownItemStyle">@style/mySpinnerItemStyle</item>
     </style>
+
+    <style name="AppFont" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/iran_sans_web</item>
+
+    </style>
 </resources>

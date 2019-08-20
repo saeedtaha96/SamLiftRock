@@ -61,7 +61,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout
@@ -108,7 +108,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout
@@ -129,7 +129,7 @@
                                         android:layout_gravity="center"
                                         android:padding="@dimen/radius8"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:src="@drawable/shelfs" />
+                                        android:src="@drawable/shelfedit" />
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -164,7 +164,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout
@@ -211,7 +211,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout
@@ -232,7 +232,7 @@
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
                                         android:padding="@dimen/radius8"
-                                        android:src="@drawable/mojavez" />
+                                        android:src="@drawable/mojavez2" />
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -267,7 +267,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout
@@ -314,7 +314,7 @@
                             android:clickable="true"
                             android:contextClickable="true"
                             android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin16"
+                            app:cardCornerRadius="@dimen/margin8"
                             app:cardElevation="@dimen/margin4">
 
                             <LinearLayout

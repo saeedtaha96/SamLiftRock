@@ -17,7 +17,7 @@ import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 
-public class DraftListActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReceiptListActivity extends AppCompatActivity implements View.OnClickListener {
     EditText etDate;
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
@@ -65,7 +65,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         int v = view.getId();
 
         if (v == R.id.activity_draft_imgv_datepicker) {
-           //inital datepicker date
+            //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();
             int month = initDate.getPersianMonth();
@@ -73,7 +73,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
             initDate.setPersianDate(year, month, day);
 
             // persian Date picker
-            datepicker = new PersianDatePickerDialog(DraftListActivity.this)
+            datepicker = new PersianDatePickerDialog(ReceiptListActivity.this)
                     .setPositiveButtonString("تایید")
                     .setNegativeButton("بیخیال")
                     .setTodayButton("برو به امروز")
@@ -109,3 +109,4 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         finish();
     }
 }
+

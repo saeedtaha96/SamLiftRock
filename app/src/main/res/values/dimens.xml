@@ -45,6 +45,7 @@
     <dimen name="menu_text_size">22sp</dimen>
     <dimen name="menu_main_text_size">28sp</dimen>
     <dimen name="padding_imgv_menu">12dp</dimen>
+    <dimen name="margin38">38dp</dimen>
 
 
 </resources>

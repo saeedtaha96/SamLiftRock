@@ -17,10 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/margin32"
-        android:layout_marginTop="@dimen/margin32"
-        android:layout_marginEnd="@dimen/margin32"
-        android:layout_marginBottom="@dimen/margin32"
+   android:layout_margin="@dimen/margin38"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="8">

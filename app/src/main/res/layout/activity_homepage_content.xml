@@ -129,7 +129,7 @@
                                         android:layout_gravity="center"
                                         android:padding="@dimen/radius8"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:src="@drawable/shelfedit" />
+                                        android:src="@drawable/shelfs" />
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -195,7 +195,7 @@
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/list_havale"
+                                        android:text="@string/txt_draft_list"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size"/>
 
@@ -242,7 +242,7 @@
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/list_mojavez"
+                                        android:text="@string/txt_perm_list"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
@@ -298,7 +298,7 @@
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/list_resid"
+                                        android:text="@string/txt_receipt_list"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size"/>
 

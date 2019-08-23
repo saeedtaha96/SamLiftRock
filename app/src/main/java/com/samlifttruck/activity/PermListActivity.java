@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.DraftListAdapter;
+import com.samlifttruck.activity.Adapters.PermListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
 
 import ir.hamsaa.persiandatepicker.Listener;
@@ -21,24 +22,29 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     EditText etDate;
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
-    RecyclerView rvDraftList;
-    DraftListAdapter draftListAdapter;
+    RecyclerView rvPermList;
+    PermListAdapter PermListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_draft_list);
-
+        setContentView(R.layout.activity_perm_list);
+        setToolbarText();
         setupViews();
 
-        draftListAdapter = new DraftListAdapter(DataGenerator.getDraftList());
-        rvDraftList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        PermListAdapter = new PermListAdapter(DataGenerator.getPermList());
+        rvPermList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-        rvDraftList.setAdapter(draftListAdapter);
+        rvPermList.setAdapter(PermListAdapter);
         datepickerImgv.setOnClickListener(this);
 
 
         setToday();
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.txt_perm_list));
     }
 
     private void setToday() {
@@ -55,8 +61,8 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
 
     private void setupViews() {
         etDate = findViewById(R.id.login_input_datepicker);
-        datepickerImgv = findViewById(R.id.activity_draft_imgv_datepicker);
-        rvDraftList = findViewById(R.id.activity_draft_recyclerview);
+        datepickerImgv = findViewById(R.id.activity_perm_imgv_datepicker);
+        rvPermList = findViewById(R.id.activity_perm_recyclerview);
     }
 
 
@@ -64,7 +70,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         int v = view.getId();
 
-        if (v == R.id.activity_draft_imgv_datepicker) {
+        if (v == R.id.activity_perm_imgv_datepicker) {
             //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();

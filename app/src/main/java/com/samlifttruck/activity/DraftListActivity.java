@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.DraftListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
@@ -28,7 +30,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_draft_list);
-
+        setToolbarText();
         setupViews();
 
         draftListAdapter = new DraftListAdapter(DataGenerator.getDraftList());
@@ -39,6 +41,11 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
 
 
         setToday();
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.txt_draft_list));
     }
 
     private void setToday() {
@@ -65,7 +72,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         int v = view.getId();
 
         if (v == R.id.activity_draft_imgv_datepicker) {
-           //inital datepicker date
+            //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();
             int month = initDate.getPersianMonth();

@@ -55,7 +55,7 @@ public class ProdcutActivity extends AppCompatActivity {
     private void setToolbarText() {
         AppBarLayout appBar = findViewById(R.id.activity_shelf_toolbar);
         TextView tvAppbar = appBar.findViewById(R.id.toolbar_text);
-        tvAppbar.setText("تعریف محصول");
+        tvAppbar.setText(getString(R.string.menu_txt_product));
     }
 
     private void setupSpinnerofUnit() {

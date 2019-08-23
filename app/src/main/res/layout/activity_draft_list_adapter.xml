@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_draft_list"
                     android:drawablePadding="@dimen/margin8"
-                    android:fontFamily="@font/irsans"
+                    android:fontFamily="@font/iran_sans_web"
                     android:gravity="center"
                     android:text="@string/txt_shomare_havale"
                     android:textColor="@color/color_blue_theme_004677"

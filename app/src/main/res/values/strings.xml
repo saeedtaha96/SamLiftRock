@@ -10,9 +10,9 @@
     <!-- menu items text -->
     <string name="eslah_ghafase">اصلاح قفسه</string>
     <string name="sabt_shomaresh">ثبت شمارش</string>
-    <string name="list_havale">لیست حواله</string>
-    <string name="list_mojavez">لیست مجوز</string>
-    <string name="list_resid">لیست رسید</string>
+    <string name="txt_draft_list">لیست حواله</string>
+    <string name="txt_perm_list">لیست مجوز</string>
+    <string name="txt_receipt_list">لیست رسید</string>
     <string name="kardex">کاردکس</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -66,6 +66,8 @@
     <string name="txt_perm_num">شماره مجوز:</string>
     <string name="txt_cust_name">نام مشتری:</string>
     <string name="txt_exit_app">خروج</string>
-    <string name="txt_receipt_type">نوع رسید:</string>
+    <string name="txt_receipt_num">شماره رسید:</string>
     <string name="txt_pre_factor_numb">شماره پیش فاکنور:</string>
+    <string name="txt_about_us">درباره ما</string>
+    <string name="txt_register_phone">ثبت دستگاه؟</string>
 </resources>

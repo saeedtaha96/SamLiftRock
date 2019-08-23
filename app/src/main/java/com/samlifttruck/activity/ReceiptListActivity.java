@@ -4,13 +4,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.DraftListAdapter;
+import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
 
 import ir.hamsaa.persiandatepicker.Listener;
@@ -21,24 +23,29 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     EditText etDate;
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
-    RecyclerView rvDraftList;
-    DraftListAdapter draftListAdapter;
+    RecyclerView rvReceiptList;
+    ReceiptListAdapter receiptListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_draft_list);
-
+        setContentView(R.layout.activity_receipt_list);
+setToolbarText();
         setupViews();
 
-        draftListAdapter = new DraftListAdapter(DataGenerator.getDraftList());
-        rvDraftList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        receiptListAdapter = new ReceiptListAdapter(DataGenerator.getReceiptList());
+        rvReceiptList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-        rvDraftList.setAdapter(draftListAdapter);
+        rvReceiptList.setAdapter(receiptListAdapter);
         datepickerImgv.setOnClickListener(this);
 
 
         setToday();
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.txt_receipt_list));
     }
 
     private void setToday() {
@@ -55,8 +62,8 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
 
     private void setupViews() {
         etDate = findViewById(R.id.login_input_datepicker);
-        datepickerImgv = findViewById(R.id.activity_draft_imgv_datepicker);
-        rvDraftList = findViewById(R.id.activity_draft_recyclerview);
+        datepickerImgv = findViewById(R.id.activity_receipt_imgv_datepicker);
+        rvReceiptList = findViewById(R.id.activity_receipt_recyclerview);
     }
 
 
@@ -64,7 +71,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         int v = view.getId();
 
-        if (v == R.id.activity_draft_imgv_datepicker) {
+        if (v == R.id.activity_receipt_imgv_datepicker) {
             //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();

@@ -3,7 +3,6 @@ package com.samlifttruck.activity.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
@@ -12,23 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Models.DraftListModel;
+import com.samlifttruck.activity.Models.PermListModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyViewHolder> {
 
-    private List<DraftListModel> list;
+    private List<PermListModel> list;
 
-    public PermListAdapter(List<DraftListModel> draft) {
-        this.list = (draft == null) ? new ArrayList<DraftListModel>() : draft;
+    public PermListAdapter(List<PermListModel> draft) {
+        this.list = (draft == null) ? new ArrayList<PermListModel>() : draft;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_draft_list_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_perm_list_adapter, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -57,18 +56,18 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView draftNumb, permNumb, custName, date;
+        TextView preFactorNum, permNumb, custName, date;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            draftNumb = itemView.findViewById(R.id.activity_draft_list_tv_draft_num);
-            permNumb = itemView.findViewById(R.id.activity_draft_list_tv_perm_num);
-            custName = itemView.findViewById(R.id.activity_draft_list_tv_cust_name);
-            date = itemView.findViewById(R.id.activity_draft_list_tv_date);
+            preFactorNum = itemView.findViewById(R.id.activity_perm_list_tv_pre_factor_num);
+            permNumb = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
+            custName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
+            date = itemView.findViewById(R.id.activity_perm_list_tv_date);
         }
 
-        void bind(DraftListModel item) {
-            draftNumb.setText(item.getDraftNum());
+        void bind(PermListModel item) {
+            preFactorNum.setText(item.getPreFactorNum());
             permNumb.setText(item.getPermNum());
             custName.setText(item.getCustName());
             date.setText(item.getDate());

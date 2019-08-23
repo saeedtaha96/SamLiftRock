@@ -25,7 +25,7 @@ import com.samlifttruck.R;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnLongClickListener {
     TextInputEditText etUsername, etPassword;
     Button btnLogin;
     TextView deviceId;
@@ -38,17 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         setupView();
         setupListeners();
 
-        deviceId.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                final Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("mailto:"+"taha@gmail.com"))
-                        .putExtra(Intent.EXTRA_SUBJECT, "Sam Lift Rock IMEI CODE")
-                        .putExtra(Intent.EXTRA_TEXT, deviceId.getText().toString());
-                startActivity(intent);
-                return false;
-            }
-        });
+        deviceId.setOnLongClickListener(this);
 
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= Build.VERSION_CODES.M) {
@@ -71,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
             TelephonyManager mTelephonyMgr = (TelephonyManager) getSystemService(ts);
             String imei = mTelephonyMgr.getDeviceId();
             deviceId.setPaintFlags(deviceId.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            deviceId.setText(imei);
+         //   deviceId.setText(imei);
 
         } else {
             requestPermission();
@@ -145,5 +135,19 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        int id = view.getId();
+        switch (id){
+            case R.id.device_id :  final Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("mailto:"+"taha@gmail.com"))
+                        .putExtra(Intent.EXTRA_SUBJECT, "Sam Lift Rock IMEI CODE")
+                        .putExtra(Intent.EXTRA_TEXT, deviceId.getText().toString());
+                startActivity(intent);
+            break;
+        }
+        return false;
     }
 }

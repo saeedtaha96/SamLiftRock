@@ -34,7 +34,7 @@
         app:laserEnabled="true" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/activity_shelf_et_shomare"
+        android:id="@+id/activity_midterm_et_shomare"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/scanner_midterm"
@@ -68,11 +68,11 @@
             android:gravity="start|center"
             android:hint="@string/shomare_fanni"
             android:inputType="text"
-            android:maxLength="40"
             android:paddingStart="@dimen/margin48"
-            android:paddingTop="@dimen/margin24"
+            android:paddingTop="@dimen/margin12"
             android:paddingEnd="@dimen/margin24"
-            android:paddingBottom="@dimen/margin24"
+            android:textDirection="rtl"
+            android:paddingBottom="@dimen/margin12"
             android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/color_gray_text"
@@ -85,7 +85,7 @@
         android:id="@+id/activity_shelf_tv_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_et_shomare"
+        android:layout_below="@id/activity_midterm_et_shomare"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"

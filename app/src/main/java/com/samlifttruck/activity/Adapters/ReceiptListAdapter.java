@@ -3,7 +3,6 @@ package com.samlifttruck.activity.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
@@ -12,23 +11,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Models.DraftListModel;
+import com.samlifttruck.activity.Models.ReceiptListModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.MyViewHolder> {
 
-    private List<DraftListModel> list;
+    private List<ReceiptListModel> list;
 
-    public ReceiptListAdapter(List<DraftListModel> draft) {
-        this.list = (draft == null) ? new ArrayList<DraftListModel>() : draft;
+    public ReceiptListAdapter(List<ReceiptListModel> draft) {
+        this.list = (draft == null) ? new ArrayList<ReceiptListModel>() : draft;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_draft_list_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_receipt_list_adapter, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -57,19 +56,19 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView draftNumb, permNumb, custName, date;
+        TextView draftNumb, receiptNum, custName, date;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            draftNumb = itemView.findViewById(R.id.activity_draft_list_tv_draft_num);
-            permNumb = itemView.findViewById(R.id.activity_draft_list_tv_perm_num);
-            custName = itemView.findViewById(R.id.activity_draft_list_tv_cust_name);
-            date = itemView.findViewById(R.id.activity_draft_list_tv_date);
+            draftNumb = itemView.findViewById(R.id.activity_receipt_list_tv_draft_num);
+            receiptNum = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_num);
+            custName = itemView.findViewById(R.id.activity_receipt_list_tv_cust_name);
+            date = itemView.findViewById(R.id.activity_receipt_list_tv_date);
         }
 
-        void bind(DraftListModel item) {
+        void bind(ReceiptListModel item) {
             draftNumb.setText(item.getDraftNum());
-            permNumb.setText(item.getPermNum());
+            receiptNum.setText(item.getReceiptNum());
             custName.setText(item.getCustName());
             date.setText(item.getDate());
         }

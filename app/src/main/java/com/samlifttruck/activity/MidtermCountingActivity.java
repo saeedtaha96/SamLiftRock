@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,7 @@ public class MidtermCountingActivity extends AppCompatActivity implements ZXingS
         setContentView(R.layout.activity_midterm_counting);
         scannerView = findViewById(R.id.scanner_midterm);
         etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
-
+setToolbarText();
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -45,6 +46,11 @@ public class MidtermCountingActivity extends AppCompatActivity implements ZXingS
                 requestPermission();
             }
         }
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.menu_txt_control));
     }
 
     private boolean checkPermission() {

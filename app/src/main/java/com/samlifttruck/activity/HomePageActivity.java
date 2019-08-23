@@ -35,6 +35,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnMenu.setOnClickListener(this);
         btnMenuProduct.setOnClickListener(this);
         btnDraftList.setOnClickListener(this);
+        btnReceiptList.setOnClickListener(this);
+        btnPermList.setOnClickListener(this);
 
 
     }
@@ -125,6 +127,14 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_list_draft:
 
                 startActivity(new Intent(HomePageActivity.this, DraftListActivity.class));
+                break;
+            case R.id.btn_list_permission:
+
+                startActivity(new Intent(HomePageActivity.this, PermListActivity.class));
+                break;
+            case R.id.btn_list_receipt:
+
+                startActivity(new Intent(HomePageActivity.this, ReceiptListActivity.class));
                 break;
             default:
                 ;

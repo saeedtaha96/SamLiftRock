@@ -48,7 +48,7 @@
             android:textSize="@dimen/text_size20" />
 
         <ImageView
-            android:id="@+id/activity_draft_imgv_datepicker"
+            android:id="@+id/activity_perm_imgv_datepicker"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -62,7 +62,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_draft_recyclerview"
+        android:id="@+id/activity_perm_recyclerview"
         android:layout_width="match_parent"
         android:paddingStart="@dimen/margin32"
         android:paddingEnd="@dimen/margin32"

@@ -8,7 +8,7 @@
 
 
     <!-- menu items text -->
-    <string name="eslah_ghafase">اصلاح قفسه</string>
+    <string name="txt_shelf_edit">اصلاح قفسه</string>
     <string name="sabt_shomaresh">ثبت شمارش</string>
     <string name="txt_draft_list">لیست حواله</string>
     <string name="txt_perm_list">لیست مجوز</string>
@@ -70,4 +70,5 @@
     <string name="txt_pre_factor_numb">شماره پیش فاکنور:</string>
     <string name="txt_about_us">درباره ما</string>
     <string name="txt_register_phone">ثبت دستگاه؟</string>
+    <string name="txt_reject">عدم تایید</string>
 </resources>

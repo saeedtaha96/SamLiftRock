@@ -100,7 +100,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         switch (id) {
             //Midterm Control
             case R.id.btn_midterm_control:
-                startActivity(new Intent(HomePageActivity.this, MidtermCountingActivity.class));
+                startActivity(new Intent(HomePageActivity.this, MidtermControlActivity.class));
                 break;
 
             //Shelf Edit

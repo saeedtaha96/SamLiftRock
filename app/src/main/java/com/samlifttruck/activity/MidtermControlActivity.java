@@ -2,12 +2,14 @@ package com.samlifttruck.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +25,9 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static android.Manifest.permission.CAMERA;
 
-public class MidtermCountingActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class MidtermControlActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     TextInputEditText etFanniNumb;
+    ImageView btnTodayList;
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
     private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
@@ -35,7 +38,16 @@ public class MidtermCountingActivity extends AppCompatActivity implements ZXingS
         setContentView(R.layout.activity_midterm_counting);
         scannerView = findViewById(R.id.scanner_midterm);
         etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
-setToolbarText();
+        btnTodayList = findViewById(R.id.activity_midterm_imgv_today_list);
+        btnTodayList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MidtermControlActivity.this,MidtermTodayListActivity.class));
+            }
+        });
+        setToolbarText();
+
+
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -130,7 +142,7 @@ setToolbarText();
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(MidtermCountingActivity.this)
+        new AlertDialog.Builder(MidtermControlActivity.this)
                 .setMessage(message)
                 .setPositiveButton("OK", okListener)
                 .setNegativeButton("Cancel", null)
@@ -151,7 +163,7 @@ setToolbarText();
         finish();
     }
 
-    public void onBackBtnClick(View view){
+    public void onBackBtnClick(View view) {
         finish();
     }
 

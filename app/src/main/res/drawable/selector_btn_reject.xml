@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="false">
 
+    <item android:state_pressed="false">
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/radius15" />
-            <solid android:color="@color/color_blue_theme_004677" />
+            <corners android:radius="@dimen/radius5" />
+            <solid android:color="@color/color_red_refuse"/>
         </shape>
     </item>
 
     <item android:state_pressed="true">
 
         <shape android:shape="rectangle">
-            <corners android:radius="@dimen/radius15" />
-            <solid android:color="@color/color_blue_5268FD" />
+            <corners android:radius="@dimen/radius5" />
+            <solid android:color="#810D0D" />
         </shape>
     </item>
 </selector>

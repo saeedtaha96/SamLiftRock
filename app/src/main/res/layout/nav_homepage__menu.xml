@@ -243,7 +243,7 @@
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
-            android:text="@string/eslah_ghafase"
+            android:text="@string/txt_shelf_edit"
             android:textColor="@color/color_black_000000"
             android:textSize="@dimen/menu_text_size" />
     </LinearLayout>

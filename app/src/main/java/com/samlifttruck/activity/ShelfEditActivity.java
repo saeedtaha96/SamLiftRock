@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         setContentView(R.layout.activity_shelf_edit);
         scannerView = findViewById(R.id.scanner_shelf);
         etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
-
+setToolbarText();
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -47,6 +48,10 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         }
     }
 
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.txt_shelf_edit));
+    }
     private boolean checkPermission() {
         return (ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA) == PackageManager.PERMISSION_GRANTED);
     }

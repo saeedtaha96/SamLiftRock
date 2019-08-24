@@ -3,7 +3,6 @@ package com.samlifttruck.activity.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_draft_list_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_draft_list, parent, false);
         return new MyViewHolder(view);
     }
 

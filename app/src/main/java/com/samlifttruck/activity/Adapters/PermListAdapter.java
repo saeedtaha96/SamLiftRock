@@ -27,7 +27,7 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_perm_list_adapter, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_perm_list, parent, false);
         return new MyViewHolder(view);
     }
 

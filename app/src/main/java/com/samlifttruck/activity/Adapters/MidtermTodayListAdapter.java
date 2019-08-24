@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
@@ -16,25 +17,26 @@ import com.samlifttruck.activity.Models.ReceiptListModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.MyViewHolder> {
+public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayListAdapter.MyViewHolder> {
 
     private List<ReceiptListModel> list;
 
-    public ReceiptListAdapter(List<ReceiptListModel> draft) {
+    public MidtermTodayListAdapter(List<ReceiptListModel> draft) {
         this.list = (draft == null) ? new ArrayList<ReceiptListModel>() : draft;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_receipt_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_midterm_today_list, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.bind(list.get(position));
-        setScaleAnimation(holder.itemView);
+       // setScaleAnimation(holder.itemView);
+       setFadeAnimation(holder.itemView);
     }
 
     @Override
@@ -42,17 +44,17 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
         return list.size();
     }
 
-   /* private void setFadeAnimation(View view) {
+    private void setFadeAnimation(View view) {
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(1000);
-        view.startAnimation(anim);
-    }*/
-
-    private void setScaleAnimation(View view) {
-        ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.3f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setDuration(800);
         view.startAnimation(anim);
     }
+
+   /* private void setScaleAnimation(View view) {
+        ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.3f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.0f);
+        anim.setDuration(700);
+        view.startAnimation(anim);
+    }*/
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -63,7 +65,7 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
             draftNumb = itemView.findViewById(R.id.activity_receipt_list_tv_draft_num);
             receiptNum = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_num);
             custName = itemView.findViewById(R.id.activity_receipt_list_tv_cust_name);
-            date = itemView.findViewById(R.id.activity_receipt_list_tv_date);
+            date = itemView.findViewById(R.id.qwerty);
         }
 
         void bind(ReceiptListModel item) {

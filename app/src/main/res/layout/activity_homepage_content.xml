@@ -139,7 +139,7 @@
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/eslah_ghafase"
+                                        android:text="@string/txt_shelf_edit"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 

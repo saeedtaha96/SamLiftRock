@@ -32,14 +32,14 @@
             android:layout_marginEnd="@dimen/margin32"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="start"
-            android:textColorHint="@color/color_black_000000"
+            android:textColorHint="@color/color_gray_text"
             app:boxBackgroundColor="@color/color_white_FFFFFF"
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusBottomEnd="@dimen/radius18"
             app:boxCornerRadiusBottomStart="@dimen/radius18"
             app:boxCornerRadiusTopEnd="@dimen/radius18"
             app:boxCornerRadiusTopStart="@dimen/radius18"
-            app:boxStrokeColor="@color/color_black_000000"
+            app:boxStrokeColor="@color/color_blue_theme_004677"
             app:boxStrokeWidth="2dp"
             app:hintAnimationEnabled="true"
             app:hintTextAppearance="@style/hintTextLabel">
@@ -62,7 +62,6 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textColorHint="@color/color_black_000000"
                 android:textSize="@dimen/text_size24" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,14 +74,14 @@
             android:layout_marginTop="@dimen/margin32"
             android:layout_marginEnd="@dimen/margin32"
             android:gravity="start"
-            android:textColorHint="@color/color_black_000000"
+            android:textColorHint="@color/color_gray_text"
             app:boxBackgroundColor="@color/color_white_FFFFFF"
             app:boxBackgroundMode="outline"
             app:boxCornerRadiusBottomEnd="@dimen/radius18"
             app:boxCornerRadiusBottomStart="@dimen/radius18"
             app:boxCornerRadiusTopEnd="@dimen/radius18"
             app:boxCornerRadiusTopStart="@dimen/radius18"
-            app:boxStrokeColor="@color/color_black_000000"
+            app:boxStrokeColor="@color/color_blue_theme_004677"
             app:boxStrokeWidth="2dp"
             app:hintAnimationEnabled="true"
             app:hintTextAppearance="@style/hintTextLabel">
@@ -108,7 +107,6 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textColorHint="@color/color_black_000000"
                 android:textSize="@dimen/text_size24" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +118,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin128"
+        android:layout_marginStart="@dimen/margin128"
+        android:layout_marginTop="@dimen/margin96"
+        android:layout_marginEnd="@dimen/margin128"
+        android:layout_marginBottom="@dimen/margin96"
         android:background="@drawable/selector_btn_rect64_blue"
         android:fontFamily="@font/iran_sans_web"
         android:gravity="center"
@@ -136,8 +137,8 @@
         android:layout_below="@id/login_relative_linear"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin38"
-        android:gravity="center"
         android:fontFamily="@font/iran_sans_web"
+        android:gravity="center"
         android:text="@string/txt_register_phone"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size24"

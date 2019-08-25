@@ -5,12 +5,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DraftListActivity;
+import com.samlifttruck.activity.Fragments.DraftListInfoAllFragment;
 import com.samlifttruck.activity.Models.DraftListModel;
 
 import java.util.ArrayList;
@@ -56,7 +62,9 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView draftNumb, permNumb, custName, date;
+        private TextView draftNumb, permNumb, custName, date;
+        private View myItem;
+        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sUserName, sCondition;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,13 +72,30 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             permNumb = itemView.findViewById(R.id.activity_draft_list_tv_perm_num);
             custName = itemView.findViewById(R.id.activity_draft_list_tv_cust_name);
             date = itemView.findViewById(R.id.activity_draft_list_tv_date);
+            myItem = itemView;
         }
 
-        void bind(DraftListModel item) {
-            draftNumb.setText(item.getDraftNum());
-            permNumb.setText(item.getPermNum());
-            custName.setText(item.getCustName());
-            date.setText(item.getDate());
+        void bind(final DraftListModel item) {
+            sDraftNum = item.getDraftNum();
+            sPermNum = item.getPermNum();
+            sCustName = item.getCustName();
+            sDate = item.getDate();
+            sDraftType = item.getDraftType();
+            sUserName= item.getUserName();
+            sCondition = item.getCondition();
+
+            draftNumb.setText(sDraftNum);
+            permNumb.setText(sPermNum);
+            custName.setText(sCustName);
+            date.setText(sDate);
+            myItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                    DraftListInfoAllFragment frag = DraftListInfoAllFragment.newInstance(sDraftNum,sPermNum,sCustName,sDate,sDraftType,sUserName,sCondition);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
+                }
+            });
         }
     }
 }

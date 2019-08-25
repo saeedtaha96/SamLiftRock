@@ -36,10 +36,10 @@
     <string name="menu_txt_gozaresh_mojudi">گزارش موجودی</string>
     <string name="menu_txt_control">کنترل میاندوره</string>
     <string name="shomare_fanni">شماره فنی</string>
-    <string name="tv_product_name">نام کالا:</string>
-    <string name="tv_product_name_simple">نام کالا</string>
-    <string name="tv_shelf_numb">شماره قفسه:</string>
-    <string name="tv_enter_new_shelf_num">شماره قفسه جدید را وارد کنید:</string>
+    <string name="txt_product_name">نام کالا:</string>
+    <string name="txt_product_name_simple">نام کالا</string>
+    <string name="txt_shelf_numb">شماره قفسه:</string>
+    <string name="txt_enter_new_shelf_num">شماره قفسه جدید را وارد کنید:</string>
     <string name="confirm">تایید</string>
 
     <!-- QRcode -->
@@ -47,12 +47,12 @@
     <string name="state_toast_premission_denied_persian">مجوز رد شد، دسترسی به وضعیت گوشی امکان پذیر نیست</string>
     <string name="state_toast_premission_allow_persian">برای ورود نیاز به تایید مجوز دارید</string>
 
-    <string name="tv_shelf_unit">واحد:</string>
-    <string name="tv_enter_new_counting">شمارش جدید را وارد کنید :</string>
-    <string name="tv_inventory">موجودی:</string>
-    <string name="tv_current_counting">شمارش فعلی:</string>
+    <string name="txt_shelf_unit">واحد:</string>
+    <string name="txt_enter_new_counting">شمارش جدید را وارد کنید :</string>
+    <string name="txt_inventory">موجودی:</string>
+    <string name="txt_current_counting">شمارش فعلی:</string>
     <string name="save">ذخیره</string>
-    <string name="tv_shelf_numb_simple">شماره قفسه</string>
+    <string name="txt_shelf_numb_simple">شماره قفسه</string>
     <string name="txt_noghte_sefaresh">نقطه سفارش</string>
     <string name="txt_tedad_sefaresh">تعداد سفارش</string>
     <string name="txt_cost">قیمت واحد</string>
@@ -71,4 +71,15 @@
     <string name="txt_about_us">درباره ما</string>
     <string name="txt_register_phone">ثبت دستگاه؟</string>
     <string name="txt_reject">عدم تایید</string>
+    <string name="txt_shomare_fanni">شماره فنی:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_draft_num">شماره حواله</string>
+    <string name="txt_date_list">تاریخ</string>
+    <string name="txt_cust_name_2">نام مشتری</string>
+    <string name="txt_perm_num_2">شماره مجوز</string>
+    <string name="txt_draft_type">نوع حواله</string>
+    <string name="txt_user_name">نام کاربر</string>
+    <string name="txt_condition">وضعیت</string>
 </resources>

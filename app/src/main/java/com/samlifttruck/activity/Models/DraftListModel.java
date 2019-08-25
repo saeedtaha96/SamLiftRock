@@ -6,12 +6,18 @@ public class DraftListModel {
     private String permNum;
     private String custName;
     private String date;
+    private String draftType;
+    private String userName;
+    private String condition;
 
-    public DraftListModel(String draftNum, String permNum, String custName, String date) {
+    public DraftListModel(String draftNum, String permNum, String custName, String date, String draftType, String userName, String condition) {
         this.draftNum = draftNum;
-        this.custName = custName;
         this.permNum = permNum;
+        this.custName = custName;
         this.date = date;
+        this.draftType = draftType;
+        this.userName = userName;
+        this.condition = condition;
     }
 
     public String getDraftNum() {
@@ -22,20 +28,20 @@ public class DraftListModel {
         this.draftNum = draftNum;
     }
 
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
-    }
-
     public String getPermNum() {
         return permNum;
     }
 
     public void setPermNum(String permNum) {
         this.permNum = permNum;
+    }
+
+    public String getCustName() {
+        return custName;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
     public String getDate() {
@@ -46,8 +52,27 @@ public class DraftListModel {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return draftNum + " of " + custName;
+    public String getDraftType() {
+        return draftType;
+    }
+
+    public void setDraftType(String draftType) {
+        this.draftType = draftType;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 }

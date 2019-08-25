@@ -1,13 +1,15 @@
 package com.samlifttruck.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.MidtermTodayListAdapter;
@@ -21,21 +23,47 @@ public class MidtermTodayListActivity extends AppCompatActivity {
     MidtermTodayListAdapter PermListAdapter;
     ImageButton btnSearch;
     MaterialSearchView msv;
+    Button btnConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midterm_today_list);
-        rvPermList = findViewById(R.id.rvqwerty);
-
+        rvPermList = findViewById(R.id.activity_midterm_today_list_recyclerview);
+        btnConfirm = findViewById(R.id.activity_midterm_today_list_btn_confirm);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
-
+        setToolbarText();
+        //set up recyclerview
         PermListAdapter = new MidtermTodayListAdapter(DataGenerator.getReceiptList());
         rvPermList.setLayoutManager(new GridLayoutManager(this, 2));
         //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
         rvPermList.setAdapter(PermListAdapter);
 
+        // on scroll change and confirm btn hide listener
+        rvPermList.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
 
+                if (dy > 0) {
+                    // Scrolling up
+                    btnConfirm.animate().translationY(300f).setDuration(300);
+                } else {
+                    btnConfirm.animate().translationY(0).setDuration(200);
+                }
+            }
+        });
+
+
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.menu_txt_control));
+    }
+
+    public void onBackBtnClick(View view) {
+        finish();
     }
 
 }

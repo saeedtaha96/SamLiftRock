@@ -4,15 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin8"
-    android:contextClickable="true"
-    android:clickable="true"
-    android:focusable="true"
     android:layoutDirection="rtl"
     app:cardCornerRadius="6dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
-        android:background="@color/color_white_FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin12"
@@ -35,20 +31,20 @@
                     android:id="@+id/relative_tv_draft_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_draft_list"
+                    android:drawableStart="@drawable/ic_pre_factor_numb_24dp"
                     android:drawablePadding="@dimen/margin8"
                     android:fontFamily="@font/iran_sans_web"
                     android:gravity="center"
-                    android:text="@string/txt_shomare_havale"
+                    android:text="@string/txt_pre_factor_numb"
                     android:textColor="@color/color_blue_theme_004677"
                     android:textSize="@dimen/text_size16" />
 
                 <TextView
-                    android:id="@+id/activity_draft_list_tv_draft_num"
+                    android:id="@+id/activity_perm_list_tv_pre_factor_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_draft_number"
-                    android:layout_marginStart="@dimen/margin32"
+                    android:layout_marginStart="@dimen/margin24"
                     android:layout_toEndOf="@id/relative_tv_draft_number"
                     android:fontFamily="@font/iran_sans_web"
                     android:gravity="center"
@@ -77,7 +73,7 @@
                     android:textSize="@dimen/text_size16" />
 
                 <TextView
-                    android:id="@+id/activity_draft_list_tv_perm_num"
+                    android:id="@+id/activity_perm_list_tv_perm_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_perm_number"
@@ -107,7 +103,7 @@
             android:textSize="@dimen/text_size16" />
 
         <TextView
-            android:id="@+id/activity_draft_list_tv_cust_name"
+            android:id="@+id/activity_perm_list_tv_cust_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/relative_tv_cust_name"
@@ -120,14 +116,14 @@
             android:textSize="@dimen/text_size16" />
 
         <TextView
-            android:id="@+id/activity_draft_list_tv_date"
+            android:id="@+id/activity_perm_list_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/margin16"
             android:fontFamily="@font/iran_sans_web"
             android:text="98/08/02"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/relative_tv_cust_name"
             android:textColor="@color/color_gray_text" />
 
     </RelativeLayout>

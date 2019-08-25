@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_draft_recyclerview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin12"
+    android:background="@color/color_white_FFFFFF"
+    android:clipToPadding="true"
+    android:paddingStart="@dimen/margin32"
+    android:paddingEnd="@dimen/margin32"
+    android:paddingBottom="@dimen/margin32">
+
+
+</androidx.recyclerview.widget.RecyclerView>

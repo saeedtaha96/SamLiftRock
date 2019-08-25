@@ -14,17 +14,18 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.DraftListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.Fragments.DraftListFragment;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 
 public class DraftListActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etDate;
-    ImageView datepickerImgv;
-    PersianDatePickerDialog datepicker;
-    RecyclerView rvDraftList;
-    DraftListAdapter draftListAdapter;
+    private EditText etDate;
+    private ImageView datepickerImgv;
+    private PersianDatePickerDialog datepicker;
+    DraftListFragment draftListFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +33,8 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_draft_list);
         setToolbarText();
         setupViews();
-
-        draftListAdapter = new DraftListAdapter(DataGenerator.getDraftList());
-        rvDraftList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-        rvDraftList.setAdapter(draftListAdapter);
+        draftListFragment = DraftListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list,draftListFragment).commit();
         datepickerImgv.setOnClickListener(this);
 
 
@@ -63,7 +61,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
     private void setupViews() {
         etDate = findViewById(R.id.login_input_datepicker);
         datepickerImgv = findViewById(R.id.activity_draft_imgv_datepicker);
-        rvDraftList = findViewById(R.id.activity_draft_recyclerview);
+
     }
 
 

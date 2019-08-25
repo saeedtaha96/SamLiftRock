@@ -9,7 +9,7 @@
     tools:context=".activity.DraftListActivity">
 
     <include
-        android:id="@+id/activity_draft_appbar"
+        android:id="@+id/activity_receipt_appbar"
         layout="@layout/toolbar_custom_back_btn" />
 
 
@@ -17,7 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-   android:layout_margin="@dimen/margin38"
+        android:layout_marginStart="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin32"
+        android:layout_marginBottom="@dimen/margin32"
         android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="8">
@@ -45,7 +48,7 @@
             android:textSize="@dimen/text_size20" />
 
         <ImageView
-            android:id="@+id/activity_draft_imgv_datepicker"
+            android:id="@+id/activity_receipt_imgv_datepicker"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -58,11 +61,19 @@
     </LinearLayout>
 
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fragment_container_draft_list"
-            />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_receipt_recyclerview"
+        android:layout_width="match_parent"
+        android:paddingStart="@dimen/margin32"
+        android:paddingEnd="@dimen/margin32"
+        android:clipToPadding="true"
+        android:paddingBottom="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin12"
+        android:layout_height="match_parent"
+        android:background="@color/color_white_FFFFFF">
+
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </LinearLayout>

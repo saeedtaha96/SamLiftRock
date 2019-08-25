@@ -58,21 +58,21 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView draftNumb, receiptNum, custName, date;
+        TextView shomareFanni, productName, inventory, currCount;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            draftNumb = itemView.findViewById(R.id.activity_receipt_list_tv_draft_num);
-            receiptNum = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_num);
-            custName = itemView.findViewById(R.id.activity_receipt_list_tv_cust_name);
-            date = itemView.findViewById(R.id.qwerty);
+            shomareFanni = itemView.findViewById(R.id.activity_today_list_tv_shomare_fanni);
+            productName = itemView.findViewById(R.id.activity_today_list_tv_product_name);
+            inventory = itemView.findViewById(R.id.activity_today_list_inventory);
+            currCount = itemView.findViewById(R.id.activity_today_list_current_counting);
         }
 
         void bind(ReceiptListModel item) {
-            draftNumb.setText(item.getDraftNum());
-            receiptNum.setText(item.getReceiptNum());
-            custName.setText(item.getCustName());
-            date.setText(item.getDate());
+            shomareFanni.setText(item.getDraftNum());
+            productName.setText(item.getReceiptNum());
+            inventory.setText(item.getCustName());
+            currCount.setText(item.getDate());
         }
     }
 }

@@ -77,7 +77,7 @@
             android:textAlignment="center"
             android:textColor="@color/color_gray_text"
             android:textColorHint="@color/color_black_000000"
-            android:textSize="@dimen/text_size28" />
+            android:textSize="@dimen/text_size21" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +92,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_product_name"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,7 +104,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="روغن موتور"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <TextView
@@ -118,7 +118,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_shelf_numb"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="۲۵"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <TextView
@@ -144,7 +144,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_shelf_unit"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -156,7 +156,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="۱۲"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/activity_shelf_tv_inventory"
@@ -169,7 +169,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_inventory"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/txt_unit"
@@ -182,7 +182,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="50"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/activity_shelf_tv_current_counting"
@@ -196,7 +196,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_current_counting"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -208,7 +208,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="30"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/activity_shelf_tv_shelf_enter_new"
@@ -222,7 +222,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_enter_new_counting"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <EditText
@@ -241,7 +241,7 @@
         android:maxLines="1"
         android:textAlignment="center"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <Button
         android:layout_width="match_parent"
@@ -255,7 +255,7 @@
         android:padding="@dimen/margin8"
         android:text="@string/save"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size28"
+        android:textSize="@dimen/text_size21"
         />
 
 </RelativeLayout>

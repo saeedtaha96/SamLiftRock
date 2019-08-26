@@ -45,7 +45,7 @@
             android:textColor="@color/color_black_000000"
             android:textColorHint="@color/color_gray_text"
             android:textDirection="rtl"
-            android:textSize="@dimen/text_size20" />
+            android:textSize="@dimen/text_size16" />
 
         <ImageView
             android:id="@+id/activity_receipt_imgv_datepicker"
@@ -64,10 +64,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_receipt_recyclerview"
         android:layout_width="match_parent"
-        android:paddingStart="@dimen/margin32"
-        android:paddingEnd="@dimen/margin32"
+        android:paddingStart="@dimen/margin12"
+        android:paddingEnd="@dimen/margin12"
         android:clipToPadding="true"
-        android:paddingBottom="@dimen/margin32"
+        android:paddingBottom="@dimen/margin8"
         android:layout_marginTop="@dimen/margin12"
         android:layout_height="match_parent"
         android:background="@color/color_white_FFFFFF">

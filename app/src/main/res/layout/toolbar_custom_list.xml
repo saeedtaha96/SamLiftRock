@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.material.appbar.AppBarLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:background="@color/colorPrimary"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/custom_toolbar_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:layoutDirection="rtl"
@@ -22,11 +21,14 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/activity_midterm_imgv_today_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin8"
+
                 android:layout_weight="1.5"
                 android:background="@drawable/selector_btn_rect64_blue"
                 android:padding="@dimen/margin16"
@@ -40,22 +42,22 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="9"
-                android:gravity="center"
-                android:textAlignment="center"
                 android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
                 android:text="@string/app_toolbar_subject"
+                android:textAlignment="center"
                 android:textColor="@color/color_white_FFFFFF"
-                android:textSize="@dimen/text_size28"
-                 />
+                android:textSize="@dimen/text_size21" />
 
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/margin16"
                 android:layout_weight="1.5"
                 android:background="@drawable/selector_btn_rect64_blue"
-                android:padding="@dimen/margin16"
                 android:onClick="onBackBtnClick"
+                android:padding="@dimen/margin16"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 

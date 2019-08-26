@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:text="@string/txt_shomare_fanni"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_shomare_fanni"
@@ -43,7 +43,7 @@
                 android:gravity="center"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
         </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:gravity="center"
                 android:text="@string/txt_product_name"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_product_name"
@@ -73,7 +73,7 @@
                 android:gravity="center"
                 android:text="OIL"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
         </LinearLayout>
 
@@ -93,7 +93,7 @@
                 android:gravity="bottom"
                 android:text="@string/txt_inventory"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_inventory"
@@ -103,7 +103,7 @@
                 android:gravity="center"
                 android:text="32"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
         </LinearLayout>
 
         <LinearLayout
@@ -120,7 +120,7 @@
                 android:gravity="bottom"
                 android:text="@string/txt_current_counting"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_current_counting"
@@ -130,7 +130,7 @@
                 android:gravity="center"
                 android:text="20"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
         </LinearLayout>
 
         <Button
@@ -145,7 +145,7 @@
             android:gravity="center"
             android:text="@string/txt_reject"
             android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size18" />
+            android:textSize="@dimen/text_size15" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

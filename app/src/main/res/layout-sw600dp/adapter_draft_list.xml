@@ -41,7 +41,7 @@
                     android:gravity="center"
                     android:text="@string/txt_shomare_havale"
                     android:textColor="@color/color_blue_theme_004677"
-                    android:textSize="@dimen/text_size16" />
+                    android:textSize="@dimen/text_size13" />
 
                 <TextView
                     android:id="@+id/activity_draft_list_tv_draft_num"
@@ -54,7 +54,7 @@
                     android:gravity="center"
                     android:text="H98-E-5"
                     android:textColor="@color/color_black_000000"
-                    android:textSize="@dimen/text_size16" />
+                    android:textSize="@dimen/text_size13" />
 
             </RelativeLayout>
 
@@ -74,7 +74,7 @@
                     android:gravity="center"
                     android:text="@string/txt_perm_num"
                     android:textColor="@color/color_blue_theme_004677"
-                    android:textSize="@dimen/text_size16" />
+                    android:textSize="@dimen/text_size13" />
 
                 <TextView
                     android:id="@+id/activity_draft_list_tv_perm_num"
@@ -87,7 +87,7 @@
                     android:gravity="center"
                     android:text="1545"
                     android:textColor="@color/color_black_000000"
-                    android:textSize="@dimen/text_size16" />
+                    android:textSize="@dimen/text_size13" />
 
             </RelativeLayout>
         </LinearLayout>
@@ -104,7 +104,7 @@
             android:gravity="bottom"
             android:text="@string/txt_cust_name"
             android:textColor="@color/color_blue_theme_004677"
-            android:textSize="@dimen/text_size16" />
+            android:textSize="@dimen/text_size13" />
 
         <TextView
             android:id="@+id/activity_draft_list_tv_cust_name"
@@ -117,7 +117,7 @@
             android:gravity="center"
             android:text="رابرت محمود"
             android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/text_size16" />
+            android:textSize="@dimen/text_size13" />
 
         <TextView
             android:id="@+id/activity_draft_list_tv_date"

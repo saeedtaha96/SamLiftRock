@@ -42,7 +42,7 @@
             android:textColor="@color/color_black_000000"
             android:textColorHint="@color/color_gray_text"
             android:textDirection="rtl"
-            android:textSize="@dimen/text_size20" />
+            android:textSize="@dimen/text_size16" />
 
         <ImageView
             android:id="@+id/activity_draft_imgv_datepicker"

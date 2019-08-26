@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="end"
-    android:layout_margin="@dimen/margin8"
+    android:layout_marginTop="@dimen/margin8"
+    android:layout_marginStart="@dimen/margin8"
+    android:layout_marginEnd="@dimen/margin8"
+    android:layout_marginBottom="@dimen/margin12"
     android:layoutDirection="rtl"
     app:cardCornerRadius="6dp"
     app:cardElevation="6dp">
@@ -29,11 +32,12 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_draft_list"
                 android:drawablePadding="@dimen/margin8"
+                android:padding="@dimen/margin4"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:text="@string/txt_shomare_fanni"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_shomare_fanni"
@@ -41,9 +45,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
         </LinearLayout>
 
@@ -61,9 +66,10 @@
                 android:drawablePadding="@dimen/margin8"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="@string/txt_product_name"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_product_name"
@@ -72,8 +78,9 @@
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:text="OIL"
+                android:padding="@dimen/margin4"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
         </LinearLayout>
 
@@ -90,20 +97,22 @@
                 android:drawableStart="@drawable/ic_customer_name_24dp"
                 android:drawablePadding="@dimen/margin8"
                 android:fontFamily="@font/iran_sans_web"
+                android:padding="@dimen/margin4"
                 android:gravity="bottom"
                 android:text="@string/txt_inventory"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_inventory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/iran_sans_web"
+                android:padding="@dimen/margin4"
                 android:gravity="center"
                 android:text="32"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,8 +128,9 @@
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="bottom"
                 android:text="@string/txt_current_counting"
+                android:padding="@dimen/margin4"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_current_counting"
@@ -128,24 +138,27 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="20"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size16" />
+                android:textSize="@dimen/text_size13" />
         </LinearLayout>
 
         <Button
             android:id="@+id/today_list_reject"
             style="@style/AppFont"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end|center"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/margin16"
             android:layout_marginEnd="@dimen/margin8"
+            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginBottom="@dimen/margin12"
             android:background="@drawable/selector_btn_reject"
             android:gravity="center"
             android:text="@string/txt_reject"
             android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size18" />
+            android:textSize="@dimen/text_size15" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

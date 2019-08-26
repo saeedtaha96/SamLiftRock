@@ -2,13 +2,15 @@
 <com.google.android.material.appbar.AppBarLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:theme="@style/AppTheme.AppBarOverlay"
     android:background="@color/colorPrimaryDark"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/custom_toolbar_menu"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:layoutDirection="rtl"
@@ -28,7 +30,7 @@
             android:layout_gravity="center"
             android:layout_weight="1.5"
             android:background="@color/color_blue_theme_004677"
-            android:padding="@dimen/margin16"
+            android:padding="@dimen/margin24"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_menu_black_24dp" />
 
@@ -39,11 +41,14 @@
             android:layout_weight="9"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center"
-            android:paddingEnd="@dimen/margin96"
             android:text="@string/app_toolbar_subject"
             android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size28"
+            android:textSize="@dimen/text_size21"
              />
+        <androidx.legacy.widget.Space
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"/>
 
 
     </LinearLayout>

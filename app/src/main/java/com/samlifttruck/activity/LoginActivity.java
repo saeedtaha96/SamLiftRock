@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
-                Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
             } else {
                 requestPermission();
             }

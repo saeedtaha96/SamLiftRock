@@ -2,13 +2,13 @@
 <com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/custom_toolbar_simple"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:layoutDirection="rtl"
@@ -30,7 +30,7 @@
                 android:gravity="center"
                 android:text="@string/app_toolbar_subject"
                 android:textColor="@color/color_white_FFFFFF"
-                android:textSize="@dimen/text_size28"
+                android:textSize="@dimen/text_size21"
                />
 
 

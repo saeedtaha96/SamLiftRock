@@ -3,8 +3,10 @@ package com.samlifttruck.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,7 +37,17 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         setToolbarText();
         //set up recyclerview
         PermListAdapter = new MidtermTodayListAdapter(DataGenerator.getReceiptList());
-        rvPermList.setLayoutManager(new GridLayoutManager(this, 2));
+        Configuration config = getResources().getConfiguration();
+
+       if (config.smallestScreenWidthDp >= 600) {
+            // sw600dp code goes here
+           rvPermList.setLayoutManager(new GridLayoutManager(this, 2));
+        }
+        else {
+            // fall-back code goes here
+           rvPermList.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
+        }
+
         //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
         rvPermList.setAdapter(PermListAdapter);
 

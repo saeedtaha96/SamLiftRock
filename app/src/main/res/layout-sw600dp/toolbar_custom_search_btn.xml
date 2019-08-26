@@ -36,7 +36,7 @@
             android:text="@string/app_toolbar_subject"
             android:textAlignment="center"
             android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size28" />
+            android:textSize="@dimen/text_size21" />
 
         <ImageButton
             android:layout_width="0dp"

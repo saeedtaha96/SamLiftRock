@@ -62,7 +62,7 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size24" />
+                android:textSize="@dimen/text_size18" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,7 +107,7 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size24" />
+                android:textSize="@dimen/text_size18" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -128,7 +128,7 @@
         android:padding="@dimen/margin8"
         android:text="@string/login_vurud"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size32" />
+        android:textSize="@dimen/text_size25" />
 
     <TextView
         android:id="@+id/device_id"
@@ -141,7 +141,7 @@
         android:gravity="center"
         android:text="@string/txt_register_phone"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24"
+        android:textSize="@dimen/text_size18"
 
         />
 

@@ -4,14 +4,14 @@
     android:id="@+id/appbar_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <androidx.appcompat.widget.Toolbar
     android:id="@+id/custom_toolbar_back_btn"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
     android:gravity="center"
     android:layoutDirection="rtl"
@@ -35,7 +35,7 @@
             android:fontFamily="@font/iran_sans_web"
             android:text="@string/app_toolbar_subject"
             android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size28"
+            android:textSize="@dimen/text_size21"
             />
 
         <ImageButton
@@ -43,10 +43,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="@drawable/selector_btn_rect64_blue"
-            android:paddingEnd="@dimen/margin24"
-            android:paddingStart="@dimen/margin24"
-            android:paddingTop="@dimen/margin16"
-            android:paddingBottom="@dimen/margin16"
+            android:paddingEnd="@dimen/margin16"
+            android:paddingStart="@dimen/margin16"
+            android:paddingTop="@dimen/margin24"
+            android:paddingBottom="@dimen/margin24"
             android:layout_marginEnd="@dimen/margin24"
             android:scaleType="centerCrop"
             android:onClick="onBackBtnClick"

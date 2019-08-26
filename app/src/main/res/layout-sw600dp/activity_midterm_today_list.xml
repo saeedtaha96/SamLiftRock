@@ -38,7 +38,7 @@
         android:padding="@dimen/margin8"
         android:text="@string/confirm"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size28"
+        android:textSize="@dimen/text_size21"
         />
 
 </RelativeLayout>

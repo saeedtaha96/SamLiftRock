@@ -17,17 +17,17 @@
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/scanner_shelf"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="150dp"
         android:layout_below="@id/activity_shelf_toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="@dimen/margin64"
+        android:layout_marginStart="@dimen/shelf_edit_side_margin"
         android:layout_marginTop="@dimen/margin32"
-        android:layout_marginEnd="@dimen/margin64"
+        android:layout_marginEnd="@dimen/shelf_edit_side_margin"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/shape_rect_white"
         app:borderColor="@color/color_blue_theme_004677"
-        app:borderLength="60dp"
-        app:borderWidth="4dp"
+        app:borderLength="30dp"
+        app:borderWidth="2dp"
         app:finderOffset="@dimen/margin32"
         app:laserColor="@color/color_red_refuse"
         app:laserEnabled="true" />
@@ -39,9 +39,9 @@
         android:layout_below="@id/scanner_shelf"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/margin64"
+        android:layout_marginStart="@dimen/shelf_edit_side_margin"
         android:layout_marginTop="@dimen/margin8"
-        android:layout_marginEnd="@dimen/margin64"
+        android:layout_marginEnd="@dimen/shelf_edit_side_margin"
         android:gravity="start"
         android:textColorHint="@color/color_gray_text"
         app:boxBackgroundColor="@color/color_white_FFFFFF"
@@ -76,7 +76,7 @@
             android:textAlignment="center"
             android:textColor="@color/color_gray_text"
             android:textColorHint="@color/color_black_000000"
-            android:textSize="@dimen/text_size28" />
+            android:textSize="@dimen/text_size21" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +91,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_product_name"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="روغن موتور"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <TextView
@@ -117,7 +117,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_shelf_numb"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -129,7 +129,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="۳۴۵"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <TextView
@@ -143,7 +143,7 @@
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_enter_new_shelf_num"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
 
     <EditText
@@ -152,16 +152,17 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/activity_shelf_tv_shelf_enter_new"
         android:layout_toEndOf="@id/activity_shelf_tv_shelf_enter_new"
-        android:ems="8"
         android:gravity="center"
         android:lines="1"
+        android:maxEms="5"
+        android:minEms="4"
         android:backgroundTint="@color/color_blue_theme_004677"
-        android:maxLength="15"
+        android:maxLength="12"
         android:fontFamily="@font/iran_sans_web"
         android:maxLines="1"
         android:textAlignment="center"
         android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size24" />
+        android:textSize="@dimen/text_size18" />
 
     <Button
         android:id="@+id/activity_shelf_edit_btn_confirm"
@@ -173,9 +174,8 @@
         android:layout_marginBottom="@dimen/margin32"
         android:fontFamily="@font/iran_sans_web"
         android:background="@drawable/selector_btn_confrim"
-        android:padding="@dimen/margin8"
         android:text="@string/confirm"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size28"
+        android:textSize="@dimen/text_size21"
         />
 </RelativeLayout>

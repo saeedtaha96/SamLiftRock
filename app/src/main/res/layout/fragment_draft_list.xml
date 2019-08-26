@@ -6,9 +6,9 @@
     android:layout_marginTop="@dimen/margin12"
     android:background="@color/color_white_FFFFFF"
     android:clipToPadding="true"
-    android:paddingStart="@dimen/margin32"
-    android:paddingEnd="@dimen/margin32"
-    android:paddingBottom="@dimen/margin32">
+    android:paddingStart="@dimen/margin12"
+    android:paddingEnd="@dimen/margin12"
+    android:paddingBottom="@dimen/margin8">
 
 
 </androidx.recyclerview.widget.RecyclerView>

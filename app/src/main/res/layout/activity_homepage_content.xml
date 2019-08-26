@@ -8,9 +8,9 @@
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/color_background_homepage"
         android:layoutDirection="rtl"
         android:orientation="vertical"
@@ -20,27 +20,29 @@
             android:id="@+id/activity_homepage_toolbar_menu"
             layout="@layout/toolbar_custom_menu_btn" />
 
-        <ScrollView
+        <ImageView
+            android:id="@+id/relative_imgv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="150dp"
+            android:layout_below="@id/activity_homepage_toolbar_menu"
+            android:scaleType="fitXY"
+            android:src="@drawable/sam_liftrock_2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/relative_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relative_imgv">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/sam_liftrock_2" />
+
 
                 <LinearLayout
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/margin64"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin32"
                     android:layout_marginTop="@dimen/margin32"
-                    android:layout_marginEnd="@dimen/margin64"
+                    android:layout_marginEnd="@dimen/margin32"
                     android:layout_marginBottom="@dimen/margin32"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -71,10 +73,7 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
@@ -96,7 +95,7 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -118,17 +117,12 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
-                                        android:padding="@dimen/radius8"
                                         android:layout_marginTop="@dimen/margin16"
+                                        android:padding="@dimen/radius8"
                                         android:src="@drawable/shelfs" />
 
                                     <TextView
@@ -143,7 +137,6 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -174,10 +167,7 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
@@ -197,9 +187,8 @@
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/txt_draft_list"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -221,10 +210,7 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
@@ -246,7 +232,7 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -277,10 +263,7 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
@@ -300,9 +283,9 @@
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/txt_receipt_list"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -324,10 +307,6 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
 
                                     <ImageView
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
@@ -347,9 +326,9 @@
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/kardex"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -358,8 +337,9 @@
 
 
                 </LinearLayout>
-            </LinearLayout>
+
+
         </ScrollView>
 
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

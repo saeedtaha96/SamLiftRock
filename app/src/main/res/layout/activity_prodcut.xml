@@ -12,71 +12,28 @@
         android:id="@+id/activity_shelf_toolbar"
         layout="@layout/toolbar_custom_back_btn" />
 
-    <LinearLayout
-        android:id="@+id/relative_linear_info"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_toolbar"
-        android:background="@color/color_white_FFFFFF"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".activity.ProdcutActivity">
+        android:layout_height="match_parent"
+        android:layout_below="@id/activity_shelf_toolbar">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
+            android:id="@+id/relative_linear_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginTop="@dimen/margin32"
-            android:layout_marginEnd="@dimen/margin32"
-            android:gravity="start"
-            android:textColorHint="@color/color_gray_text"
-            app:boxBackgroundColor="@color/color_white_FFFFFF"
-            app:boxBackgroundMode="filled"
-            app:boxCornerRadiusBottomEnd="@dimen/radius18"
-            app:boxCornerRadiusBottomStart="@dimen/radius18"
-            app:boxCornerRadiusTopEnd="@dimen/radius18"
-            app:boxCornerRadiusTopStart="@dimen/radius18"
-            app:boxStrokeColor="@color/color_black_000000"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintTextLabel">
+            android:background="@color/color_white_FFFFFF"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".activity.ProdcutActivity">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/product_name"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin24"
-                android:layout_marginBottom="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="start|center"
-                android:hint="@string/txt_product_name_simple"
-                android:inputType="text"
-                android:paddingStart="@dimen/margin16"
-                android:paddingTop="@dimen/margin24"
-                android:paddingEnd="@dimen/margin32"
-                android:singleLine="true"
-                android:textAlignment="viewStart"
-                android:textColor="@color/color_black_000000"
-                android:textColorHint="@color/color_black_000000"
-                android:textSize="@dimen/text_size22" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginEnd="@dimen/margin32"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_weight="2"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
                 android:gravity="start"
                 android:textColorHint="@color/color_gray_text"
                 app:boxBackgroundColor="@color/color_white_FFFFFF"
@@ -90,365 +47,412 @@
                 app:hintTextAppearance="@style/hintTextLabel">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_shomare_fanni"
+                    android:id="@+id/product_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin24"
                     android:layout_marginBottom="@dimen/margin8"
                     android:fontFamily="@font/iran_sans_web"
                     android:gravity="start|center"
-                    android:hint="@string/shomare_fanni"
+                    android:hint="@string/txt_product_name_simple"
                     android:inputType="text"
                     android:paddingStart="@dimen/margin16"
                     android:paddingTop="@dimen/margin24"
                     android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
                     android:singleLine="true"
                     android:textAlignment="viewStart"
                     android:textColor="@color/color_black_000000"
                     android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
+                    android:textSize="@dimen/product_text_size" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin48"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textColorHint="@color/color_gray_text"
-                app:boxBackgroundColor="@color/color_white_FFFFFF"
-                app:boxBackgroundMode="filled"
-                app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                app:boxCornerRadiusBottomStart="@dimen/radius18"
-                app:boxCornerRadiusTopEnd="@dimen/radius18"
-                app:boxCornerRadiusTopStart="@dimen/radius18"
-                app:boxStrokeColor="@color/color_black_000000"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintTextLabel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_shelf_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin24"
-                    android:layout_marginBottom="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="start|center"
-                    android:hint="@string/txt_shelf_numb_simple"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/margin16"
-                    android:paddingTop="@dimen/margin24"
-                    android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
-                    android:singleLine="true"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color_black_000000"
-                    android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginEnd="@dimen/margin32"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_marginBottom="@dimen/margin8"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textColorHint="@color/color_gray_text"
-                app:boxBackgroundColor="@color/color_white_FFFFFF"
-                app:boxBackgroundMode="filled"
-                app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                app:boxCornerRadiusBottomStart="@dimen/radius18"
-                app:boxCornerRadiusTopEnd="@dimen/radius18"
-                app:boxCornerRadiusTopStart="@dimen/radius18"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintTextLabel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_noghte_sefaresh"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin24"
-                    android:layout_marginBottom="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="start|center"
-                    android:hint="@string/txt_noghte_sefaresh"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/margin16"
-                    android:paddingTop="@dimen/margin24"
-                    android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
-                    android:singleLine="true"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color_black_000000"
-                    android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin48"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_marginBottom="@dimen/margin8"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textColorHint="@color/color_gray_text"
-                app:boxBackgroundColor="@color/color_white_FFFFFF"
-                app:boxBackgroundMode="filled"
-                app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                app:boxCornerRadiusBottomStart="@dimen/radius18"
-                app:boxCornerRadiusTopEnd="@dimen/radius18"
-                app:boxCornerRadiusTopStart="@dimen/radius18"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintTextLabel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_tedad_sefaresh"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin24"
-                    android:layout_marginBottom="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="start|center"
-                    android:hint="@string/txt_tedad_sefaresh"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/margin16"
-                    android:paddingTop="@dimen/margin24"
-                    android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
-                    android:singleLine="true"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color_black_000000"
-                    android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginEnd="@dimen/margin32"
-            android:orientation="horizontal"
-            android:weightSum="4">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_marginBottom="@dimen/margin8"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textColorHint="@color/color_gray_text"
-                app:boxBackgroundColor="@color/color_white_FFFFFF"
-                app:boxBackgroundMode="filled"
-                app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                app:boxCornerRadiusBottomStart="@dimen/radius18"
-                app:boxCornerRadiusTopEnd="@dimen/radius18"
-                app:boxCornerRadiusTopStart="@dimen/radius18"
-                app:boxStrokeColor="@color/color_black_000000"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintTextLabel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_cost"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin24"
-                    android:layout_marginBottom="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="start|center"
-                    android:hint="@string/txt_cost"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/margin16"
-                    android:paddingTop="@dimen/margin24"
-                    android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
-                    android:singleLine="true"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color_black_000000"
-                    android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin48"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_marginBottom="@dimen/margin8"
-                android:layout_weight="2"
-                android:gravity="start"
-                android:textColorHint="@color/color_gray_text"
-                app:boxBackgroundColor="@color/color_white_FFFFFF"
-                app:boxBackgroundMode="filled"
-                app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                app:boxCornerRadiusBottomStart="@dimen/radius18"
-                app:boxCornerRadiusTopEnd="@dimen/radius18"
-                app:boxCornerRadiusTopStart="@dimen/radius18"
-                app:boxStrokeColor="@color/color_black_000000"
-                app:hintAnimationEnabled="true"
-                app:hintTextAppearance="@style/hintTextLabel">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/product_baste"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin24"
-                    android:layout_marginBottom="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="start|center"
-                    android:hint="@string/txt_baste"
-                    android:inputType="number|text"
-                    android:paddingStart="@dimen/margin16"
-                    android:paddingTop="@dimen/margin24"
-                    android:paddingEnd="@dimen/margin32"
-                    android:paddingBottom="@dimen/margin16"
-                    android:singleLine="true"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/color_black_000000"
-                    android:textColorHint="@color/color_black_000000"
-                    android:textSize="@dimen/text_size22" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </LinearLayout>
-
-        <CheckBox
-            android:id="@+id/product_checkbox_maliat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/margin64"
-            android:layout_marginEnd="@dimen/margin32"
-            android:checked="false"
-            android:fontFamily="@font/iran_sans_web"
-            android:gravity="center"
-            android:paddingStart="@dimen/margin4"
-            android:paddingTop="@dimen/margin16"
-            android:paddingEnd="@dimen/margin4"
-            android:paddingBottom="@dimen/margin16"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:text="@string/txt_product_checkbox_arzesh_afzoode"
-            android:textSize="@dimen/text_size16" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginTop="@dimen/margin16"
-            android:layout_marginEnd="@dimen/margin32"
-            android:orientation="horizontal">
-
-
-            <Spinner
-                android:id="@+id/spinner_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="5"
-                android:background="@drawable/spinner_cars_uncheck"
-                android:dropDownSelector="@drawable/shape_rect_white"
-                android:gravity="center"
-                android:layoutDirection="rtl"
-                android:textAlignment="center"
-                android:theme="@style/spinnerTheme" />
-
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.3" />
-
-
-            <Spinner
-                android:id="@+id/spinner_unit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="5"
-                android:background="@drawable/spinner_cars_uncheck"
-                android:dropDownSelector="@drawable/shape_rect_white"
-                android:gravity="center"
-                android:layoutDirection="rtl"
-                android:textAlignment="center"
-                android:theme="@style/spinnerTheme" />
-        </LinearLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/margin32"
-            android:layout_marginTop="@dimen/margin64"
-            android:layout_marginEnd="@dimen/margin32"
-            android:layout_marginBottom="@dimen/margin32"
-            android:gravity="start"
-            android:hint="@string/txt_product_descrip"
-            android:textColorHint="@color/color_gray_text"
-            app:boxBackgroundColor="@color/color_white_FFFFFF"
-            app:boxBackgroundMode="filled"
-            app:boxCornerRadiusBottomEnd="@dimen/radius18"
-            app:boxCornerRadiusBottomStart="@dimen/radius18"
-            app:boxCornerRadiusTopEnd="@dimen/radius18"
-            app:boxCornerRadiusTopStart="@dimen/radius18"
-            app:boxStrokeColor="@color/color_black_000000"
-            app:hintAnimationEnabled="true"
-            app:hintTextAppearance="@style/hintTextLabel">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/product_descript"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin24"
-                android:layout_marginBottom="@dimen/margin8"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:boxStrokeColor="@color/color_black_000000"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_shomare_fanni"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/shomare_fanni"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin48"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:boxStrokeColor="@color/color_black_000000"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_shelf_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/txt_shelf_numb_simple"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_noghte_sefaresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/txt_noghte_sefaresh"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin48"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_tedad_sefaresh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/txt_tedad_sefaresh"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:boxStrokeColor="@color/color_black_000000"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_cost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/txt_cost"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/margin48"
+                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:layout_weight="2"
+                    android:gravity="start"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                    app:boxCornerRadiusBottomStart="@dimen/radius18"
+                    app:boxCornerRadiusTopEnd="@dimen/radius18"
+                    app:boxCornerRadiusTopStart="@dimen/radius18"
+                    app:boxStrokeColor="@color/color_black_000000"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/product_baste"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin24"
+                        android:layout_marginBottom="@dimen/margin8"
+                        android:fontFamily="@font/iran_sans_web"
+                        android:gravity="start|center"
+                        android:hint="@string/txt_baste"
+                        android:inputType="number|text"
+                        android:paddingStart="@dimen/margin16"
+                        android:paddingTop="@dimen/margin24"
+                        android:paddingEnd="@dimen/margin32"
+                        android:paddingBottom="@dimen/margin16"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/product_text_size" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/product_checkbox_maliat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin64"
+                android:layout_marginEnd="@dimen/margin32"
+                android:checked="false"
                 android:fontFamily="@font/iran_sans_web"
-                android:gravity="start|center"
-                android:inputType="textMultiLine"
-                android:maxLength="200"
-                android:maxLines="4"
-                android:nestedScrollingEnabled="true"
-                android:paddingStart="@dimen/margin16"
-                android:paddingTop="@dimen/margin24"
-                android:paddingEnd="@dimen/margin32"
-                android:textAlignment="viewStart"
-                android:textColor="@color/color_black_000000"
-                android:textColorHint="@color/color_black_000000"
-                android:textSize="@dimen/text_size22" />
+                android:gravity="center"
+                android:paddingTop="@dimen/margin16"
+                android:paddingEnd="@dimen/margin4"
+                android:paddingBottom="@dimen/margin16"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:text="@string/txt_product_checkbox_arzesh_afzoode"
+                android:textSize="@dimen/product_text_size" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
+                android:orientation="horizontal">
 
-    </LinearLayout>
+
+                <Spinner
+                    android:id="@+id/spinner_type"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:background="@drawable/spinner_cars_uncheck"
+                    android:dropDownSelector="@drawable/shape_rect_white"
+                    android:gravity="center"
+                    android:layoutDirection="rtl"
+                    android:textAlignment="center"
+                    android:theme="@style/spinnerTheme" />
+
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="0.3" />
+
+
+                <Spinner
+                    android:id="@+id/spinner_unit"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="5"
+                    android:background="@drawable/spinner_cars_uncheck"
+                    android:dropDownSelector="@drawable/shape_rect_white"
+                    android:gravity="center"
+                    android:layoutDirection="rtl"
+                    android:textAlignment="center"
+                    android:theme="@style/spinnerTheme" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/product_end_start_margin"
+                android:layout_marginTop="@dimen/margin64"
+                android:layout_marginEnd="@dimen/product_end_start_margin"
+                android:layout_marginBottom="@dimen/margin32"
+                android:gravity="start"
+                android:hint="@string/txt_product_descrip"
+                android:textColorHint="@color/color_gray_text"
+                app:boxBackgroundColor="@color/color_white_FFFFFF"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                app:boxCornerRadiusBottomStart="@dimen/radius18"
+                app:boxCornerRadiusTopEnd="@dimen/radius18"
+                app:boxCornerRadiusTopStart="@dimen/radius18"
+                app:boxStrokeColor="@color/color_black_000000"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintTextLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/product_descript"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin24"
+                    android:layout_marginBottom="@dimen/margin8"
+                    android:fontFamily="@font/iran_sans_web"
+                    android:gravity="start|center"
+                    android:inputType="textMultiLine"
+                    android:maxLength="200"
+                    android:maxLines="4"
+                    android:nestedScrollingEnabled="true"
+                    android:paddingStart="@dimen/margin16"
+                    android:paddingTop="@dimen/margin24"
+                    android:paddingEnd="@dimen/margin32"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/color_black_000000"
+                    android:textColorHint="@color/color_black_000000"
+                    android:textSize="@dimen/product_text_size" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:layout_width="match_parent"
@@ -457,11 +461,10 @@
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
-        android:fontFamily="@font/iran_sans_web"
         android:background="@drawable/selector_btn_confrim"
+        android:fontFamily="@font/iran_sans_web"
         android:padding="@dimen/margin8"
         android:text="@string/confirm"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size28"
-        />
+        android:textSize="@dimen/text_size21" />
 </RelativeLayout>

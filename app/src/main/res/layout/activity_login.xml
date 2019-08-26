@@ -39,7 +39,7 @@
             app:boxCornerRadiusTopEnd="@dimen/radius18"
             app:boxCornerRadiusTopStart="@dimen/radius18"
             app:boxStrokeColor="@color/color_blue_theme_004677"
-            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidth="0.7dp"
             app:hintAnimationEnabled="true"
             app:hintTextAppearance="@style/hintTextLabel">
 
@@ -83,7 +83,7 @@
             app:boxCornerRadiusTopEnd="@dimen/radius18"
             app:boxCornerRadiusTopStart="@dimen/radius18"
             app:boxStrokeColor="@color/color_blue_theme_004677"
-            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidth="0.7dp"
             app:hintAnimationEnabled="true"
             app:hintTextAppearance="@style/hintTextLabel">
 

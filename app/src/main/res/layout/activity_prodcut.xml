@@ -48,7 +48,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/product_name"
+                    android:imeOptions="actionNext"
                     android:layout_width="match_parent"
+                    android:nextFocusForward="@id/product_shomare_fanni"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin24"
                     android:layout_marginBottom="@dimen/margin8"
@@ -377,7 +379,7 @@
                 <Spinner
                     android:id="@+id/spinner_type"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="5"
                     android:background="@drawable/spinner_cars_uncheck"
@@ -397,7 +399,7 @@
                 <Spinner
                     android:id="@+id/spinner_unit"
                     android:layout_width="0dp"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="5"
                     android:background="@drawable/spinner_cars_uncheck"
@@ -438,8 +440,8 @@
                     android:fontFamily="@font/iran_sans_web"
                     android:gravity="start|center"
                     android:inputType="textMultiLine"
-                    android:maxLength="200"
-                    android:maxLines="4"
+                    android:maxLength="150"
+                    android:maxLines="2"
                     android:nestedScrollingEnabled="true"
                     android:paddingStart="@dimen/margin16"
                     android:paddingTop="@dimen/margin24"

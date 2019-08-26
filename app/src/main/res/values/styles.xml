@@ -28,8 +28,8 @@
 
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
         <item name="android:textColor">@color/my_spinner_text_color</item>
-        <item name="android:textSize">11sp</item>
-        <item name="android:labelTextSize">14sp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:labelTextSize">11sp</item>
         <item name="android:fontFamily">@font/iran_sans_web</item>
     </style>
 

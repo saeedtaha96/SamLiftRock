@@ -35,7 +35,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         setContentView(R.layout.activity_shelf_edit);
         scannerView = findViewById(R.id.scanner_shelf);
         etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
-setToolbarText();
+        setToolbarText();
 
         int currentApiVersion = Build.VERSION.SDK_INT;
 
@@ -52,6 +52,7 @@ setToolbarText();
         TextView tvAppbar = findViewById(R.id.toolbar_text);
         tvAppbar.setText(getString(R.string.txt_shelf_edit));
     }
+
     private boolean checkPermission() {
         return (ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
@@ -141,10 +142,11 @@ setToolbarText();
     public void handleResult(Result result) {
         final String myResult = result.getText();
         etFanniNumb.setText(myResult);
+        scannerView.startCamera();
     }
 
 
-    public void onBackBtnClick(View view){
+    public void onBackBtnClick(View view) {
         finish();
     }
 

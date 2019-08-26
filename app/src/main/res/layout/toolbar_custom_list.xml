@@ -27,11 +27,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin8"
-
+                android:layout_marginStart="@dimen/margin12"
                 android:layout_weight="1.5"
                 android:background="@drawable/selector_btn_rect64_blue"
-                android:padding="@dimen/margin16"
+                android:padding="@dimen/margin20"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_list_control" />
 
@@ -57,7 +56,7 @@
                 android:layout_weight="1.5"
                 android:background="@drawable/selector_btn_rect64_blue"
                 android:onClick="onBackBtnClick"
-                android:padding="@dimen/margin16"
+                android:padding="@dimen/margin20"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 

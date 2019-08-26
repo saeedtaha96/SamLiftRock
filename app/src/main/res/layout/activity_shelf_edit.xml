@@ -17,7 +17,7 @@
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/scanner_shelf"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_below="@id/activity_shelf_toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/shelf_edit_side_margin"
@@ -139,7 +139,7 @@
         android:layout_below="@id/activity_shelf_tv_shelf_number"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin48"
-        android:layout_marginEnd="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin8"
         android:fontFamily="@font/iran_sans_web"
         android:text="@string/txt_enter_new_shelf_num"
         android:textColor="@color/color_gray_text"

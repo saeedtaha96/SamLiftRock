@@ -23,7 +23,7 @@
     <dimen name="text_size27">27sp</dimen>
     <dimen name="text_size17">17sp</dimen>
     <dimen name="text_size21">21sp</dimen>
-    <dimen name="menu_text_size">17sp</dimen>
+    <dimen name="menu_text_size">14sp</dimen>
     <dimen name="menu_main_text_size">19sp</dimen>
 
     <!-- Corners radius -->
@@ -51,7 +51,7 @@
     <dimen name="margin48">24dp</dimen>
 
 
-    <dimen name="padding_imgv_menu">6dp</dimen>
+    <dimen name="padding_imgv_menu">4dp</dimen>
     <dimen name="margin38">19dp</dimen>
     <dimen name="margin16">8dp</dimen>
     <dimen name="draft_all_info_table_text_size">12sp</dimen>
@@ -61,6 +61,7 @@
     <dimen name="product_text_size">14sp</dimen>
     <dimen name="product_end_start_margin">12dp</dimen>
     <dimen name="shelf_edit_side_margin">16dp</dimen>
+    <dimen name="margin20">10dp</dimen>
 
 
     <item name="nav_menu_weight_digit" type="dimen" format="float">1.5</item>

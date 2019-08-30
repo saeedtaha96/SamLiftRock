@@ -41,10 +41,10 @@
                 android:layout_marginEnd="@dimen/margin24"
                 android:background="@drawable/selector_btn_rect64_blue"
                 android:onClick="onBackBtnClick"
-                android:paddingStart="@dimen/margin24"
-                android:paddingTop="@dimen/margin16"
+                android:paddingStart="@dimen/margin32"
+                android:paddingTop="@dimen/margin24"
                 android:paddingEnd="@dimen/margin24"
-                android:paddingBottom="@dimen/margin16"
+                android:paddingBottom="@dimen/margin24"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 

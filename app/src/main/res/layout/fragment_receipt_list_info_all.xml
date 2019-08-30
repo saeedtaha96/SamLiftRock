@@ -68,10 +68,8 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
-                        android:tag="draft_num"
-                        android:onClick="onTableEditClick"
                         android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
@@ -111,7 +109,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -154,7 +152,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -197,7 +195,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -238,7 +236,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -279,7 +277,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -320,7 +318,7 @@
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/margin4"
                         android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
+                        android:padding="@dimen/margin8"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_edit_black_24dp" />
 
@@ -347,7 +345,7 @@
         <View
             android:id="@+id/relative_line"
             android:layout_width="match_parent"
-            android:layout_height="1.5dp"
+            android:layout_height="0.75dp"
             android:layout_below="@id/relative_table_layout"
             android:layout_marginTop="@dimen/margin24"
             android:layout_marginBottom="@dimen/margin12"
@@ -360,7 +358,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_line"
-            android:layout_marginStart="@dimen/margin32"
+            android:layout_marginStart="@dimen/margin16"
             android:alpha="0.8"
             android:text="@string/txt_products"
             android:textColor="@color/color_black_000000"
@@ -368,7 +366,7 @@
 
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/fragment_draft_info_all_draftslist_pbar"
-            style="@style/SpinKitView.Large.Circle"
+            style="@style/SpinKitView.Circle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_tv"

@@ -17,7 +17,7 @@
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/scanner_midterm"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_below="@id/activity_shelf_toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/margin64"
@@ -29,7 +29,7 @@
         app:borderColor="@color/color_blue_theme_004677"
         app:borderLength="60dp"
         app:borderWidth="4dp"
-        app:finderOffset="@dimen/margin32"
+        app:finderOffset="@dimen/margin64"
         app:laserColor="@color/color_red_refuse"
         app:laserEnabled="true" />
 
@@ -51,7 +51,7 @@
         app:boxCornerRadiusBottomStart="@dimen/radius10"
         app:boxCornerRadiusTopEnd="@dimen/radius10"
         app:boxCornerRadiusTopStart="@dimen/radius10"
-        app:boxStrokeColor="@color/color_gray_text"
+        app:boxStrokeColor="@color/color_blue_theme_004677"
         app:boxStrokeWidth="1dp"
         app:hintAnimationEnabled="true"
         app:hintTextAppearance="@style/hintTextLabel">
@@ -63,7 +63,7 @@
             android:layout_marginTop="@dimen/margin24"
             android:layout_marginBottom="@dimen/margin8"
             android:drawableEnd="@drawable/ic_search_black_24dp"
-            android:drawableTint="@color/color_black_000000"
+            android:drawableTint="@color/color_blue_theme_004677"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="start|center"
             android:hint="@string/shomare_fanni"

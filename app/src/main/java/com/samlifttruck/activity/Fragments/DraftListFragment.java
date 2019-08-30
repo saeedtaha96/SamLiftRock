@@ -49,8 +49,8 @@ public class DraftListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_draft_list, container, false);
-        rvDraftList = view.findViewById(R.id.activity_draft_recyclerview);
+        View view = inflater.inflate(R.layout.fragment_rv_list, container, false);
+        rvDraftList = view.findViewById(R.id.activity_rv_list_recyclerview);
         DraftListAdapter draftListAdapter = new DraftListAdapter(DataGenerator.getDraftList());
         rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         //   rvDraftList.setItemAnimator(new DefaultItemAnimator());

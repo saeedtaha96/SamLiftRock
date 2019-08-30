@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="200dp"
+    android:layout_width="280dp"
     android:layout_height="match_parent"
     android:layout_gravity="end"
     android:layout_marginTop="@dimen/margin4"
@@ -17,13 +17,13 @@
         android:id="@+id/btn_menu_draft_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
-        android:paddingStart="@dimen/margin8"
         android:contextClickable="true"
         android:focusable="true"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -55,13 +55,13 @@
         android:id="@+id/btn_menu_havale_az_mojavez"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
-        android:paddingStart="@dimen/margin8"
         android:contextClickable="true"
         android:focusable="true"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -93,13 +93,13 @@
         android:id="@+id/btn_menu_permission_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -131,13 +131,13 @@
         android:id="@+id/btn_menu_receipt_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
-        android:paddingStart="@dimen/margin8"
         android:contextClickable="true"
         android:focusable="true"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -164,7 +164,6 @@
             android:textSize="@dimen/menu_text_size" />
     </LinearLayout>
 
-
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -172,20 +171,19 @@
         android:layout_marginBottom="@dimen/margin4"
         android:background="@color/view_color_gray" />
 
-
     <!-- midterm control-->
     <LinearLayout
         android:id="@+id/btn_menu_midterm_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin4"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
-        android:paddingStart="@dimen/margin8"
         android:contextClickable="true"
         android:focusable="true"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -218,13 +216,13 @@
         android:id="@+id/btn_menu_register_counting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
-        android:paddingStart="@dimen/margin8"
         android:contextClickable="true"
         android:focusable="true"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -256,13 +254,13 @@
         android:id="@+id/btn_menu_shelf_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -294,13 +292,13 @@
         android:id="@+id/btn_menu_product"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin8"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -329,24 +327,23 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginTop="@dimen/margin4"
         android:layout_marginBottom="@dimen/margin4"
         android:background="@color/view_color_gray" />
-
 
     <!-- kardex-->
     <LinearLayout
         android:id="@+id/btn_menu_kardex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -373,19 +370,18 @@
             android:textSize="@dimen/menu_text_size" />
     </LinearLayout>
 
-
     <!-- inventory report -->
     <LinearLayout
         android:id="@+id/btn_menu_inventory_report"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin8"
+        android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView
@@ -412,14 +408,12 @@
             android:textSize="@dimen/menu_text_size" />
     </LinearLayout>
 
-
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:layout_marginTop="@dimen/margin4"
         android:layout_marginBottom="@dimen/margin4"
         android:background="@color/view_color_gray" />
-
 
     <!-- exit -->
     <LinearLayout
@@ -431,8 +425,8 @@
         android:clickable="true"
         android:contextClickable="true"
         android:focusable="true"
-        android:paddingStart="@dimen/margin8"
         android:orientation="horizontal"
+        android:paddingStart="@dimen/margin8"
         android:weightSum="10">
 
         <ImageView

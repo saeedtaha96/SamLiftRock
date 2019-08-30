@@ -34,10 +34,10 @@
             android:textColorHint="@color/color_gray_text"
             app:boxBackgroundColor="@color/color_white_FFFFFF"
             app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="@dimen/radius18"
-            app:boxCornerRadiusBottomStart="@dimen/radius18"
-            app:boxCornerRadiusTopEnd="@dimen/radius18"
-            app:boxCornerRadiusTopStart="@dimen/radius18"
+            app:boxCornerRadiusBottomEnd="@dimen/radius10"
+            app:boxCornerRadiusBottomStart="@dimen/radius10"
+            app:boxCornerRadiusTopEnd="@dimen/radius10"
+            app:boxCornerRadiusTopStart="@dimen/radius10"
             app:boxStrokeColor="@color/color_blue_theme_004677"
             app:boxStrokeWidth="0.7dp"
             app:hintAnimationEnabled="true"
@@ -62,7 +62,7 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size15" />
+                android:textSize="@dimen/text_size18" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,10 +78,10 @@
             android:textColorHint="@color/color_gray_text"
             app:boxBackgroundColor="@color/color_white_FFFFFF"
             app:boxBackgroundMode="outline"
-            app:boxCornerRadiusBottomEnd="@dimen/radius18"
-            app:boxCornerRadiusBottomStart="@dimen/radius18"
-            app:boxCornerRadiusTopEnd="@dimen/radius18"
-            app:boxCornerRadiusTopStart="@dimen/radius18"
+            app:boxCornerRadiusBottomEnd="@dimen/radius10"
+            app:boxCornerRadiusBottomStart="@dimen/radius10"
+            app:boxCornerRadiusTopEnd="@dimen/radius10"
+            app:boxCornerRadiusTopStart="@dimen/radius10"
             app:boxStrokeColor="@color/color_blue_theme_004677"
             app:boxStrokeWidth="0.7dp"
             app:hintAnimationEnabled="true"
@@ -107,7 +107,7 @@
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size15" />
+                android:textSize="@dimen/text_size18" />
         </com.google.android.material.textfield.TextInputLayout>
 
 

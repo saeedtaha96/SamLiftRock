@@ -65,13 +65,13 @@ public class ProdcutActivity extends AppCompatActivity {
     private void setupSpinnerofUnit() {
         unitSpinner.setAdapter(adapter);
         unitSpinner.setEnabled(false);
-        typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
+        unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
     }
 
     private void setupSpinnerOfType() {
         typeSpinner.setAdapter(adapter);
         typeSpinner.setEnabled(false);
-        typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
+        typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
     }
 
     private void setupViews() {

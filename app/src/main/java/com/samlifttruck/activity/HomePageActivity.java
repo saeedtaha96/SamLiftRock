@@ -76,6 +76,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlideMethod(R.drawable.shomaresh, R.id.img_menu_register_counting);
         setGlideMethod(R.drawable.ordering_icon, R.id.img_menu_inventory_report);*/
         setGlideMethod(R.drawable.sam_liftrock_2, R.id.img_sam_liftrock);
+        setGlideMethod(R.drawable.shelfs, R.id.activitY_homepage_shelfedit_btn);
+        setGlideMethod(R.drawable.midterm, R.id.activitY_homepage_midterm_btn);
+        setGlideMethod(R.drawable.draft_new, R.id.activitY_homepage_draftlist_btn);
+        setGlideMethod(R.drawable.mojavez2, R.id.activitY_homepage_permlist_btn);
+        setGlideMethod(R.drawable.receipt_new, R.id.activitY_homepage_receiptlist_btn);
+        setGlideMethod(R.drawable.cardx2, R.id.activitY_homepage_kardex_btn);
     }
 
     public void setGlideMethod(int drawable, int id) {

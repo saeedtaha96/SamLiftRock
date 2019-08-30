@@ -1,58 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.material.appbar.AppBarLayout
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/appbar_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/colorPrimary">
 
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/custom_toolbar_back_btn"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    android:gravity="center"
-    android:layoutDirection="rtl"
-    app:contentInsetLeft="0dp"
-    app:contentInsetStart="0dp">
-
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar_back_btn"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:layoutDirection="rtl"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
+            <TextView
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:text="@string/app_toolbar_subject"
+                android:textColor="@color/color_white_FFFFFF"
+                android:textSize="@dimen/text_size21" />
 
-        <TextView
-            android:id="@+id/toolbar_text"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:fontFamily="@font/iran_sans_web"
-            android:text="@string/app_toolbar_subject"
-            android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size21"
-            />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin24"
+                android:background="@drawable/selector_btn_rect64_blue"
+                android:onClick="onBackBtnClick"
+                android:paddingStart="@dimen/margin24"
+                android:paddingTop="@dimen/margin16"
+                android:paddingEnd="@dimen/margin24"
+                android:paddingBottom="@dimen/margin16"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_arrow_back_black_24dp" />
 
-        <ImageButton
-            android:layout_alignParentEnd="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/selector_btn_rect64_blue"
-            android:paddingEnd="@dimen/margin16"
-            android:paddingStart="@dimen/margin16"
-            android:paddingTop="@dimen/margin24"
-            android:paddingBottom="@dimen/margin24"
-            android:layout_marginEnd="@dimen/margin24"
-            android:scaleType="centerCrop"
-            android:onClick="onBackBtnClick"
-            android:src="@drawable/ic_arrow_back_black_24dp" />
-
-    </RelativeLayout>
-</androidx.appcompat.widget.Toolbar>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

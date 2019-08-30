@@ -20,28 +20,30 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.yatindeokar:MyLoadingButton:v1.0.1'
     implementation 'com.google.code.gson:gson:2.8.5'
-
     //Barcode Scanner ZXing
     implementation 'me.dm7.barcodescanner:zxing:1.9.13'
-
     //Spinner DropDown
     implementation 'com.github.arcadefire:nice-spinner:1.4.3'
-
     // persian Date picker
     implementation 'com.github.aliab:Persian-Date-Picker-Dialog:1.4'
-
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-
     // material searchview persian
     implementation 'com.github.abbas-oveissi:materialsearchview:1.0.4'
+    // retrofit
+  //  implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+  //  implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    // progressbar
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
+    //ksoap2  webservice connecting library
+  //  implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
 }

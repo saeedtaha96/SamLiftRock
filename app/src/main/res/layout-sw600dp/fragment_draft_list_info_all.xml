@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/color_white_FFFFFF"
     android:layoutDirection="rtl">
 
@@ -16,24 +16,22 @@
         android:padding="@dimen/margin8">
 
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/relative_table_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_white_FFFFFF"
             android:layout_marginLeft="@dimen/margin32"
             android:layout_marginTop="@dimen/margin4"
             android:layout_marginRight="@dimen/margin32"
             android:layout_marginBottom="@dimen/margin4"
-            app:cardElevation="@dimen/margin4"
-            app:cardCornerRadius="@dimen/margin8">
+            android:background="@color/color_white_FFFFFF"
+            app:cardCornerRadius="@dimen/margin8"
+            app:cardElevation="@dimen/margin4">
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-             >
+                android:layout_centerInParent="true">
 
                 <!-- Property type container -->
                 <TableRow
@@ -271,6 +269,19 @@
             </TableLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_draft_info_all_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relative_table_layout"
+            android:layout_marginTop="@dimen/margin12"
+            android:background="@color/color_white_FFFFFF"
+            android:clipToPadding="true"
+            android:paddingStart="@dimen/margin12"
+            android:paddingEnd="@dimen/margin12"
+            android:paddingBottom="@dimen/margin8">
+        </androidx.recyclerview.widget.RecyclerView>
 
 
     </RelativeLayout>

@@ -7,6 +7,7 @@ import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -79,16 +80,16 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                 requestPermission();
             }
         } else {
-            Toast.makeText(getApplicationContext(), "This feature is not supported on Android API lower than 23", Toast.LENGTH_LONG).show();
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Do something after 5s = 5000ms
-                    finish();
-                }
-            }, 3000);
+            //  Toast.makeText(getApplicationContext(), "This feature is not supported on Android API lower than 23", Toast.LENGTH_LONG).show();
+            // final Handler handler = new Handler();
+            //  handler.postDelayed(new Runnable() {
+            //    @Override
+            //   public void run() {
+            // Do something after 5s = 5000ms
+            //     finish();
         }
+        //  }, 3000);
+        //   }
     }
 
     @Override
@@ -139,10 +140,12 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     }
 
     @Override
-    public void handleResult(Result result) {
-        final String myResult = result.getText();
-        etFanniNumb.setText(myResult);
-        scannerView.startCamera();
+    public void handleResult(final Result result) {
+       // String myResult = result.getText();
+        etFanniNumb.setText(result.getText());
+        onResume();
+
+
     }
 
 

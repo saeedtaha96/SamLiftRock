@@ -13,9 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 
+import org.angmarch.views.NiceSpinner;
+
 
 public class ProdcutActivity extends AppCompatActivity {
-    Spinner typeSpinner, unitSpinner;
+    NiceSpinner typeSpinner, unitSpinner;
     ArrayAdapter<String> adapter;
     CheckBox maliatCHBX;
 
@@ -42,10 +44,12 @@ public class ProdcutActivity extends AppCompatActivity {
                     typeSpinner.setEnabled(true);
                     unitSpinner.setEnabled(true);
                     typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
+                    unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
                 } else {
                     typeSpinner.setEnabled(false);
                     unitSpinner.setEnabled(false);
                     typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
+                    unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
                 }
             }
         });

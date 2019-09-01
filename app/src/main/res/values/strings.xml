@@ -83,4 +83,5 @@
     <string name="txt_user_name">نام کاربر</string>
     <string name="txt_condition">وضعیت</string>
     <string name="txt_products">کالاها</string>
+    <string name="dash">-</string>
 </resources>

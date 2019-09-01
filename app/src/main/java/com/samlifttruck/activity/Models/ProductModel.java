@@ -32,6 +32,10 @@ public class ProductModel {
         this.withTax = withTax;
     }
 
+    public ProductModel() {
+
+    }
+
     public ProductModel(String sProductName, String sShelf) {
         this.sProductName = sProductName;
         this.sShelf = sShelf;

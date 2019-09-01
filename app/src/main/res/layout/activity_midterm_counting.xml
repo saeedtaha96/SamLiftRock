@@ -63,9 +63,8 @@
             android:layout_marginTop="@dimen/margin24"
             android:layout_marginBottom="@dimen/margin8"
             android:drawableEnd="@drawable/ic_search_black_24dp"
-            android:drawableTint="@color/color_blue_theme_004677"
-            android:fontFamily="@font/iran_sans_web"
             android:gravity="start|center"
+            style="@style/AppFont"
             android:hint="@string/shomare_fanni"
             android:inputType="text"
             android:paddingStart="@dimen/margin48"
@@ -81,8 +80,18 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_midterm_pbar"
+        style="@style/SpinKitView.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:translationY="-14dp"
+        android:layout_alignTop="@id/relative_midterm_tv_unit"
+        app:SpinKit_Color="@color/colorAccent" />
+
     <TextView
-        android:id="@+id/activity_shelf_tv_product_name"
+        android:id="@+id/relative_midterm_tv_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_midterm_et_shomare"
@@ -90,7 +99,7 @@
         android:layout_marginTop="@dimen/margin16"
         android:layout_marginEnd="@dimen/margin64"
         android:gravity="center"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_product_name"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -98,25 +107,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_product_name"
+        android:layout_alignBottom="@id/relative_midterm_tv_product_name"
         android:gravity="center"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_product_name"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="روغن موتور"
+        android:layout_toEndOf="@id/relative_midterm_tv_product_name"
+        style="@style/AppFont"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
 
     <TextView
-        android:id="@+id/activity_shelf_tv_shelf_number"
+        android:id="@+id/relative_midterm_tv_shelf_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_product_name"
+        android:layout_below="@id/relative_midterm_tv_product_name"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin12"
         android:layout_marginEnd="@dimen/margin64"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_shelf_numb"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -124,24 +133,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_shelf_number"
+        android:layout_alignBottom="@id/relative_midterm_tv_shelf_number"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_shelf_number"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="۲۵"
+        android:layout_toEndOf="@id/relative_midterm_tv_shelf_number"
+        style="@style/AppFont"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
 
     <TextView
-        android:id="@+id/activity_shelf_tv_unit"
+        android:id="@+id/relative_midterm_tv_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_shelf_number"
+        android:layout_below="@id/relative_midterm_tv_shelf_number"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin12"
         android:layout_marginEnd="@dimen/margin64"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_shelf_unit"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -149,23 +158,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_unit"
+        android:layout_alignBottom="@id/relative_midterm_tv_unit"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_unit"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="۱۲"
+        android:layout_toEndOf="@id/relative_midterm_tv_unit"
+        style="@style/AppFont"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_inventory"
+        android:id="@+id/relative_midterm_tv_inventory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_unit"
+        android:layout_below="@id/relative_midterm_tv_unit"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin12"
         android:layout_marginEnd="@dimen/margin32"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_inventory"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -174,16 +183,16 @@
         android:id="@+id/txt_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_inventory"
+        android:layout_alignBottom="@id/relative_midterm_tv_inventory"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_inventory"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="50"
+        android:layout_toEndOf="@id/relative_midterm_tv_inventory"
+        style="@style/AppFont"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_current_counting"
+        android:id="@+id/relative_midterm_tv_current_counting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/txt_unit"
@@ -191,7 +200,7 @@
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin32"
         android:layout_toEndOf="@id/txt_unit"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_current_counting"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -199,24 +208,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_current_counting"
+        android:layout_alignBottom="@id/relative_midterm_tv_current_counting"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_current_counting"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="30"
+        android:layout_toEndOf="@id/relative_midterm_tv_current_counting"
+        style="@style/AppFont"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_shelf_enter_new"
+        android:id="@+id/relative_midterm_tv_shelf_enter_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_inventory"
+        android:layout_below="@id/relative_midterm_tv_inventory"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin8"
         android:fitsSystemWindows="true"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_enter_new_counting"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -226,12 +235,12 @@
         android:id="@+id/activity_shelf_et_enter_shelf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_shelf_enter_new"
-        android:layout_toEndOf="@id/activity_shelf_tv_shelf_enter_new"
+        android:layout_alignBottom="@id/relative_midterm_tv_shelf_enter_new"
+        android:layout_toEndOf="@id/relative_midterm_tv_shelf_enter_new"
         android:backgroundTint="@color/color_blue_theme_004677"
         android:fitsSystemWindows="true"
         android:layout_marginEnd="@dimen/margin16"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:gravity="center"
         android:lines="1"
         android:maxEms="5"

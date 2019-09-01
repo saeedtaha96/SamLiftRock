@@ -82,7 +82,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/activity_shelf_tv_product_name"
+        android:id="@+id/relative_midterm_tv_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/activity_midterm_et_shomare"
@@ -97,10 +97,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_product_name"
+        android:layout_alignBottom="@id/relative_midterm_tv_product_name"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_product_name"
+        android:layout_toEndOf="@id/relative_midterm_tv_product_name"
         android:fontFamily="@font/iran_sans_web"
         android:text="روغن موتور"
         android:textColor="@color/color_black_000000"
@@ -108,10 +108,10 @@
 
 
     <TextView
-        android:id="@+id/activity_shelf_tv_shelf_number"
+        android:id="@+id/relative_midterm_tv_shelf_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_product_name"
+        android:layout_below="@id/relative_midterm_tv_product_name"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin64"
@@ -123,10 +123,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_shelf_number"
+        android:layout_alignBottom="@id/relative_midterm_tv_shelf_number"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_shelf_number"
+        android:layout_toEndOf="@id/relative_midterm_tv_shelf_number"
         android:fontFamily="@font/iran_sans_web"
         android:text="۲۵"
         android:textColor="@color/color_black_000000"
@@ -134,10 +134,10 @@
 
 
     <TextView
-        android:id="@+id/activity_shelf_tv_unit"
+        android:id="@+id/relative_midterm_tv_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_shelf_number"
+        android:layout_below="@id/relative_midterm_tv_shelf_number"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin64"
@@ -149,20 +149,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_unit"
+        android:layout_alignBottom="@id/relative_midterm_tv_unit"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_unit"
+        android:layout_toEndOf="@id/relative_midterm_tv_unit"
         android:fontFamily="@font/iran_sans_web"
         android:text="۱۲"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_inventory"
+        android:id="@+id/relative_midterm_tv_inventory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_unit"
+        android:layout_below="@id/relative_midterm_tv_unit"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin64"
@@ -175,17 +175,17 @@
         android:id="@+id/txt_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_inventory"
+        android:layout_alignBottom="@id/relative_midterm_tv_inventory"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_inventory"
+        android:layout_toEndOf="@id/relative_midterm_tv_inventory"
         android:fontFamily="@font/iran_sans_web"
         android:text="50"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_current_counting"
+        android:id="@+id/relative_midterm_tv_current_counting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/txt_unit"
@@ -201,20 +201,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_current_counting"
+        android:layout_alignBottom="@id/relative_midterm_tv_current_counting"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/activity_shelf_tv_current_counting"
+        android:layout_toEndOf="@id/relative_midterm_tv_current_counting"
         android:fontFamily="@font/iran_sans_web"
         android:text="30"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
     <TextView
-        android:id="@+id/activity_shelf_tv_shelf_enter_new"
+        android:id="@+id/relative_midterm_tv_shelf_enter_new"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_tv_inventory"
+        android:layout_below="@id/relative_midterm_tv_inventory"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin32"
@@ -229,8 +229,8 @@
         android:id="@+id/activity_shelf_et_enter_shelf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/activity_shelf_tv_shelf_enter_new"
-        android:layout_toEndOf="@id/activity_shelf_tv_shelf_enter_new"
+        android:layout_alignBottom="@id/relative_midterm_tv_shelf_enter_new"
+        android:layout_toEndOf="@id/relative_midterm_tv_shelf_enter_new"
         android:backgroundTint="@color/color_blue_theme_004677"
         android:ems="6"
         android:fitsSystemWindows="true"

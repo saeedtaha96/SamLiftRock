@@ -5,8 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,16 +20,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.samlifttruck.R;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 
-public class LoginActivity extends AppCompatActivity implements View.OnLongClickListener {
-    TextInputEditText etUsername, etPassword;
-    Button btnLogin;
-    TextView deviceId;
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    private TextInputEditText etUsername, etPassword;
+    private Button btnLogin;
+    private String imei;
+    private TextView btnRegDevice;
     private static final int REQUEST_PHONE_STATE = 10;
 
     @Override
@@ -40,18 +45,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
         setupListeners();
 
 
-        deviceId.setOnLongClickListener(this);
+        btnRegDevice.setOnClickListener(this);
 
+        getPremission();
+
+        getDeviceId();
+    }
+
+    private boolean getPremission() {
+        boolean state = false;
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
-               // Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
+                // Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
+                state = true;
             } else {
                 requestPermission();
+                state = false;
             }
         }
-
-        getDeviceId();
+        return state;
     }
 
     @Override
@@ -61,12 +74,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
         if (checkPermission()) {
             String ts = Context.TELEPHONY_SERVICE;
             TelephonyManager mTelephonyMgr = (TelephonyManager) getSystemService(ts);
-            String imei = mTelephonyMgr.getDeviceId();
-            deviceId.setPaintFlags(deviceId.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-         //   deviceId.setText(imei);
+            imei = mTelephonyMgr.getDeviceId();
+            btnRegDevice.setPaintFlags(btnRegDevice.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+            //   deviceId.setText(imei);
 
         } else {
-            requestPermission();
+            // requestPermission();
         }
     }
 
@@ -111,7 +124,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(LoginActivity.this)
                 .setMessage(message)
-                .setPositiveButton("اجازه", okListener)
+                .setPositiveButton("اجازه", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        getPremission();
+                    }
+                })
                 .setNegativeButton("لغو", null)
                 .create()
                 .show();
@@ -126,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
         etUsername = findViewById(R.id.login_input_username);
         etPassword = findViewById(R.id.login_input_password);
         btnLogin = findViewById(R.id.login_btn_login);
-        deviceId = findViewById(R.id.device_id);
+        btnRegDevice = findViewById(R.id.activity_login_tv_reg_device);
     }
 
     private void setupListeners() {
@@ -139,17 +157,47 @@ public class LoginActivity extends AppCompatActivity implements View.OnLongClick
         });
     }
 
+
     @Override
-    public boolean onLongClick(View view) {
+    public void onClick(View view) {
         int id = view.getId();
-        switch (id){
-            case R.id.device_id :  final Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("mailto:"+"taha@gmail.com"))
-                        .putExtra(Intent.EXTRA_SUBJECT, "Sam Lift Rock IMEI CODE")
-                        .putExtra(Intent.EXTRA_TEXT, deviceId.getText().toString());
-                startActivity(intent);
-            break;
+        Typeface font = ResourcesCompat.getFont(this, R.font.iran_sans_web);
+        switch (id) {
+            case R.id.activity_login_tv_reg_device:
+
+                if (getPremission()) {
+
+                    new iOSDialogBuilder(LoginActivity.this)
+                            .setTitle(imei)
+                            .setSubtitle(getString(R.string.txt_reg_device) + "\n" + getString(R.string.txt_reg_device_send_email))
+                            .setBoldPositiveLabel(true)
+                            .setCancelable(false)
+                            .setPositiveListener(getString(R.string.txt_email), new iOSDialogClickListener() {
+                                @Override
+                                public void onClick(iOSDialog dialog) {
+                                    final Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setData(Uri.parse("mailto:" + "ma.fatemi@gmail.com")).
+                                            putExtra(Intent.EXTRA_SUBJECT, "Sam IMEI code").
+                                            putExtra(Intent.EXTRA_TEXT, imei);
+
+                                    startActivity(intent);
+                                    dialog.dismiss();
+
+                                }
+                            })
+                            .setNegativeListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
+                                @Override
+                                public void onClick(iOSDialog dialog) {
+
+                                    dialog.dismiss();
+                                }
+                            }).setFont(font)
+                            .build().show();
+                } else {
+                    Toast.makeText(this, getString(R.string.txt_need_permission), Toast.LENGTH_SHORT).show();
+                }
         }
-        return false;
     }
+
+
 }

@@ -46,4 +46,7 @@ dependencies {
 
     //ksoap2  webservice connecting library
   //  implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
+
+    // ios alert dialog
+    implementation 'com.gdacciaro:iosdialog:1.0.3'
 }

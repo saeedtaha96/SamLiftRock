@@ -84,4 +84,9 @@
     <string name="txt_condition">وضعیت</string>
     <string name="txt_products">کالاها</string>
     <string name="dash">-</string>
+    <string name="txt_ok">باشه</string>
+    <string name="txt_email">ایمیل</string>
+    <string name="txt_need_permission">برای ثبت دستگاه نیاز به اهدای مجوز دارید</string>
+    <string name="txt_reg_device">جهت ثبت دستگاه در سامانه، با ادمین تماس بگیرید.</string>
+    <string name="txt_reg_device_send_email">همچنین میتوانید درخواست خود را از طریق پست الکترونیکی ارسال کنید.</string>
 </resources>

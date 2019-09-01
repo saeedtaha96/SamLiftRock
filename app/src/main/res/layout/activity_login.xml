@@ -131,7 +131,7 @@
         android:textSize="@dimen/text_size17" />
 
     <TextView
-        android:id="@+id/device_id"
+        android:id="@+id/activity_login_tv_reg_device"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_relative_linear"

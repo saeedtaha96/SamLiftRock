@@ -61,43 +61,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin24"
             android:layout_marginBottom="@dimen/margin8"
-            android:drawableEnd="@drawable/ic_search_black_24dp"
+            android:drawableStart="@drawable/ic_search_black_24dp"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="start|center"
             android:hint="@string/shomare_fanni"
             android:inputType="text"
-            android:paddingStart="@dimen/margin48"
+            android:layoutDirection="ltr"
+            android:paddingStart="@dimen/margin24"
             android:paddingTop="@dimen/margin12"
-            android:paddingEnd="@dimen/margin24"
+            android:paddingEnd="@dimen/margin48"
             android:paddingBottom="@dimen/margin12"
             android:singleLine="true"
             android:textAlignment="center"
             android:textColor="@color/color_gray_text"
             android:textColorHint="@color/color_black_000000"
-            android:textDirection="rtl"
+            android:textDirection="ltr"
             android:textSize="@dimen/text_size21" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/activity_shelf_btn_search"
-        android:layout_marginTop="@dimen/margin8"
-        android:layout_marginStart="@dimen/margin32"
-        android:layout_marginEnd="@dimen/margin32"
-        android:text="جستوجو"
-        android:background="@drawable/selector_rect10_menu_items"
-        android:layout_below="@id/activity_shelf_et_shomare"
-        />
 
 
     <TextView
         android:id="@+id/relative_midterm_tv_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_btn_search"
+        android:layout_below="@id/activity_shelf_et_shomare"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
@@ -115,10 +103,9 @@
         android:layout_marginEnd="@dimen/margin64"
         android:layout_toEndOf="@id/relative_midterm_tv_product_name"
         android:fontFamily="@font/iran_sans_web"
-        android:text="روغن موتور"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
-
 
 
     <TextView
@@ -166,9 +153,9 @@
         style="@style/SpinKitView.Circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin48"
-        android:layout_below="@id/relative_midterm_tv_shelf_enter_new"
+        android:layout_alignTop="@id/relative_midterm_tv_shelf_number"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin48"
         android:translationY="-14dp"
         android:visibility="gone"
         app:SpinKit_Color="@color/colorAccent" />

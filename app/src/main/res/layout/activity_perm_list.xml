@@ -35,7 +35,8 @@
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center"
             android:hint="@string/txt_date"
-            android:inputType="text"
+            android:inputType="date"
+            android:imeOptions="actionSearch"
             android:paddingStart="@dimen/margin32"
             android:paddingTop="@dimen/margin24"
             android:paddingEnd="@dimen/margin32"
@@ -44,7 +45,7 @@
             android:textAlignment="gravity"
             android:textColor="@color/color_black_000000"
             android:textColorHint="@color/color_gray_text"
-            android:textDirection="rtl"
+            android:textDirection="ltr"
             android:textSize="@dimen/text_size16" />
 
         <ImageView

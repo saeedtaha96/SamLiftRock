@@ -1,5 +1,7 @@
 package com.samlifttruck.activity;
 
+import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -9,7 +11,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -53,13 +59,12 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-
     TextInputEditText etFanniNumb;
     ProgressBar progressBar;
     TextView tvProductName;
     TextView tvShelfNum;
-    Button search;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,19 +73,43 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         setupViews();
         setToolbarText();
         checkQRcodePremission();
+        etFanniNumb.setOnTouchListener(new View.OnTouchListener() {
 
-        search.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if (etFanniNumb.getText().toString().equals("")) {
-                    etFanniNumb.setError("خالی است");
-                } else {
-                    new soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
-                }
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width()))) {
+                        // your action here
+                        if (etFanniNumb.getText().toString().equals("")) {
+                            etFanniNumb.setError("خالی است");
+                        } else {
+                            new soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
+                        }
 
+                        closeKeyPad();
+
+                        return true;
+                    }
+                }
+                return false;
             }
         });
 
+    }
+
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     private void setupViews() {
@@ -89,7 +118,6 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         progressBar = findViewById(R.id.activity_shelf_pbar);
         tvProductName = findViewById(R.id.activity_shelf_tv_product_name);
         tvShelfNum = findViewById(R.id.activity_shelf_tv_shelf_number);
-        search = findViewById(R.id.activity_shelf_btn_search);
 
     }
 
@@ -132,19 +160,9 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                 scannerView.setResultHandler(this);
                 scannerView.startCamera();
             } else {
-                requestPermission();
+                // requestPermission();
             }
-        } else {
-            //  Toast.makeText(getApplicationContext(), "This feature is not supported on Android API lower than 23", Toast.LENGTH_LONG).show();
-            // final Handler handler = new Handler();
-            //  handler.postDelayed(new Runnable() {
-            //    @Override
-            //   public void run() {
-            // Do something after 5s = 5000ms
-            //     finish();
         }
-        //  }, 3000);
-        //   }
     }
 
     @Override
@@ -188,7 +206,12 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(ShelfEditActivity.this)
                 .setMessage(message)
-                .setPositiveButton("OK", okListener)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        checkQRcodePremission();
+                    }
+                })
                 .setNegativeButton("Cancel", null)
                 .create()
                 .show();

@@ -1,5 +1,6 @@
 package com.samlifttruck.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,7 +9,9 @@ import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,31 +35,79 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     private ZXingScannerView scannerView;
     private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midterm_counting);
-        scannerView = findViewById(R.id.scanner_midterm);
-        etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
-        btnTodayList = findViewById(R.id.activity_midterm_imgv_today_list);
+
+        setupViews();
+        setToolbarText();
+        checkQRcodePremission();
+
         btnTodayList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MidtermControlActivity.this,MidtermTodayListActivity.class));
+                startActivity(new Intent(MidtermControlActivity.this, MidtermTodayListActivity.class));
             }
         });
-        setToolbarText();
+        etFanniNumb.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
+                        ;
+                    {
+                        // your action here
+                        if (etFanniNumb.getText().toString().equals("")) {
+                            etFanniNumb.setError("خالی است");
+                        } else {
+                            //  new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
+                        }
+
+                        closeKeyPad();
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
 
+    }
 
+    private void setupViews() {
+        scannerView = findViewById(R.id.scanner_midterm);
+        etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
+        btnTodayList = findViewById(R.id.activity_midterm_imgv_today_list);
+    }
+
+    public void checkQRcodePremission() {
         int currentApiVersion = Build.VERSION.SDK_INT;
-
         if (currentApiVersion >= Build.VERSION_CODES.M) {
             if (checkPermission()) {
                 //  Toast.makeText(getApplicationContext(), "Permission already granted!", Toast.LENGTH_LONG).show();
             } else {
                 requestPermission();
             }
+        }
+    }
+
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
         }
     }
 
@@ -88,7 +139,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 scannerView.setResultHandler(this);
                 scannerView.startCamera();
             } else {
-                requestPermission();
+                // requestPermission();
             }
         } else {
             Toast.makeText(getApplicationContext(), "This feature is not supported on Android API lower than 23", Toast.LENGTH_LONG).show();
@@ -144,7 +195,12 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(MidtermControlActivity.this)
                 .setMessage(message)
-                .setPositiveButton("OK", okListener)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        checkQRcodePremission();
+                    }
+                })
                 .setNegativeButton("Cancel", null)
                 .create()
                 .show();

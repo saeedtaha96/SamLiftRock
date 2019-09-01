@@ -63,6 +63,7 @@
     <dimen name="shelf_edit_side_margin">16dp</dimen>
     <dimen name="margin20">10dp</dimen>
     <dimen name="text_size23">23sp</dimen>
+    <dimen name="drawables_size">17dp</dimen>
 
 
     <item name="nav_menu_weight_digit" type="dimen" format="float">1.5</item>

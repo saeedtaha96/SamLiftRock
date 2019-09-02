@@ -67,19 +67,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_receipt_recyclerview"
-        android:layout_width="match_parent"
-        android:paddingStart="@dimen/margin12"
-        android:paddingEnd="@dimen/margin12"
-        android:clipToPadding="true"
-        android:paddingBottom="@dimen/margin8"
-        android:layout_marginTop="@dimen/margin12"
-        android:layout_height="match_parent"
-        android:background="@color/color_white_FFFFFF">
-
-
-    </androidx.recyclerview.widget.RecyclerView>
-
 
 </LinearLayout>

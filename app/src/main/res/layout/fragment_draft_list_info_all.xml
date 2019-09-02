@@ -64,13 +64,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -105,13 +98,7 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
+
 
                 </TableRow>
 
@@ -128,7 +115,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_cust_name_2"
+                        android:text="@string/txt_receiver"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
@@ -148,13 +135,7 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
+
 
                 </TableRow>
 
@@ -191,13 +172,7 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
+
 
                 </TableRow>
 
@@ -232,13 +207,7 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
+
 
                 </TableRow>
 
@@ -255,7 +224,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_user_name"
+                        android:text="@string/txt_service_page"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
@@ -273,13 +242,7 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
+
 
                 </TableRow>
 
@@ -296,7 +259,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_condition"
+                        android:text="@string/txt_product_descrip"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
@@ -308,19 +271,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
+                        android:maxLines="2"
                         android:gravity="center"
+                        android:ellipsize="end"
+                        android:text="@string/txt_email"
                         android:padding="@dimen/draft_all_info_table_padding"
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin8"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -371,7 +330,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_tv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin128"
+            android:layout_marginTop="@dimen/margin80"
             app:SpinKit_Color="@color/colorAccent" />
 
 

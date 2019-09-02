@@ -19,7 +19,7 @@ import org.angmarch.views.NiceSpinner;
 public class ProdcutActivity extends AppCompatActivity {
     NiceSpinner typeSpinner, unitSpinner;
     ArrayAdapter<String> adapter;
-    CheckBox maliatCHBX;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,6 @@ public class ProdcutActivity extends AppCompatActivity {
         setupSpinnerOfType();
         setupSpinnerofUnit();
 
-        maliatCHBX.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    typeSpinner.setEnabled(true);
-                    unitSpinner.setEnabled(true);
-                    typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
-                    unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
-                } else {
-                    typeSpinner.setEnabled(false);
-                    unitSpinner.setEnabled(false);
-                    typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
-                    unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
-                }
-            }
-        });
 
     }
 
@@ -64,20 +48,18 @@ public class ProdcutActivity extends AppCompatActivity {
 
     private void setupSpinnerofUnit() {
         unitSpinner.setAdapter(adapter);
-        unitSpinner.setEnabled(false);
-        unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
+        unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
     }
 
     private void setupSpinnerOfType() {
         typeSpinner.setAdapter(adapter);
-        typeSpinner.setEnabled(false);
-        typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars_uncheck));
+        typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
     }
 
     private void setupViews() {
         typeSpinner = findViewById(R.id.spinner_type);
         unitSpinner = findViewById(R.id.spinner_unit);
-        maliatCHBX = findViewById(R.id.product_checkbox_maliat);
+
 
     }
 

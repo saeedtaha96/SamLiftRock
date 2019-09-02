@@ -7,6 +7,7 @@
     android:background="@color/color_white_FFFFFF"
     android:clipToPadding="true"
     android:paddingStart="@dimen/margin12"
+    android:layoutDirection="rtl"
     android:paddingEnd="@dimen/margin12"
     android:paddingBottom="@dimen/margin8">
 

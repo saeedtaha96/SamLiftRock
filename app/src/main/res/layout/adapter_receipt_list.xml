@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:padding="@dimen/margin4">
+          >
 
 
             <TextView
@@ -33,7 +33,7 @@
                 android:gravity="center"
                 android:text="@string/txt_shomare_havale"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size11" />
+                android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_receipt_list_tv_draft_num"
@@ -46,7 +46,7 @@
                 android:gravity="center"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size11" />
+                android:textSize="@dimen/lists_text_size" />
 
         </RelativeLayout>
 
@@ -57,20 +57,22 @@
             android:layout_below="@id/relative_col1"
             android:layout_alignStart="@id/relative_col1"
             android:layout_marginTop="@dimen/margin12"
-            android:padding="@dimen/margin4">
+          >
 
 
             <TextView
                 android:id="@+id/relative_tv_perm_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="1dp"
                 android:drawableStart="@drawable/ic_receipt_type_24dp"
                 android:drawablePadding="@dimen/margin8"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:text="@string/txt_receipt_num"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size11" />
+                android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_receipt_list_tv_receipt_num"
@@ -83,7 +85,7 @@
                 android:gravity="center"
                 android:text="1545"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size11" />
+                android:textSize="@dimen/lists_text_size" />
 
         </RelativeLayout>
 
@@ -92,14 +94,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_col2"
-            android:layout_marginTop="@dimen/margin24"
+            android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_customer_name_24dp"
             android:drawablePadding="@dimen/margin8"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="bottom"
             android:text="@string/txt_cust_name"
             android:textColor="@color/color_blue_theme_004677"
-            android:textSize="@dimen/text_size11" />
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_receipt_list_tv_cust_name"
@@ -112,7 +114,7 @@
             android:gravity="center"
             android:text="رابرت محمود"
             android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/text_size11" />
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_receipt_list_tv_date"
@@ -124,7 +126,7 @@
             android:fontFamily="@font/iran_sans_web"
             android:text="98/08/02"
             android:textColor="@color/color_gray_text"
-            android:textSize="@dimen/text_size11" />
+            android:textSize="@dimen/text_size12" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

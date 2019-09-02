@@ -19,7 +19,7 @@
             android:id="@+id/relative_col1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/margin4">
+           >
 
             <TextView
                 android:id="@+id/relative_tv_draft_number"
@@ -31,7 +31,7 @@
                 android:gravity="center"
                 android:text="@string/txt_pre_factor_numb"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size13" />
+                android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_perm_list_tv_pre_factor_num"
@@ -44,7 +44,7 @@
                 android:gravity="center"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
+                android:textSize="@dimen/lists_text_size" />
 
         </RelativeLayout>
 
@@ -55,7 +55,7 @@
             android:layout_below="@id/relative_col1"
             android:layout_alignStart="@id/relative_col1"
             android:layout_marginTop="@dimen/margin12"
-            android:padding="@dimen/margin4">
+            >
 
             <TextView
                 android:id="@+id/relative_tv_perm_number"
@@ -67,7 +67,7 @@
                 android:gravity="center"
                 android:text="@string/txt_perm_num"
                 android:textColor="@color/color_blue_theme_004677"
-                android:textSize="@dimen/text_size13" />
+                android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_perm_list_tv_perm_num"
@@ -80,7 +80,7 @@
                 android:gravity="center"
                 android:text="1545"
                 android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
+                android:textSize="@dimen/lists_text_size" />
 
         </RelativeLayout>
 
@@ -92,12 +92,12 @@
             android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_customer_name_24dp"
             android:drawablePadding="@dimen/margin8"
+            android:layout_alignStart="@id/relative_col2"
             android:fontFamily="@font/iran_sans_web"
-            android:gravity="center"
-            android:padding="@dimen/margin4"
+            android:gravity="center|start"
             android:text="@string/txt_cust_name"
             android:textColor="@color/color_blue_theme_004677"
-            android:textSize="@dimen/text_size13" />
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_perm_list_tv_cust_name"
@@ -112,7 +112,7 @@
             android:padding="@dimen/margin4"
             android:text="رابرت محمود"
             android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/text_size13" />
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_perm_list_tv_date"
@@ -124,7 +124,7 @@
             android:fontFamily="@font/iran_sans_web"
             android:text="98/08/02"
             android:textColor="@color/color_gray_text"
-            android:textSize="@dimen/text_size11" />
+            android:textSize="@dimen/text_size12" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

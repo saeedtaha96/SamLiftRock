@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.samlifttruck">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -19,9 +20,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".activity.MidtermTodayListActivity" />
-        <activity android:name=".activity.PermListActivity" />
-        <activity android:name=".activity.ReceiptListActivity" />
-        <activity android:name=".activity.DraftListActivity" />
+        <activity
+            android:name=".activity.PermListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.ReceiptListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".activity.DraftListActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activity.ProdcutActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />

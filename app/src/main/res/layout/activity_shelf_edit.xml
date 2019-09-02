@@ -130,7 +130,7 @@
         android:layout_marginEnd="@dimen/margin64"
         android:layout_toEndOf="@id/relative_midterm_tv_shelf_number"
         android:fontFamily="@font/iran_sans_web"
-        android:text="۳۴۵"
+        android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 

@@ -67,9 +67,6 @@ public class ProdcutActivity extends AppCompatActivity {
         finish();
     }
 
-    public void imgvExpandSpinner(View view) {
-        unitSpinner.performClick();
-    }
 
 
 }

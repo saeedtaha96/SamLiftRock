@@ -33,6 +33,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_draft_list);
         setToolbarText();
         setupViews();
+
         draftListFragment = DraftListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list,draftListFragment).commit();
         datepickerImgv.setOnClickListener(this);

@@ -33,7 +33,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     ImageView btnTodayList;
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-    private static int camId = Camera.CameraInfo.CAMERA_FACING_BACK;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

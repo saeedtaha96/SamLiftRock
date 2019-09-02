@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -34,6 +35,10 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         rvPermList = findViewById(R.id.activity_midterm_today_list_recyclerview);
         btnConfirm = findViewById(R.id.activity_midterm_today_list_btn_confirm);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
+        msv = findViewById(R.id.searchview_material);
+
+
+        msv.setMenuItem((MenuItem) btnSearch);
         setToolbarText();
         //set up recyclerview
         PermListAdapter = new MidtermTodayListAdapter(DataGenerator.getReceiptList());
@@ -48,7 +53,6 @@ public class MidtermTodayListActivity extends AppCompatActivity {
            rvPermList.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
         }
 
-        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
         rvPermList.setAdapter(PermListAdapter);
 
         // on scroll change and confirm btn hide listener
@@ -68,6 +72,8 @@ public class MidtermTodayListActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void setToolbarText() {
         TextView tvAppbar = findViewById(R.id.toolbar_text);

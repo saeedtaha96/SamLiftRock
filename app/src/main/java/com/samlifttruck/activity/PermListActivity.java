@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.PermListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.Fragments.PermListFragment;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
@@ -22,8 +23,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     EditText etDate;
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
-    RecyclerView rvPermList;
-    PermListAdapter PermListAdapter;
+    PermListFragment permListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,8 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         setToolbarText();
         setupViews();
 
-        PermListAdapter = new PermListAdapter(DataGenerator.getPermList());
-        rvPermList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-        rvPermList.setAdapter(PermListAdapter);
+        permListFragment = PermListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, permListFragment).commit();
         datepickerImgv.setOnClickListener(this);
 
 
@@ -62,7 +60,6 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     private void setupViews() {
         etDate = findViewById(R.id.login_input_datepicker);
         datepickerImgv = findViewById(R.id.activity_perm_imgv_datepicker);
-        rvPermList = findViewById(R.id.activity_perm_recyclerview);
     }
 
 

@@ -67,7 +67,7 @@
     <string name="txt_cust_name">نام مشتری:</string>
     <string name="txt_exit_app">خروج</string>
     <string name="txt_receipt_num">شماره رسید:</string>
-    <string name="txt_pre_factor_numb">شماره پیش فاکنور:</string>
+    <string name="txt_pre_factor_numb">شماره پیش فاکتور:</string>
     <string name="txt_about_us">درباره ما</string>
     <string name="txt_register_phone">ثبت دستگاه؟</string>
     <string name="txt_reject">عدم تایید</string>
@@ -91,4 +91,5 @@
     <string name="txt_reg_device_send_email">همچنین میتوانید درخواست خود را از طریق پست الکترونیکی ارسال کنید.</string>
     <string name="txt_receiver">تحویل‌گیرنده</string>
     <string name="txt_service_page">برگ سرویس</string>
+    <string name="txt_condition_dd">وضعیت:</string>
 </resources>

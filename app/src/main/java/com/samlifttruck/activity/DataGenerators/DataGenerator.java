@@ -20,7 +20,7 @@ public class DataGenerator {
             if (a < 10) {
                 mDate = "0" + (int) a;
             }
-            DraftListModel draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" +mDate,"123","hassan","con"+i);
+            DraftListModel draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" +mDate,"123","hassan","con"+i, String.valueOf((int) a * i));
             list.add(draftModel);
         }
         return list;

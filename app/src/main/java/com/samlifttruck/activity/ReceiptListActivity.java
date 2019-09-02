@@ -14,6 +14,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.Fragments.ReceiptListFragment;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
@@ -23,9 +24,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     EditText etDate;
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
-    RecyclerView rvReceiptList;
-    ReceiptListAdapter receiptListAdapter;
-
+    ReceiptListFragment receiptListFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +32,9 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         setToolbarText();
         setupViews();
 
-        receiptListAdapter = new ReceiptListAdapter(DataGenerator.getReceiptList());
-        rvReceiptList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-        rvReceiptList.setAdapter(receiptListAdapter);
+        receiptListFragment = ReceiptListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, receiptListFragment).commit();
+
         datepickerImgv.setOnClickListener(this);
 
 
@@ -63,7 +61,6 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     private void setupViews() {
         etDate = findViewById(R.id.login_input_datepicker);
         datepickerImgv = findViewById(R.id.activity_receipt_imgv_datepicker);
-        rvReceiptList = findViewById(R.id.activity_receipt_recyclerview);
     }
 
 

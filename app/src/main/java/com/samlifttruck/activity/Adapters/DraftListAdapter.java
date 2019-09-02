@@ -5,17 +5,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DraftListActivity;
 import com.samlifttruck.activity.Fragments.DraftListInfoAllFragment;
 import com.samlifttruck.activity.Models.DraftListModel;
 
@@ -62,9 +58,11 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView draftNumb, permNumb, custName, date;
+        private TextView draftNumb, permNumb, custName, date, condition;
         private View myItem;
-        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sUserName, sCondition;
+        AppCompatActivity activity;
+        DraftListInfoAllFragment frag;
+        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +70,8 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             permNumb = itemView.findViewById(R.id.activity_draft_list_tv_perm_num);
             custName = itemView.findViewById(R.id.activity_draft_list_tv_cust_name);
             date = itemView.findViewById(R.id.activity_draft_list_tv_date);
+            condition = itemView.findViewById(R.id.activity_draft_list_tv_condition);
+            activity = (AppCompatActivity) itemView.getContext();
             myItem = itemView;
         }
 
@@ -81,8 +81,8 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             sCustName = item.getCustName();
             sDate = item.getDate();
             sDraftType = item.getDraftType();
-            sUserName= item.getUserName();
-            sCondition = item.getCondition();
+            sServicePage = item.getServicePage();
+            sDescrip = item.getDescription();
 
             draftNumb.setText(sDraftNum);
             permNumb.setText(sPermNum);
@@ -91,8 +91,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
-                    DraftListInfoAllFragment frag = DraftListInfoAllFragment.newInstance(sDraftNum,sPermNum,sCustName,sDate,sDraftType,sUserName,sCondition);
+                    frag = DraftListInfoAllFragment.newInstance(sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
                 }
             });

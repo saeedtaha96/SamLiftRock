@@ -62,7 +62,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
         private View myItem;
         AppCompatActivity activity;
         DraftListInfoAllFragment frag;
-        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip;
+        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip, sCondition;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -83,11 +83,14 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             sDraftType = item.getDraftType();
             sServicePage = item.getServicePage();
             sDescrip = item.getDescription();
+            sCondition = item.getCondition();
 
             draftNumb.setText(sDraftNum);
             permNumb.setText(sPermNum);
             custName.setText(sCustName);
             date.setText(sDate);
+            condition.setText(sCondition);
+            
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

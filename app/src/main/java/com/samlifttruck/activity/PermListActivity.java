@@ -37,7 +37,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         datepickerImgv.setOnClickListener(this);
 
 
-        setToday();
+        //etDate.setText(getToday());
     }
 
     private void setToolbarText() {
@@ -45,7 +45,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         tvAppbar.setText(getString(R.string.txt_perm_list));
     }
 
-    private void setToday() {
+    private String getToday() {
         PersianCalendar initDate = new PersianCalendar();
         int day = initDate.getPersianDay();
         int month = initDate.getPersianMonth();
@@ -54,7 +54,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         String formattedDay = (day < 10) ? ("0" + day) : String.valueOf(day);
 
         String myDate = year + "/" + formattedMonth + "/" + formattedDay;
-        etDate.setText(myDate);
+        return myDate;
     }
 
     private void setupViews() {

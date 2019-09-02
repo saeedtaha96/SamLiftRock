@@ -38,7 +38,24 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         msv = findViewById(R.id.searchview_material);
 
 
-        msv.setMenuItem((MenuItem) btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                msv.showSearch();
+            }
+        });
+
+        msv.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         setToolbarText();
         //set up recyclerview
         PermListAdapter = new MidtermTodayListAdapter(DataGenerator.getReceiptList());

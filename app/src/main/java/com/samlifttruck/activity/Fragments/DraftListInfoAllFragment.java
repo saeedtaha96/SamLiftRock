@@ -1,7 +1,5 @@
 package com.samlifttruck.activity.Fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,11 +20,11 @@ public class DraftListInfoAllFragment extends Fragment {
     private static final String CUSTOMER_NAME_KEY = "custName";
     private static final String PERM_NUMB_KEY = "permNum";
     private static final String DRAFT_TYPE_KEY = "draftType";
-    private static final String USER_NAME_KEY = "userName";
-    private static final String CONDITION_KEY = "condition";
+    private static final String SERVICE_PAGE_KEY = "servicePage";
+    private static final String DESCRIPTION_KEY = "descrip";
 
     // Views
-    TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvUserName, tvCondition;
+    TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
 
     // TODO: Rename and change types of parameters
     private String mDraftNum;
@@ -34,15 +32,15 @@ public class DraftListInfoAllFragment extends Fragment {
     private String mCustName;
     private String mPermNum;
     private String mDraftType;
-    private String mUserName;
-    private String mCondition;
+    private String mServicePage;
+    private String mDescrip;
 
     public DraftListInfoAllFragment() {
         // Required empty public constructor
     }
 
 
-    public static DraftListInfoAllFragment newInstance(String draftNum, String permNum, String custName, String date, String draftType, String userName, String condition) {
+    public static DraftListInfoAllFragment newInstance(String draftNum, String permNum, String custName, String date, String draftType, String servicePage, String descrip) {
         DraftListInfoAllFragment fragment = new DraftListInfoAllFragment();
         Bundle args = new Bundle();
         args.putString(DRAFT_NUM_KEY, draftNum);
@@ -50,8 +48,8 @@ public class DraftListInfoAllFragment extends Fragment {
         args.putString(CUSTOMER_NAME_KEY, custName);
         args.putString(DATE_KEY, date);
         args.putString(DRAFT_TYPE_KEY, draftType);
-        args.putString(USER_NAME_KEY, userName);
-        args.putString(CONDITION_KEY, condition);
+        args.putString(SERVICE_PAGE_KEY, servicePage);
+        args.putString(DESCRIPTION_KEY, descrip);
         fragment.setArguments(args);
         return fragment;
     }
@@ -65,8 +63,8 @@ public class DraftListInfoAllFragment extends Fragment {
             mCustName = getArguments().getString(CUSTOMER_NAME_KEY);
             mDate = getArguments().getString(DATE_KEY);
             mDraftType = getArguments().getString(DRAFT_TYPE_KEY);
-            mUserName = getArguments().getString(USER_NAME_KEY);
-            mCondition = getArguments().getString(CONDITION_KEY);
+            mServicePage = getArguments().getString(SERVICE_PAGE_KEY);
+            mDescrip = getArguments().getString(DESCRIPTION_KEY);
         }
     }
 
@@ -79,8 +77,8 @@ public class DraftListInfoAllFragment extends Fragment {
         tvCustName = rootView.findViewById(R.id.fragment_draft_info_all_cust_name);
         tvDate = rootView.findViewById(R.id.fragment_draft_info_all_date);
         tvDraftType = rootView.findViewById(R.id.fragment_draft_info_all_draft_type);
-        tvUserName = rootView.findViewById(R.id.fragment_draft_info_all_user_name);
-        tvCondition = rootView.findViewById(R.id.fragment_draft_info_all_condition);
+        tvServicePage = rootView.findViewById(R.id.fragment_draft_info_all_service_page);
+        tvDescrip = rootView.findViewById(R.id.fragment_draft_info_all_descrip);
 
         if (getArguments() != null) {
             tvDraftNum.setText(mDraftNum);
@@ -88,8 +86,8 @@ public class DraftListInfoAllFragment extends Fragment {
             tvCustName.setText(mCustName);
             tvDate.setText(mDate);
             tvDraftType.setText(mDraftType);
-            tvUserName.setText(mUserName);
-            tvCondition.setText(mCondition);
+            tvServicePage.setText(mServicePage);
+            tvDescrip.setText(mDescrip);
         }
         return rootView;
     }

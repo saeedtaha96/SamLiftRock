@@ -1,7 +1,9 @@
 package com.samlifttruck.activity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,11 +37,21 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         setupViews();
 
         draftListFragment = DraftListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list,draftListFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
         datepickerImgv.setOnClickListener(this);
 
+        etDate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_GO) {
+                    //do here your stuff
 
-        setToday();
+                    return true;
+                }
+                return false;
+            }
+        });
+        //etDate.setText(getToday());
     }
 
     private void setToolbarText() {
@@ -47,7 +59,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         tvAppbar.setText(getString(R.string.txt_draft_list));
     }
 
-    private void setToday() {
+    private String getToday() {
         PersianCalendar initDate = new PersianCalendar();
         int day = initDate.getPersianDay();
         int month = initDate.getPersianMonth();
@@ -56,7 +68,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         String formattedDay = (day < 10) ? ("0" + day) : String.valueOf(day);
 
         String myDate = year + "/" + formattedMonth + "/" + formattedDay;
-        etDate.setText(myDate);
+        return myDate;
     }
 
     private void setupViews() {

@@ -230,7 +230,7 @@
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_user_name"
+                        android:id="@+id/fragment_draft_info_all_service_page"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -265,7 +265,7 @@
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_condition"
+                        android:id="@+id/fragment_draft_info_all_descrip"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

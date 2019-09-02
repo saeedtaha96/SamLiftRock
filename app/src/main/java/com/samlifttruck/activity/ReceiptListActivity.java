@@ -38,7 +38,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         datepickerImgv.setOnClickListener(this);
 
 
-        setToday();
+        etDate.setText(getToday());
     }
 
     private void setToolbarText() {
@@ -46,7 +46,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         tvAppbar.setText(getString(R.string.txt_receipt_list));
     }
 
-    private void setToday() {
+    private String getToday() {
         PersianCalendar initDate = new PersianCalendar();
         int day = initDate.getPersianDay();
         int month = initDate.getPersianMonth();
@@ -55,7 +55,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         String formattedDay = (day < 10) ? ("0" + day) : String.valueOf(day);
 
         String myDate = year + "/" + formattedMonth + "/" + formattedDay;
-        etDate.setText(myDate);
+        return myDate;
     }
 
     private void setupViews() {

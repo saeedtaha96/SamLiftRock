@@ -2,32 +2,23 @@ package com.samlifttruck.activity.Models;
 
 public class PermListModel {
 
-    private String preFactorNum;
-    private String permNum;
-    private String custName;
-    private String date;
+    private String permNum = "";
+    private String date = "";
+    private String custName = "";
+    private String preFactorNum = "";
+    private String condition = "";
+    private String descrip = "";
 
-    public PermListModel(String draftNum, String permNum, String custName, String date) {
-        this.preFactorNum = draftNum;
-        this.custName = custName;
+    public PermListModel() {
+    }
+
+    public PermListModel(String permNum, String date, String custName, String preFactorNum, String condition, String descrip) {
         this.permNum = permNum;
         this.date = date;
-    }
-
-    public String getPreFactorNum() {
-        return preFactorNum;
-    }
-
-    public void setPreFactorNum(String draftNum) {
-        this.preFactorNum = draftNum;
-    }
-
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
         this.custName = custName;
+        this.preFactorNum = preFactorNum;
+        this.condition = condition;
+        this.descrip = descrip;
     }
 
     public String getPermNum() {
@@ -44,6 +35,38 @@ public class PermListModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getCustName() {
+        return custName;
+    }
+
+    public void setCustName(String custName) {
+        this.custName = custName;
+    }
+
+    public String getPreFactorNum() {
+        return preFactorNum;
+    }
+
+    public void setPreFactorNum(String preFactorNum) {
+        this.preFactorNum = preFactorNum;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getDescrip() {
+        return descrip;
+    }
+
+    public void setDescrip(String descrip) {
+        this.descrip = descrip;
     }
 
     @Override

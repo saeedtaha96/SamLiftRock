@@ -62,7 +62,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
         private View myItem;
         AppCompatActivity activity;
         DraftListInfoAllFragment frag;
-        private String sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip, sCondition;
+        private String sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip, sCondition;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,7 +78,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
         void bind(final DraftListModel item) {
             sDraftNum = item.getDraftNum();
             sPermNum = item.getPermNum();
-            sCustName = item.getCustName();
+            sReceiver = item.getReceiver();
             sDate = item.getDate();
             sDraftType = item.getDraftType();
             sServicePage = item.getServicePage();
@@ -87,14 +87,14 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
 
             draftNumb.setText(sDraftNum);
             permNumb.setText(sPermNum);
-            custName.setText(sCustName);
+            custName.setText(sReceiver);
             date.setText(sDate);
             condition.setText(sCondition);
             
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    frag = DraftListInfoAllFragment.newInstance(sDraftNum, sPermNum, sCustName, sDate, sDraftType, sServicePage, sDescrip);
+                    frag = DraftListInfoAllFragment.newInstance(sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
                 }
             });

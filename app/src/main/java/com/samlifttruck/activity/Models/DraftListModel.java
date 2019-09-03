@@ -2,31 +2,26 @@ package com.samlifttruck.activity.Models;
 
 public class DraftListModel {
 
-    private String draftNum;
-    private String permNum;
-    private String custName;
-    private String date;
-    private String draftType;
-    private String servicePage;
-    private String condition;
-    private String description;
+    private String draftNum = "";
+    private String permNum = "";
+    private String receiver = "";
+    private String date = "";
+    private String draftType = "";
+    private String servicePage = "";
+    private String condition = "";
+    private String description = "";
 
-    public DraftListModel(String draftNum, String permNum, String custName, String date, String draftType, String servicePage, String condition, String description) {
+    public DraftListModel() {
+    }
+
+    public DraftListModel(String draftNum, String permNum, String receiver, String date, String draftType, String servicePage, String condition, String description) {
         this.draftNum = draftNum;
         this.permNum = permNum;
-        this.custName = custName;
+        this.receiver = receiver;
         this.date = date;
         this.draftType = draftType;
         this.servicePage = servicePage;
         this.condition = condition;
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -46,12 +41,12 @@ public class DraftListModel {
         this.permNum = permNum;
     }
 
-    public String getCustName() {
-        return custName;
+    public String getReceiver() {
+        return receiver;
     }
 
-    public void setCustName(String custName) {
-        this.custName = custName;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     public String getDate() {
@@ -74,8 +69,8 @@ public class DraftListModel {
         return servicePage;
     }
 
-    public void setServicePage(String userName) {
-        this.servicePage = userName;
+    public void setServicePage(String servicePage) {
+        this.servicePage = servicePage;
     }
 
     public String getCondition() {
@@ -84,5 +79,13 @@ public class DraftListModel {
 
     public void setCondition(String condition) {
         this.condition = condition;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

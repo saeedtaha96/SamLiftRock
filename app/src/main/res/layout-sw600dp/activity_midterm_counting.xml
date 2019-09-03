@@ -184,31 +184,6 @@
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
 
-    <TextView
-        android:id="@+id/relative_midterm_tv_current_counting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/txt_unit"
-        android:layout_marginStart="@dimen/margin64"
-        android:layout_marginTop="@dimen/margin24"
-        android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/txt_unit"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="@string/txt_current_counting"
-        android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size18" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/relative_midterm_tv_current_counting"
-        android:layout_marginTop="@dimen/margin48"
-        android:layout_marginEnd="@dimen/margin64"
-        android:layout_toEndOf="@id/relative_midterm_tv_current_counting"
-        android:fontFamily="@font/iran_sans_web"
-        android:text="30"
-        android:textColor="@color/color_black_000000"
-        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/relative_midterm_tv_shelf_enter_new"

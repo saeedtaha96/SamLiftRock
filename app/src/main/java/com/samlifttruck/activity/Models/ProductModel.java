@@ -2,19 +2,19 @@ package com.samlifttruck.activity.Models;
 
 public class ProductModel {
 
-    private String sProductCode;
-    private String sTechNo;
-    private String sProductName;
-    private String sMainUnitID;
-    private String sProductTypeID;
-    private String sShelf;
-    private String OrderPoint;
-    private String OrderCount;
-    private String Description;
-    private String SerialNo;
-    private String s91;
-    private String s92;
-    private String withTax;
+    private String sProductCode = "";
+    private String sTechNo = "";
+    private String sProductName = "";
+    private String sMainUnitID = "";
+    private String sProductTypeID = "";
+    private String sShelf = "";
+    private String OrderPoint = "";
+    private String OrderCount = "";
+    private String Description = "";
+    private String SerialNo = "";
+    private String s91 = "";
+    private String s92 = "";
+    private String withTax = "";
 
     public ProductModel(String sProductCode, String sTechNo, String sProductName, String sMainUnitID, String sProductTypeID, String sShelf, String orderPoint, String orderCount, String description, String serialNo, String s91, String s92, String withTax) {
         this.sProductCode = sProductCode;

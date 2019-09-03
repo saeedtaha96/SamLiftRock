@@ -13,14 +13,15 @@ public class DataGenerator {
         List<DraftListModel> list = new ArrayList<>();
         String draftNum, permNum, custName, date;
         String mDate = "1";
+        DraftListModel draftModel;
         for (int i = 0; i < 15; i++) {
-           double a = (5 + (Math.random() * 30));
+            double a = (5 + (Math.random() * 30));
             draftNum = String.valueOf(20 * a);
             permNum = String.valueOf(12 * a);
             if (a < 10) {
                 mDate = "0" + (int) a;
             }
-            DraftListModel draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" +mDate,"123","hassan","con"+i, String.valueOf((int) a * i));
+            draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" + mDate, "123", "hassan", "con" + i, String.valueOf((int) a * i));
             list.add(draftModel);
         }
         return list;
@@ -30,6 +31,7 @@ public class DataGenerator {
         List<PermListModel> list = new ArrayList<>();
         String draftNum, permNum, custName, date;
         String mDate = "1";
+        PermListModel permModel;
         for (int i = 0; i < 15; i++) {
             double a = (5 + (Math.random() * 30));
             draftNum = String.valueOf(20 * a);
@@ -37,16 +39,17 @@ public class DataGenerator {
             if (a < 10) {
                 mDate = "0" + (int) a;
             }
-            PermListModel draftModel = new PermListModel(draftNum, permNum, "saeed" + i, "98/08/" +mDate);
-            list.add(draftModel);
+            permModel = new PermListModel(draftNum, permNum, "saeed" + i, "98/08/" + mDate, "1", "2");
+            list.add(permModel);
         }
         return list;
     }
 
     public static List<ReceiptListModel> getReceiptList() {
         List<ReceiptListModel> list = new ArrayList<>();
-        String draftNum, permNum, custName, date;
+        String draftNum, permNum;
         String mDate = "1";
+        ReceiptListModel receiptModel;
         for (int i = 0; i < 15; i++) {
             double a = (5 + (Math.random() * 30));
             draftNum = String.valueOf(20 * a);
@@ -54,8 +57,8 @@ public class DataGenerator {
             if (a < 10) {
                 mDate = "0" + (int) a;
             }
-            ReceiptListModel draftModel = new ReceiptListModel(draftNum, permNum, "saeed" + i, "98/08/" +mDate);
-            list.add(draftModel);
+            receiptModel = new ReceiptListModel(draftNum, permNum, "saeed" + i, "98/08/" + mDate, "2", "2", "2", "2");
+            list.add(receiptModel);
         }
         return list;
     }

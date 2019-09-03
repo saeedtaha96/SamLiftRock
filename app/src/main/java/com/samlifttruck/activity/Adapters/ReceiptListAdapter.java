@@ -8,9 +8,11 @@ import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Fragments.ReceiptListInfoAllFragment;
 import com.samlifttruck.activity.Models.ReceiptListModel;
 
 import java.util.ArrayList;
@@ -56,21 +58,30 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView draftNumb, receiptNum, custName, date;
+       // private TextView
+        private View myItem;
+        AppCompatActivity activity;
+        ReceiptListInfoAllFragment frag;
+       // private String
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            draftNumb = itemView.findViewById(R.id.activity_receipt_list_tv_draft_num);
-            receiptNum = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_num);
-            custName = itemView.findViewById(R.id.activity_receipt_list_tv_cust_name);
-            date = itemView.findViewById(R.id.activity_receipt_list_tv_date);
+
+            myItem = itemView;
         }
 
-        void bind(ReceiptListModel item) {
-            draftNumb.setText(item.getDraftNum());
-            receiptNum.setText(item.getReceiptNum());
-            custName.setText(item.getCustName());
-            date.setText(item.getDate());
+        void bind(final ReceiptListModel item) {
+
+
+
+
+            myItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                 //   frag = ReceiptListInfoAllFragment.newInstance();
+                   // activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
+                }
+            });
         }
     }
 }

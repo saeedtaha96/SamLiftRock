@@ -8,9 +8,12 @@ import android.view.animation.ScaleAnimation;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Fragments.PermListInfoAllFragment;
+import com.samlifttruck.activity.Fragments.ReceiptListInfoAllFragment;
 import com.samlifttruck.activity.Models.PermListModel;
 
 import java.util.ArrayList;
@@ -55,22 +58,36 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
     }
 
     // View Holder //
+
+    // TODO: Fix all this
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView preFactorNum, permNumb, custName, date;
+        // private TextView
+        private View myItem;
+        AppCompatActivity activity;
+        PermListInfoAllFragment frag;
+        // private String
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            preFactorNum = itemView.findViewById(R.id.activity_perm_list_tv_pre_factor_num);
-            permNumb = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
-            custName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
-            date = itemView.findViewById(R.id.activity_perm_list_tv_date);
+            //preFactorNum = itemView.findViewById(R.id.activity_perm_list_tv_pre_factor_num);
+           // permNumb = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
+           // custName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
+          //  date = itemView.findViewById(R.id.activity_perm_list_tv_date);
         }
 
         void bind(PermListModel item) {
-            preFactorNum.setText(item.getPreFactorNum());
-            permNumb.setText(item.getPermNum());
-            custName.setText(item.getCustName());
-            date.setText(item.getDate());
+           // preFactorNum.setText(item.getPreFactorNum());
+          //  permNumb.setText(item.getPermNum());
+          //  custName.setText(item.getCustName());
+          //  date.setText(item.getDate());
+
+            myItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+               //     frag = PermListInfoAllFragment.newInstance();
+                  //  activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
+                }
+            });
         }
     }
 }

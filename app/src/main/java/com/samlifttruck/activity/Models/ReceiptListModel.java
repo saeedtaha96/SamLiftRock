@@ -2,40 +2,35 @@ package com.samlifttruck.activity.Models;
 
 public class ReceiptListModel {
 
-    private String draftNum;
-    private String receiptNum;
-    private String custName;
-    private String date;
+    private String receiptNum = "";
+    private String date = "";
+    private String productDestiny = "";
+    private String receiptType = "";
+    private String condition = "";
+    private String descrip1 = "";
+    private String descrip2 = "";
+    private String descrip3 = "";
 
-    public ReceiptListModel(String draftNum, String receiptNum, String custName, String date) {
-        this.draftNum = draftNum;
-        this.custName = custName;
+    public ReceiptListModel() {
+    }
+
+    public ReceiptListModel(String receiptNum, String date, String productDestiny, String receiptType, String condition, String descrip1, String descrip2, String descrip3) {
         this.receiptNum = receiptNum;
         this.date = date;
-    }
-
-    public String getDraftNum() {
-        return draftNum;
-    }
-
-    public void setDraftNum(String draftNum) {
-        this.draftNum = draftNum;
-    }
-
-    public String getCustName() {
-        return custName;
-    }
-
-    public void setCustName(String custName) {
-        this.custName = custName;
+        this.productDestiny = productDestiny;
+        this.receiptType = receiptType;
+        this.condition = condition;
+        this.descrip1 = descrip1;
+        this.descrip2 = descrip2;
+        this.descrip3 = descrip3;
     }
 
     public String getReceiptNum() {
         return receiptNum;
     }
 
-    public void setRceiptNum(String permNum) {
-        this.receiptNum = permNum;
+    public void setReceiptNum(String receiptNum) {
+        this.receiptNum = receiptNum;
     }
 
     public String getDate() {
@@ -46,8 +41,51 @@ public class ReceiptListModel {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return draftNum + " of " + custName;
+    public String getProductDestiny() {
+        return productDestiny;
+    }
+
+    public void setProductDestiny(String productDestiny) {
+        this.productDestiny = productDestiny;
+    }
+
+    public String getReceiptType() {
+        return receiptType;
+    }
+
+    public void setReceiptType(String receiptType) {
+        this.receiptType = receiptType;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
+    }
+
+    public String getDescrip1() {
+        return descrip1;
+    }
+
+    public void setDescrip1(String descrip1) {
+        this.descrip1 = descrip1;
+    }
+
+    public String getDescrip2() {
+        return descrip2;
+    }
+
+    public void setDescrip2(String descrip2) {
+        this.descrip2 = descrip2;
+    }
+
+    public String getDescrip3() {
+        return descrip3;
+    }
+
+    public void setDescrip3(String descrip3) {
+        this.descrip3 = descrip3;
     }
 }

@@ -81,9 +81,9 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
         }
 
         void bind(ReceiptListModel item) {
-            shomareFanni.setText(item.getDraftNum());
+            shomareFanni.setText(item.getCondition());
             productName.setText(item.getReceiptNum());
-            inventory.setText(item.getCustName());
+            inventory.setText(item.getReceiptType());
             currCount.setText(item.getDate());
         }
     }

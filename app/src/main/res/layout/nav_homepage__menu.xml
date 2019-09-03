@@ -148,7 +148,7 @@
             android:layout_weight="@dimen/nav_menu_weight_digit"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_receipt_type_24dp"
+            android:src="@drawable/ic_receipt_num_24dp"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView

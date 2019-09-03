@@ -23,19 +23,32 @@
         android:layout_marginBottom="@dimen/margin24"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="8">
+        android:weightSum="9">
+
+
+        <ImageView
+            android:id="@+id/activity_draft_imgv_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1.5"
+            android:background="@drawable/shape_borderless_datepicker"
+            android:padding="@dimen/margin12"
+            android:scaleType="fitCenter"
+            android:src="@drawable/search_40dp"
+            android:tint="@color/color_black_000000" />
 
         <EditText
             android:id="@+id/login_input_datepicker"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="7"
-            android:background="@drawable/shape_borderless_datepicker"
+            android:layout_weight="6"
+            android:background="@drawable/shape_date"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center"
-            android:imeOptions="actionSearch"
             android:hint="@string/txt_date"
+            android:imeOptions="actionSearch"
             android:inputType="date"
             android:paddingStart="@dimen/margin32"
             android:paddingTop="@dimen/margin24"
@@ -53,7 +66,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:background="@drawable/shape_borderless_datepickerleft"
             android:padding="@dimen/margin12"
             android:scaleType="fitCenter"

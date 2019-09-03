@@ -61,7 +61,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 final int DRAWABLE_BOTTOM = 3;
 
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
+                    if (event.getRawX() <= (etFanniNumb.getRight() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
                         ;
                     {
                         // your action here
@@ -85,7 +85,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
 
     private void setupViews() {
         scannerView = findViewById(R.id.scanner_midterm);
-        etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
+        etFanniNumb = findViewById(R.id.activity_midterm_et_shomare_fanni);
         btnTodayList = findViewById(R.id.activity_midterm_imgv_today_list);
     }
 

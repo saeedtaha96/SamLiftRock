@@ -154,46 +154,75 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/product_end_start_margin"
-                android:layout_marginTop="@dimen/margin80"
+                android:layout_marginTop="@dimen/margin128"
                 android:layout_marginEnd="@dimen/product_end_start_margin"
                 android:orientation="vertical">
 
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_rect8_white">
 
-                <org.angmarch.views.NiceSpinner
-                    android:id="@+id/spinner_type"
+                    <org.angmarch.views.NiceSpinner
+                        android:id="@+id/spinner_type"
+                        style="@style/AppFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:dropDownSelector="@drawable/shape_rect_white"
+                        android:gravity="center"
+                        android:hint="@string/txt_spin_type"
+                        android:layoutDirection="ltr"
+                        android:padding="@dimen/margin24"
+                        android:text="@string/txt_spin_type"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_size18"
+                        android:theme="@style/spinnerTheme" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/AppFont"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="@dimen/margin64"
+                        android:hint="@string/txt_spin_type"
+                        android:textSize="@dimen/text_size18" />
+
+                </FrameLayout>
+
+                <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    style="@style/AppFont"
-                    android:background="@drawable/shape_rect8_white"
-                    android:dropDownSelector="@drawable/shape_rect_white"
-                    android:gravity="center"
-                    android:hint="@string/txt_spin_type"
-                    android:layoutDirection="ltr"
-                    android:padding="@dimen/margin24"
-                    android:text="@string/txt_spin_type"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/text_size18"
-                    android:theme="@style/spinnerTheme" />
-
-                <org.angmarch.views.NiceSpinner
-                    android:id="@+id/spinner_unit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    style="@style/AppFont"
-                    android:layout_marginTop="@dimen/margin32"
+                    android:layout_marginTop="@dimen/margin64"
                     android:layout_marginBottom="@dimen/margin32"
-                    android:background="@drawable/shape_rect8_white"
-                    android:dropDownSelector="@drawable/shape_rect_white"
-                    android:gravity="center"
-                    android:hint="@string/txt_unit"
-                    android:layoutDirection="rtl"
-                    android:padding="@dimen/margin24"
-                    android:text="@string/txt_unit"
-                    android:textAlignment="center"
-                    android:textSize="@dimen/text_size18"
-                    android:theme="@style/spinnerTheme" />
+                    android:background="@drawable/shape_rect8_white">
+
+                    <org.angmarch.views.NiceSpinner
+                        android:id="@+id/spinner_unit"
+                        style="@style/AppFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:dropDownSelector="@drawable/shape_rect_white"
+                        android:gravity="center"
+                        android:hint="@string/txt_unit"
+                        android:layoutDirection="rtl"
+                        android:padding="@dimen/margin24"
+                        android:text="@string/txt_unit"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_size18"
+                        android:theme="@style/spinnerTheme" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|start"
+                        android:layout_marginStart="@dimen/margin64"
+                        android:hint="@string/txt_unit"
+                        style="@style/AppFont"
+                        android:textSize="@dimen/text_size18" />
+                </FrameLayout>
 
             </LinearLayout>
 

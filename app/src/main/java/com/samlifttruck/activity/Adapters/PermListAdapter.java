@@ -73,6 +73,7 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
            // permNumb = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
            // custName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
           //  date = itemView.findViewById(R.id.activity_perm_list_tv_date);
+            myItem = itemView;
         }
 
         void bind(PermListModel item) {

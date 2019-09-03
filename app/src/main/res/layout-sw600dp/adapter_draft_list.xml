@@ -93,7 +93,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/relative_tv_cust_name"
+            android:id="@+id/relative_tv_product_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_linear_draft_list"
@@ -110,9 +110,9 @@
             android:id="@+id/activity_draft_list_tv_cust_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/relative_tv_cust_name"
+            android:layout_alignBottom="@id/relative_tv_product_source"
             android:layout_marginStart="@dimen/margin32"
-            android:layout_toEndOf="@id/relative_tv_cust_name"
+            android:layout_toEndOf="@id/relative_tv_product_source"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center"
             android:text="رابرت محمود"
@@ -127,7 +127,7 @@
             android:fontFamily="@font/iran_sans_web"
             android:text="98/08/02"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/relative_tv_cust_name"
+            android:layout_alignTop="@id/relative_tv_product_source"
             android:textColor="@color/color_gray_text" />
 
     </RelativeLayout>

@@ -92,4 +92,6 @@
     <string name="txt_receiver">تحویل‌گیرنده</string>
     <string name="txt_service_page">برگ سرویس</string>
     <string name="txt_condition_dd">وضعیت:</string>
+    <string name="txt_product_source">مبدأ کالا:</string>
+    <string name="txt_receipt_type">نوع رسید:</string>
 </resources>

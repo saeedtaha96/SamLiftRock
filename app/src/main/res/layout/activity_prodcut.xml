@@ -18,6 +18,7 @@
         android:layout_below="@id/activity_shelf_toolbar">
 
         <LinearLayout
+            android:padding="@dimen/margin32"
             android:id="@+id/relative_linear_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,7 +155,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/product_end_start_margin"
-                android:layout_marginTop="@dimen/margin128"
+                android:layout_marginTop="@dimen/margin80"
                 android:layout_marginEnd="@dimen/product_end_start_margin"
                 android:orientation="vertical">
 
@@ -186,7 +187,7 @@
                         android:layout_gravity="center_vertical|start"
                         android:layout_marginStart="@dimen/margin64"
                         android:hint="@string/txt_spin_type"
-                        android:textSize="@dimen/text_size18" />
+                        android:textSize="@dimen/text_size14" />
 
                 </FrameLayout>
 
@@ -203,7 +204,6 @@
                         style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:dropDownSelector="@drawable/shape_rect_white"
                         android:gravity="center"
                         android:hint="@string/txt_unit"
@@ -221,7 +221,7 @@
                         android:layout_marginStart="@dimen/margin64"
                         android:hint="@string/txt_unit"
                         style="@style/AppFont"
-                        android:textSize="@dimen/text_size18" />
+                        android:textSize="@dimen/text_size14" />
                 </FrameLayout>
 
             </LinearLayout>

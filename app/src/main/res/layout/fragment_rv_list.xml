@@ -3,13 +3,14 @@
     android:id="@+id/activity_rv_list_recyclerview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/margin12"
     android:background="@color/color_white_FFFFFF"
-    android:clipToPadding="true"
+    android:clipToPadding="false"
+    android:paddingTop="@dimen/margin12"
+android:paddingBottom="@dimen/margin12"
     android:paddingStart="@dimen/margin12"
     android:layoutDirection="rtl"
     android:paddingEnd="@dimen/margin12"
-    android:paddingBottom="@dimen/margin8">
+    >
 
 
 </androidx.recyclerview.widget.RecyclerView>

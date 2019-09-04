@@ -59,8 +59,8 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setupViews() {
-        etDate = findViewById(R.id.login_input_datepicker);
-        datepickerImgv = findViewById(R.id.activity_receipt_imgv_datepicker);
+        etDate = findViewById(R.id.activity_datepicker_input_datepicker);
+        datepickerImgv = findViewById(R.id.activity_datepicker_imgv_datepicker);
     }
 
 
@@ -68,7 +68,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         int v = view.getId();
 
-        if (v == R.id.activity_receipt_imgv_datepicker) {
+        if (view.equals(datepickerImgv)) {
             //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();

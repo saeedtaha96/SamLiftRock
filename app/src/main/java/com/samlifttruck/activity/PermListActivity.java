@@ -58,8 +58,8 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setupViews() {
-        etDate = findViewById(R.id.login_input_datepicker);
-        datepickerImgv = findViewById(R.id.activity_perm_imgv_datepicker);
+        etDate = findViewById(R.id.activity_datepicker_input_datepicker);
+        datepickerImgv = findViewById(R.id.activity_datepicker_imgv_datepicker);
     }
 
 
@@ -67,7 +67,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         int v = view.getId();
 
-        if (v == R.id.activity_perm_imgv_datepicker) {
+        if (view.equals(datepickerImgv)) {
             //inital datepicker date
             PersianCalendar initDate = new PersianCalendar();
             int day = initDate.getPersianDay();

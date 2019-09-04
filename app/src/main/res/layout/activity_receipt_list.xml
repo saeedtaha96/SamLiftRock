@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,68 +13,9 @@
         android:id="@+id/activity_receipt_appbar"
         layout="@layout/toolbar_custom_back_btn" />
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="@dimen/margin24"
-        android:layout_marginTop="@dimen/margin24"
-        android:layout_marginEnd="@dimen/margin24"
-        android:layout_marginBottom="@dimen/margin24"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="9">
-
-
-        <ImageView
-            android:id="@+id/activity_draft_imgv_search"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@drawable/shape_borderless_datepicker"
-            android:padding="@dimen/margin12"
-            android:scaleType="fitCenter"
-            android:src="@drawable/search_40dp"
-            android:tint="@color/color_black_000000" />
-
-        <EditText
-            android:id="@+id/login_input_datepicker"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="6"
-            android:background="@drawable/shape_date"
-            android:fontFamily="@font/iran_sans_web"
-            android:gravity="center"
-            android:hint="@string/txt_date"
-            android:imeOptions="actionSearch"
-            android:inputType="date"
-            android:paddingStart="@dimen/margin32"
-            android:paddingTop="@dimen/margin24"
-            android:paddingEnd="@dimen/margin32"
-            android:paddingBottom="@dimen/margin16"
-            android:singleLine="true"
-            android:textAlignment="gravity"
-            android:textColor="@color/color_black_000000"
-            android:textColorHint="@color/color_gray_text"
-            android:textDirection="ltr"
-            android:textSize="@dimen/text_size16" />
-
-        <ImageView
-            android:id="@+id/activity_receipt_imgv_datepicker"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@drawable/shape_borderless_datepickerleft"
-            android:padding="@dimen/margin12"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_date_range_black_24dp" />
-
-    </LinearLayout>
-
+    <include
+        android:id="@+id/activity_receipt_list_datepicker"
+        layout="@layout/layout_datepicker" />
 
     <FrameLayout
         android:id="@+id/fragment_container_receipt_list"

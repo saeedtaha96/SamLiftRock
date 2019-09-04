@@ -61,8 +61,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 final int DRAWABLE_BOTTOM = 3;
 
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() <= (etFanniNumb.getRight() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
-                        ;
+                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
                     {
                         // your action here
                         if (etFanniNumb.getText().toString().equals("")) {

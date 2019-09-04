@@ -13,75 +13,9 @@
         android:id="@+id/activity_draft_appbar"
         layout="@layout/toolbar_custom_back_btn" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_blue_theme_004677"
-        android:layout_gravity="center_horizontal"
-        app:cardElevation="@dimen/margin12">
-
-        <LinearLayout
-            android:layout_marginTop="@dimen/margin24"
-            android:layout_marginBottom="@dimen/margin24"
-            android:layout_marginEnd="@dimen/margin24"
-            android:layout_marginStart="@dimen/margin24"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="9">
-
-            <ImageView
-                android:id="@+id/activity_draft_imgv_search"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1.5"
-                android:background="@drawable/shape_borderless_datepicker"
-                android:padding="@dimen/margin12"
-                android:scaleType="fitCenter"
-                android:src="@drawable/search_40dp"
-                android:tint="@color/color_black_000000" />
-
-            <EditText
-                android:id="@+id/login_input_datepicker"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="6"
-                android:background="@drawable/shape_date"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="center"
-                android:hint="@string/txt_date"
-                android:imeOptions="actionGo"
-                android:inputType="date"
-                android:maxLength="12"
-                android:paddingStart="@dimen/margin32"
-                android:paddingTop="@dimen/margin24"
-                android:paddingEnd="@dimen/margin32"
-                android:paddingBottom="@dimen/margin16"
-                android:singleLine="true"
-                android:textAlignment="center"
-                android:textColor="@color/color_black_000000"
-                android:textColorHint="@color/color_gray_text"
-                android:textDirection="ltr"
-                android:textSize="@dimen/text_size16" />
-
-            <ImageView
-                android:id="@+id/activity_draft_imgv_datepicker"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1.5"
-                android:background="@drawable/shape_borderless_datepickerleft"
-                android:padding="@dimen/margin12"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_date_range_black_24dp" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+    <include
+        android:id="@+id/activity_draft_list_datepicker"
+        layout="@layout/layout_datepicker" />
 
     <FrameLayout
         android:id="@+id/fragment_container_draft_list"

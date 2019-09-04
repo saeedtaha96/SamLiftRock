@@ -29,7 +29,7 @@
                 android:drawablePadding="@dimen/margin8"
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
-                android:text="@string/txt_pre_factor_numb"
+                android:text="@string/txt_pre_factor_numb_dd"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/lists_text_size" />
 

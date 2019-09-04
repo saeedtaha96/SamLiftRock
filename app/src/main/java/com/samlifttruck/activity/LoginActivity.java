@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,13 +19,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 
 import com.gdacciaro.iOSDialog.iOSDialog;
 import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.Utility;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 
@@ -48,7 +47,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegDevice.setOnClickListener(this);
 
         getPremission();
-
         getDeviceId();
     }
 
@@ -161,37 +159,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        Typeface font = ResourcesCompat.getFont(this, R.font.iran_sans_web);
+
         switch (id) {
             case R.id.activity_login_tv_reg_device:
 
                 if (getPremission()) {
+                    iOSDialogBuilder dialog = Utility.newIOSdialog(LoginActivity.this);
 
-                    new iOSDialogBuilder(LoginActivity.this)
-                            .setTitle(imei)
+                    dialog.
+                            setTitle("کد: " + "" + imei)
                             .setSubtitle(getString(R.string.txt_reg_device) + "\n" + getString(R.string.txt_reg_device_send_email))
-                            .setBoldPositiveLabel(true)
-                            .setCancelable(false)
                             .setPositiveListener(getString(R.string.txt_email), new iOSDialogClickListener() {
                                 @Override
                                 public void onClick(iOSDialog dialog) {
                                     final Intent intent = new Intent(Intent.ACTION_VIEW);
-                                    intent.setData(Uri.parse("mailto:" + "ma.fatemi@gmail.com")).
+                                    intent.
+                                            setData(Uri.parse("mailto:" + "ma.fatemi@gmail.com")).
                                             putExtra(Intent.EXTRA_SUBJECT, "Sam IMEI code").
                                             putExtra(Intent.EXTRA_TEXT, imei);
-
                                     startActivity(intent);
                                     dialog.dismiss();
-
                                 }
                             })
                             .setNegativeListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
                                 @Override
                                 public void onClick(iOSDialog dialog) {
-
                                     dialog.dismiss();
                                 }
-                            }).setFont(font)
+                            })
                             .build().show();
                 } else {
                     Toast.makeText(this, getString(R.string.txt_need_permission), Toast.LENGTH_SHORT).show();

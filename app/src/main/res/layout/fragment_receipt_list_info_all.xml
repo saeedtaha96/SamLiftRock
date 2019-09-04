@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin24"
     android:background="@color/color_white_FFFFFF"
     android:layoutDirection="rtl">
 
@@ -46,13 +47,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_draft_num"
+                        android:text="@string/txt_receipt_num"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_draft_num"
+                        android:id="@+id/fragment_receipt_info_all_receipt_num"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -86,7 +87,7 @@
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_date"
+                        android:id="@+id/fragment_receipt_info_all_date"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -97,7 +98,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -115,13 +115,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_receiver"
+                        android:text="@string/txt_product_source"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <EditText
-                        android:id="@+id/fragment_draft_info_all_cust_name"
+                        android:id="@+id/fragment_receipt_info_all_product_source"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -136,7 +136,6 @@
                         tools:text="1236" />
 
 
-
                 </TableRow>
 
                 <TableRow
@@ -153,13 +152,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_perm_num_2"
+                        android:text="@string/txt_receipt_type"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_permNum"
+                        android:id="@+id/fragment_receipt_info_all_receipt_type"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -171,7 +170,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -189,13 +187,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_draft_type"
+                        android:text="@string/txt_descrip_1"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_draft_type"
+                        android:id="@+id/fragment_receipt_info_all_descrip1"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -206,7 +204,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -224,13 +221,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_service_page"
+                        android:text="@string/txt_descrip_2"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_service_page"
+                        android:id="@+id/fragment_receipt_info_all_descrip2"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -241,7 +238,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -259,23 +255,23 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_product_descrip"
+                        android:text="@string/txt_descrip_3"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
                     <TextView
-                        android:id="@+id/fragment_draft_info_all_descrip"
+                        android:id="@+id/fragment_receipt_info_all_descrip3"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
-                        android:maxLines="2"
-                        android:gravity="center"
                         android:ellipsize="end"
-                        android:text="@string/txt_email"
+                        android:gravity="center"
+                        android:maxLines="2"
                         android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_email"
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
@@ -326,12 +322,12 @@
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/fragment_receipt_info_all_pbar"
             style="@style/SpinKitView.Circle"
-            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_tv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin80"
+            android:visibility="visible"
             app:SpinKit_Color="@color/colorAccent" />
 
 

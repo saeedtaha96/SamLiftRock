@@ -66,8 +66,8 @@
     <string name="txt_perm_num">شماره مجوز:</string>
     <string name="txt_cust_name">نام مشتری:</string>
     <string name="txt_exit_app">خروج</string>
-    <string name="txt_receipt_num">شماره رسید:</string>
-    <string name="txt_pre_factor_numb">شماره پیش فاکتور:</string>
+    <string name="txt_receipt_num_dd">شماره رسید:</string>
+    <string name="txt_pre_factor_numb_dd">شماره پیش فاکتور:</string>
     <string name="txt_about_us">درباره ما</string>
     <string name="txt_register_phone">ثبت دستگاه؟</string>
     <string name="txt_reject">عدم تایید</string>
@@ -88,10 +88,17 @@
     <string name="txt_email">ایمیل</string>
     <string name="txt_need_permission">برای ثبت دستگاه نیاز به اهدای مجوز دارید</string>
     <string name="txt_reg_device">جهت ثبت دستگاه در سامانه، با ادمین تماس بگیرید.</string>
-    <string name="txt_reg_device_send_email">همچنین میتوانید درخواست خود را از طریق پست الکترونیکی ارسال کنید.</string>
     <string name="txt_receiver">تحویل‌گیرنده</string>
     <string name="txt_service_page">برگ سرویس</string>
     <string name="txt_condition_dd">وضعیت:</string>
-    <string name="txt_product_source">مبدأ کالا:</string>
-    <string name="txt_receipt_type">نوع رسید:</string>
+    <string name="txt_product_source_dd">مبدأ کالا:</string>
+    <string name="txt_receipt_type_dd">نوع رسید:</string>
+    <string name="txt_reg_device_send_email">همچنین می‌توانید درخواست خود را از طریق پست الکترونیکی ارسال کنید.</string>
+    <string name="txt_pre_factor_numb">شماره پیش‌فاکتور</string>
+    <string name="txt_receipt_num">شماره رسید</string>
+    <string name="txt_product_source">مبدأ کالا</string>
+    <string name="txt_receipt_type">نوع رسید</string>
+    <string name="txt_descrip_1">توضیح 1</string>
+    <string name="txt_descrip_2">توضیح 2</string>
+    <string name="txt_descrip_3">توضیح 3</string>
 </resources>

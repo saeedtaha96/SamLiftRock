@@ -2,9 +2,8 @@
 <androidx.cardview.widget.CardView android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="0dp"
+    app:cardElevation="@dimen/margin12"
     android:layoutDirection="rtl"
-
-    app:cardBackgroundColor="@color/colorPrimary"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -41,7 +40,8 @@
             android:layout_weight="6"
             android:background="@drawable/shape_date"
             style="@style/AppFont"
-            android:inputType="date|number"
+            android:inputType="date|text"
+            android:digits="123456789/"
             android:gravity="center"
             android:hint="@string/txt_date"
             android:paddingStart="@dimen/margin32"

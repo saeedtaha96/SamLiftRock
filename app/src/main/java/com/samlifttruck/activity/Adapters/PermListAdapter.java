@@ -61,32 +61,42 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
 
     // TODO: Fix all this
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        // private TextView
+        private TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvCondition;
         private View myItem;
         AppCompatActivity activity;
         PermListInfoAllFragment frag;
-        // private String
+        private String mPermNum, mDate, mCustName, mPreFactorNum, mDescrip, mCondition;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            //preFactorNum = itemView.findViewById(R.id.activity_perm_list_tv_pre_factor_num);
-           // permNumb = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
-           // custName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
-          //  date = itemView.findViewById(R.id.activity_perm_list_tv_date);
+            tvPreFactorNum = itemView.findViewById(R.id.activity_perm_list_tv_pre_factor_num);
+            tvPermNum = itemView.findViewById(R.id.activity_perm_list_tv_perm_num);
+            tvCustName = itemView.findViewById(R.id.activity_perm_list_tv_cust_name);
+            tvDate = itemView.findViewById(R.id.activity_perm_list_tv_date);
+            tvCondition = itemView.findViewById(R.id.activity_perm_list_tv_condition);
+            activity = (AppCompatActivity) itemView.getContext();
             myItem = itemView;
         }
 
         void bind(PermListModel item) {
-           // preFactorNum.setText(item.getPreFactorNum());
-          //  permNumb.setText(item.getPermNum());
-          //  custName.setText(item.getCustName());
-          //  date.setText(item.getDate());
+            mPermNum = item.getPermNum();
+            mDate = item.getDate();
+            mCustName = item.getCustName();
+            mPreFactorNum = item.getPreFactorNum();
+            mDescrip = item.getDescrip();
+            mCondition = item.getCondition();
+
+            tvPreFactorNum.setText(mPreFactorNum);
+            tvPermNum.setText(mPermNum);
+            tvCustName.setText(mCustName);
+            tvDate.setText(mDate);
+            tvCondition.setText(mCondition);
 
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-               //     frag = PermListInfoAllFragment.newInstance();
-                  //  activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
+                    frag = PermListInfoAllFragment.newInstance(mPermNum,mDate,mCustName,mPreFactorNum,mDescrip);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, frag).addToBackStack(null).commit();
                 }
             });
         }

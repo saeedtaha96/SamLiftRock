@@ -100,7 +100,6 @@
                         tools:text="1236" />
 
 
-
                 </TableRow>
 
                 <TableRow
@@ -135,7 +134,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -174,7 +172,6 @@
                         tools:text="1236" />
 
 
-
                 </TableRow>
 
                 <TableRow
@@ -207,7 +204,6 @@
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
-
 
 
                 </TableRow>
@@ -244,7 +240,6 @@
                         tools:text="1236" />
 
 
-
                 </TableRow>
 
                 <TableRow
@@ -272,11 +267,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
-                        android:maxLines="2"
-                        android:gravity="center"
                         android:ellipsize="end"
-                        android:text="@string/txt_email"
+                        android:gravity="center"
+                        android:maxLines="2"
                         android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_email"
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
@@ -329,6 +324,7 @@
             style="@style/SpinKitView.Circle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             android:layout_below="@id/relative_tv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/margin80"

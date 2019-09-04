@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,24 +16,21 @@ public class PermListInfoAllFragment extends Fragment {
 // TODO: fix this class
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String DRAFT_NUM_KEY = "draftNum";
-    private static final String DATE_KEY = "date";
-    private static final String CUSTOMER_NAME_KEY = "custName";
-    private static final String PERM_NUMB_KEY = "permNum";
-    private static final String DRAFT_TYPE_KEY = "draftType";
-    private static final String SERVICE_PAGE_KEY = "servicePage";
-    private static final String DESCRIPTION_KEY = "descrip";
+    private static final String PERM_NUM_KEY = "1";
+    private static final String DATE_KEY = "2";
+    private static final String CUSTOMER_NAME_KEY = "3";
+    private static final String PRE_FACTOR_KEY = "4";
+    private static final String DESCRIPTION_KEY = "5";
 
     // Views
-    TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
+    TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvDescrip;
+    RecyclerView rvPermListStuff;
 
     // TODO: Rename and change types of parameters
-    private String mDraftNum;
+    private String mPermNum;
     private String mDate;
     private String mCustName;
-    private String mPermNum;
-    private String mDraftType;
-    private String mServicePage;
+    private String mPreFactorNum;
     private String mDescrip;
 
     public PermListInfoAllFragment() {
@@ -40,15 +38,13 @@ public class PermListInfoAllFragment extends Fragment {
     }
 
 
-    public static DraftListInfoAllFragment newInstance(String draftNum, String permNum, String custName, String date, String draftType, String servicePage, String descrip) {
-        DraftListInfoAllFragment fragment = new DraftListInfoAllFragment();
+    public static PermListInfoAllFragment newInstance(String permNum, String date, String custName, String preFactorNum, String descrip) {
+        PermListInfoAllFragment fragment = new PermListInfoAllFragment();
         Bundle args = new Bundle();
-        args.putString(DRAFT_NUM_KEY, draftNum);
-        args.putString(PERM_NUMB_KEY, permNum);
-        args.putString(CUSTOMER_NAME_KEY, custName);
+        args.putString(PERM_NUM_KEY, permNum);
         args.putString(DATE_KEY, date);
-        args.putString(DRAFT_TYPE_KEY, draftType);
-        args.putString(SERVICE_PAGE_KEY, servicePage);
+        args.putString(CUSTOMER_NAME_KEY, custName);
+        args.putString(PRE_FACTOR_KEY, preFactorNum);
         args.putString(DESCRIPTION_KEY, descrip);
         fragment.setArguments(args);
         return fragment;
@@ -58,12 +54,10 @@ public class PermListInfoAllFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mDraftNum = getArguments().getString(DRAFT_NUM_KEY);
-            mPermNum = getArguments().getString(PERM_NUMB_KEY);
-            mCustName = getArguments().getString(CUSTOMER_NAME_KEY);
+            mPermNum = getArguments().getString(PERM_NUM_KEY);
             mDate = getArguments().getString(DATE_KEY);
-            mDraftType = getArguments().getString(DRAFT_TYPE_KEY);
-            mServicePage = getArguments().getString(SERVICE_PAGE_KEY);
+            mCustName = getArguments().getString(CUSTOMER_NAME_KEY);
+            mPreFactorNum = getArguments().getString(PRE_FACTOR_KEY);
             mDescrip = getArguments().getString(DESCRIPTION_KEY);
         }
     }
@@ -71,22 +65,19 @@ public class PermListInfoAllFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_draft_list_info_all, container, false);
-        tvDraftNum = rootView.findViewById(R.id.fragment_draft_info_all_draft_num);
-        tvPermNum = rootView.findViewById(R.id.fragment_draft_info_all_permNum);
-        tvCustName = rootView.findViewById(R.id.fragment_draft_info_all_cust_name);
-        tvDate = rootView.findViewById(R.id.fragment_draft_info_all_date);
-        tvDraftType = rootView.findViewById(R.id.fragment_draft_info_all_draft_type);
-        tvServicePage = rootView.findViewById(R.id.fragment_draft_info_all_service_page);
-        tvDescrip = rootView.findViewById(R.id.fragment_draft_info_all_descrip);
+        View rootView = inflater.inflate(R.layout.fragment_perm_list_info_all, container, false);
+        tvPermNum = rootView.findViewById(R.id.fragment_perm_info_all_perm_num);
+        tvCustName = rootView.findViewById(R.id.fragment_perm_info_all_cust_name);
+        tvDate = rootView.findViewById(R.id.fragment_perm_info_all_date);
+        tvPreFactorNum = rootView.findViewById(R.id.fragment_perm_info_all_prefactor_num);
+        tvDescrip = rootView.findViewById(R.id.fragment_perm_info_all_descrip);
+        rvPermListStuff = rootView.findViewById(R.id.fragment_perm_info_all_recyclerview);
 
         if (getArguments() != null) {
-            tvDraftNum.setText(mDraftNum);
             tvPermNum.setText(mPermNum);
             tvCustName.setText(mCustName);
             tvDate.setText(mDate);
-            tvDraftType.setText(mDraftType);
-            tvServicePage.setText(mServicePage);
+            tvPreFactorNum.setText(mPreFactorNum);
             tvDescrip.setText(mDescrip);
         }
         return rootView;

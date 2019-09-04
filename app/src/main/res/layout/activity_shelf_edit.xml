@@ -32,60 +32,22 @@
         app:laserColor="@color/color_red_refuse"
         app:laserEnabled="true" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/activity_shelf_et_shomare"
+    <include
+        android:id="@+id/activity_shelf_layout_tech_no"
+        layout="@layout/layout_tech_number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scanner_shelf"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
         android:layout_marginStart="@dimen/shelf_edit_side_margin"
         android:layout_marginTop="@dimen/margin8"
         android:layout_marginEnd="@dimen/shelf_edit_side_margin"
-        android:gravity="start"
-        android:textColorHint="@color/color_gray_text"
-        app:boxBackgroundColor="@color/color_white_FFFFFF"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/radius10"
-        app:boxCornerRadiusBottomStart="@dimen/radius10"
-        app:boxCornerRadiusTopEnd="@dimen/radius10"
-        app:boxCornerRadiusTopStart="@dimen/radius10"
-        app:boxStrokeColor="@color/color_blue_theme_004677"
-        app:boxStrokeWidth="1dp"
-        app:hintAnimationEnabled="true"
-        app:hintTextAppearance="@style/hintTextLabel">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/activity_shelf_et_shomare_fanni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin24"
-            android:layout_marginBottom="@dimen/margin8"
-            android:drawableStart="@drawable/ic_search_black_24dp"
-            android:fontFamily="@font/iran_sans_web"
-            android:gravity="start|center"
-            android:hint="@string/shomare_fanni"
-            android:inputType="text"
-            android:layoutDirection="ltr"
-            android:paddingStart="@dimen/margin24"
-            android:paddingTop="@dimen/margin12"
-            android:paddingEnd="@dimen/margin48"
-            android:paddingBottom="@dimen/margin12"
-            android:singleLine="true"
-            android:textAlignment="center"
-            android:textColor="@color/color_gray_text"
-            android:textColorHint="@color/color_black_000000"
-            android:textDirection="ltr"
-            android:textSize="@dimen/text_size21" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scanner_shelf" />
 
 
     <TextView
         android:id="@+id/relative_midterm_tv_product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/activity_shelf_et_shomare"
+        android:layout_below="@id/activity_shelf_layout_tech_no"
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"

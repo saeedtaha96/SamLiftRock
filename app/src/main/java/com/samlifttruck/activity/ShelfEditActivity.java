@@ -1,22 +1,15 @@
 package com.samlifttruck.activity;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.hardware.Camera;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +21,8 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.SamApi;
 import com.samlifttruck.activity.Models.ProductModel;
+import com.samlifttruck.activity.DataGenerators.Utility.SOAP;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,8 +35,6 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -51,11 +42,7 @@ import static android.Manifest.permission.CAMERA;
 
 public class ShelfEditActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
-    private static final String SOAP_ACTION = "http://tempuri.org/GetProductByTechNoj";
-    private static final String METHOD = "GetProductByTechNoj";
-    private static final String URL = "http://192.168.1.10:8090/samWebService.asmx";
-    private static final String NAMESPACE = "http://tempuri.org/";
-    private static final int TIMEOUT = 15000;
+
 
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
@@ -114,7 +101,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
     private void setupViews() {
         scannerView = findViewById(R.id.scanner_shelf);
-        etFanniNumb = findViewById(R.id.activity_shelf_et_shomare_fanni);
+        etFanniNumb = findViewById(R.id.layout_et_tech_no);
         progressBar = findViewById(R.id.activity_shelf_pbar);
         tvProductName = findViewById(R.id.activity_shelf_tv_product_name);
         tvShelfNum = findViewById(R.id.activity_shelf_tv_shelf_number);
@@ -243,7 +230,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
         @Override
         protected String doInBackground(String... strings) {
-            SoapObject request = new SoapObject(NAMESPACE, METHOD);
+            SoapObject request = new SoapObject(SOAP.NAMESPACE, SOAP.METHOD_GET_PRODUCT);
             PropertyInfo p = new PropertyInfo();
             p.setName("passCode");
             p.setValue(strings[0]);
@@ -262,10 +249,10 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
             envelope.setOutputSoapObject(request);
 
-            HttpTransportSE transportSE = new HttpTransportSE(URL, TIMEOUT);
+            HttpTransportSE transportSE = new HttpTransportSE(SOAP.URL, SOAP.TIMEOUT);
 
             try {
-                transportSE.call(SOAP_ACTION, envelope);
+                transportSE.call(SOAP.SOAP_ACTION_GET_PRODUCT, envelope);
 
                 SoapObject ss = (SoapObject) envelope.bodyIn;
                 if (ss.getPropertyCount() >= 1) {

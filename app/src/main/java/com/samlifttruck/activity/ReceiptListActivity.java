@@ -110,7 +110,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     }
 
     public void onBackBtnClick(View view) {
-        finish();
+        onBackPressed();
     }
 }
 

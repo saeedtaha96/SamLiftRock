@@ -20,6 +20,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 
 public class SamApi {
@@ -33,13 +34,15 @@ public class SamApi {
     private static final int TIMEOUT = 15000;
 
 
-    public static class SoapCallProduct extends AsyncTask<String, Object, String> {
+    public class SoapCallProduct extends AsyncTask<String, Object, String> {
         String response;
         ProgressBar progressBar;
         ProductModel pm;
+        String method;
 
-        public SoapCallProduct(ProgressBar progressBar) {
-            this.progressBar = progressBar;
+        public SoapCallProduct(String method, Map<String, Integer>... map) {
+
+            this.method = method;
         }
 
         @Override

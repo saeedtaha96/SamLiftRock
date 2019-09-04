@@ -124,6 +124,6 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
     }
 
     public void onBackBtnClick(View view) {
-        finish();
+        onBackPressed();
     }
 }

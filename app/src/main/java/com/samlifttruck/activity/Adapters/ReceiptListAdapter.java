@@ -85,6 +85,12 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
             mDescrip2 = item.getDescrip2();
             mDescrip3 = item.getDescrip3();
 
+            tvReceiptNum.setText(mReceiptNum);
+            tvReceiptType.setText(mReceiptType);
+            tvProductSource.setText(mProductSource);
+            tvDate.setText(mDate);
+            tvCondition.setText(mCondition);
+
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

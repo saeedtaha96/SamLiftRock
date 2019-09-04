@@ -51,7 +51,7 @@
     <dimen name="margin48">24dp</dimen>
 
 
-    <dimen name="padding_imgv_menu">4dp</dimen>
+    <dimen name="padding_imgv_menu">6dp</dimen>
     <dimen name="margin38">19dp</dimen>
     <dimen name="margin16">8dp</dimen>
     <dimen name="draft_all_info_table_text_size">12sp</dimen>

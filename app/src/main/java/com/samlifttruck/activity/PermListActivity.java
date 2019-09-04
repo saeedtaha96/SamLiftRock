@@ -109,7 +109,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void onBackBtnClick(View view) {
-        finish();
+        onBackPressed();
     }
 }
 

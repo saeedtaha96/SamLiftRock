@@ -14,10 +14,10 @@ public class ReceiptListModel {
     public ReceiptListModel() {
     }
 
-    public ReceiptListModel(String receiptNum, String date, String productDestiny, String receiptType, String condition, String descrip1, String descrip2, String descrip3) {
+    public ReceiptListModel(String receiptNum, String date, String productSource, String receiptType, String condition, String descrip1, String descrip2, String descrip3) {
         this.receiptNum = receiptNum;
         this.date = date;
-        this.productSource = productDestiny;
+        this.productSource = productSource;
         this.receiptType = receiptType;
         this.condition = condition;
         this.descrip1 = descrip1;
@@ -41,12 +41,12 @@ public class ReceiptListModel {
         this.date = date;
     }
 
-    public String getProductDestiny() {
+    public String getProductSource() {
         return productSource;
     }
 
-    public void setProductDestiny(String productDestiny) {
-        this.productSource = productDestiny;
+    public void setProductSource(String productSource) {
+        this.productSource = productSource;
     }
 
     public String getReceiptType() {

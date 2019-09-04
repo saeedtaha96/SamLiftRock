@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,8 @@ public class DraftListInfoAllFragment extends Fragment {
     private static final String DESCRIPTION_KEY = "descrip";
 
     // Views
-    TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
+    private TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
+    RecyclerView rvDraftListStuff;
 
     // TODO: Rename and change types of parameters
     private String mDraftNum;

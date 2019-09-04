@@ -58,28 +58,38 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
 
     // View Holder //
     static class MyViewHolder extends RecyclerView.ViewHolder {
-       // private TextView
+        private TextView tvReceiptNum, tvReceiptType, tvProductSource, tvDate, tvCondition;
         private View myItem;
         AppCompatActivity activity;
         ReceiptListInfoAllFragment frag;
-       // private String
+        private String mReceiptNum, mReceiptType, mProductSource, mDate, mCondition, mDescrip1, mDescrip2, mDescrip3;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            tvReceiptNum = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_num);
+            tvReceiptType = itemView.findViewById(R.id.activity_receipt_list_tv_receipt_type);
+            tvProductSource = itemView.findViewById(R.id.activity_receipt_list_tv_product_source);
+            tvDate = itemView.findViewById(R.id.activity_receipt_list_tv_date);
+            tvCondition = itemView.findViewById(R.id.activity_receipt_list_tv_condition);
+            activity = (AppCompatActivity) itemView.getContext();
             myItem = itemView;
         }
 
         void bind(final ReceiptListModel item) {
-
-
-
+            mReceiptNum = item.getReceiptNum();
+            mReceiptType = item.getReceiptType();
+            mProductSource = item.getProductSource();
+            mDate = item.getDate();
+            mCondition = item.getCondition();
+            mDescrip1 = item.getDescrip1();
+            mDescrip2 = item.getDescrip2();
+            mDescrip3 = item.getDescrip3();
 
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                 //   frag = ReceiptListInfoAllFragment.newInstance();
-                   // activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
+                    frag = ReceiptListInfoAllFragment.newInstance(mReceiptNum, mReceiptType, mProductSource, mDate, mDescrip1, mDescrip2, mDescrip3);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, frag).addToBackStack(null).commit();
                 }
             });
         }

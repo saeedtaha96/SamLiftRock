@@ -23,8 +23,8 @@ public class PermListInfoAllFragment extends Fragment {
     private static final String DESCRIPTION_KEY = "5";
 
     // Views
-    TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvDescrip;
-    RecyclerView rvPermListStuff;
+    private TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvDescrip;
+    private RecyclerView rvPermListStuff;
 
     // TODO: Rename and change types of parameters
     private String mPermNum;

@@ -84,7 +84,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
 
     private void setupViews() {
         scannerView = findViewById(R.id.scanner_midterm);
-        etFanniNumb = findViewById(R.id.activity_midterm_et_shomare_fanni);
+        etFanniNumb = findViewById(R.id.layout_et_tech_no);
         btnTodayList = findViewById(R.id.activity_midterm_imgv_today_list);
     }
 

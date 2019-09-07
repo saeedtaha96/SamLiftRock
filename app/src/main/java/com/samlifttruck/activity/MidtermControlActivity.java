@@ -194,13 +194,13 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(MidtermControlActivity.this)
                 .setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         checkQRcodePremission();
                     }
                 })
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton(getString(R.string.txt_cancel), null)
                 .create()
                 .show();
     }

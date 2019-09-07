@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         getPremission();
                     }
                 })
-                .setNegativeButton("لغو", null)
+                .setNegativeButton(getString(R.string.txt_cancel), null)
                 .create()
                 .show();
     }

@@ -54,7 +54,7 @@
     <dimen name="padding_imgv_menu">6dp</dimen>
     <dimen name="margin38">19dp</dimen>
     <dimen name="margin16">8dp</dimen>
-    <dimen name="draft_all_info_table_text_size">12sp</dimen>
+    <dimen name="draft_all_info_table_text_size">13sp</dimen>
     <dimen name="draft_all_info_table_padding">4dp</dimen>
     <dimen name="radius32">16dp</dimen>
     <dimen name="margin80">40dp</dimen>
@@ -64,7 +64,7 @@
     <dimen name="margin20">10dp</dimen>
     <dimen name="text_size23">23sp</dimen>
     <dimen name="drawables_size">16dp</dimen>
-    <dimen name="lists_text_size">12sp</dimen>
+    <dimen name="lists_text_size">13sp</dimen>
 
 
     <item name="nav_menu_weight_digit" type="dimen" format="float">1.5</item>

@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Adapters.PermListInfoAllAdapter;
+import com.samlifttruck.activity.DataGenerators.DataGenerator;
 
 public class PermListInfoAllFragment extends Fragment {
 // TODO: fix this class
@@ -25,6 +28,7 @@ public class PermListInfoAllFragment extends Fragment {
     // Views
     private TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvDescrip;
     private RecyclerView rvPermListStuff;
+    private PermListInfoAllAdapter permAdapter;
 
     // TODO: Rename and change types of parameters
     private String mPermNum;
@@ -73,12 +77,17 @@ public class PermListInfoAllFragment extends Fragment {
         tvDescrip = rootView.findViewById(R.id.fragment_perm_info_all_descrip);
         rvPermListStuff = rootView.findViewById(R.id.fragment_perm_info_all_recyclerview);
 
+
         if (getArguments() != null) {
             tvPermNum.setText(mPermNum);
             tvCustName.setText(mCustName);
             tvDate.setText(mDate);
             tvPreFactorNum.setText(mPreFactorNum);
             tvDescrip.setText(mDescrip);
+
+            permAdapter = new PermListInfoAllAdapter(DataGenerator.getDraftList());
+            rvPermListStuff.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+            rvPermListStuff.setAdapter(permAdapter);
         }
         return rootView;
     }

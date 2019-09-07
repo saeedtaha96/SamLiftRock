@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Adapters.ReceiptListInfoAllAdapter;
+import com.samlifttruck.activity.DataGenerators.DataGenerator;
 
 public class ReceiptListInfoAllFragment extends Fragment {
 
@@ -27,6 +30,8 @@ public class ReceiptListInfoAllFragment extends Fragment {
     // Views
     private TextView tvReceiptNum, tvReceiptType, tvProductSource, tvDate, tvDescrip1, tvDescrip2, tvDescrip3;
     private RecyclerView rvReceiptListStuff;
+    private ReceiptListInfoAllAdapter receiptAdapter;
+
     // TODO: Rename and change types of parameters
     private String mReceiptNum, mReceiptType, mProductSource, mDate, mDescrip1, mDescrip2, mDescrip3;
 
@@ -74,6 +79,7 @@ public class ReceiptListInfoAllFragment extends Fragment {
         tvDescrip1 = rootView.findViewById(R.id.fragment_receipt_info_all_descrip1);
         tvDescrip2 = rootView.findViewById(R.id.fragment_receipt_info_all_descrip2);
         tvDescrip3 = rootView.findViewById(R.id.fragment_receipt_info_all_descrip3);
+        rvReceiptListStuff = rootView.findViewById(R.id.fragment_receipt_info_all_recyclerview);
 
         if (getArguments() != null) {
             tvReceiptNum.setText(mReceiptNum);
@@ -83,6 +89,10 @@ public class ReceiptListInfoAllFragment extends Fragment {
             tvDescrip1.setText(mDescrip1);
             tvDescrip2.setText(mDescrip2);
             tvDescrip3.setText(mDescrip3);
+
+            receiptAdapter = new ReceiptListInfoAllAdapter(DataGenerator.getDraftList());
+            rvReceiptListStuff.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+            rvReceiptListStuff.setAdapter(receiptAdapter);
         }
         return rootView;
     }

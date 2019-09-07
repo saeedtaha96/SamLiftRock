@@ -12,13 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Adapters.CustomSpinnerAdapter;
 
 import org.angmarch.views.NiceSpinner;
 
 
 public class ProdcutActivity extends AppCompatActivity {
-    NiceSpinner typeSpinner, unitSpinner;
-    ArrayAdapter<String> adapter;
+    Spinner typeSpinner, unitSpinner;
+    CustomSpinnerAdapter adapter;
 
 
     @Override
@@ -31,8 +32,7 @@ public class ProdcutActivity extends AppCompatActivity {
 
 
         String[] ITEMS = {"سلام", "بیست", "چهل", "نان", "فنی", "ادبیات"};
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, ITEMS);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter = new CustomSpinnerAdapter(this, ITEMS);
 
         setupSpinnerOfType();
         setupSpinnerofUnit();

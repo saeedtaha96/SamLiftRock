@@ -38,7 +38,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         datepickerImgv.setOnClickListener(this);
 
 
-        etDate.setText(getToday());
+       // etDate.setText(getToday());
     }
 
     private void setToolbarText() {

@@ -1,14 +1,10 @@
 package com.samlifttruck.activity.Adapters;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
@@ -44,7 +40,7 @@ public class CustomSpinnerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.activity_custom_spinner_adapter, viewGroup, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.adapter_custom_spinner_adapter, viewGroup, false);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {

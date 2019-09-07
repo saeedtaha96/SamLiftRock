@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -69,8 +70,9 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
     }
 
     // View Holder //
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView shomareFanni, productName, inventory, currCount;
+        Button btnReject;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,13 +80,23 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
             productName = itemView.findViewById(R.id.activity_today_list_tv_product_name);
             inventory = itemView.findViewById(R.id.activity_today_list_inventory);
             currCount = itemView.findViewById(R.id.activity_today_list_current_counting);
+            btnReject = itemView.findViewById(R.id.today_list_reject);
         }
 
-        void bind(ReceiptListModel item) {
+        void bind(final ReceiptListModel item) {
             shomareFanni.setText(item.getCondition());
             productName.setText(item.getReceiptNum());
             inventory.setText(item.getReceiptType());
             currCount.setText(item.getDate());
+
+            btnReject.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    list.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+                    notifyItemRangeChanged(getAdapterPosition(), list.size());
+                }
+            });
         }
     }
 }

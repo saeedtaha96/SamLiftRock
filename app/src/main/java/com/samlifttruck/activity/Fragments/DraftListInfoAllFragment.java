@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Adapters.DraftListInfoAllAdapter;
+import com.samlifttruck.activity.DataGenerators.DataGenerator;
 
 public class DraftListInfoAllFragment extends Fragment {
 
@@ -26,7 +29,8 @@ public class DraftListInfoAllFragment extends Fragment {
 
     // Views
     private TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
-    RecyclerView rvDraftListStuff;
+    private RecyclerView rvDraftListStuff;
+    private DraftListInfoAllAdapter draftAdapter;
 
     // TODO: Rename and change types of parameters
     private String mDraftNum;
@@ -81,6 +85,7 @@ public class DraftListInfoAllFragment extends Fragment {
         tvDraftType = rootView.findViewById(R.id.fragment_draft_info_all_draft_type);
         tvServicePage = rootView.findViewById(R.id.fragment_draft_info_all_service_page);
         tvDescrip = rootView.findViewById(R.id.fragment_draft_info_all_descrip);
+        rvDraftListStuff = rootView.findViewById(R.id.fragment_draft_info_all_recyclerview);
 
         if (getArguments() != null) {
             tvDraftNum.setText(mDraftNum);
@@ -90,7 +95,15 @@ public class DraftListInfoAllFragment extends Fragment {
             tvDraftType.setText(mDraftType);
             tvServicePage.setText(mServicePage);
             tvDescrip.setText(mDescrip);
+
+            draftAdapter = new DraftListInfoAllAdapter(DataGenerator.getDraftList());
+            rvDraftListStuff.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
+            rvDraftListStuff.setAdapter(draftAdapter);
         }
+
+
+
+
         return rootView;
     }
 

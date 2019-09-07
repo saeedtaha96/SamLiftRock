@@ -103,4 +103,12 @@
     <string name="txt_descrip_3">توضیح 3</string>
     <string name="txt_set_date">اعمال تاریخ</string>
     <string name="txt_date_spin">تاریخ</string>
+    <string name="reg">ثبت</string>
+    <string name="txt_cardex">کاردکس کالا</string>
+    <string name="txt_cancel">لغو</string>
+    <string name="txt_tedad">تعداد</string>
+    <string name="txt_unit_dd">واحد:</string>
+    <string name="txt_tedad_dd">تعداد:</string>
+    <string name="txt_buy_cost">قیمت خرید:</string>
+    <string name="txt_order_id">شماره سفارش:</string>
 </resources>

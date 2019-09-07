@@ -17,7 +17,7 @@
         android:id="@+id/relative_cardview"
         android:layout_below="@id/activity_cardex_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/margin4"
         android:layout_gravity="center_horizontal"
         app:cardCornerRadius="0dp"
@@ -25,30 +25,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="@dimen/margin32">
 
             <me.dm7.barcodescanner.zxing.ZXingScannerView
                 android:id="@+id/scanner_cardex"
+                android:layout_weight="5"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="@dimen/margin16"
                 android:background="@drawable/shape_rect_white"
                 app:borderColor="@color/color_blue_theme_004677"
                 app:borderLength="30dp"
                 app:borderWidth="2dp"
-                app:finderOffset="@dimen/margin32"
                 app:laserColor="@color/color_red_refuse"
                 app:laserEnabled="true" />
 
-            <include layout="@layout/layout_tech_number" />
+            <include layout="@layout/layout_tech_number"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin24"
+                android:layout_width="match_parent"/>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin24"
+                android:layout_marginBottom="@dimen/margin48"
+                android:layout_marginTop="@dimen/margin32"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -85,21 +90,20 @@
 
     </androidx.cardview.widget.CardView>
 
-    <FrameLayout
+    <!--<FrameLayout
         android:layout_below="@id/relative_cardview"
         android:id="@+id/activity_cardex_rv_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" /> -->
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/activity_shelf_pbar"
-        style="@style/SpinKitView.Circle"
+        style="@style/SpinKitView.Large.Circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/margin64"
         android:visibility="visible"
-        android:layout_below="@id/relative_cardview"
         app:SpinKit_Color="@color/colorAccent" />
 
 

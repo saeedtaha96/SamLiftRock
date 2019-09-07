@@ -85,7 +85,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlideMethod(R.drawable.cardx2, R.id.activitY_homepage_kardex_btn);
     }
 
-    public void setGlideMethod(int drawable, int id) {
+   public void setGlideMethod(int drawable, int id) {
         ImageView img = findViewById(id);
         Glide.with(this).load(getDrawable(drawable)).into(img);
     }

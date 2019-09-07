@@ -5,7 +5,7 @@
         <layer-list>
             <item>
                 <shape android:shape="rectangle">
-                    <padding android:bottom="4dp" android:left="4dp" android:right="4dp" android:top="4dp" />
+                    <padding android:bottom="4dp" android:left="10dp" android:right="10dp" android:top="4dp" />
 
                     <corners android:radius="@dimen/radius7" />
                     <solid android:color="@color/color_white_FFFFFF" />
@@ -13,6 +13,9 @@
                 </shape>
             </item>
 
+            <item>
+                <bitmap android:gravity="end|center_vertical" android:src="@drawable/ic_arrow_drop_down_black_24dp" />
+            </item>
         </layer-list>
     </item>
 

@@ -19,6 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".activity.Adapters.CustomSpinnerAdapter"></activity>
         <activity android:name=".activity.MidtermTodayListActivity" />
         <activity
             android:name=".activity.PermListActivity"
@@ -32,6 +33,9 @@
         <activity
             android:name=".activity.ProdcutActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.CardexActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".activity.MidtermControlActivity"
             android:windowSoftInputMode="stateHidden|adjustPan" />

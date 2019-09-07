@@ -101,4 +101,6 @@
     <string name="txt_descrip_1">توضیح 1</string>
     <string name="txt_descrip_2">توضیح 2</string>
     <string name="txt_descrip_3">توضیح 3</string>
+    <string name="txt_set_date">اعمال تاریخ</string>
+    <string name="txt_date_spin">تاریخ</string>
 </resources>

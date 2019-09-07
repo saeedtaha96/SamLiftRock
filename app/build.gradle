@@ -39,13 +39,13 @@ dependencies {
     // material searchview persian
     implementation 'com.github.abbas-oveissi:materialsearchview:1.0.4'
     // retrofit
-  //  implementation 'com.squareup.retrofit2:retrofit:2.6.1'
-  //  implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    //  implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    //  implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     // progressbar
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
     //ksoap2  webservice connecting library
-  //  implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
+    //  implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
 
     // ios alert dialog
     implementation 'com.gdacciaro:iosdialog:1.0.3'

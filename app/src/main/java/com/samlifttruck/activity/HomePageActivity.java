@@ -37,6 +37,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnDraftList.setOnClickListener(this);
         btnReceiptList.setOnClickListener(this);
         btnPermList.setOnClickListener(this);
+        btnKardex.setOnClickListener(this);
 
 
     }
@@ -141,6 +142,10 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_list_receipt:
 
                 startActivity(new Intent(HomePageActivity.this, ReceiptListActivity.class));
+                break;
+            case R.id.btn_kardex:
+
+                startActivity(new Intent(HomePageActivity.this, CardexActivity.class));
                 break;
             default:
                 ;

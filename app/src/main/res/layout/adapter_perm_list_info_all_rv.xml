@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:layout_marginTop="@dimen/margin8"
+    android:layout_marginStart="@dimen/margin8"
+    android:layout_marginEnd="@dimen/margin8"
+    android:layout_marginBottom="@dimen/margin12"
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="6dp">
+
+
+    <LinearLayout
+        android:id="@+id/relative_linear_draft_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/relative_tv_draft_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_build_black_24dp"
+                android:drawablePadding="@dimen/margin8"
+                android:padding="@dimen/margin4"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:text="@string/txt_shomare_fanni"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/text_size13" />
+
+            <TextView
+                android:id="@+id/activity_today_list_tv_shomare_fanni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:padding="@dimen/margin4"
+                android:text="H98-E-5"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/text_size13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/relative_tv_perm_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_product"
+                android:drawablePadding="@dimen/margin8"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:padding="@dimen/margin4"
+                android:text="@string/txt_product_name"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/text_size13" />
+
+            <TextView
+                android:id="@+id/activity_today_list_tv_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:text="OIL"
+                android:padding="@dimen/margin4"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/text_size13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin12"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/relative_tv_product_source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_inventory"
+                android:drawablePadding="@dimen/margin8"
+                android:fontFamily="@font/iran_sans_web"
+                android:padding="@dimen/margin4"
+                android:gravity="bottom"
+                android:text="@string/txt_inventory"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/text_size13" />
+
+            <TextView
+                android:id="@+id/activity_today_list_inventory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_web"
+                android:padding="@dimen/margin4"
+                android:gravity="center"
+                android:text="32"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/text_size13" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/ic_current_count"
+                android:drawablePadding="@dimen/margin8"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="bottom"
+                android:text="@string/txt_current_counting"
+                android:padding="@dimen/margin4"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/text_size13" />
+
+            <TextView
+                android:id="@+id/activity_today_list_current_counting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/iran_sans_web"
+                android:gravity="center"
+                android:padding="@dimen/margin4"
+                android:text="20"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/text_size13" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/today_list_reject"
+            style="@style/AppFont"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginEnd="@dimen/margin8"
+            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginBottom="@dimen/margin12"
+            android:background="@drawable/selector_btn_reject"
+            android:gravity="center"
+            android:text="@string/txt_reject"
+            android:textColor="@color/color_white_FFFFFF"
+            android:textSize="@dimen/text_size15" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

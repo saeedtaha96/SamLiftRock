@@ -12,6 +12,11 @@
                 </shape>
             </item>
 
+            <item>
+                <bitmap android:src="@drawable/ic_arrow_drop_down_black_24dp" android:gravity="end|center_vertical"  />
+
+            </item>
+
         </layer-list>
     </item>
 </selector>

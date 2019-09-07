@@ -42,9 +42,9 @@
                 android:background="@drawable/selector_btn_rect64_blue"
                 android:onClick="onBackBtnClick"
                 android:paddingStart="@dimen/margin32"
-                android:paddingTop="@dimen/margin24"
+                android:paddingTop="13dp"
                 android:paddingEnd="@dimen/margin24"
-                android:paddingBottom="@dimen/margin24"
+                android:paddingBottom="13dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 

@@ -1,7 +1,10 @@
 package com.samlifttruck.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,6 +28,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     PersianDatePickerDialog datepicker;
     PermListFragment permListFragment;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +41,43 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         datepickerImgv.setOnClickListener(this);
 
 
+        etDate.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (etDate.getRight() - 25 - etDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+                        if (etDate.getText().toString().equals("")) {
+                            etDate.setError("خالی است");
+                        } else {
+                            // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
+                        }
+
+                        closeKeyPad();
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
         //etDate.setText(getToday());
+    }
+
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     private void setToolbarText() {

@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/selector_list_item"
         android:padding="@dimen/margin12"
         android:paddingTop="@dimen/margin16">
 
@@ -19,8 +20,7 @@
             android:id="@+id/relative_col1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-          >
+            android:layout_alignParentTop="true">
 
 
             <TextView
@@ -56,8 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_col1"
             android:layout_alignStart="@id/relative_col1"
-            android:layout_marginTop="@dimen/margin12"
-          >
+            android:layout_marginTop="@dimen/margin12">
 
 
             <TextView
@@ -108,10 +107,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_tv_product_source"
+            android:layout_alignStart="@id/relative_col2"
             android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_state"
             android:drawablePadding="@dimen/margin8"
-            android:layout_alignStart="@id/relative_col2"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center|start"
             android:text="@string/txt_condition_dd"
@@ -123,8 +122,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/relative_tv_condition"
-            android:layout_marginStart="@dimen/margin32"
             android:layout_alignBottom="@id/relative_tv_condition"
+            android:layout_marginStart="@dimen/margin32"
             android:layout_toEndOf="@id/relative_tv_condition"
             android:fontFamily="@font/iran_sans_web"
             android:gravity="center"

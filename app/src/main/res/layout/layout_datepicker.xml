@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="0dp"
-    app:cardElevation="@dimen/margin12"
-    android:layoutDirection="rtl"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="@dimen/margin12">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,37 +18,27 @@
         android:layout_marginBottom="@dimen/margin24"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9">
+        android:weightSum="8">
 
-        <ImageView
-            android:id="@+id/activity_datepicker_imgv_search"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@drawable/shape_borderless_datepicker"
-            android:padding="@dimen/margin12"
-            android:scaleType="fitCenter"
-            android:src="@drawable/search_40dp"
-            android:tint="@color/color_black_000000" />
 
         <EditText
             android:id="@+id/activity_datepicker_input_datepicker"
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="6"
+            android:layout_weight="7"
             android:background="@drawable/shape_date"
-            style="@style/AppFont"
-            android:inputType="date|text"
             android:digits="123456789/"
+            android:drawableStart="@drawable/search_40dp"
             android:gravity="center"
             android:hint="@string/txt_date"
-            android:paddingStart="@dimen/margin32"
-            android:paddingTop="@dimen/margin24"
-            android:paddingEnd="@dimen/margin32"
-            android:paddingBottom="@dimen/margin16"
+            android:inputType="date|text"
             android:maxLength="15"
+            android:paddingStart="@dimen/margin32"
+            android:paddingTop="@dimen/margin8"
+            android:paddingEnd="@dimen/margin32"
+            android:paddingBottom="@dimen/margin8"
             android:textAlignment="gravity"
             android:textColor="@color/color_black_000000"
             android:textColorHint="@color/color_gray_text"
@@ -60,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="1.5"
+            android:layout_weight="1"
             android:background="@drawable/shape_borderless_datepickerleft"
             android:padding="@dimen/margin12"
             android:scaleType="fitCenter"

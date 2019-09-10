@@ -17,6 +17,7 @@ import java.util.Random;
 
 public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdapter.MyViewHolder> {
 
+    Random r;
 
     @NonNull
     @Override
@@ -27,7 +28,7 @@ public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdap
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Random r = new Random();
+        r = new Random();
         int random1 = r.nextInt(255) + 1;
         int random2 = r.nextInt(255) + 1;
         int random3 = r.nextInt(255) + 1;
@@ -41,8 +42,8 @@ public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdap
         return 28;
     }
 
-        private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.4f, 1.0f);
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.1f, 1.0f);
         anim.setDuration(900);
         view.startAnimation(anim);
     }

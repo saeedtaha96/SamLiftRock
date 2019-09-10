@@ -49,7 +49,7 @@
 
     <string name="txt_shelf_unit">واحد:</string>
     <string name="txt_enter_new_counting">شمارش جدید را وارد کنید :</string>
-    <string name="txt_inventory">موجودی:</string>
+    <string name="txt_inventory_dd">موجودی:</string>
     <string name="txt_current_counting">شمارش فعلی:</string>
     <string name="save">ذخیره</string>
     <string name="txt_shelf_numb_simple">شماره قفسه</string>
@@ -111,4 +111,7 @@
     <string name="txt_tedad_dd">تعداد:</string>
     <string name="txt_buy_cost">قیمت خرید:</string>
     <string name="txt_order_id">شماره سفارش:</string>
+    <string name="txt_incoming">وارده</string>
+    <string name="txt_outgoing">صادره</string>
+    <string name="txt_inventory">موجودی</string>
 </resources>

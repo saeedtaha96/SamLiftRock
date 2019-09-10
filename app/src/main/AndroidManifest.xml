@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.Adapters.CustomSpinnerAdapter"></activity>
+        <activity android:name=".activity.CardexDeatilsActivity"></activity>
+        <activity android:name=".activity.Adapters.CustomSpinnerAdapter" />
         <activity android:name=".activity.MidtermTodayListActivity" />
         <activity
             android:name=".activity.PermListActivity"

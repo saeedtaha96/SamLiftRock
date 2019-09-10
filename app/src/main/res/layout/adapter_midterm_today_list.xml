@@ -99,7 +99,7 @@
                 android:fontFamily="@font/iran_sans_web"
                 android:padding="@dimen/margin4"
                 android:gravity="bottom"
-                android:text="@string/txt_inventory"
+                android:text="@string/txt_inventory_dd"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/text_size13" />
 

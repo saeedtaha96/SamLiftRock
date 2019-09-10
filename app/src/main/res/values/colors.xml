@@ -24,5 +24,7 @@
     <color name="color_gray_text">#706C6C</color>
     <color name="my_spinner_text_color">@color/color_blue_theme_004677</color>
     <color name="gray_spinner">#DF858484</color>
+    <color name="cardex_product_name_bg_color">#F30000</color>
+    <color name="color_yellow_F9FF55">#F9FF55</color>
 
 </resources>

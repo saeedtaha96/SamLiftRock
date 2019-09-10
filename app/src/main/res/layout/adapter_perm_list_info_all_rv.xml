@@ -137,7 +137,7 @@
                 android:fontFamily="@font/iran_sans_web"
                 android:gravity="center|start"
                 android:padding="@dimen/margin4"
-                android:text="@string/txt_inventory"
+                android:text="@string/txt_inventory_dd"
                 android:textColor="@color/color_green_confirm"
                 android:textSize="@dimen/text_size13" />
 

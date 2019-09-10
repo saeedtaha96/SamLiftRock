@@ -138,7 +138,7 @@
         android:layout_marginStart="@dimen/margin64"
         android:layout_marginTop="@dimen/margin12"
         android:layout_marginEnd="@dimen/margin32"
-        android:text="@string/txt_inventory"
+        android:text="@string/txt_inventory_dd"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
 

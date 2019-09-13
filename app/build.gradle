@@ -49,4 +49,8 @@ dependencies {
 
     // ios alert dialog
     implementation 'com.gdacciaro:iosdialog:1.0.3'
+
+    //RadioGroup
+    implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
+
 }

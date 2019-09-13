@@ -4,36 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_white_FFFFFF"
     android:layoutDirection="rtl"
+    android:background="@color/color_white_FFFFFF"
     tools:context=".activity.MidtermTodayListActivity">
 
-    <include
-        android:id="@+id/toolbar_midterm_today_list"
-        layout="@layout/toolbar_custom_search_btn" />
+    <include layout="@layout/toolbar_custom_search_btn"
+        android:id="@+id/toolbar_counting_reg_list"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_midterm_today_list_recyclerview"
+        android:id="@+id/activity_counting_reg_list_recyclerview"
+        android:layout_below="@id/toolbar_counting_reg_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_midterm_today_list"
         android:background="@color/color_white_FFFFFF"
         android:clipToPadding="true"
         android:orientation="vertical"
         android:padding="@dimen/margin8" />
 
     <Button
-        android:id="@+id/activity_midterm_today_list_btn_confirm"
+        android:id="@+id/activity_counting_reg_list_btn_confirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
-        android:background="@drawable/selector_btn_confrim"
         android:fontFamily="@font/iran_sans_web"
+        android:background="@drawable/selector_btn_confrim"
         android:text="@string/reg"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size21" />
+        android:textSize="@dimen/text_size21"
+        />
 
 </RelativeLayout>

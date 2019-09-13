@@ -1,6 +1,7 @@
 package com.samlifttruck.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,25 +12,43 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bumptech.glide.Glide;
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.navigation.NavigationView;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.Utility;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
+    SharedPreferences pref;
     DrawerLayout drawer;
     NavigationView nav;
     ImageView btnMenu, imgvMenuKardex;
     Bundle savedInstanceState;
     LinearLayout btnShelfEdit, btnMidtermControl, btnReceiptList, btnDraftList, btnPermList, btnKardex;
     LinearLayout btnMenuProduct, btnMenuHavaleAzMojavez, btnMenuRegCount, btnMenuInventoryRep, btnMenuMidtermControl,
-            btnMenuShelfEdit, btnMenuKardex, btnMenuPermList, btnMenuDraftList, btnMenuReceiptList;
+            btnMenuShelfEdit, btnMenuKardex, btnMenuPermList, btnMenuDraftList, btnMenuReceiptList, btnMenuLogOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.savedInstanceState = savedInstanceState;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
+
+        pref = getSharedPreferences("myprefs", MODE_PRIVATE);
+        SharedPreferences.Editor edt = pref.edit();
+        edt.putBoolean("isLogin", true);
+        edt.apply();
+
         setupView();
         setGlide();
+
+        setupListeners();
+
+
+    }
+
+    private void setupListeners() {
         btnMidtermControl.setOnClickListener(this);
         btnShelfEdit.setOnClickListener(this);
         btnMenu.setOnClickListener(this);
@@ -38,8 +57,8 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnReceiptList.setOnClickListener(this);
         btnPermList.setOnClickListener(this);
         btnKardex.setOnClickListener(this);
-
-
+        btnMenuLogOut.setOnClickListener(this);
+        btnMenuRegCount.setOnClickListener(this);
     }
 
 
@@ -63,6 +82,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnDraftList = findViewById(R.id.btn_list_draft);
         btnPermList = findViewById(R.id.btn_list_permission);
         btnKardex = findViewById(R.id.btn_kardex);
+        btnMenuLogOut = findViewById(R.id.btn_menu_exit);
     }
 
     private void setGlide() {
@@ -85,7 +105,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlideMethod(R.drawable.cardx2, R.id.activitY_homepage_kardex_btn);
     }
 
-   public void setGlideMethod(int drawable, int id) {
+    public void setGlideMethod(int drawable, int id) {
         ImageView img = findViewById(id);
         Glide.with(this).load(getDrawable(drawable)).into(img);
     }
@@ -146,6 +166,35 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_kardex:
 
                 startActivity(new Intent(HomePageActivity.this, CardexActivity.class));
+                break;
+            case R.id.btn_menu_exit:
+                iOSDialogBuilder ios = Utility.newIOSdialog(HomePageActivity.this);
+                ios.setTitle("*هشدار*");
+                ios.setSubtitle(getString(R.string.txt_exit_app_dialog_message));
+                ios.setPositiveListener("بله", new iOSDialogClickListener() {
+                    @Override
+                    public void onClick(iOSDialog dialog) {
+                        SharedPreferences.Editor edt = pref.edit();
+                        edt.putBoolean("isLogin", false);
+                        edt.apply();
+                        startActivity(new Intent(HomePageActivity.this, LoginActivity.class
+                        ));
+                        finish();
+                    }
+                });
+                ios.setNegativeListener("خیر", new iOSDialogClickListener() {
+                    @Override
+                    public void onClick(iOSDialog dialog) {
+                        dialog.dismiss();
+                    }
+                });
+                ios.build().show();
+                break;
+            case R.id.btn_menu_register_counting:
+                startActivity(new Intent(HomePageActivity.this, CountingRegActivity.class));
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
                 break;
             default:
                 ;

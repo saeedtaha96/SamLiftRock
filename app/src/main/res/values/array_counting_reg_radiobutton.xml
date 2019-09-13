@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array_radiobutton">
+        <item>شمارش سوم</item>
+        <item>شمارش دوم</item>
+        <item>شمارش اول</item>
+    </string-array>
+
+</resources>

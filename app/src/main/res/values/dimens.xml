@@ -66,6 +66,7 @@
     <dimen name="drawables_size">16dp</dimen>
     <dimen name="lists_text_size">13sp</dimen>
     <dimen name="margin6">6dp</dimen>
+    <dimen name="adapter_counting_reg_text_size">12sp</dimen>
 
 
     <item name="nav_menu_weight_digit" type="dimen" format="float">1.5</item>

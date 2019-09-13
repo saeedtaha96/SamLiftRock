@@ -1,90 +1,87 @@
 package com.samlifttruck.activity;
 
-import android.annotation.SuppressLint;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.ImageView;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
 
+import lib.kingja.switchbutton.SwitchMultiButton;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static android.Manifest.permission.CAMERA;
 
-public class MidtermControlActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
-    TextInputEditText etFanniNumb;
-    ImageView btnTodayList;
+public class CountingRegActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+    private SwitchMultiButton mSwitchMultiButton;
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
+    private TextInputEditText etFanniNumb;
+    private TextInputEditText etProductName, etShelfNum, etCounting1, getEtCounting2, getEtCounting3, etResult_1_2, etFinalResult;
+    private Button btnSave;
+    private ImageButton btnCountingRegList;
 
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_midterm_counting);
+        setContentView(R.layout.activity_counting_reg);
+
 
         setupViews();
         setToolbarText();
         checkQRcodePremission();
 
-        btnTodayList.setOnClickListener(new View.OnClickListener() {
+        btnCountingRegList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MidtermControlActivity.this, MidtermTodayListActivity.class));
+                startActivity(new Intent(CountingRegActivity.this,CountingRegListActivity.class));
             }
         });
-        etFanniNumb.setOnTouchListener(new View.OnTouchListener() {
 
+        mSwitchMultiButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_LEFT = 0;
-                final int DRAWABLE_TOP = 1;
-                final int DRAWABLE_RIGHT = 2;
-                final int DRAWABLE_BOTTOM = 3;
-
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
-                    {
-                        // your action here
-                        if (etFanniNumb.getText().toString().equals("")) {
-                            etFanniNumb.setError("خالی است");
-                        } else {
-                            //  new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
-                        }
-
-                        closeKeyPad();
-
-                        return true;
-                    }
+            public void onSwitch(int position, String tabText) {
+                if (position == 1) {
+                    Toast.makeText(CountingRegActivity.this, tabText, Toast.LENGTH_SHORT).show();
                 }
-                return false;
+
             }
         });
-
 
     }
 
     private void setupViews() {
-        scannerView = findViewById(R.id.scanner_midterm);
         etFanniNumb = findViewById(R.id.layout_et_tech_no);
-        btnTodayList = findViewById(R.id.activity_imgv_today_list);
+        mSwitchMultiButton = findViewById(R.id.activity_counting_reg_switchbutton);
+        scannerView = findViewById(R.id.scanner_counting_reg);
+        etProductName = findViewById(R.id.activity_counting_reg_product_name);
+        etShelfNum = findViewById(R.id.activity_counting_reg_shelf_num);
+        etCounting1 = findViewById(R.id.activity_counting_reg_counting_1);
+        getEtCounting2 = findViewById(R.id.activity_counting_reg_counting_2);
+        getEtCounting3 = findViewById(R.id.activity_counting_reg_counting_3);
+        etResult_1_2 = findViewById(R.id.activity_counting_reg_result_1_2);
+        etFinalResult = findViewById(R.id.activity_counting_reg_final_result);
+        btnSave = findViewById(R.id.activity_counting_reg_btn_save);
+        btnCountingRegList = findViewById(R.id.activity_imgv_today_list);
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.sabt_shomaresh));
     }
 
     public void checkQRcodePremission() {
@@ -96,22 +93,6 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 requestPermission();
             }
         }
-    }
-
-    private void closeKeyPad() {
-        try {
-            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            if (getCurrentFocus() != null) {
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-            }
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
-    }
-
-    private void setToolbarText() {
-        TextView tvAppbar = findViewById(R.id.toolbar_text);
-        tvAppbar.setText(getString(R.string.menu_txt_control));
     }
 
     private boolean checkPermission() {
@@ -139,16 +120,6 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
             } else {
                 // requestPermission();
             }
-        } else {
-            Toast.makeText(getApplicationContext(), "This feature is not supported on Android API lower than 23", Toast.LENGTH_LONG).show();
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Do something after 5s = 5000ms
-                    finish();
-                }
-            }, 3000);
         }
     }
 
@@ -158,7 +129,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         scannerView.stopCamera();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0) {
@@ -191,7 +162,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(MidtermControlActivity.this)
+        new AlertDialog.Builder(CountingRegActivity.this)
                 .setMessage(message)
                 .setPositiveButton(getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
                     @Override
@@ -205,25 +176,14 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     }
 
     @Override
-    public void handleResult(Result result) {
-        final String myResult = result.getText();
-        etFanniNumb.setText(myResult);
+    public void handleResult(final Result result) {
+        // String myResult = result.getText();
+        etFanniNumb.setText(result.getText());
         onResume();
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
 
     public void onBackBtnClick(View view) {
         finish();
     }
-
 }
-
-
-
-
-

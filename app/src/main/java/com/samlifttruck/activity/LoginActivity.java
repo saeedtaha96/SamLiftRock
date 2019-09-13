@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -35,15 +36,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String imei;
     private TextView btnRegDevice;
     private static final int REQUEST_PHONE_STATE = 10;
+    private SharedPreferences pref;
+    private static final String IS_LOGIN = "isLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getSharedPreferences("myprefs", MODE_PRIVATE);
+        if (pref.contains(IS_LOGIN)) {
+            if (pref.getBoolean(IS_LOGIN, false)) {
+                startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                finish();
+            }
+        }
         setContentView(R.layout.activity_login);
 
-        setupView();
-        setupListeners();
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean(IS_LOGIN, false);
+        editor.apply();
 
+        setupView();
+        btnLogin.setOnClickListener(this);
         btnRegDevice.setOnClickListener(this);
 
         getPremission();
@@ -145,16 +158,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnRegDevice = findViewById(R.id.activity_login_tv_reg_device);
     }
 
-    private void setupListeners() {
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
-                finish();
-            }
-        });
-    }
-
 
     @Override
     public void onClick(View view) {
@@ -191,6 +194,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 } else {
                     Toast.makeText(this, getString(R.string.txt_need_permission), Toast.LENGTH_SHORT).show();
                 }
+
+                break;
+            case R.id.login_btn_login:
+                SharedPreferences.Editor edt = pref.edit();
+                edt.putBoolean(IS_LOGIN,true);
+                edt.apply();
+                startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                finish();
+                break;
+            default:
+                ;
         }
     }
 

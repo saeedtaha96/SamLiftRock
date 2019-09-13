@@ -23,7 +23,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <ImageButton
-                android:id="@+id/activity_midterm_imgv_today_list"
+                android:id="@+id/activity_imgv_today_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"

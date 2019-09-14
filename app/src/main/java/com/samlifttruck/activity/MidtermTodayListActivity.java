@@ -32,6 +32,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midterm_today_list);
+
         rvPermList = findViewById(R.id.activity_midterm_today_list_recyclerview);
         btnConfirm = findViewById(R.id.activity_midterm_today_list_btn_confirm);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);

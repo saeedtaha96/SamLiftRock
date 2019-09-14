@@ -14,10 +14,10 @@
 
     <!-- perm list-->
     <LinearLayout
-        android:layout_marginTop="@dimen/margin8"
         android:id="@+id/btn_menu_draft_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin8"
         android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
@@ -216,7 +216,7 @@
     <LinearLayout
         android:id="@+id/btn_menu_register_counting"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
@@ -229,7 +229,7 @@
         <ImageView
             android:id="@+id/img_menu_register_counting"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1.5"
             android:padding="@dimen/padding_imgv_menu"
@@ -420,7 +420,7 @@
     <LinearLayout
         android:id="@+id/btn_menu_exit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
@@ -433,7 +433,7 @@
         <ImageView
             android:id="@+id/img_menu_exit"
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="@dimen/nav_menu_weight_digit"
             android:padding="@dimen/padding_imgv_menu"

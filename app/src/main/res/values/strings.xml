@@ -114,7 +114,7 @@
     <string name="txt_incoming">وارده</string>
     <string name="txt_outgoing">صادره</string>
     <string name="txt_inventory">موجودی</string>
-    <string name="txt_exit_app_dialog_message">آیا از خروج خود اطمینان دارید؟</string>
+    <string name="txt_exit_app_dialog_message">آیا قصد خروج از حساب کاربری خود را دارید؟</string>
     <string name="txt_counting_1">شمارش 1</string>
     <string name="txt_counting_2">شمارش 2</string>
     <string name="txt_count_1_2_result">نتیجه شمارش اول‌‌ و دوم</string>
@@ -125,4 +125,5 @@
     <string name="txt_count_1_2_result_dd">نتیجه شمارش اول و دوم:</string>
     <string name="txt_counting_3_dd">شمارش سوم:</string>
     <string name="txt_result_dd">نتیجه:</string>
+    <string name="txt_counting_reg_list">لیست شمارش</string>
 </resources>

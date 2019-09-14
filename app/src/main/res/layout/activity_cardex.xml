@@ -60,10 +60,9 @@
                 <CheckBox
                     android:id="@+id/activity_cardex_checkbox"
                     style="@style/AppFont"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
                     android:padding="@dimen/margin8"
                     android:text="@string/txt_set_date"
                     android:textSize="@dimen/text_size15" />
@@ -75,6 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="2"
+                    android:layout_marginStart="@dimen/margin32"
                     android:dropDownSelector="@drawable/selector_rect10_menu_items"
                     android:gravity="center"
                     android:hint="@string/txt_spin_type"

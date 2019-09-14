@@ -36,7 +36,7 @@
                     android:background="@drawable/selector_btn_rect64_blue"
                     android:padding="@dimen/margin20"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/search_40dp" />
+                    android:src="@drawable/search_white" />
 
                 <TextView
                     android:id="@+id/toolbar_text"

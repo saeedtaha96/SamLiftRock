@@ -10,7 +10,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.transition.Explode;
+import android.transition.Fade;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -30,7 +33,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
     private TextInputEditText etFanniNumb;
-    private TextInputEditText etProductName, etShelfNum, etCounting1, getEtCounting2, getEtCounting3, etResult_1_2, etFinalResult;
+    private TextInputEditText etProductName, etShelfNum, etCounting1, etCounting2, etCounting3, etResult_1_2, etFinalResult;
     private Button btnSave;
     private ImageButton btnCountingRegList;
 
@@ -48,7 +51,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         btnCountingRegList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CountingRegActivity.this,CountingRegListActivity.class));
+                startActivity(new Intent(CountingRegActivity.this, CountingRegListActivity.class));
             }
         });
 
@@ -71,8 +74,8 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         etProductName = findViewById(R.id.activity_counting_reg_product_name);
         etShelfNum = findViewById(R.id.activity_counting_reg_shelf_num);
         etCounting1 = findViewById(R.id.activity_counting_reg_counting_1);
-        getEtCounting2 = findViewById(R.id.activity_counting_reg_counting_2);
-        getEtCounting3 = findViewById(R.id.activity_counting_reg_counting_3);
+        etCounting2 = findViewById(R.id.activity_counting_reg_counting_2);
+        etCounting3 = findViewById(R.id.activity_counting_reg_counting_3);
         etResult_1_2 = findViewById(R.id.activity_counting_reg_result_1_2);
         etFinalResult = findViewById(R.id.activity_counting_reg_final_result);
         btnSave = findViewById(R.id.activity_counting_reg_btn_save);

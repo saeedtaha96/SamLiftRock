@@ -51,6 +51,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
     }*/
 
     private void setScaleAnimation(View view) {
+
         ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.3f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setDuration(800);
         view.startAnimation(anim);

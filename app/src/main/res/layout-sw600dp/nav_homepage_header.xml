@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="350dp"
+    android:layout_width="@dimen/margin560"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/color_blue_theme_004677"
     android:gravity="top"
-    android:orientation="vertical"
-
     android:paddingTop="@dimen/margin32"
     android:layoutDirection="rtl"
     android:layout_gravity="end"
@@ -17,10 +15,26 @@
     <ImageView
         android:id="@+id/img_sam_liftrock"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="@dimen/margin200"
         tools:src="@drawable/sam_liftrock_2"
         android:scaleType="fitXY"/>
+    <TextView
+        android:id="@+id/nav_username_login_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/margin8"
+        android:paddingEnd="@dimen/margin16"
+        android:alpha="0.9"
+        android:drawableStart="@drawable/ic_username_nav"
+        android:layout_gravity="bottom|start"
+        android:drawablePadding="@dimen/margin4"
+        android:textColor="#474747"
+        android:textSize="@dimen/text_size13"
+        android:background="@drawable/selector_btn_rect64_white"
+        android:layout_marginBottom="@dimen/margin8"
+        android:layout_marginStart="@dimen/margin8"
+        android:text="سعید طه"/>
 
 
 
-</LinearLayout>
+</FrameLayout>

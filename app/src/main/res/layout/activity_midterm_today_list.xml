@@ -31,7 +31,7 @@
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/selector_btn_confrim"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/reg"
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size21" />

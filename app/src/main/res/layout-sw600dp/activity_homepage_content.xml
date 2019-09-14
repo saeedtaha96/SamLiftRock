@@ -8,9 +8,9 @@
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/color_background_homepage"
         android:layoutDirection="rtl"
         android:orientation="vertical"
@@ -20,27 +20,29 @@
             android:id="@+id/activity_homepage_toolbar_menu"
             layout="@layout/toolbar_custom_menu_btn" />
 
-        <ScrollView
+        <ImageView
+            android:id="@+id/relative_imgv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/margin300"
+            android:layout_below="@id/activity_homepage_toolbar_menu"
+            android:scaleType="fitXY"
+            android:src="@drawable/sam_liftrock_2" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <ScrollView
+            android:id="@+id/relative_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relative_imgv">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/sam_liftrock_2" />
+
 
                 <LinearLayout
+                    android:layout_gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/margin64"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin32"
                     android:layout_marginTop="@dimen/margin32"
-                    android:layout_marginEnd="@dimen/margin64"
+                    android:layout_marginEnd="@dimen/margin32"
                     android:layout_marginBottom="@dimen/margin32"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -62,7 +64,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_midterm_control"
@@ -71,24 +73,22 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_midterm_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        android:src="@drawable/control" />
+                                        android:padding="@dimen/radius5"
+                                        tools:src="@drawable/midterm" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
@@ -96,7 +96,7 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -109,7 +109,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_shelf_edit"
@@ -118,24 +118,20 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_shelfedit_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
-                                        android:padding="@dimen/radius8"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:src="@drawable/shelfs" />
+                                        android:padding="@dimen/radius8"
+                                        tools:src="@drawable/shelfs" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
@@ -143,7 +139,6 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -165,7 +160,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_list_draft"
@@ -174,32 +169,29 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_draftlist_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        android:src="@drawable/havale" />
+                                        android:padding="@dimen/radius10"
+                                        tools:src="@drawable/draft_new" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/txt_draft_list"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -212,7 +204,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_list_permission"
@@ -221,24 +213,22 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_permlist_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
                                         android:padding="@dimen/radius8"
-                                        android:src="@drawable/mojavez2" />
+                                        tools:src="@drawable/mojavez2" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
@@ -246,7 +236,7 @@
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -268,7 +258,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_list_receipt"
@@ -277,32 +267,30 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
+
 
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_receiptlist_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        android:src="@drawable/resid" />
+                                        android:padding="@dimen/radius5"
+                                        tools:src="@drawable/receipt_new" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/txt_receipt_list"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -315,7 +303,7 @@
                             android:contextClickable="true"
                             android:focusable="true"
                             app:cardCornerRadius="@dimen/margin8"
-                            app:cardElevation="@dimen/margin4">
+                            app:cardMaxElevation="@dimen/margin12">
 
                             <LinearLayout
                                 android:id="@+id/btn_kardex"
@@ -324,32 +312,29 @@
                                 android:background="@drawable/selector_rect10_menu_items"
                                 android:orientation="vertical">
 
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
 
                                     <ImageView
+                                        android:id="@+id/activitY_homepage_kardex_btn"
                                         android:layout_width="@dimen/dashboard_menu_imgv_size"
                                         android:layout_height="@dimen/dashboard_menu_imgv_size"
                                         android:layout_gravity="center"
                                         android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        android:src="@drawable/kardex" />
+                                        android:padding="@dimen/radius12"
+                                        tools:src="@drawable/cardx2" />
 
                                     <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
-                                        android:fontFamily="@font/iran_sans_web"
+                                        style="@style/AppFont"
                                         android:gravity="center"
                                         android:paddingTop="@dimen/margin4"
                                         android:paddingBottom="@dimen/margin8"
                                         android:text="@string/kardex"
                                         android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size"/>
+                                        android:textSize="@dimen/menu_main_text_size" />
 
-                                </LinearLayout>
+
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
@@ -358,8 +343,9 @@
 
 
                 </LinearLayout>
-            </LinearLayout>
+
+
         </ScrollView>
 
-    </LinearLayout>
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

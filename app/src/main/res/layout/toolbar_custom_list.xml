@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="9"
-                android:fontFamily="@font/iran_sans_web"
+                style="@style/AppFont"
                 android:gravity="center"
                 android:text="@string/app_toolbar_subject"
                 android:textAlignment="center"

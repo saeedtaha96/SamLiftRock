@@ -10,7 +10,7 @@
 
     <include
         android:id="@+id/activity_cardex_deatils_toolbar"
-        layout="@layout/custom_toolbar_for_cardex" />
+        layout="@layout/toolbar_custom_for_cardex" />
 
 
     <RelativeLayout
@@ -248,7 +248,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="@dimen/margin8"
         android:background="@color/color_blue_theme_004677"
         android:elevation="@dimen/margin16" />
 

@@ -37,8 +37,8 @@
                 android:layout_marginBottom="@dimen/margin16"
                 android:background="@drawable/shape_rect_white"
                 app:borderColor="@color/color_blue_theme_004677"
-                app:borderLength="30dp"
-                app:borderWidth="2dp"
+                app:borderLength="@dimen/margin64"
+                app:borderWidth="@dimen/margin4"
                 app:laserColor="@color/color_red_refuse"
                 app:laserEnabled="true" />
 
@@ -90,12 +90,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!--<FrameLayout
-        android:layout_below="@id/relative_cardview"
-        android:id="@+id/activity_cardex_rv_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" /> -->
-
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/activity_shelf_pbar"
         style="@style/SpinKitView.Large.Circle"
@@ -105,6 +99,5 @@
         android:layout_marginTop="@dimen/margin64"
         android:visibility="visible"
         app:SpinKit_Color="@color/colorAccent" />
-
 
 </RelativeLayout>

@@ -1,54 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- Margins & Padding -->
-<dimen name="margin4">4dp</dimen>
-<dimen name="margin8">8dp</dimen>
-<dimen name="tmargin16">16dp</dimen>
-<dimen name="margin32">32dp</dimen>
-<dimen name="margin64">64dp</dimen>
-<dimen name="margin128">128dp</dimen>
+    <!-- Margins & Padding -->
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="tmargin16">16dp</dimen>
+    <dimen name="margin32">32dp</dimen>
+    <dimen name="margin64">64dp</dimen>
+    <dimen name="margin128">128dp</dimen>
 
-<!-- Text Sizes -->
-<dimen name="text_size8">12sp</dimen>
-<dimen name="text_size13">16sp</dimen>
-<dimen name="text_size15">18sp</dimen>
-<dimen name="text_size16">20sp</dimen>
-<dimen name="text_size18">24sp</dimen>
-<dimen name="text_size25">32sp</dimen>
+    <!-- Text Sizes -->
+    <dimen name="text_size8">12sp</dimen>
+    <dimen name="text_size13">16sp</dimen>
+    <dimen name="text_size15">19sp</dimen>
+    <dimen name="text_size16">20.5sp</dimen>
+    <dimen name="text_size18">24sp</dimen>
+    <dimen name="text_size25">32sp</dimen>
+    <dimen name="text_size29">42sp</dimen>
+    <dimen name="text_size27">37sp</dimen>
+    <dimen name="text_size17">22sp</dimen>
+    <dimen name="text_size21">26sp</dimen>
+    <dimen name="text_size23">30sp</dimen>
+    <dimen name="text_size10">14sp</dimen>
+    <dimen name="text_size11">15sp</dimen>
+    <dimen name="text_size12">16sp</dimen>
+    <dimen name="text_size14">18sp</dimen>
 
-<!-- Corners radius -->
-<dimen name="radius5">5dp</dimen>
-<dimen name="radius7">7dp</dimen>
-<dimen name="radius8">8dp</dimen>
-<dimen name="radius10">10dp</dimen>
-<dimen name="radius12">12dp</dimen>
-<dimen name="radius15">15dp</dimen>
-<dimen name="radius18">18dp</dimen>
-<dimen name="radius20">20dp</dimen>
-<dimen name="text_size29">42sp</dimen>
-<dimen name="text_size27">37sp</dimen>
-<dimen name="margin24">24dp</dimen>
-<dimen name="dashboard_menu_imgv_size">132dp</dimen>
-<dimen name="img_size_menu">132dp</dimen>
-<!-- Default screen margins, per the Android Design guidelines. -->
-<dimen name="activity_horizontal_margin">16dp</dimen>
-<dimen name="activity_vertical_margin">16dp</dimen>
-<dimen name="nav_header_vertical_spacing">8dp</dimen>
-<dimen name="nav_header_height">176dp</dimen>
-<dimen name="fab_margin">16dp</dimen>
-<dimen name="margin96">96dp</dimen>
-<dimen name="radius64">64dp</dimen>
-<dimen name="margin12">12dp</dimen>
-<dimen name="margin48">48dp</dimen>
-<dimen name="text_size17">22sp</dimen>
-<dimen name="text_size21">28sp</dimen>
-<dimen name="menu_text_size">22sp</dimen>
-<dimen name="menu_main_text_size">28sp</dimen>
-<dimen name="padding_imgv_menu">12dp</dimen>
-<dimen name="margin38">38dp</dimen>
-<dimen name="margin16">16dp</dimen>
-<dimen name="draft_all_info_table_text_size">24sp</dimen>
-<dimen name="draft_all_info_table_padding">8dp</dimen>
+    <!-- Corners radius -->
+    <dimen name="radius5">5dp</dimen>
+    <dimen name="radius7">7dp</dimen>
+    <dimen name="radius8">8dp</dimen>
+    <dimen name="radius10">10dp</dimen>
+    <dimen name="radius12">12dp</dimen>
+    <dimen name="radius15">15dp</dimen>
+    <dimen name="radius18">18dp</dimen>
+    <dimen name="radius20">20dp</dimen>
 
+
+    <dimen name="margin24">24dp</dimen>
+    <dimen name="dashboard_menu_imgv_size">132dp</dimen>
+    <dimen name="img_size_menu">132dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin96">96dp</dimen>
+    <dimen name="radius64">64dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin48">48dp</dimen>
+
+
+    <dimen name="menu_text_size">22sp</dimen>
+    <dimen name="menu_main_text_size">28sp</dimen>
+    <dimen name="padding_imgv_menu">12dp</dimen>
+    <dimen name="margin38">38dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="draft_all_info_table_text_size">23sp</dimen>
+    <dimen name="draft_all_info_table_padding">8dp</dimen>
+    <dimen name="radius32">32dp</dimen>
+    <dimen name="margin80">80dp</dimen>
+    <dimen name="product_text_size">14sp</dimen>
+    <dimen name="product_end_start_margin">24dp</dimen>
+    <dimen name="shelf_edit_side_margin">32dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+
+    <dimen name="drawables_size">24dp</dimen>
+    <dimen name="lists_text_size">16sp</dimen>
+    <dimen name="margin6">6dp</dimen>
+    <dimen name="adapter_counting_reg_text_size">14sp</dimen>
+    <dimen name="margin192">192dp</dimen>
+    <dimen name="margin400">400dp</dimen>
+    <dimen name="margin560">560dp</dimen>
+    <dimen name="margin300">300dp</dimen>
+    <dimen name="margin26">26dp</dimen>
+    <dimen name="margin76">76dp</dimen>
+    <dimen name="margin200">200dp</dimen>
+
+    <item name="nav_menu_weight_digit" format="float" type="dimen">1.5</item>
 
 </resources>

@@ -24,7 +24,7 @@
     <dimen name="text_size17">17sp</dimen>
     <dimen name="text_size21">21sp</dimen>
     <dimen name="menu_text_size">16sp</dimen>
-    <dimen name="menu_main_text_size">19sp</dimen>
+    <dimen name="menu_main_text_size">17sp</dimen>
 
     <!-- Corners radius -->
     <dimen name="radius5">2.5dp</dimen>
@@ -68,7 +68,14 @@
     <dimen name="margin6">6dp</dimen>
     <dimen name="adapter_counting_reg_text_size">12sp</dimen>
     <dimen name="margin192">96dp</dimen>
+    <!-- -->
+    <dimen name="margin400">200dp</dimen>
+    <dimen name="margin560">280dp</dimen>
+    <dimen name="margin300">150dp</dimen>
+    <dimen name="margin26">13dp</dimen>
+    <dimen name="margin76">38dp</dimen>
+    <dimen name="margin200">100dp</dimen>
 
 
-    <item name="nav_menu_weight_digit" type="dimen" format="float">1.5</item>
+    <item name="nav_menu_weight_digit" format="float" type="dimen">1.5</item>
 </resources>

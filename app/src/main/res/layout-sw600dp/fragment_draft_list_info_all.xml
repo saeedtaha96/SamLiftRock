@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin24"
     android:background="@color/color_white_FFFFFF"
     android:layoutDirection="rtl">
 
@@ -64,15 +65,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:tag="draft_num"
-                        android:onClick="onTableEditClick"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -107,13 +99,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -130,12 +115,12 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_cust_name_2"
+                        android:text="@string/txt_receiver"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
-                    <EditText
+                    <TextView
                         android:id="@+id/fragment_draft_info_all_cust_name"
                         style="@style/AppFont"
                         android:layout_width="0dp"
@@ -144,19 +129,11 @@
                         android:layout_weight="2"
                         android:background="@android:color/transparent"
                         android:gravity="center"
-                        android:inputType="datetime"
                         android:padding="@dimen/draft_all_info_table_padding"
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -193,13 +170,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -234,13 +204,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -257,7 +220,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_user_name"
+                        android:text="@string/txt_service_page"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
@@ -275,13 +238,6 @@
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_background_homepage"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -298,7 +254,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
-                        android:text="@string/txt_condition"
+                        android:text="@string/txt_product_descrip"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
@@ -310,19 +266,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
+                        android:ellipsize="end"
                         android:gravity="center"
+                        android:maxLines="2"
                         android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_email"
                         android:textColor="@color/color_black_000000"
                         android:textSize="@dimen/draft_all_info_table_text_size"
                         tools:text="1236" />
 
-                    <androidx.appcompat.widget.AppCompatImageButton
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/margin4"
-                        android:background="@color/color_white_FFFFFF"
-                        android:padding="@dimen/margin16"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_edit_black_24dp" />
 
                 </TableRow>
 
@@ -339,15 +291,15 @@
             android:layout_marginTop="@dimen/margin4"
             android:background="@color/color_white_FFFFFF"
             android:clipToPadding="true"
-            android:paddingStart="@dimen/margin12"
-            android:paddingEnd="@dimen/margin12"
+            android:paddingStart="@dimen/margin16"
+            android:paddingEnd="@dimen/margin16"
             android:paddingBottom="@dimen/margin8" />
 
 
         <View
             android:id="@+id/relative_line"
             android:layout_width="match_parent"
-            android:layout_height="1.5dp"
+            android:layout_height="0.75dp"
             android:layout_below="@id/relative_table_layout"
             android:layout_marginTop="@dimen/margin24"
             android:layout_marginBottom="@dimen/margin12"
@@ -360,20 +312,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_line"
-            android:layout_marginStart="@dimen/margin32"
+            android:layout_marginStart="@dimen/margin16"
             android:alpha="0.8"
+            android:scaleX="1.2"
+            android:layout_centerHorizontal="true"
             android:text="@string/txt_products"
             android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/text_size21" />
+            android:textSize="@dimen/text_size18" />
 
         <com.github.ybq.android.spinkit.SpinKitView
             android:id="@+id/fragment_draft_info_all_draftslist_pbar"
-            style="@style/SpinKitView.Large.Circle"
+            style="@style/SpinKitView.Circle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             android:layout_below="@id/relative_tv"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin128"
+            android:layout_marginTop="@dimen/margin80"
             app:SpinKit_Color="@color/colorAccent" />
 
 

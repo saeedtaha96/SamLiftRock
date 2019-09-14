@@ -4,26 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
     android:background="@color/color_white_FFFFFF"
+    android:layoutDirection="rtl"
     tools:context=".activity.MidtermTodayListActivity">
 
+    <include
+        android:id="@+id/toolbar_midterm_today_list"
+        layout="@layout/toolbar_custom_search_btn" />
 
-
-
-
-        <include layout="@layout/toolbar_custom_search_btn"
-            android:id="@+id/toolbar_midterm_today_list"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/activity_midterm_today_list_recyclerview"
-            android:layout_below="@id/toolbar_midterm_today_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/color_white_FFFFFF"
-            android:clipToPadding="true"
-            android:orientation="vertical"
-            android:padding="@dimen/margin8" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_midterm_today_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin64"
+        android:layout_below="@id/toolbar_midterm_today_list"
+        android:background="@color/color_white_FFFFFF"
+        android:clipToPadding="true"
+        android:orientation="vertical"
+        android:padding="@dimen/margin8" />
 
     <Button
         android:id="@+id/activity_midterm_today_list_btn_confirm"
@@ -32,13 +30,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginEnd="@dimen/margin32"
-        android:layout_marginBottom="@dimen/margin32"
-        android:fontFamily="@font/iran_sans_web"
+        android:layout_marginBottom="@dimen/margin24"
         android:background="@drawable/selector_btn_confrim"
-        android:padding="@dimen/margin8"
-        android:text="@string/confirm"
+        style="@style/AppFont"
+        android:text="@string/reg"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size21"
-        />
+        android:textSize="@dimen/text_size21" />
 
 </RelativeLayout>

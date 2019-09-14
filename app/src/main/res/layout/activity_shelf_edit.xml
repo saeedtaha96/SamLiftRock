@@ -17,7 +17,7 @@
     <me.dm7.barcodescanner.zxing.ZXingScannerView
         android:id="@+id/scanner_shelf"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/margin400"
         android:layout_below="@id/activity_shelf_toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/shelf_edit_side_margin"
@@ -26,8 +26,8 @@
         android:layout_marginBottom="@dimen/margin16"
         android:background="@drawable/shape_rect_white"
         app:borderColor="@color/color_blue_theme_004677"
-        app:borderLength="30dp"
-        app:borderWidth="2dp"
+        app:borderLength="@dimen/margin64"
+        app:borderWidth="@dimen/margin4"
         app:finderOffset="@dimen/margin32"
         app:laserColor="@color/color_red_refuse"
         app:laserEnabled="true" />
@@ -51,7 +51,7 @@
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_product_name"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -64,7 +64,7 @@
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
         android:layout_toEndOf="@id/relative_midterm_tv_product_name"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
@@ -78,7 +78,7 @@
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginTop="@dimen/margin24"
         android:layout_marginEnd="@dimen/margin64"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_shelf_numb"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -91,7 +91,7 @@
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin64"
         android:layout_toEndOf="@id/relative_midterm_tv_shelf_number"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/dash"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />
@@ -105,7 +105,7 @@
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginTop="@dimen/margin48"
         android:layout_marginEnd="@dimen/margin8"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/txt_enter_new_shelf_num"
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
@@ -130,7 +130,7 @@
         android:layout_alignBottom="@id/relative_midterm_tv_shelf_enter_new"
         android:layout_toEndOf="@id/relative_midterm_tv_shelf_enter_new"
         android:backgroundTint="@color/color_blue_theme_004677"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:gravity="center"
         android:maxLines="2"
         android:ems="4"
@@ -149,7 +149,7 @@
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/selector_btn_confrim"
-        android:fontFamily="@font/iran_sans_web"
+        style="@style/AppFont"
         android:text="@string/confirm"
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size21" />

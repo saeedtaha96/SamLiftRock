@@ -3,108 +3,110 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin8"
-    android:contextClickable="true"
+    android:layout_marginTop="@dimen/margin6"
+    android:layout_marginBottom="@dimen/margin6"
+    android:layout_marginStart="@dimen/margin8"
+    android:layout_marginEnd="@dimen/margin8"
     android:clickable="true"
+    android:contextClickable="true"
     android:focusable="true"
     android:layoutDirection="rtl"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="4dp">
+    app:cardCornerRadius="@dimen/radius12"
+    app:cardElevation="@dimen/margin4">
 
     <RelativeLayout
-        android:background="@color/color_white_FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/selector_list_item"
         android:padding="@dimen/margin12"
         android:paddingTop="@dimen/margin16">
 
 
-        <LinearLayout
-            android:id="@+id/relative_linear_draft_list"
+        <RelativeLayout
+            android:id="@+id/relative_col1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:orientation="horizontal">
 
-            <RelativeLayout
-                android:layout_width="0dp"
+
+            <TextView
+                android:id="@+id/relative_tv_draft_number"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:drawableStart="@drawable/ic_draft_list"
+                android:drawablePadding="@dimen/margin8"
+                style="@style/AppFont"
+                android:gravity="start|center"
+                android:text="@string/txt_shomare_havale"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/lists_text_size" />
 
-                <TextView
-                    android:id="@+id/relative_tv_draft_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_draft_list"
-                    android:drawablePadding="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="center"
-                    android:text="@string/txt_shomare_havale"
-                    android:textColor="@color/color_blue_theme_004677"
-                    android:textSize="@dimen/text_size13" />
-
-                <TextView
-                    android:id="@+id/activity_draft_list_tv_draft_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/relative_tv_draft_number"
-                    android:layout_marginStart="@dimen/margin32"
-                    android:layout_toEndOf="@id/relative_tv_draft_number"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="center"
-                    android:text="H98-E-5"
-                    android:textColor="@color/color_black_000000"
-                    android:textSize="@dimen/text_size13" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/activity_draft_list_tv_draft_num"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_alignTop="@id/relative_tv_draft_number"
+                android:layout_marginStart="@dimen/margin32"
+                android:layout_toEndOf="@id/relative_tv_draft_number"
+                style="@style/AppFont"
+                android:gravity="center"
+                android:text="H98-E-5"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/lists_text_size" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_col2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_col1"
+            android:layout_alignParentStart="@id/relative_col1"
+            android:layout_marginTop="@dimen/margin12"
+            android:gravity="start|center">
 
 
-                <TextView
-                    android:id="@+id/relative_tv_perm_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableStart="@drawable/ic_perm_number_24dp"
-                    android:drawablePadding="@dimen/margin8"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="center"
-                    android:text="@string/txt_perm_num"
-                    android:textColor="@color/color_blue_theme_004677"
-                    android:textSize="@dimen/text_size13" />
+            <TextView
+                android:id="@+id/relative_tv_perm_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_perm_number_24dp"
+                android:drawablePadding="@dimen/margin8"
+                style="@style/AppFont"
+                android:gravity="start|center"
+                android:text="@string/txt_perm_num"
+                android:textColor="@color/color_blue_theme_004677"
+                android:textSize="@dimen/lists_text_size" />
 
-                <TextView
-                    android:id="@+id/activity_draft_list_tv_perm_num"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/relative_tv_perm_number"
-                    android:layout_marginStart="@dimen/margin32"
-                    android:layout_toEndOf="@id/relative_tv_perm_number"
-                    android:fontFamily="@font/iran_sans_web"
-                    android:gravity="center"
-                    android:text="1545"
-                    android:textColor="@color/color_black_000000"
-                    android:textSize="@dimen/text_size13" />
+            <TextView
+                android:id="@+id/activity_draft_list_tv_perm_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/relative_tv_perm_number"
+                android:layout_marginStart="@dimen/margin32"
+                android:layout_toEndOf="@id/relative_tv_perm_number"
+                style="@style/AppFont"
+                android:gravity="center"
+                android:text="1545"
+                android:textColor="@color/color_black_000000"
+                android:textSize="@dimen/lists_text_size" />
 
-            </RelativeLayout>
-        </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/relative_tv_product_source"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relative_linear_draft_list"
-            android:layout_marginTop="@dimen/margin24"
+            android:layout_below="@id/relative_col2"
+            android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_customer_name_24dp"
             android:drawablePadding="@dimen/margin8"
-            android:fontFamily="@font/iran_sans_web"
+            style="@style/AppFont"
             android:gravity="bottom"
-            android:text="@string/txt_cust_name"
+            android:text="@string/txt_receiver"
             android:textColor="@color/color_blue_theme_004677"
-            android:textSize="@dimen/text_size13" />
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_draft_list_tv_cust_name"
@@ -113,22 +115,53 @@
             android:layout_alignBottom="@id/relative_tv_product_source"
             android:layout_marginStart="@dimen/margin32"
             android:layout_toEndOf="@id/relative_tv_product_source"
-            android:fontFamily="@font/iran_sans_web"
+            style="@style/AppFont"
             android:gravity="center"
             android:text="رابرت محمود"
             android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/text_size13" />
+            android:textSize="@dimen/lists_text_size" />
+
+        <TextView
+            android:id="@+id/relative_tv_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_tv_product_source"
+            android:layout_alignStart="@id/relative_col2"
+            android:layout_marginTop="@dimen/margin12"
+            android:drawableStart="@drawable/ic_state"
+            android:drawablePadding="@dimen/margin8"
+            style="@style/AppFont"
+            android:gravity="center|start"
+            android:text="@string/txt_condition_dd"
+            android:textColor="@color/color_blue_theme_004677"
+            android:textSize="@dimen/lists_text_size" />
+
+        <TextView
+            android:id="@+id/activity_draft_list_tv_condition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/relative_tv_condition"
+            android:layout_alignBottom="@id/relative_tv_condition"
+            android:layout_marginStart="@dimen/margin32"
+            android:layout_toEndOf="@id/relative_tv_condition"
+            style="@style/AppFont"
+            android:gravity="center"
+            android:padding="@dimen/margin4"
+            android:text="خوب"
+            android:textColor="@color/color_black_000000"
+            android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_draft_list_tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin16"
-            android:fontFamily="@font/iran_sans_web"
-            android:text="98/08/02"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/relative_tv_product_source"
-            android:textColor="@color/color_gray_text" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/margin16"
+            style="@style/AppFont"
+            android:text="98/08/02"
+            android:textColor="@color/color_gray_text"
+            android:textSize="@dimen/text_size12" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

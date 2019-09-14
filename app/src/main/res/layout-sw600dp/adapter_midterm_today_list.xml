@@ -4,10 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="end"
-    android:layout_margin="@dimen/margin8"
+    android:layout_marginStart="@dimen/margin8"
+    android:layout_marginTop="@dimen/margin6"
+    android:layout_marginEnd="@dimen/margin8"
+    android:layout_marginBottom="@dimen/margin6"
     android:layoutDirection="rtl"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="6dp">
+    app:cardCornerRadius="@dimen/radius12"
+    app:cardElevation="@dimen/margin6">
 
 
     <LinearLayout
@@ -20,27 +23,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin12"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/relative_tv_draft_number"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_draft_list"
+                android:drawableStart="@drawable/ic_build_black_24dp"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="center"
+                android:gravity="start|center"
+                android:padding="@dimen/margin4"
                 android:text="@string/txt_shomare_fanni"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_shomare_fanni"
+                style="@style/AppFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/text_size13" />
@@ -50,27 +53,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin12"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/relative_tv_perm_number"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_receipt_num_24dp"
+                android:drawableStart="@drawable/ic_product"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="center"
+                android:gravity="start|center"
+                android:padding="@dimen/margin4"
                 android:text="@string/txt_product_name"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_tv_product_name"
+                style="@style/AppFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="OIL"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/text_size13" />
@@ -80,27 +83,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin12"
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/relative_tv_product_source"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_customer_name_24dp"
+                android:drawableStart="@drawable/ic_inventory"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="bottom"
+                android:gravity="start|center"
+                android:padding="@dimen/margin4"
                 android:text="@string/txt_inventory_dd"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_inventory"
+                style="@style/AppFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="32"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/text_size13" />
@@ -112,22 +115,24 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/ic_customer_name_24dp"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_current_count"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
-                android:gravity="bottom"
+                android:gravity="start|center"
+                android:padding="@dimen/margin4"
                 android:text="@string/txt_current_counting"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/text_size13" />
 
             <TextView
                 android:id="@+id/activity_today_list_current_counting"
+                style="@style/AppFont"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
+                android:padding="@dimen/margin4"
                 android:text="20"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/text_size13" />
@@ -136,11 +141,13 @@
         <Button
             android:id="@+id/today_list_reject"
             style="@style/AppFont"
-            android:layout_width="130dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_gravity="end|center"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin8"
             android:layout_marginTop="@dimen/margin16"
             android:layout_marginEnd="@dimen/margin8"
+            android:layout_marginBottom="@dimen/margin12"
             android:background="@drawable/selector_btn_reject"
             android:gravity="center"
             android:text="@string/txt_reject"

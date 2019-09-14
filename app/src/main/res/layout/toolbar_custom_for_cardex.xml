@@ -28,7 +28,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:fontFamily="@font/iran_sans_web"
+                style="@style/AppFont"
                 android:gravity="center"
                 android:text="@string/app_toolbar_subject"
                 android:textColor="@color/color_white_FFFFFF"
@@ -42,9 +42,9 @@
                 android:background="@drawable/selector_btn_rect64_blue"
                 android:onClick="onBackBtnClick"
                 android:paddingStart="@dimen/margin32"
-                android:paddingTop="13dp"
+                android:paddingTop="@dimen/margin26"
                 android:paddingEnd="@dimen/margin24"
-                android:paddingBottom="13dp"
+                android:paddingBottom="@dimen/margin26"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_arrow_back_black_24dp" />
 

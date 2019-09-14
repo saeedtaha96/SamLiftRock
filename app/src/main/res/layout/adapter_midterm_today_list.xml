@@ -9,8 +9,8 @@
     android:layout_marginEnd="@dimen/margin8"
     android:layout_marginBottom="@dimen/margin12"
     android:layoutDirection="rtl"
-    app:cardCornerRadius="6dp"
-    app:cardElevation="6dp">
+    app:cardCornerRadius="@dimen/radius12"
+    app:cardElevation="@dimen/margin12">
 
 
     <LinearLayout
@@ -26,12 +26,12 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.2"
                 android:drawableStart="@drawable/ic_build_black_24dp"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="start|center"
                 android:padding="@dimen/margin4"
                 android:text="@string/txt_shomare_fanni"
@@ -40,10 +40,10 @@
 
             <TextView
                 android:id="@+id/activity_today_list_tv_shomare_fanni"
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:padding="@dimen/margin4"
                 android:text="H98-E-5"
@@ -58,12 +58,12 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.2"
                 android:drawableStart="@drawable/ic_product"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="start|center"
                 android:padding="@dimen/margin4"
                 android:text="@string/txt_product_name"
@@ -72,10 +72,10 @@
 
             <TextView
                 android:id="@+id/activity_today_list_tv_product_name"
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:padding="@dimen/margin4"
                 android:text="OIL"
@@ -90,12 +90,12 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.2"
                 android:drawableStart="@drawable/ic_inventory"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="start|center"
                 android:padding="@dimen/margin4"
                 android:text="@string/txt_inventory_dd"
@@ -104,10 +104,10 @@
 
             <TextView
                 android:id="@+id/activity_today_list_inventory"
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:padding="@dimen/margin4"
                 android:text="32"
@@ -121,12 +121,12 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.2"
                 android:drawableStart="@drawable/ic_current_count"
                 android:drawablePadding="@dimen/margin8"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="start|center"
                 android:padding="@dimen/margin4"
                 android:text="@string/txt_current_counting"
@@ -135,10 +135,10 @@
 
             <TextView
                 android:id="@+id/activity_today_list_current_counting"
+                style="@style/AppFont"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:fontFamily="@font/iran_sans_web"
                 android:gravity="center"
                 android:padding="@dimen/margin4"
                 android:text="20"

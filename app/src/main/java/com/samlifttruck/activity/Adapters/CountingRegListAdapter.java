@@ -34,11 +34,13 @@ public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegList
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.bind(list.get(position));
-        YoYo.with(Techniques.ZoomIn)
-                .duration(900)
+        YoYo.with(Techniques.FadeIn)
+                .duration(700)
 
                 .playOn(holder.itemView);
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -64,8 +66,8 @@ public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegList
         }
 
         void bind(DraftListModel item) {
-            tvInventory.setText(item.getCondition());
-            tvTechNum.setText(item.getDate());
+            tvInventory.setText(item.getDate());
+            tvTechNum.setText(item.getCondition());
             tvProductName.setText(item.getDraftNum());
             tvShelfNum.setText(item.getServicePage());
             tvCounting1.setText(item.getPermNum());

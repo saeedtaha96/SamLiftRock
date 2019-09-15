@@ -65,7 +65,7 @@
     <dimen name="shelf_edit_side_margin">32dp</dimen>
     <dimen name="margin20">20dp</dimen>
 
-    <dimen name="drawables_size">32dp</dimen>
+    <dimen name="drawables_size">26dp</dimen>
     <dimen name="lists_text_size">16sp</dimen>
     <dimen name="margin6">6dp</dimen>
     <dimen name="adapter_counting_reg_text_size">14sp</dimen>

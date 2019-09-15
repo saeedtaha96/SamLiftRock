@@ -73,6 +73,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                         // your action here
                         if (etFanniNumb.getText().toString().equals("")) {
                             etFanniNumb.setError("خالی است");
+                            etFanniNumb.requestFocus();
                         } else {
                             new soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
                         }

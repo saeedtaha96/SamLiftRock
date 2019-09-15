@@ -12,15 +12,27 @@
         android:id="@+id/toolbar_midterm_today_list"
         layout="@layout/toolbar_custom_search_btn" />
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_midterm_today_list_pbar"
+        style="@style/SpinKitView.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/colorAccent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_midterm_today_list_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar_midterm_today_list"
         android:background="@color/color_white_FFFFFF"
-        android:clipToPadding="true"
+        android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="@dimen/margin8" />
+        android:paddingStart="@dimen/margin8"
+        android:paddingEnd="@dimen/margin8"
+        android:paddingTop="@dimen/margin8"
+        android:paddingBottom="@dimen/margin48" />
 
     <Button
         android:id="@+id/activity_midterm_today_list_btn_confirm"

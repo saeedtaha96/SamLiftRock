@@ -42,14 +42,14 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.bind(list.get(position));
-        Configuration config = context.getResources().getConfiguration();
-        if (config.smallestScreenWidthDp >= 600) {
+      //  Configuration config = context.getResources().getConfiguration();
+      //  if (config.smallestScreenWidthDp >= 600) {
             // sw600dp code goes here
             setFadeAnimation(holder.itemView);
-        } else {
+     //   } else {
             // fall-back code goes here
-            setScaleAnimation(holder.itemView);
-        }
+        //    setScaleAnimation(holder.itemView);
+      //  }
     }
 
     @Override
@@ -58,16 +58,16 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
     }
 
     private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        AlphaAnimation anim = new AlphaAnimation(0.1f, 1.0f);
         anim.setDuration(800);
         view.startAnimation(anim);
     }
 
-    private void setScaleAnimation(View view) {
-        ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.5f, 1.0f, Animation.RELATIVE_TO_SELF, 1f, Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setDuration(800);
-        view.startAnimation(anim);
-    }
+   // private void setScaleAnimation(View view) {
+    //    ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.5f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+   //     anim.setDuration(700);
+    //    view.startAnimation(anim);
+   // }
 
     // View Holder //
     class MyViewHolder extends RecyclerView.ViewHolder {

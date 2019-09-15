@@ -1,9 +1,12 @@
 package com.samlifttruck.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,6 +32,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
     DraftListFragment draftListFragment;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +43,37 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         draftListFragment = DraftListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
         datepickerImgv.setOnClickListener(this);
+        etDate.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (etDate.getRight() - 25 - etDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        // your action here
+                        if (etDate.getText().toString().equals("")) {
+                            etDate.setError("خالی است");
+                            etDate.requestFocus();
+                        } else {
+                            // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
+                        }
+
+                        closeKeyPad();
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
 
         etDate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_GO) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     //do here your stuff
 
                     return true;
@@ -52,6 +82,17 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
             }
         });
         //etDate.setText(getToday());
+    }
+
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     private void setToolbarText() {

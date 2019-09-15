@@ -17,9 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/color_white_FFFFFF"
-        android:clipToPadding="true"
+        android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="@dimen/margin8" />
+        android:paddingStart="@dimen/margin8"
+        android:paddingEnd="@dimen/margin8"
+        android:paddingTop="@dimen/margin8"
+        android:paddingBottom="@dimen/margin48" />
 
     <Button
         android:id="@+id/activity_counting_reg_list_btn_confirm"

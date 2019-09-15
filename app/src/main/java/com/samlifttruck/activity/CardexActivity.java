@@ -80,6 +80,7 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
                         String s;
                         if (etFanniNumb.getText().toString().equals("")) {
                             etFanniNumb.setError("خالی است");
+                            etFanniNumb.requestFocus();
                         } else {
                             if (chbxSetDate.isChecked()) {
                                 s = spinnerDateChoose.getSelectedItem().toString();

@@ -11,7 +11,7 @@
     android:contextClickable="true"
     android:focusable="true"
     android:layoutDirection="rtl"
-    app:cardCornerRadius="@dimen/radius12"
+    app:cardCornerRadius="@dimen/radius8"
     app:cardElevation="@dimen/margin4">
 
     <RelativeLayout

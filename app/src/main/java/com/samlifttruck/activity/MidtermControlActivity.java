@@ -65,6 +65,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                         // your action here
                         if (etFanniNumb.getText().toString().equals("")) {
                             etFanniNumb.setError("خالی است");
+                            etFanniNumb.requestFocus();
                         } else {
                             //  new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
                         }

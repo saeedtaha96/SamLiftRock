@@ -319,16 +319,6 @@
             android:textColor="@color/color_black_000000"
             android:textSize="@dimen/text_size18" />
 
-        <com.github.ybq.android.spinkit.SpinKitView
-            android:id="@+id/fragment_draft_info_all_draftslist_pbar"
-            style="@style/SpinKitView.Circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:layout_below="@id/relative_tv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin80"
-            app:SpinKit_Color="@color/colorAccent" />
 
 
     </RelativeLayout>

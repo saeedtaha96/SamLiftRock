@@ -18,16 +18,21 @@ import android.widget.TextView;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CountingRegListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.Models.DraftListModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ir.oveissi.materialsearchview.MaterialSearchView;
 
 public class CountingRegListActivity extends AppCompatActivity {
 
-    RecyclerView rv;
-    CountingRegListAdapter adapter;
-    ImageButton btnSearch;
-    MaterialSearchView msv;
-    Button btnConfirm;
+    private RecyclerView rv;
+    private CountingRegListAdapter adapter;
+    private ImageButton btnSearch;
+    private MaterialSearchView msv;
+    private Button btnConfirm;
+    private List<DraftListModel> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class CountingRegListActivity extends AppCompatActivity {
 
         setToolbarText();
 
+        list = DataGenerator.getDraftList();
         rv = findViewById(R.id.activity_counting_reg_list_recyclerview);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
         msv = findViewById(R.id.searchview_material);
@@ -47,15 +53,41 @@ public class CountingRegListActivity extends AppCompatActivity {
                 msv.showSearch();
             }
         });
-      //  Configuration config = getResources().getConfiguration();
-       // if (config.smallestScreenWidthDp >= 600) {
-            // sw600dp code goes here
-       //     rv.setLayoutManager(new GridLayoutManager(this, 2));
-       // } else {
-            // fall-back code goes here
-            rv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-      //  }
-        adapter = new CountingRegListAdapter(DataGenerator.getDraftList());
+
+        msv.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (list != null) {
+                    List<DraftListModel> myList = new ArrayList<>();
+                    for (DraftListModel item : list) {
+                        if (item.getCondition().startsWith(query)) {
+                            myList.add(item);
+                        }
+                    }
+
+                    adapter = new CountingRegListAdapter(myList);
+                    rv.setAdapter(adapter);
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                List<DraftListModel> myList = new ArrayList<>();
+                for (DraftListModel item : list) {
+                    if (item.getCondition().startsWith(newText)) {
+                        myList.add(item);
+                    }
+                }
+
+                adapter = new CountingRegListAdapter(myList);
+                rv.setAdapter(adapter);
+                return false;
+            }
+        });
+        rv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+
+        adapter = new CountingRegListAdapter(list);
         rv.setAdapter(adapter);
 
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {

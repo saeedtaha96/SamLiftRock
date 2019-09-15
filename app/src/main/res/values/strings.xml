@@ -69,7 +69,7 @@
     <string name="txt_receipt_num_dd">شماره رسید:</string>
     <string name="txt_pre_factor_numb_dd">شماره پیش فاکتور:</string>
     <string name="txt_about_us">درباره ما</string>
-    <string name="txt_register_phone">ثبت دستگاه؟</string>
+    <string name="txt_register_phone"> <u>ثبت دستگاه؟</u></string>
     <string name="txt_reject">عدم تایید</string>
     <string name="txt_shomare_fanni">شماره فنی:</string>
 

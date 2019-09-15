@@ -2,8 +2,10 @@ package com.samlifttruck.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -54,6 +56,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
                         // your action here
                         if (etDate.getText().toString().equals("")) {
                             etDate.setError("خالی است");
+                            etDate.requestFocus();
                         } else {
                             // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
                         }
@@ -67,6 +70,18 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
             }
         });
         //etDate.setText(getToday());
+
+        etDate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    //do here your stuff
+
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     private void closeKeyPad() {

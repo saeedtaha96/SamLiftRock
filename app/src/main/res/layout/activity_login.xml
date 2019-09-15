@@ -9,8 +9,20 @@
     android:layoutDirection="rtl"
     tools:context=".activity.LoginActivity">
 
-    <include layout="@layout/toolbar_custom_simple" />
+    <include
+        android:id="@+id/activity_login_toolbar"
+        layout="@layout/toolbar_custom_simple" />
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_login_pbar"
+        style="@style/SpinKitView.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_login_toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin128"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/colorAccent" />
 
     <LinearLayout
         android:id="@+id/login_relative_linear"
@@ -47,17 +59,17 @@
                 android:id="@+id/login_input_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin24"
                 android:layout_gravity="center"
-                android:maxLength="20"
+                android:layout_marginTop="@dimen/margin24"
                 android:layout_marginBottom="@dimen/margin8"
                 android:drawableEnd="@drawable/ic_username_drawable_small"
                 android:drawableTint="@color/color_blue_theme_004677"
                 android:gravity="start|center"
                 android:hint="@string/login_hint_username"
                 android:imeOptions="actionNext"
-                android:nextFocusForward="@id/login_input_password"
                 android:inputType="text"
+                android:maxLength="20"
+                android:nextFocusForward="@id/login_input_password"
                 android:paddingStart="@dimen/margin32"
                 android:paddingTop="@dimen/margin32"
                 android:paddingEnd="@dimen/margin32"
@@ -102,11 +114,11 @@
                 android:gravity="start|center"
                 android:hint="@string/login_hint_password"
                 android:inputType="textPassword"
+                android:maxLength="20"
                 android:maxLines="1"
                 android:paddingStart="@dimen/margin32"
                 android:paddingTop="@dimen/margin32"
                 android:paddingEnd="@dimen/margin32"
-                android:maxLength="20"
                 android:paddingBottom="@dimen/margin32"
                 android:singleLine="true"
                 android:textAlignment="viewStart"
@@ -119,6 +131,7 @@
 
     <Button
         android:id="@+id/login_btn_login"
+        style="@style/AppFont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -127,7 +140,6 @@
         android:layout_marginEnd="@dimen/margin80"
         android:layout_marginBottom="@dimen/margin96"
         android:background="@drawable/selector_btn_rect64_blue"
-        style="@style/AppFont"
         android:gravity="center"
         android:padding="@dimen/margin8"
         android:text="@string/login_vurud"
@@ -136,11 +148,11 @@
 
     <TextView
         android:id="@+id/activity_login_tv_reg_device"
+        style="@style/AppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_relative_linear"
         android:layout_centerHorizontal="true"
-        style="@style/AppFont"
         android:gravity="center"
         android:text="@string/txt_register_phone"
         android:textColor="@color/color_gray_text"

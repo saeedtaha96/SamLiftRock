@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,8 +13,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.transition.Explode;
 import android.transition.Fade;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -38,6 +41,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     private ImageButton btnCountingRegList;
 
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +51,37 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         setupViews();
         setToolbarText();
         checkQRcodePremission();
+
+        etCounting2.setEnabled(false);
+        etCounting3.setEnabled(false);
+
+        etFanniNumb.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_LEFT = 0;
+                final int DRAWABLE_TOP = 1;
+                final int DRAWABLE_RIGHT = 2;
+                final int DRAWABLE_BOTTOM = 3;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width()))) {
+                        // your action here
+                        if (etFanniNumb.getText().toString().equals("")) {
+                            etFanniNumb.setError("خالی است");
+                            etFanniNumb.requestFocus();
+                        } else {
+                            //  new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
+                        }
+
+                        closeKeyPad();
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
 
         btnCountingRegList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +93,23 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         mSwitchMultiButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position, String tabText) {
-                if (position == 1) {
-                    Toast.makeText(CountingRegActivity.this, tabText, Toast.LENGTH_SHORT).show();
+                if (position == 2) {
+                    etCounting1.setEnabled(true);
+                    etCounting1.requestFocus();
+                    etCounting2.setEnabled(false);
+                    etCounting3.setEnabled(false);
+
+                } else if (position == 1) {
+                    etCounting2.setEnabled(true);
+                    etCounting2.requestFocus();
+                    etCounting1.setEnabled(false);
+                    etCounting3.setEnabled(false);
+
+                } else if (position == 0) {
+                    etCounting3.setEnabled(true);
+                    etCounting3.requestFocus();
+                    etCounting1.setEnabled(false);
+                    etCounting2.setEnabled(false);
                 }
 
             }
@@ -80,6 +130,17 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         etFinalResult = findViewById(R.id.activity_counting_reg_final_result);
         btnSave = findViewById(R.id.activity_counting_reg_btn_save);
         btnCountingRegList = findViewById(R.id.activity_imgv_today_list);
+    }
+
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
     }
 
     private void setToolbarText() {

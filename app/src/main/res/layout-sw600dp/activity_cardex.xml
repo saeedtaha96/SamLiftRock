@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    >
+
+    <include layout="@layout/toolbar_custom_back_btn"
+        android:id="@+id/activity_cardex_toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/relative_cardview"
+        android:layout_below="@id/activity_cardex_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin4"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="@dimen/margin12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin32">
+
+            <me.dm7.barcodescanner.zxing.ZXingScannerView
+                android:id="@+id/scanner_cardex"
+                android:layout_weight="5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/margin16"
+                android:background="@drawable/shape_rect_white"
+                app:borderColor="@color/color_blue_theme_004677"
+                app:borderLength="@dimen/margin64"
+                app:borderWidth="@dimen/margin4"
+                app:laserColor="@color/color_red_refuse"
+                app:laserEnabled="true" />
+
+            <include layout="@layout/layout_tech_number"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin24"
+                android:layout_width="match_parent"/>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin48"
+                android:layout_marginTop="@dimen/margin32"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/activity_cardex_checkbox"
+                    style="@style/AppFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/margin8"
+                    android:text="@string/txt_set_date"
+                    android:textSize="@dimen/text_size15" />
+
+                <Spinner
+                    android:id="@+id/spinner_cardex"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:layout_marginStart="@dimen/margin32"
+                    android:dropDownSelector="@drawable/selector_rect10_menu_items"
+                    android:gravity="center"
+                    android:hint="@string/txt_spin_type"
+                    android:layoutDirection="rtl"
+                    android:padding="@dimen/margin12"
+                    android:popupTheme="@drawable/shape_rect_white"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_size17" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_shelf_pbar"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/margin64"
+        android:visibility="visible"
+        app:SpinKit_Color="@color/colorAccent" />
+
+</RelativeLayout>

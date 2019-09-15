@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="end"
+    android:layout_marginStart="@dimen/margin8"
+    android:layout_marginTop="@dimen/margin6"
+    android:layout_marginEnd="@dimen/margin8"
+    android:layout_marginBottom="@dimen/margin6"
+    android:layoutDirection="rtl"
+    app:cardCornerRadius="@dimen/radius12"
+    app:cardElevation="@dimen/margin6">
+
+
+    <LinearLayout
+        android:id="@+id/relative_linear_draft_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_build_black_24dp"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_shomare_fanni"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_tech_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="H98-E-5"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_inventory"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_inventory_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_inventory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/iran_sans_web"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="H98-E-5"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_product"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_product_name"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="OIL"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_shelf_number"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_shelf_numb"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_shelf_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="32"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_counting_1"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_counting_1_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_counting_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_counting_2"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_counting_2_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_counting_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_result"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_count_1_2_result_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_result_1_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="start"
+                    android:padding="@dimen/margin4"
+                    android:paddingStart="@dimen/margin64"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_counting_3"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_counting_3_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_counting_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_final_result"
+                    android:drawablePadding="@dimen/margin8"
+                    style="@style/AppFont"
+                    android:gravity="start|center"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_result_dd"
+                    android:textColor="@color/color_blue_theme_004677"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+
+                <TextView
+                    android:id="@+id/adapter_counting_reg_tv_final_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/AppFont"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/adapter_counting_reg_text_size" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/counting_reg_list_reject"
+            style="@style/AppFont"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginEnd="@dimen/margin8"
+            android:layout_marginBottom="@dimen/margin12"
+            android:background="@drawable/selector_btn_reject"
+            android:gravity="center"
+            android:text="@string/txt_reject"
+            android:textColor="@color/color_white_FFFFFF"
+            android:textSize="@dimen/text_size15" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

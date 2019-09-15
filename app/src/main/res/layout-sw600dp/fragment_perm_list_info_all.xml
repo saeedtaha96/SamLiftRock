@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin24"
+    android:background="@color/color_white_FFFFFF"
+    android:layoutDirection="rtl">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:background="@color/color_white_FFFFFF"
+        android:gravity="center">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/relative_table_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin24"
+            android:layout_marginTop="@dimen/margin4"
+            android:layout_marginEnd="@dimen/margin24"
+            android:layout_marginBottom="@dimen/margin4"
+            android:background="@color/color_white_FFFFFF"
+            app:cardCornerRadius="@dimen/margin8"
+            app:cardElevation="@dimen/margin4">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <!-- Property type container -->
+                <TableRow
+                    android:background="@color/color_white_FFFFFF"
+                    android:divider="@color/color_gray_border"
+                    android:showDividers="middle">
+
+                    <!-- Property type text -->
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_perm_num_2"
+                        android:textColor="@color/color_blue_theme_004677"
+                        android:textSize="@dimen/draft_all_info_table_text_size" />
+
+                    <!-- Property type content -->
+                    <TextView
+                        android:id="@+id/fragment_perm_info_all_perm_num"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin8"
+                        android:layout_weight="2"
+                        android:alpha="0.75"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:textColor="@color/color_black_000000"
+                        android:textSize="@dimen/draft_all_info_table_text_size"
+                        tools:text="1236" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/color_background_homepage"
+                    android:divider="@color/color_gray_border"
+                    android:showDividers="middle">
+
+                    <!-- Property type text -->
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_date_list"
+                        android:textColor="@color/color_blue_theme_004677"
+                        android:textSize="@dimen/draft_all_info_table_text_size" />
+
+                    <!-- Property type content -->
+                    <TextView
+                        android:id="@+id/fragment_perm_info_all_date"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin8"
+                        android:layout_weight="2"
+                        android:alpha="0.75"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:textColor="@color/color_black_000000"
+                        android:textSize="@dimen/draft_all_info_table_text_size"
+                        tools:text="1236" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/color_white_FFFFFF"
+                    android:divider="@color/color_gray_border"
+                    android:showDividers="middle">
+
+                    <!-- Property type text -->
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_cust_name_2"
+                        android:textColor="@color/color_blue_theme_004677"
+                        android:textSize="@dimen/draft_all_info_table_text_size" />
+
+                    <!-- Property type content -->
+                    <TextView
+                        android:id="@+id/fragment_perm_info_all_cust_name"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin8"
+                        android:layout_weight="2"
+                        android:alpha="0.75"
+                        android:background="@android:color/transparent"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:textColor="@color/color_black_000000"
+                        android:textSize="@dimen/draft_all_info_table_text_size"
+                        tools:text="1236" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:background="@color/color_background_homepage"
+                    android:divider="@color/color_gray_border"
+                    android:showDividers="middle">
+
+                    <!-- Property type text -->
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_pre_factor_numb"
+                        android:textColor="@color/color_blue_theme_004677"
+                        android:textSize="@dimen/draft_all_info_table_text_size" />
+
+                    <!-- Property type content -->
+                    <TextView
+                        android:id="@+id/fragment_perm_info_all_prefactor_num"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/margin8"
+                        android:layout_weight="2"
+                        android:alpha="0.75"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:textColor="@color/color_black_000000"
+                        android:textSize="@dimen/draft_all_info_table_text_size"
+                        tools:text="1236" />
+
+
+                </TableRow>
+
+
+                <TableRow
+                    android:background="@color/color_white_FFFFFF"
+                    android:divider="@color/color_gray_border"
+                    android:showDividers="middle">
+
+                    <!-- Property type text -->
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_product_descrip"
+                        android:textColor="@color/color_blue_theme_004677"
+                        android:textSize="@dimen/draft_all_info_table_text_size" />
+
+                    <!-- Property type content -->
+                    <TextView
+                        android:id="@+id/fragment_perm_info_all_descrip"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin8"
+                        android:layout_weight="2"
+                        android:alpha="0.75"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:padding="@dimen/draft_all_info_table_padding"
+                        android:text="@string/txt_email"
+                        android:textColor="@color/color_black_000000"
+                        android:textSize="@dimen/draft_all_info_table_text_size"
+                        tools:text="1236" />
+
+
+                </TableRow>
+
+
+            </TableLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_perm_info_all_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/relative_tv"
+            android:background="@color/color_white_FFFFFF"
+            android:clipToPadding="true"
+            android:paddingStart="@dimen/margin16"
+            android:paddingEnd="@dimen/margin16"
+            android:paddingBottom="@dimen/margin8" />
+
+
+        <View
+            android:id="@+id/relative_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.75dp"
+            android:layout_below="@id/relative_table_layout"
+            android:layout_marginTop="@dimen/margin24"
+            android:layout_marginBottom="@dimen/margin12"
+            android:background="@color/color_black_000000"
+            android:elevation="3dp" />
+
+        <TextView
+            android:id="@+id/relative_tv"
+            style="@style/AppFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_line"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/margin16"
+            android:alpha="0.8"
+            android:scaleX="1.2"
+            android:text="@string/txt_products"
+            android:textColor="@color/color_black_000000"
+            android:textSize="@dimen/text_size18" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/fragment_perm_info_all_pbar"
+            style="@style/SpinKitView.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin80"
+            android:visibility="visible"
+            app:SpinKit_Color="@color/colorAccent" />
+
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+

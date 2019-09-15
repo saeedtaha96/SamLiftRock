@@ -51,7 +51,7 @@
                 android:layout_gravity="center"
                 android:maxLength="20"
                 android:layout_marginBottom="@dimen/margin8"
-                android:drawableEnd="@drawable/ic_username_drawable_small"
+                android:drawableEnd="@drawable/ic_username_drawable"
                 android:drawableTint="@color/color_blue_theme_004677"
                 android:gravity="start|center"
                 android:hint="@string/login_hint_username"
@@ -59,9 +59,9 @@
                 android:nextFocusForward="@id/login_input_password"
                 android:inputType="text"
                 android:paddingStart="@dimen/margin32"
-                android:paddingTop="@dimen/margin32"
+                android:paddingTop="@dimen/margin24"
                 android:paddingEnd="@dimen/margin32"
-                android:paddingBottom="@dimen/margin32"
+                android:paddingBottom="@dimen/margin24"
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
@@ -97,17 +97,17 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/margin24"
                 android:layout_marginBottom="@dimen/margin24"
-                android:drawableEnd="@drawable/ic_password_drawable_small"
+                android:drawableEnd="@drawable/ic_pw"
                 android:drawableTint="@color/color_blue_theme_004677"
                 android:gravity="start|center"
                 android:hint="@string/login_hint_password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingStart="@dimen/margin32"
-                android:paddingTop="@dimen/margin32"
+                android:paddingTop="@dimen/margin24"
                 android:paddingEnd="@dimen/margin32"
                 android:maxLength="20"
-                android:paddingBottom="@dimen/margin32"
+                android:paddingBottom="@dimen/margin24"
                 android:singleLine="true"
                 android:textAlignment="viewStart"
                 android:textColor="@color/color_black_000000"
@@ -132,7 +132,7 @@
         android:padding="@dimen/margin8"
         android:text="@string/login_vurud"
         android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/text_size17" />
+        android:textSize="@dimen/text_size18" />
 
     <TextView
         android:id="@+id/activity_login_tv_reg_device"
@@ -144,7 +144,7 @@
         android:gravity="center"
         android:text="@string/txt_register_phone"
         android:textColor="@color/color_gray_text"
-        android:textSize="@dimen/text_size15"
+        android:textSize="@dimen/text_size16"
 
         />
 

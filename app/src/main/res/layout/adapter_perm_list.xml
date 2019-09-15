@@ -23,23 +23,25 @@
 
             <TextView
                 android:id="@+id/relative_tv_draft_number"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_pre_factor_numb_24dp"
                 android:drawablePadding="@dimen/margin8"
-                style="@style/AppFont"                android:gravity="center"
+                android:gravity="center"
                 android:text="@string/txt_pre_factor_numb_dd"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_perm_list_tv_pre_factor_num"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/relative_tv_draft_number"
                 android:layout_marginStart="@dimen/margin32"
                 android:layout_toEndOf="@id/relative_tv_draft_number"
-                style="@style/AppFont"                android:gravity="center"
+                android:gravity="center"
                 android:text="H98-E-5"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/lists_text_size" />
@@ -56,23 +58,25 @@
 
             <TextView
                 android:id="@+id/relative_tv_perm_number"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_perm_number_24dp"
                 android:drawablePadding="@dimen/margin8"
-                style="@style/AppFont"                android:gravity="center"
+                android:gravity="center"
                 android:text="@string/txt_perm_num"
                 android:textColor="@color/color_blue_theme_004677"
                 android:textSize="@dimen/lists_text_size" />
 
             <TextView
                 android:id="@+id/activity_perm_list_tv_perm_num"
+                style="@style/AppFont"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@id/relative_tv_perm_number"
                 android:layout_marginStart="@dimen/margin32"
                 android:layout_toEndOf="@id/relative_tv_perm_number"
-                style="@style/AppFont"                android:gravity="center"
+                android:gravity="center"
                 android:text="1545"
                 android:textColor="@color/color_black_000000"
                 android:textSize="@dimen/lists_text_size" />
@@ -81,6 +85,7 @@
 
         <TextView
             android:id="@+id/relative_tv_product_source"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_col2"
@@ -88,20 +93,21 @@
             android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_customer_name_24dp"
             android:drawablePadding="@dimen/margin8"
-            style="@style/AppFont"            android:gravity="center|start"
+            android:gravity="center|start"
             android:text="@string/txt_cust_name"
             android:textColor="@color/color_blue_theme_004677"
             android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_perm_list_tv_cust_name"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/relative_tv_product_source"
             android:layout_alignBottom="@id/relative_tv_product_source"
             android:layout_marginStart="@dimen/margin32"
             android:layout_toEndOf="@id/relative_tv_product_source"
-            style="@style/AppFont"            android:gravity="center"
+            android:gravity="center"
             android:padding="@dimen/margin4"
             android:text="رابرت محمود"
             android:textColor="@color/color_black_000000"
@@ -109,6 +115,7 @@
 
         <TextView
             android:id="@+id/relative_tv_condition"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_tv_product_source"
@@ -116,20 +123,21 @@
             android:layout_marginTop="@dimen/margin12"
             android:drawableStart="@drawable/ic_state"
             android:drawablePadding="@dimen/margin8"
-            style="@style/AppFont"            android:gravity="center|start"
+            android:gravity="center|start"
             android:text="@string/txt_condition_dd"
             android:textColor="@color/color_blue_theme_004677"
             android:textSize="@dimen/lists_text_size" />
 
         <TextView
             android:id="@+id/activity_perm_list_tv_condition"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/relative_tv_condition"
             android:layout_alignBottom="@id/relative_tv_condition"
             android:layout_marginStart="@dimen/margin32"
             android:layout_toEndOf="@id/relative_tv_condition"
-            style="@style/AppFont"            android:gravity="center"
+            android:gravity="center"
             android:padding="@dimen/margin4"
             android:text="خوب"
             android:textColor="@color/color_black_000000"
@@ -137,12 +145,13 @@
 
         <TextView
             android:id="@+id/activity_perm_list_tv_date"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginEnd="@dimen/margin16"
-            style="@style/AppFont"            android:text="98/08/02"
+            android:text="98/08/02"
             android:textColor="@color/color_gray_text"
             android:textSize="@dimen/text_size12" />
 

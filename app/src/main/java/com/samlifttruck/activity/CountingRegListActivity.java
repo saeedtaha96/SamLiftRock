@@ -47,14 +47,14 @@ public class CountingRegListActivity extends AppCompatActivity {
                 msv.showSearch();
             }
         });
-        Configuration config = getResources().getConfiguration();
-        if (config.smallestScreenWidthDp >= 600) {
+      //  Configuration config = getResources().getConfiguration();
+       // if (config.smallestScreenWidthDp >= 600) {
             // sw600dp code goes here
-            rv.setLayoutManager(new GridLayoutManager(this, 2));
-        } else {
+       //     rv.setLayoutManager(new GridLayoutManager(this, 2));
+       // } else {
             // fall-back code goes here
             rv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-        }
+      //  }
         adapter = new CountingRegListAdapter(DataGenerator.getDraftList());
         rv.setAdapter(adapter);
 

@@ -39,11 +39,11 @@
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/txt_draft_list"
@@ -52,43 +52,43 @@
     </LinearLayout>
 
     <!-- draft From Perm-->
-    <LinearLayout
-        android:id="@+id/btn_menu_havale_az_mojavez"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin12"
-        android:background="@drawable/selector_btn_rect64_white"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/margin8"
-        android:weightSum="10">
+    <!--   <LinearLayout
+           android:id="@+id/btn_menu_havale_az_mojavez"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="@dimen/margin12"
+           android:background="@drawable/selector_btn_rect64_white"
+           android:clickable="true"
+           android:contextClickable="true"
+           android:focusable="true"
+           android:orientation="horizontal"
+           android:paddingStart="@dimen/margin8"
+           android:weightSum="10">
 
-        <ImageView
-            android:id="@+id/img_menu_havale_az_mojavez"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:padding="@dimen/padding_imgv_menu"
-            android:scaleType="fitCenter"
-            android:src="@drawable/licensing"
-            android:tint="@color/color_blue_theme_004677" />
+           <ImageView
+               android:id="@+id/img_menu_havale_az_mojavez"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_gravity="center"
+               android:layout_weight="1.5"
+               android:padding="@dimen/padding_imgv_menu"
+               android:scaleType="fitCenter"
+               android:src="@drawable/licensing"
+               android:tint="@color/color_blue_theme_004677" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin8"
-            android:layout_weight="8"
-            style="@style/AppFont"
-            android:gravity="center|start"
-            android:padding="@dimen/margin8"
-            android:text="@string/menu_txt_mojavez_havale"
-            android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/menu_text_size" />
-    </LinearLayout>
-
+           <TextView
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_marginStart="@dimen/margin8"
+               android:layout_weight="8"
+               style="@style/AppFont"
+               android:gravity="center|start"
+               android:padding="@dimen/margin8"
+               android:text="@string/menu_txt_mojavez_havale"
+               android:textColor="@color/color_black_000000"
+               android:textSize="@dimen/menu_text_size" />
+       </LinearLayout>
+   -->
     <!-- draft list-->
     <LinearLayout
         android:id="@+id/btn_menu_permission_list"
@@ -111,15 +111,15 @@
             android:layout_weight="@dimen/nav_menu_weight_digit"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/accept"
+            android:src="@drawable/ic_perm_list"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/txt_perm_list"
@@ -153,11 +153,11 @@
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/txt_receipt_list"
@@ -195,15 +195,15 @@
             android:layout_weight="1.5"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/ticket"
+            android:src="@drawable/ic_midterm_control"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/menu_txt_control"
@@ -216,7 +216,7 @@
     <LinearLayout
         android:id="@+id/btn_menu_register_counting"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin76"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin12"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
@@ -229,20 +229,20 @@
         <ImageView
             android:id="@+id/img_menu_register_counting"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1.5"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/order"
+            android:src="@drawable/ic_counting_reg"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/sabt_shomaresh"
@@ -272,15 +272,15 @@
             android:layout_weight="1.5"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/warehouse"
+            android:src="@drawable/ic_shelf_edit"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/txt_shelf_edit"
@@ -308,17 +308,17 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1.5"
-            android:padding="@dimen/margin8"
+            android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/product3"
+            android:src="@drawable/ic_modify_product"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/menu_txt_product"
@@ -326,12 +326,12 @@
             android:textSize="@dimen/menu_text_size" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="@dimen/margin4"
-        android:layout_marginBottom="@dimen/margin4"
-        android:background="@color/view_color_gray" />
+    <!-- <View
+         android:layout_width="match_parent"
+         android:layout_height="1dp"
+         android:layout_marginTop="@dimen/margin4"
+         android:layout_marginBottom="@dimen/margin4"
+         android:background="@color/view_color_gray" /> -->
 
     <!-- kardex-->
     <LinearLayout
@@ -355,15 +355,15 @@
             android:layout_weight="@dimen/nav_menu_weight_digit"
             android:padding="@dimen/padding_imgv_menu"
             android:scaleType="fitCenter"
-            android:src="@drawable/living_room_books_group"
+            android:src="@drawable/ic_product_cardex"
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/kardex"
@@ -372,42 +372,42 @@
     </LinearLayout>
 
     <!-- inventory report -->
-    <LinearLayout
-        android:id="@+id/btn_menu_inventory_report"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin12"
-        android:background="@drawable/selector_btn_rect64_white"
-        android:clickable="true"
-        android:contextClickable="true"
-        android:focusable="true"
-        android:orientation="horizontal"
-        android:paddingStart="@dimen/margin8"
-        android:weightSum="10">
+    <!--  <LinearLayout
+         android:id="@+id/btn_menu_inventory_report"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="@dimen/margin12"
+         android:background="@drawable/selector_btn_rect64_white"
+         android:clickable="true"
+         android:contextClickable="true"
+         android:focusable="true"
+         android:orientation="horizontal"
+         android:paddingStart="@dimen/margin8"
+         android:weightSum="10">
 
-        <ImageView
-            android:id="@+id/img_menu_inventory_report"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:padding="@dimen/padding_imgv_menu"
-            android:scaleType="fitCenter"
-            android:src="@drawable/clipboard"
-            android:tint="@color/color_blue_theme_004677" />
+         <ImageView
+             android:id="@+id/img_menu_inventory_report"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_gravity="center"
+             android:layout_weight="1.5"
+             android:padding="@dimen/padding_imgv_menu"
+             android:scaleType="fitCenter"
+             android:src="@drawable/clipboard"
+             android:tint="@color/color_blue_theme_004677" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/margin8"
-            android:layout_weight="8"
-            style="@style/AppFont"
-            android:gravity="center|start"
-            android:padding="@dimen/margin8"
-            android:text="@string/menu_txt_gozaresh_mojudi"
-            android:textColor="@color/color_black_000000"
-            android:textSize="@dimen/menu_text_size" />
-    </LinearLayout>
+         <TextView
+             style="@style/AppFont"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_marginStart="@dimen/margin8"
+             android:layout_weight="8"
+             android:gravity="center|start"
+             android:padding="@dimen/margin8"
+             android:text="@string/menu_txt_gozaresh_mojudi"
+             android:textColor="@color/color_black_000000"
+             android:textSize="@dimen/menu_text_size" />
+     </LinearLayout> -->
 
     <View
         android:layout_width="match_parent"
@@ -420,7 +420,7 @@
     <LinearLayout
         android:id="@+id/btn_menu_exit"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin76"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/selector_btn_rect64_white"
         android:clickable="true"
@@ -433,7 +433,7 @@
         <ImageView
             android:id="@+id/img_menu_exit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="@dimen/nav_menu_weight_digit"
             android:padding="@dimen/padding_imgv_menu"
@@ -442,11 +442,11 @@
             android:tint="@color/color_blue_theme_004677" />
 
         <TextView
+            style="@style/AppFont"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/margin8"
             android:layout_weight="8"
-            style="@style/AppFont"
             android:gravity="center|start"
             android:padding="@dimen/margin8"
             android:text="@string/txt_exit_app"

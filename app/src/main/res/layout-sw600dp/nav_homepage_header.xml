@@ -29,7 +29,7 @@
         android:layout_gravity="bottom|start"
         android:drawablePadding="@dimen/margin4"
         android:textColor="#474747"
-        android:textSize="@dimen/text_size13"
+        android:textSize="@dimen/text_size14"
         android:background="@drawable/selector_btn_rect64_white"
         android:layout_marginBottom="@dimen/margin8"
         android:layout_marginStart="@dimen/margin8"

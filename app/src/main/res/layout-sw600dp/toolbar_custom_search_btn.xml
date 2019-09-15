@@ -34,7 +34,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1.5"
                     android:background="@drawable/selector_btn_rect64_blue"
-                    android:padding="@dimen/margin20"
+                    android:padding="@dimen/margin12"
                     android:scaleType="fitCenter"
                     android:src="@drawable/search_white" />
 
@@ -59,7 +59,7 @@
                     android:layout_weight="1.5"
                     android:background="@drawable/selector_btn_rect64_blue"
                     android:onClick="onBackBtnClick"
-                    android:padding="@dimen/margin20"
+                    android:padding="@dimen/margin12"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_arrow_back_black_24dp" />
 

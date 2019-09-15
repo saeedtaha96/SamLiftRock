@@ -35,314 +35,315 @@
             android:layout_below="@id/relative_imgv">
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin32"
+                android:layout_marginTop="@dimen/margin32"
+                android:layout_marginEnd="@dimen/margin32"
+                android:layout_marginBottom="@dimen/margin32"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/margin8">
+
 
                 <LinearLayout
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin32"
-                    android:layout_marginTop="@dimen/margin32"
-                    android:layout_marginEnd="@dimen/margin32"
-                    android:layout_marginBottom="@dimen/margin32"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin8">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
-
-                            <LinearLayout
-                                android:id="@+id/btn_midterm_control"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
-
-
-
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_midterm_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius5"
-                                        tools:src="@drawable/midterm" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/menu_txt_control"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
-
-                            <LinearLayout
-                                android:id="@+id/btn_shelf_edit"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
-
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_shelfedit_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        tools:src="@drawable/shelfs" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/txt_shelf_edit"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                        <LinearLayout
+                            android:id="@+id/btn_midterm_control"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
 
-                            <LinearLayout
-                                android:id="@+id/btn_list_draft"
+
+                            <ImageView
+                                android:id="@+id/activitY_homepage_midterm_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_menu_midterm_control" />
+
+                            <TextView
+                                style="@style/AppFont"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/menu_txt_control"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
 
 
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_draftlist_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius10"
-                                        tools:src="@drawable/draft_new" />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
 
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/txt_draft_list"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
+                        <LinearLayout
+                            android:id="@+id/btn_shelf_edit"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
 
-                            <LinearLayout
-                                android:id="@+id/btn_list_permission"
+                            <ImageView
+                                android:id="@+id/activitY_homepage_shelfedit_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_shelf_edit" />
+
+                            <TextView
+                                style="@style/AppFont"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/txt_shelf_edit"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
 
-
-
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_permlist_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius8"
-                                        tools:src="@drawable/mojavez2" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/txt_perm_list"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
-
-                            <LinearLayout
-                                android:id="@+id/btn_list_receipt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
-
-
-
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_receiptlist_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius5"
-                                        tools:src="@drawable/receipt_new" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/txt_receipt_list"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/margin8"
-                            android:layout_weight="1"
-                            android:clickable="true"
-                            android:contextClickable="true"
-                            android:focusable="true"
-                            app:cardCornerRadius="@dimen/margin8"
-                            app:cardMaxElevation="@dimen/margin12">
-
-                            <LinearLayout
-                                android:id="@+id/btn_kardex"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/selector_rect10_menu_items"
-                                android:orientation="vertical">
-
-
-                                    <ImageView
-                                        android:id="@+id/activitY_homepage_kardex_btn"
-                                        android:layout_width="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_height="@dimen/dashboard_menu_imgv_size"
-                                        android:layout_gravity="center"
-                                        android:layout_marginTop="@dimen/margin16"
-                                        android:padding="@dimen/radius12"
-                                        tools:src="@drawable/cardx2" />
-
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_gravity="center"
-                                        style="@style/AppFont"
-                                        android:gravity="center"
-                                        android:paddingTop="@dimen/margin4"
-                                        android:paddingBottom="@dimen/margin8"
-                                        android:text="@string/kardex"
-                                        android:textColor="@color/black"
-                                        android:textSize="@dimen/menu_main_text_size" />
-
-
-                            </LinearLayout>
-                        </androidx.cardview.widget.CardView>
-
-
-                    </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
+
+                        <LinearLayout
+                            android:id="@+id/btn_list_draft"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/activitY_homepage_draftlist_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_menu_draft_list" />
+
+                            <TextView
+                                style="@style/AppFont"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/txt_draft_list"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
+
+                        <LinearLayout
+                            android:id="@+id/btn_list_permission"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/activitY_homepage_permlist_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_menu_perm_list" />
+
+                            <TextView
+                                style="@style/AppFont"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/txt_perm_list"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
+
+                        <LinearLayout
+                            android:id="@+id/btn_list_receipt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/activitY_homepage_receiptlist_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_menu_receipt_list" />
+
+                            <TextView
+                                style="@style/AppFont"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/txt_receipt_list"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin8"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:contextClickable="true"
+                        android:focusable="true"
+                        app:cardCornerRadius="@dimen/margin8"
+                        app:cardMaxElevation="@dimen/margin12">
+
+                        <LinearLayout
+                            android:id="@+id/btn_kardex"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_rect10_menu_items"
+                            android:orientation="vertical">
+
+
+                            <ImageView
+                                android:id="@+id/activitY_homepage_kardex_btn"
+                                android:layout_width="@dimen/dashboard_menu_imgv_size"
+                                android:layout_height="@dimen/dashboard_menu_imgv_size"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin16"
+                                android:padding="@dimen/radius8"
+                                tools:src="@drawable/ic_menu_product_cardex" />
+
+                            <TextView
+                                style="@style/AppFont"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginBottom="@dimen/margin16"
+                                android:gravity="center"
+                                android:paddingTop="@dimen/margin4"
+                                android:paddingBottom="@dimen/margin8"
+                                android:text="@string/kardex"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/menu_main_text_size" />
+
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
 
         </ScrollView>

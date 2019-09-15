@@ -69,9 +69,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnShelfEdit = findViewById(R.id.btn_shelf_edit);
         btnMidtermControl = findViewById(R.id.btn_midterm_control);
         btnMenuProduct = findViewById(R.id.btn_menu_product);
-        btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
+      //  btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
         btnMenuRegCount = findViewById(R.id.btn_menu_register_counting);
-        btnMenuInventoryRep = findViewById(R.id.btn_menu_inventory_report);
+     //   btnMenuInventoryRep = findViewById(R.id.btn_menu_inventory_report);
         btnMenuMidtermControl = findViewById(R.id.btn_menu_midterm_control);
         btnMenuShelfEdit = findViewById(R.id.btn_menu_shelf_edit);
         btnMenuKardex = findViewById(R.id.btn_menu_kardex);
@@ -97,12 +97,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlideMethod(R.drawable.shomaresh, R.id.img_menu_register_counting);
         setGlideMethod(R.drawable.ordering_icon, R.id.img_menu_inventory_report);*/
         setGlideMethod(R.drawable.sam_liftrock_2, R.id.img_sam_liftrock);
-        setGlideMethod(R.drawable.shelfs, R.id.activitY_homepage_shelfedit_btn);
-        setGlideMethod(R.drawable.midterm, R.id.activitY_homepage_midterm_btn);
-        setGlideMethod(R.drawable.draft_new, R.id.activitY_homepage_draftlist_btn);
-        setGlideMethod(R.drawable.mojavez2, R.id.activitY_homepage_permlist_btn);
-        setGlideMethod(R.drawable.receipt_new, R.id.activitY_homepage_receiptlist_btn);
-        setGlideMethod(R.drawable.cardx2, R.id.activitY_homepage_kardex_btn);
+        setGlideMethod(R.drawable.ic_menu_shelf_edit, R.id.activitY_homepage_shelfedit_btn);
+        setGlideMethod(R.drawable.ic_menu_midterm_control, R.id.activitY_homepage_midterm_btn);
+        setGlideMethod(R.drawable.ic_menu_draft_list, R.id.activitY_homepage_draftlist_btn);
+        setGlideMethod(R.drawable.ic_menu_perm_list, R.id.activitY_homepage_permlist_btn);
+        setGlideMethod(R.drawable.ic_menu_receipt_list, R.id.activitY_homepage_receiptlist_btn);
+        setGlideMethod(R.drawable.ic_menu_product_cardex, R.id.activitY_homepage_kardex_btn);
     }
 
     public void setGlideMethod(int drawable, int id) {

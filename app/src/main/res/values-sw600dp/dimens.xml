@@ -52,20 +52,20 @@
 
 
     <dimen name="menu_text_size">22sp</dimen>
-    <dimen name="menu_main_text_size">28sp</dimen>
-    <dimen name="padding_imgv_menu">12dp</dimen>
+    <dimen name="menu_main_text_size">23sp</dimen>
+    <dimen name="padding_imgv_menu">10dp</dimen>
     <dimen name="margin38">38dp</dimen>
     <dimen name="margin16">16dp</dimen>
     <dimen name="draft_all_info_table_text_size">23sp</dimen>
     <dimen name="draft_all_info_table_padding">8dp</dimen>
     <dimen name="radius32">32dp</dimen>
     <dimen name="margin80">80dp</dimen>
-    <dimen name="product_text_size">14sp</dimen>
+    <dimen name="product_text_size">18sp</dimen>
     <dimen name="product_end_start_margin">24dp</dimen>
     <dimen name="shelf_edit_side_margin">32dp</dimen>
     <dimen name="margin20">20dp</dimen>
 
-    <dimen name="drawables_size">24dp</dimen>
+    <dimen name="drawables_size">32dp</dimen>
     <dimen name="lists_text_size">16sp</dimen>
     <dimen name="margin6">6dp</dimen>
     <dimen name="adapter_counting_reg_text_size">14sp</dimen>

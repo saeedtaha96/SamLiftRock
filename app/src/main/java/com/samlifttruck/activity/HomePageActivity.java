@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -20,13 +21,15 @@ import com.samlifttruck.R;
 import com.samlifttruck.activity.DataGenerators.Utility;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
-    SharedPreferences pref;
-    DrawerLayout drawer;
-    NavigationView nav;
-    ImageView btnMenu, imgvMenuKardex;
-    Bundle savedInstanceState;
-    LinearLayout btnShelfEdit, btnMidtermControl, btnReceiptList, btnDraftList, btnPermList, btnKardex;
-    LinearLayout btnMenuProduct, btnMenuHavaleAzMojavez, btnMenuRegCount, btnMenuInventoryRep, btnMenuMidtermControl,
+    private int workgroupID;
+    private SharedPreferences pref;
+    private DrawerLayout drawer;
+    private NavigationView nav;
+    TextView navTvLoginUserName;
+    private ImageView btnMenu, imgvMenuKardex;
+    private Bundle savedInstanceState;
+    private LinearLayout btnShelfEdit, btnMidtermControl, btnReceiptList, btnDraftList, btnPermList, btnKardex;
+    private LinearLayout btnMenuProduct, btnMenuHavaleAzMojavez, btnMenuRegCount, btnMenuInventoryRep, btnMenuMidtermControl,
             btnMenuShelfEdit, btnMenuKardex, btnMenuPermList, btnMenuDraftList, btnMenuReceiptList, btnMenuLogOut;
 
     @Override
@@ -44,6 +47,37 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         setGlide();
 
         setupListeners();
+
+        if (pref.contains(Utility.LOGIN_USERNAME)) {
+            navTvLoginUserName.setText(pref.getString(Utility.LOGIN_USERNAME, " "));
+        }
+        if (pref.contains(Utility.LOGIN_WORKGROUP_ID)) {
+            workgroupID = pref.getInt(Utility.LOGIN_WORKGROUP_ID, 56);
+        }
+
+        if (workgroupID == 56) {
+
+            btnReceiptList.setEnabled(false);
+            btnReceiptList.setClickable(false);
+            btnReceiptList.setContextClickable(false);
+            btnReceiptList.setBackgroundColor(getColor(R.color.color_gray_border));
+
+            btnDraftList.setEnabled(false);
+            btnDraftList.setClickable(false);
+            btnDraftList.setContextClickable(false);
+            btnDraftList.setBackgroundColor(getColor(R.color.color_gray_border));
+
+            btnPermList.setEnabled(false);
+            btnPermList.setClickable(false);
+            btnPermList.setContextClickable(false);
+            btnPermList.setBackgroundColor(getColor(R.color.color_gray_border));
+
+            btnKardex.setEnabled(false);
+            btnKardex.setClickable(false);
+            btnKardex.setContextClickable(false);
+            btnKardex.setBackgroundColor(getColor(R.color.color_gray_border));
+
+        }
 
 
     }
@@ -69,9 +103,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnShelfEdit = findViewById(R.id.btn_shelf_edit);
         btnMidtermControl = findViewById(R.id.btn_midterm_control);
         btnMenuProduct = findViewById(R.id.btn_menu_product);
-      //  btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
+        //  btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
         btnMenuRegCount = findViewById(R.id.btn_menu_register_counting);
-     //   btnMenuInventoryRep = findViewById(R.id.btn_menu_inventory_report);
+        //   btnMenuInventoryRep = findViewById(R.id.btn_menu_inventory_report);
         btnMenuMidtermControl = findViewById(R.id.btn_menu_midterm_control);
         btnMenuShelfEdit = findViewById(R.id.btn_menu_shelf_edit);
         btnMenuKardex = findViewById(R.id.btn_menu_kardex);
@@ -83,6 +117,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnPermList = findViewById(R.id.btn_list_permission);
         btnKardex = findViewById(R.id.btn_kardex);
         btnMenuLogOut = findViewById(R.id.btn_menu_exit);
+        navTvLoginUserName = findViewById(R.id.nav_username_login_info);
     }
 
     private void setGlide() {

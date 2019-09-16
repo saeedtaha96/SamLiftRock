@@ -33,7 +33,7 @@
         android:background="@drawable/selector_btn_rect64_white"
         android:layout_marginBottom="@dimen/margin8"
         android:layout_marginStart="@dimen/margin8"
-        android:text="سعید طه"/>
+        tools:text="سعید طه"/>
 
 
 

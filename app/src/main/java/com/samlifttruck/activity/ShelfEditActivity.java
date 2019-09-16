@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -21,8 +22,8 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.Models.ProductModel;
-import com.samlifttruck.activity.DataGenerators.Utility.SOAP;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -209,6 +210,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     public void handleResult(final Result result) {
         // String myResult = result.getText();
         etFanniNumb.setText(result.getText());
+        new soapCall().execute("x4fg54-D9ib", result.getText());
         onResume();
 
 
@@ -220,7 +222,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     }
 
     class soapCall extends AsyncTask<String, Object, String> {
-        String response = null;
+        String response;
 
         @Override
         protected void onPreExecute() {
@@ -231,7 +233,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
         @Override
         protected String doInBackground(String... strings) {
-            SoapObject request = new SoapObject(SOAP.NAMESPACE, SOAP.METHOD_GET_PRODUCT);
+            SoapObject request = new SoapObject(SoapCall.NAMESPACE, SoapCall.METHOD_GET_PRODUCT);
             PropertyInfo p = new PropertyInfo();
             p.setName("passCode");
             p.setValue(strings[0]);
@@ -250,24 +252,34 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
             envelope.setOutputSoapObject(request);
 
-            HttpTransportSE transportSE = new HttpTransportSE(SOAP.URL, SOAP.TIMEOUT);
+            HttpTransportSE transportSE = new HttpTransportSE(SoapCall.URL, SoapCall.TIMEOUT);
 
             try {
-                transportSE.call(SOAP.SOAP_ACTION_GET_PRODUCT, envelope);
+                transportSE.call(SoapCall.SOAP_ACTION_GET_PRODUCT, envelope);
 
                 SoapObject ss = (SoapObject) envelope.bodyIn;
+
                 if (ss.getPropertyCount() >= 1) {
+                    publishProgress(ss.getProperty(0).toString());
                     response = ss.getProperty(0).toString();
+                    Log.i("qwerty",response);
                 }
 
 
             } catch (IOException | XmlPullParserException e) {
                 e.printStackTrace();
+                Log.i("qwerty",e.getLocalizedMessage());
             }
 
             return response;
         }
 
+
+        @Override
+        protected void onProgressUpdate(Object... values) {
+            super.onProgressUpdate(values);
+            Toast.makeText(ShelfEditActivity.this, values[0].toString(), Toast.LENGTH_LONG).show();
+        }
 
         @Override
         protected void onPostExecute(String s) {
@@ -304,13 +316,15 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+
             }
 
             //store your url in some list
 
             if (s != null) {
-                tvProductName.setText(m.getsProductName());
-                tvShelfNum.setText(m.getsShelf());
+                tvProductName.setText(m.getsMainUnitID());
+                tvShelfNum.setText(m.getsTechNo());
             } else {
                 tvProductName.setText(getResources().getText(R.string.dash));
                 tvShelfNum.setText(getResources().getText(R.string.dash));

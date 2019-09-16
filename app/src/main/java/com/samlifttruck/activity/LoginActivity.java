@@ -10,9 +10,11 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,15 @@ import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.ksoap2.serialization.PropertyInfo;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 
@@ -34,17 +44,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextInputEditText etUsername, etPassword;
     private Button btnLogin;
     private String imei;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
     private TextView btnRegDevice;
     private static final int REQUEST_PHONE_STATE = 10;
     private SharedPreferences pref;
-    private static final String IS_LOGIN = "isLogin";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pref = getSharedPreferences("myprefs", MODE_PRIVATE);
-        if (pref.contains(IS_LOGIN)) {
-            if (pref.getBoolean(IS_LOGIN, false)) {
+        if (pref.contains(Utility.IS_LOGIN)) {
+            if (pref.getBoolean(Utility.IS_LOGIN, false)) {
                 startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
                 finish();
             }
@@ -52,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean(IS_LOGIN, false);
+        editor.putBoolean(Utility.IS_LOGIN, false);
         editor.apply();
 
         setupView();
@@ -152,6 +164,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
 
     private void setupView() {
+        progressBar = findViewById(R.id.activity_login_pbar);
         etUsername = findViewById(R.id.login_input_username);
         etPassword = findViewById(R.id.login_input_password);
         btnLogin = findViewById(R.id.login_btn_login);
@@ -196,16 +209,113 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 break;
+
+            // btn Login
             case R.id.login_btn_login:
-                SharedPreferences.Editor edt = pref.edit();
-                edt.putBoolean(IS_LOGIN,true);
-                edt.apply();
-                startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
-                finish();
-                break;
+                if (isFilled()) {
+                    PropertyInfo p0 = new PropertyInfo();
+                    p0.setName("passCode");
+                    p0.setValue("x4fg54-D9ib");
+                    p0.setType(String.class);
+
+                    PropertyInfo p1 = new PropertyInfo();
+                    p1.setName("uName");
+                    p1.setValue(etUsername.getText().toString());
+                    p1.setType(String.class);
+
+                    PropertyInfo p2 = new PropertyInfo();
+                    p2.setName("uPass");
+                    p2.setValue(etPassword.getText().toString());
+                    p2.setType(String.class);
+
+                    PropertyInfo p3 = new PropertyInfo();
+                    p3.setName("mobilekey");
+                    p3.setValue(imei);
+                    p3.setType(String.class);
+
+
+                    final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_LOGIN_INFO, SoapCall.SOAP_ACTION_GET_LOGIN_INFO);
+                    ss.execute(p0, p1, p2, p3);
+
+
+                    new Handler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (ss.get() != null) {
+                                    list = ss.get();
+                                    for (int i = 0; i < list.size(); i++) {
+                                        SharedPreferences.Editor edt = pref.edit();
+                                        edt.putString(Utility.LOGIN_USERNAME, list.get(i).getString("FullName"));
+                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID, 56);
+                                        edt.putBoolean(Utility.IS_LOGIN, true);
+                                        edt.apply();
+                                        startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                                        finish();
+                                        break;
+                                        //    tv.append("tech no = " + list.get(i).getString("techNo") + "\n");
+                                        //   tv.append("product = " + list.get(i).getString("ProductName"));
+                                        //  System.out.println(ss.get());
+                                    }
+                                } else if (ss.get() == null) {
+                                    iOSDialogBuilder ios = Utility.newIOSdialog(LoginActivity.this);
+                                    ios.setTitle(getString(R.string.txt_error)).setPositiveListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
+                                        @Override
+                                        public void onClick(iOSDialog dialog) {
+                                            dialog.dismiss();
+                                        }
+                                    })
+                                            .setSubtitle(getString(R.string.txt_wrong_name_pass))
+                                            .build().show();
+                                }
+
+                            } catch (ExecutionException e) {
+                                e.printStackTrace();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                }
             default:
                 ;
         }
+    }
+
+    private boolean isFilled() {
+        if (etUsername.getText().toString().equals("")) {
+            etUsername.setError(getString(R.string.txt_please_enter_username));
+            etUsername.requestFocus();
+            return false;
+        } else if (etPassword.getText().toString().equals("")) {
+            etPassword.setError(getString(R.string.txt_please_enter_password));
+            etPassword.requestFocus();
+            return false;
+
+        } else if (imei == null) {
+            iOSDialogBuilder ios = Utility.newIOSdialog(this);
+            ios.setTitle(getString(R.string.txt_error))
+                    .setSubtitle(getString(R.string.txt_imei_not_registered))
+                    .setPositiveListener(getString(R.string.txt_eta), new iOSDialogClickListener() {
+                        @Override
+                        public void onClick(iOSDialog dialog) {
+                            requestPermission();
+                            dialog.dismiss();
+                        }
+                    }).setNegativeListener(getString(R.string.txt_cancel), new iOSDialogClickListener() {
+                @Override
+                public void onClick(iOSDialog dialog) {
+                    dialog.dismiss();
+                }
+            }).build().show();
+            return false;
+        } else {
+            return true;
+        }
+
+
     }
 
 

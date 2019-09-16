@@ -1,264 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl"
-    android:orientation="vertical"
     tools:context=".activity.CardexDeatilsActivity">
 
-    <include
-        android:id="@+id/activity_cardex_deatils_toolbar"
-        layout="@layout/toolbar_custom_for_cardex" />
-
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_blue_theme_004677">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/margin24"
-            android:layout_marginTop="@dimen/margin24"
-            android:layout_marginEnd="@dimen/margin24"
-            android:layout_marginBottom="@dimen/margin8"
-            android:background="@drawable/shape_spinner"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/shape_cardex_background"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/AppFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/txt_product_name_simple"
-                    android:textColor="@color/color_white_FFFFFF"
-                    android:textSize="@dimen/text_size16" />
-
-                <TextView
-                    style="@style/AppFont"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FILTER,OIL ENGINE"
-                    android:textColor="@color/color_yellow_F9FF55"
-                    android:textSize="@dimen/text_size17" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin8"
-                android:layout_marginBottom="@dimen/margin12"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/shomare_fanni"
-                        android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size14" />
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="A218226"
-                        android:textColor="@color/color_black_000000"
-                        android:textSize="@dimen/text_size15" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="center"
-                    android:background="@color/color_gray_border" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/txt_shelf_numb_simple"
-                        android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size14" />
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="S28O2"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size15" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/txt_incoming"
-                        android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size13" />
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="920"
-                        android:textColor="@color/color_black_000000"
-                        android:textSize="@dimen/text_size14" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="center"
-                    android:background="@color/color_gray_border" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/txt_outgoing"
-                        android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size13" />
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="55"
-                        android:textColor="@color/color_black_000000"
-                        android:textSize="@dimen/text_size14" />
-
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="center"
-                    android:background="@color/color_gray_border" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/txt_inventory"
-                        android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size13" />
-
-                    <TextView
-                        style="@style/AppFont"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="865"
-                        android:textColor="@color/color_black_000000"
-                        android:textSize="@dimen/text_size14" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/margin8"
-        android:background="@color/color_blue_theme_004677"
-        android:elevation="@dimen/margin16" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/activity_cardex_details_rv"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_white_FFFFFF"
-        android:clipToPadding="false"
-        android:paddingTop="@dimen/margin16" />
+        android:orientation="vertical"
+     >
 
-</LinearLayout>
+        <include
+            android:id="@+id/activity_cardex_deatils_toolbar"
+            layout="@layout/toolbar_custom_for_cardex" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_blue_theme_004677">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/margin24"
+                android:layout_marginTop="@dimen/margin24"
+                android:layout_marginEnd="@dimen/margin24"
+                android:layout_marginBottom="@dimen/margin8"
+                android:background="@drawable/shape_spinner"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_cardex_background"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txt_product_name_simple"
+                        android:textColor="@color/color_white_FFFFFF"
+                        android:textSize="@dimen/text_size16" />
+
+                    <TextView
+                        style="@style/AppFont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FILTER,OIL ENGINE"
+                        android:textColor="@color/color_yellow_F9FF55"
+                        android:textSize="@dimen/text_size17" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin8"
+                    android:layout_marginBottom="@dimen/margin12"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/shomare_fanni"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/text_size14" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="A218226"
+                            android:textColor="@color/color_black_000000"
+                            android:textSize="@dimen/text_size15" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="37dp"
+                        android:layout_gravity="center"
+                        android:background="@color/color_gray_border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_shelf_numb_simple"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/text_size14" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="S28O2"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size15" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_incoming"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/text_size13" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="920"
+                            android:textColor="@color/color_black_000000"
+                            android:textSize="@dimen/text_size14" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="37dp"
+                        android:layout_gravity="center"
+                        android:background="@color/color_gray_border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_outgoing"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/text_size13" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="55"
+                            android:textColor="@color/color_black_000000"
+                            android:textSize="@dimen/text_size14" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="37dp"
+                        android:layout_gravity="center"
+                        android:background="@color/color_gray_border" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_inventory"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/text_size13" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="865"
+                            android:textColor="@color/color_black_000000"
+                            android:textSize="@dimen/text_size14" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin8"
+            android:background="@color/color_blue_theme_004677"
+            android:elevation="@dimen/margin16" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/activity_cardex_details_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_white_FFFFFF"
+            android:clipToPadding="false"
+            android:paddingTop="@dimen/margin16" />
+
+    </LinearLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_cardex_details_pbar"
+        style="@style/SpinKitView.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/colorAccent" />
+</RelativeLayout>

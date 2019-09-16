@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.Utility;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -29,10 +31,12 @@ import static android.Manifest.permission.CAMERA;
 
 public class MidtermControlActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     TextInputEditText etFanniNumb;
+    private int workgroupID;
     ImageView btnTodayList;
+    TextView tvInventory, tvInventoryRelative;
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-
+    SharedPreferences pref;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -43,6 +47,13 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         setupViews();
         setToolbarText();
         checkQRcodePremission();
+
+        pref = getSharedPreferences("myprefs", MODE_PRIVATE);
+        workgroupID = pref.getInt(Utility.LOGIN_WORKGROUP_ID, 56);
+        if (workgroupID == 56) {
+            tvInventoryRelative.setVisibility(View.GONE);
+            tvInventory.setVisibility(View.GONE);
+        }
 
         btnTodayList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +71,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 final int DRAWABLE_BOTTOM = 3;
 
                 if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width())))
-                    {
+                    if (event.getRawX() <= (etFanniNumb.getLeft() + (2 * etFanniNumb.getCompoundDrawables()[DRAWABLE_LEFT].getDirtyBounds().width()))) {
                         // your action here
                         if (etFanniNumb.getText().toString().equals("")) {
                             etFanniNumb.setError("خالی است");
@@ -83,6 +93,8 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     }
 
     private void setupViews() {
+        tvInventoryRelative = findViewById(R.id.relative_midterm_tv_inventory);
+        tvInventory = findViewById(R.id.activity_midterm_counting_inventory);
         scannerView = findViewById(R.id.scanner_midterm);
         etFanniNumb = findViewById(R.id.layout_et_tech_no);
         btnTodayList = findViewById(R.id.activity_imgv_today_list);

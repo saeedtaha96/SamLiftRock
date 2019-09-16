@@ -94,12 +94,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_product_name"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:hint="@string/txt_product_name_simple"
                         android:imeOptions="actionNext"
@@ -139,12 +139,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_shelf_num"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:hint="@string/txt_shelf_numb_simple"
                         android:imeOptions="actionNext"
@@ -189,9 +189,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_counting_1"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:hint="@string/txt_counting_1"
                         android:imeOptions="actionNext"
@@ -231,9 +231,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_counting_2"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:hint="@string/txt_counting_2"
                         android:imeOptions="actionNext"
@@ -272,12 +272,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_result_1_2"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:imeOptions="actionNext"
                         android:inputType="text"
@@ -322,9 +322,9 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_counting_3"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:hint="@string/txt_counting_3"
                         android:imeOptions="actionNext"
@@ -363,12 +363,12 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_counting_reg_final_result"
+                        style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:enabled="false"
                         android:focusable="false"
-                        style="@style/AppFont"
                         android:gravity="start|center"
                         android:imeOptions="actionNext"
                         android:inputType="text"
@@ -407,9 +407,12 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/activity_counting_reg_inventory"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
                     android:gravity="start|center"
                     android:hint="@string/txt_inventory"
                     android:maxEms="10"
@@ -432,6 +435,7 @@
 
     <Button
         android:id="@+id/activity_counting_reg_btn_save"
+        style="@style/AppFont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -439,9 +443,18 @@
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin24"
         android:background="@drawable/selector_btn_save"
-        style="@style/AppFont"
         android:text="@string/save"
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size21" />
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/activity_counting_reg_pbar"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:translationY="@dimen/margin192"
+        android:visibility="gone"
+        app:SpinKit_Color="@color/colorAccent" />
 
 </RelativeLayout>

@@ -13,6 +13,9 @@ public class Utility {
     public static final String IS_LOGIN = "isLogin";
     public static final String LOGIN_USERNAME = "LoginUserName";
     public static final String LOGIN_WORKGROUP_ID = "LoginWorkgroupID";
+    public static final String LOGIN_USER_ID = "LoginUserID";
+    public static final String pw = "x4fg54-D9ib";
+
 
     public static iOSDialogBuilder newIOSdialog(Context context) {
 

@@ -96,14 +96,25 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
             transportSE.call(soapAction, envelope);
 
             SoapObject ss = (SoapObject) envelope.bodyIn;
+
             // publishProgress(ss.toString());
             if (ss.getPropertyCount() >= 1) {
-                childObjectList = new ArrayList<>(ss.getPropertyCount());
 
-                for (int k = 0; k < ss.getPropertyCount(); k++) {
-                    jsonArray = new JSONArray(ss.getProperty(k).toString());
+                if (ss.getProperty(0).toString().equals("true")) {
+                    childObjectList = new ArrayList<>();
+
+                    String ans = "[{\"boolean\":\"true\" }]";
+                    jsonArray = new JSONArray(ans);
                     childObject = jsonArray.getJSONObject(0);
                     childObjectList.add(childObject);
+                    // publishProgress(childObject.getString("boolean"));
+                } else {
+                    childObjectList = new ArrayList<>(ss.getPropertyCount());
+                    jsonArray = new JSONArray(ss.getProperty(0).toString());
+                    for (int k = 0; k < jsonArray.length(); k++) {
+                        childObject = jsonArray.getJSONObject(k);
+                        childObjectList.add(childObject);
+                    }
                 }
             }
 

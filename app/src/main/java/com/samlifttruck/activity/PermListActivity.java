@@ -2,6 +2,7 @@ package com.samlifttruck.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +21,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.PermListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.DataGenerators.SoapCall;
+import com.samlifttruck.activity.DataGenerators.Utility;
 import com.samlifttruck.activity.Fragments.PermListFragment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.ksoap2.serialization.PropertyInfo;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
@@ -30,6 +42,8 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     PersianDatePickerDialog datepicker;
     PermListFragment permListFragment;
 
+    ProgressBar progressBar;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +52,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         setToolbarText();
         setupViews();
 
-        permListFragment = PermListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, permListFragment).commit();
+
         datepickerImgv.setOnClickListener(this);
 
 
@@ -55,34 +68,26 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
                     if (event.getRawX() >= (etDate.getRight() - 25 - etDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         // your action here
                         if (etDate.getText().toString().equals("")) {
-                            etDate.setError("خالی است");
+                            etDate.setError("لطفا تاریخ را وارد نمایید");
                             etDate.requestFocus();
+                        } else if (etDate.length() != 10) {
+                            etDate.setError(getString(R.string.enter_date_correctly));
                         } else {
                             // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
+                            permListFragment = PermListFragment.newInstance(etDate.getText().toString().trim());
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, permListFragment).commit();
                         }
-
-                        closeKeyPad();
-
-                        return true;
                     }
+
+                    closeKeyPad();
                 }
+
                 return false;
             }
         });
         //etDate.setText(getToday());
-
-        etDate.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    //do here your stuff
-
-                    return true;
-                }
-                return false;
-            }
-        });
     }
+
 
     private void closeKeyPad() {
         try {
@@ -113,6 +118,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setupViews() {
+        progressBar = findViewById(R.id.activity_perm_list_pbar);
         etDate = findViewById(R.id.activity_datepicker_input_datepicker);
         datepickerImgv = findViewById(R.id.activity_datepicker_imgv_datepicker);
     }

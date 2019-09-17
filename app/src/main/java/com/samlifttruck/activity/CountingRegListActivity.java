@@ -13,12 +13,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CountingRegListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
 import com.samlifttruck.activity.Models.DraftListModel;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +35,9 @@ public class CountingRegListActivity extends AppCompatActivity {
     private ImageButton btnSearch;
     private MaterialSearchView msv;
     private Button btnConfirm;
-    private List<DraftListModel> list;
+    private List<DraftListModel> draftList;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +46,7 @@ public class CountingRegListActivity extends AppCompatActivity {
 
         setToolbarText();
 
-        list = DataGenerator.getDraftList();
+        draftList = DataGenerator.getDraftList();
         rv = findViewById(R.id.activity_counting_reg_list_recyclerview);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
         msv = findViewById(R.id.searchview_material);
@@ -57,9 +62,9 @@ public class CountingRegListActivity extends AppCompatActivity {
         msv.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (list != null) {
+                if (draftList != null) {
                     List<DraftListModel> myList = new ArrayList<>();
-                    for (DraftListModel item : list) {
+                    for (DraftListModel item : draftList) {
                         if (item.getCondition().startsWith(query)) {
                             myList.add(item);
                         }
@@ -74,7 +79,7 @@ public class CountingRegListActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 List<DraftListModel> myList = new ArrayList<>();
-                for (DraftListModel item : list) {
+                for (DraftListModel item : draftList) {
                     if (item.getCondition().startsWith(newText)) {
                         myList.add(item);
                     }
@@ -87,7 +92,7 @@ public class CountingRegListActivity extends AppCompatActivity {
         });
         rv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
 
-        adapter = new CountingRegListAdapter(list);
+        adapter = new CountingRegListAdapter(draftList);
         rv.setAdapter(adapter);
 
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {

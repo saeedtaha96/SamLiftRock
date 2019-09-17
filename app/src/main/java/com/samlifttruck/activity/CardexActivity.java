@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,10 @@ import com.google.zxing.Result;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CustomSpinnerAdapter;
 
+import org.json.JSONObject;
+
+import java.util.List;
+
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -41,6 +46,8 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
     private TextInputEditText etFanniNumb;
     private PersianCalendar calendar;
     private int year;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override

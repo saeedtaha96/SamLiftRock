@@ -7,10 +7,13 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +22,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.DataGenerators.SoapCall;
+import com.samlifttruck.activity.DataGenerators.Utility;
 import com.samlifttruck.activity.Models.ProductModel;
 
 import org.json.JSONArray;
@@ -36,6 +43,8 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -43,14 +52,17 @@ import static android.Manifest.permission.CAMERA;
 
 public class ShelfEditActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
-
-
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
     TextInputEditText etFanniNumb;
     ProgressBar progressBar;
     TextView tvProductName;
     TextView tvShelfNum;
+    Button btnConfirm;
+    private EditText etShelfNum;
+    private int myProductCode;
+    private static final int NOT_FOUND_CODE = -404;
+    List<JSONObject> list = null;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -61,6 +73,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         setupViews();
         setToolbarText();
         checkQRcodePremission();
+
         etFanniNumb.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
@@ -76,7 +89,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                             etFanniNumb.setError("خالی است");
                             etFanniNumb.requestFocus();
                         } else {
-                            new soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
+                            getProduct();
                         }
 
                         closeKeyPad();
@@ -88,6 +101,117 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
             }
         });
 
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(etShelfNum.getText().toString().equals("")){
+                    etShelfNum.setError("خالی است");
+                    etShelfNum.requestFocus();
+                }
+                else if((!tvProductName.getText().toString().equals("")) & (!tvProductName.getText().toString().equals("-")) & (myProductCode != NOT_FOUND_CODE)){
+                    setProductNewShelfNum();
+                }
+            }
+        });
+
+    }
+
+    private void setProductNewShelfNum() {
+        PropertyInfo p0 = new PropertyInfo();
+        p0.setName("passCode");
+        p0.setValue(Utility.pw);
+        p0.setType(String.class);
+
+        PropertyInfo p1 = new PropertyInfo();
+        p1.setName("productCode");
+        p1.setValue(myProductCode);
+        p1.setType(Integer.class);
+
+        PropertyInfo p2 = new PropertyInfo();
+        p2.setName("shelf");
+        if(etShelfNum.getText().toString().equals("")) {
+            etShelfNum.setText(" ");
+        }
+        p2.setValue(etShelfNum.getText().toString());
+        p2.setType(String.class);
+
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_SHELF, SoapCall.SOAP_ACTION_UPDATE_SHELF);
+        ss.execute(p0, p1, p2);
+
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (ss.get() != null) {
+                        list = ss.get();
+                        if (list.get(0).getString("boolean").equals("true")) {
+                            Toast.makeText(ShelfEditActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
+                            etShelfNum.setText("");
+                            tvShelfNum.setText("");
+                            tvProductName.setText("");
+                            etFanniNumb.setText("");
+                            etFanniNumb.requestFocus();
+                        } else if (list.get(0).toString().equals("false")) {
+                            Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_LONG).show();
+
+                        }
+
+                    } else if (ss.get() == null) {
+                        Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void getProduct() {
+        PropertyInfo p0 = new PropertyInfo();
+        p0.setName("passCode");
+        p0.setValue(Utility.pw);
+        p0.setType(String.class);
+
+        PropertyInfo p1 = new PropertyInfo();
+        p1.setName("techNo");
+        p1.setValue(etFanniNumb.getText().toString());
+        p1.setType(String.class);
+
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT, SoapCall.SOAP_ACTION_GET_PRODUCT);
+        ss.execute(p0, p1);
+
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (ss.get() != null) {
+                        list = ss.get();
+                        tvProductName.setText(list.get(0).getString("ProductName"));
+                        tvShelfNum.setText(list.get(0).getString("shelf"));
+                        myProductCode = list.get(0).getInt("productCode");
+                    } else if (ss.get() == null) {
+                        tvProductName.setText(getResources().getText(R.string.dash));
+                        tvShelfNum.setText(getResources().getText(R.string.dash));
+                        myProductCode = NOT_FOUND_CODE;
+                        Toast.makeText(ShelfEditActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void closeKeyPad() {
@@ -102,6 +226,8 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     }
 
     private void setupViews() {
+        etShelfNum = findViewById(R.id.activity_shelf_et_enter_shelf);
+        btnConfirm = findViewById(R.id.activity_shelf_edit_btn_confirm);
         scannerView = findViewById(R.id.scanner_shelf);
         etFanniNumb = findViewById(R.id.layout_et_tech_no);
         progressBar = findViewById(R.id.activity_shelf_pbar);
@@ -210,7 +336,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     public void handleResult(final Result result) {
         // String myResult = result.getText();
         etFanniNumb.setText(result.getText());
-        new soapCall().execute("x4fg54-D9ib", result.getText());
+        getProduct();
         onResume();
 
 
@@ -221,117 +347,6 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         finish();
     }
 
-    class soapCall extends AsyncTask<String, Object, String> {
-        String response;
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
-        }
-
-
-        @Override
-        protected String doInBackground(String... strings) {
-            SoapObject request = new SoapObject(SoapCall.NAMESPACE, SoapCall.METHOD_GET_PRODUCT);
-            PropertyInfo p = new PropertyInfo();
-            p.setName("passCode");
-            p.setValue(strings[0]);
-            p.setType(String.class);
-            request.addProperty(p);
-
-            PropertyInfo p2 = new PropertyInfo();
-            p2.setName("techNo");
-            p2.setValue(strings[1]);
-            p2.setType(String.class);
-            request.addProperty(p2);
-
-
-            SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-            envelope.dotNet = true;
-
-            envelope.setOutputSoapObject(request);
-
-            HttpTransportSE transportSE = new HttpTransportSE(SoapCall.URL, SoapCall.TIMEOUT);
-
-            try {
-                transportSE.call(SoapCall.SOAP_ACTION_GET_PRODUCT, envelope);
-
-                SoapObject ss = (SoapObject) envelope.bodyIn;
-
-                if (ss.getPropertyCount() >= 1) {
-                    publishProgress(ss.getProperty(0).toString());
-                    response = ss.getProperty(0).toString();
-                    Log.i("qwerty",response);
-                }
-
-
-            } catch (IOException | XmlPullParserException e) {
-                e.printStackTrace();
-                Log.i("qwerty",e.getLocalizedMessage());
-            }
-
-            return response;
-        }
-
-
-        @Override
-        protected void onProgressUpdate(Object... values) {
-            super.onProgressUpdate(values);
-            Toast.makeText(ShelfEditActivity.this, values[0].toString(), Toast.LENGTH_LONG).show();
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            progressBar.setVisibility(View.GONE);
-            ProductModel m = new ProductModel();
-            if (s != null) {
-                JSONObject childObject = null;
-                JSONArray jsonArray = null;
-                try {
-                    jsonArray = new JSONArray(s);
-                    childObject = jsonArray.getJSONObject(0);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-                try {
-                    if (childObject != null) {
-                        m.setsProductCode(childObject.getString("ProductCode"));
-                        m.setsTechNo(childObject.getString("TechNo"));
-                        m.setsProductName(childObject.getString("ProductName"));
-                        m.setsMainUnitID(childObject.getString("MainUnitID"));
-                        m.setsProductTypeID(childObject.getString("ProductTypeID"));
-                        m.setsShelf(childObject.getString("Shelf"));
-                        m.setOrderPoint(childObject.getString("OrderPoint"));
-                        m.setOrderCount(childObject.getString("OrderCount"));
-                        m.setDescription(childObject.getString("Description"));
-                        m.setSerialNo(childObject.getString("SerialNo"));
-                        m.setS91(childObject.getString("s91"));
-                        m.setS92(childObject.getString("s92"));
-                        m.setWithTax(childObject.getString("withTax"));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-
-            //store your url in some list
-
-            if (s != null) {
-                tvProductName.setText(m.getsMainUnitID());
-                tvShelfNum.setText(m.getsTechNo());
-            } else {
-                tvProductName.setText(getResources().getText(R.string.dash));
-                tvShelfNum.setText(getResources().getText(R.string.dash));
-                Toast.makeText(ShelfEditActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }
 
 

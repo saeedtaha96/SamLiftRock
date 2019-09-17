@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.samlifttruck.R;
@@ -21,6 +22,8 @@ import com.samlifttruck.activity.Adapters.MidtermTodayListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
 import com.samlifttruck.activity.Models.DraftListModel;
 import com.samlifttruck.activity.Models.ReceiptListModel;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,14 +37,16 @@ public class MidtermTodayListActivity extends AppCompatActivity {
     ImageButton btnSearch;
     MaterialSearchView msv;
     Button btnConfirm;
-    private List<ReceiptListModel> list;
+    private List<ReceiptListModel> ReceiptList;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midterm_today_list);
 
-        list = DataGenerator.getReceiptList();
+        ReceiptList = DataGenerator.getReceiptList();
         rvPermList = findViewById(R.id.activity_midterm_today_list_recyclerview);
         btnConfirm = findViewById(R.id.activity_midterm_today_list_btn_confirm);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
@@ -58,7 +63,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         msv.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (list != null) {
+             /*   if (list != null) {
                     List<ReceiptListModel> myList = new ArrayList<>();
                     for (ReceiptListModel item : list) {
                         if (item.getCondition().startsWith(query)) {
@@ -66,23 +71,23 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                         }
                     }
 
-                    permListAdapter = new MidtermTodayListAdapter(myList);
+                    permListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this,myList);
                     rvPermList.setAdapter(permListAdapter);
-                }
+                }*/
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (list != null) {
+                if (ReceiptList != null) {
                     List<ReceiptListModel> myList = new ArrayList<>();
-                    for (ReceiptListModel item : list) {
+                    for (ReceiptListModel item : ReceiptList) {
                         if (item.getCondition().startsWith(newText)) {
                             myList.add(item);
                         }
                     }
 
-                    permListAdapter = new MidtermTodayListAdapter(myList);
+                    permListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, myList);
 
                     rvPermList.setAdapter(permListAdapter);
                 }
@@ -91,7 +96,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         });
         setToolbarText();
         //set up recyclerview
-        permListAdapter = new MidtermTodayListAdapter(list);
+        permListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, ReceiptList);
         Configuration config = getResources().getConfiguration();
 
         if (config.smallestScreenWidthDp >= 600) {

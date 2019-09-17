@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -212,6 +213,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             // btn Login
             case R.id.login_btn_login:
+                closeKeyPad();
+
                 if (isFilled()) {
                     PropertyInfo p0 = new PropertyInfo();
                     p0.setName("passCode");
@@ -247,7 +250,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     for (int i = 0; i < list.size(); i++) {
                                         SharedPreferences.Editor edt = pref.edit();
                                         edt.putString(Utility.LOGIN_USERNAME, list.get(i).getString("FullName"));
-                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID, 56);
+                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID,list.get(i).getInt("WorkgroupID"));
+                                        edt.putInt(Utility.LOGIN_USER_ID,list.get(i).getInt("UserID"));
                                         edt.putBoolean(Utility.IS_LOGIN, true);
                                         edt.apply();
                                         startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
@@ -318,5 +322,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    private void closeKeyPad() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            if (getCurrentFocus() != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
 
 }

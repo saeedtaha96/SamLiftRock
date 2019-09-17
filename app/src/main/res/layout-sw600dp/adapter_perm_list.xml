@@ -47,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_draft_number"
-                    android:layout_marginStart="@dimen/margin32"
+                    android:layout_marginStart="@dimen/margin8"
                     android:layout_toEndOf="@id/relative_tv_draft_number"
                     android:gravity="center"
                     android:text="H98-E-5"
@@ -59,7 +59,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="0.7">
 
                 <TextView
                     android:id="@+id/relative_tv_perm_number"
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_perm_number"
-                    android:layout_marginStart="@dimen/margin32"
+                    android:layout_marginStart="@dimen/margin8"
                     android:layout_toEndOf="@id/relative_tv_perm_number"
                     android:gravity="center"
                     android:text="1545"
@@ -123,10 +123,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_product_source"
                     android:layout_alignBottom="@id/relative_tv_product_source"
-                    android:layout_marginStart="@dimen/margin32"
                     android:layout_toEndOf="@id/relative_tv_product_source"
                     android:gravity="center"
-                    android:padding="@dimen/margin4"
+                    android:layout_marginStart="@dimen/margin8"
                     android:text="رابرت محمود"
                     android:textColor="@color/color_black_000000"
                     android:textSize="@dimen/lists_text_size" />
@@ -135,7 +134,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="0.7">
 
                 <TextView
                     android:id="@+id/relative_tv_condition"
@@ -157,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/relative_tv_condition"
                     android:layout_alignBottom="@id/relative_tv_condition"
-                    android:layout_marginStart="@dimen/margin32"
+                    android:layout_marginStart="@dimen/margin8"
                     android:layout_toEndOf="@id/relative_tv_condition"
                     android:gravity="center"
                     android:padding="@dimen/margin4"

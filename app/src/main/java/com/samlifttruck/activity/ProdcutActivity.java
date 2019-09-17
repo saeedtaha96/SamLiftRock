@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -15,11 +16,16 @@ import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CustomSpinnerAdapter;
 
 import org.angmarch.views.NiceSpinner;
+import org.json.JSONObject;
+
+import java.util.List;
 
 
 public class ProdcutActivity extends AppCompatActivity {
     Spinner typeSpinner, unitSpinner;
     CustomSpinnerAdapter adapter;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
 
     @Override

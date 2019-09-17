@@ -3,6 +3,7 @@ package com.samlifttruck.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,30 +57,26 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if (workgroupID == 56) {
-
-            btnReceiptList.setEnabled(false);
-            btnReceiptList.setClickable(false);
-            btnReceiptList.setContextClickable(false);
-            btnReceiptList.setBackgroundColor(getColor(R.color.color_gray_border));
-
-            btnDraftList.setEnabled(false);
-            btnDraftList.setClickable(false);
-            btnDraftList.setContextClickable(false);
-            btnDraftList.setBackgroundColor(getColor(R.color.color_gray_border));
-
-            btnPermList.setEnabled(false);
-            btnPermList.setClickable(false);
-            btnPermList.setContextClickable(false);
-            btnPermList.setBackgroundColor(getColor(R.color.color_gray_border));
-
-            btnKardex.setEnabled(false);
-            btnKardex.setClickable(false);
-            btnKardex.setContextClickable(false);
-            btnKardex.setBackgroundColor(getColor(R.color.color_gray_border));
-
+            setDisable(btnMenuProduct);
+            setDisable(btnMenuRegCount);
+            setDisable(btnMenuKardex);
+            setDisable(btnMenuPermList);
+            setDisable(btnMenuDraftList);
+            setDisable(btnMenuReceiptList);
+            setDisable(btnReceiptList);
+            setDisable(btnDraftList);
+            setDisable(btnPermList);
+            setDisable(btnKardex);
         }
 
 
+    }
+
+    private void setDisable(LinearLayout ll) {
+        ll.setEnabled(false);
+        ll.setClickable(false);
+        ll.setContextClickable(false);
+        ll.setBackgroundColor(getColor(R.color.color_gray_border));
     }
 
     private void setupListeners() {
@@ -93,6 +90,12 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnKardex.setOnClickListener(this);
         btnMenuLogOut.setOnClickListener(this);
         btnMenuRegCount.setOnClickListener(this);
+        btnMenuMidtermControl.setOnClickListener(this);
+        btnMenuShelfEdit.setOnClickListener(this);
+        btnMenuKardex.setOnClickListener(this);
+        btnMenuPermList.setOnClickListener(this);
+        btnMenuDraftList.setOnClickListener(this);
+        btnMenuReceiptList.setOnClickListener(this);
     }
 
 
@@ -121,16 +124,6 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setGlide() {
-        /*setGlideMethod(R.drawable.kardex, R.id.img_menu_kardex);
-        setGlideMethod(R.drawable.product, R.id.img_menu_product);
-        setGlideMethod(R.drawable.shelfedit, R.id.img_menu_shelf_edit);
-        setGlideMethod(R.drawable.control, R.id.img_menu_midterm_control);
-        setGlideMethod(R.drawable.mojavez, R.id.img_menu_permission_list);
-        setGlideMethod(R.drawable.havale, R.id.img_menu_draft_list);
-        setGlideMethod(R.drawable.resid, R.id.img_menu_receipt_list);
-        setGlideMethod(R.drawable.sodur, R.id.img_menu_havale_az_mojavez);
-        setGlideMethod(R.drawable.shomaresh, R.id.img_menu_register_counting);
-        setGlideMethod(R.drawable.ordering_icon, R.id.img_menu_inventory_report);*/
         setGlideMethod(R.drawable.sam_liftrock_2, R.id.img_sam_liftrock);
         setGlideMethod(R.drawable.ic_menu_shelf_edit, R.id.activitY_homepage_shelfedit_btn);
         setGlideMethod(R.drawable.ic_menu_midterm_control, R.id.activitY_homepage_midterm_btn);
@@ -182,9 +175,15 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_menu_product:
 
                 startActivity(new Intent(HomePageActivity.this, ProdcutActivity.class));
-                if (drawer.isDrawerOpen(GravityCompat.START)) {
-                    drawer.closeDrawer(GravityCompat.START);
-                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
                 break;
             case R.id.btn_list_draft:
 
@@ -204,13 +203,16 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_menu_exit:
                 iOSDialogBuilder ios = Utility.newIOSdialog(HomePageActivity.this);
-                ios.setTitle("*هشدار*");
+                ios.setTitle("هشدار");
                 ios.setSubtitle(getString(R.string.txt_exit_app_dialog_message));
                 ios.setPositiveListener("بله", new iOSDialogClickListener() {
                     @Override
                     public void onClick(iOSDialog dialog) {
                         SharedPreferences.Editor edt = pref.edit();
-                        edt.putBoolean("isLogin", false);
+                        edt.putBoolean(Utility.IS_LOGIN, false);
+                        edt.putString(Utility.LOGIN_USERNAME," ");
+                        edt.putInt(Utility.LOGIN_WORKGROUP_ID,56);
+                        edt.putInt(Utility.LOGIN_USER_ID,0);
                         edt.apply();
                         startActivity(new Intent(HomePageActivity.this, LoginActivity.class
                         ));
@@ -227,12 +229,93 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_menu_register_counting:
                 startActivity(new Intent(HomePageActivity.this, CountingRegActivity.class));
-                if (drawer.isDrawerOpen(GravityCompat.START)) {
-                    drawer.closeDrawer(GravityCompat.START);
-                }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+                break;
+
+            case R.id.btn_menu_kardex:
+                startActivity(new Intent(HomePageActivity.this, CardexActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+                break;
+
+            case R.id.btn_menu_draft_list:
+                startActivity(new Intent(HomePageActivity.this, DraftListActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
+                break;
+
+            case R.id.btn_menu_receipt_list:
+                startActivity(new Intent(HomePageActivity.this, ReceiptListActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
+                break;
+
+            case R.id.btn_menu_permission_list:
+                startActivity(new Intent(HomePageActivity.this, PermListActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
+                break;
+
+            case R.id.btn_menu_midterm_control:
+                startActivity(new Intent(HomePageActivity.this, MidtermControlActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
+                break;
+
+            case R.id.btn_menu_shelf_edit:
+                startActivity(new Intent(HomePageActivity.this, ShelfEditActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
                 break;
             default:
-                ;
 
 
         }

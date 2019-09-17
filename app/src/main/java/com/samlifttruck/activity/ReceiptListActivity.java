@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +20,12 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
+import com.samlifttruck.activity.Fragments.PermListFragment;
 import com.samlifttruck.activity.Fragments.ReceiptListFragment;
+
+import org.json.JSONObject;
+
+import java.util.List;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
@@ -30,6 +36,9 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
     ImageView datepickerImgv;
     PersianDatePickerDialog datepicker;
     ReceiptListFragment receiptListFragment;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +46,6 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_receipt_list);
         setToolbarText();
         setupViews();
-
-        receiptListFragment = ReceiptListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, receiptListFragment).commit();
 
         datepickerImgv.setOnClickListener(this);
 
@@ -55,15 +61,16 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
                     if (event.getRawX() >= (etDate.getRight() - 25 - etDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         // your action here
                         if (etDate.getText().toString().equals("")) {
-                            etDate.setError("خالی است");
+                            etDate.setError("لطفا تاریخ را وارد نمایید");
                             etDate.requestFocus();
+                        } else if (etDate.length() != 10) {
+                            etDate.setError(getString(R.string.enter_date_correctly));
                         } else {
-                            // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
+                            receiptListFragment = ReceiptListFragment.newInstance(etDate.getText().toString().trim());
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, receiptListFragment).commit();
                         }
 
                         closeKeyPad();
-
-                        return true;
                     }
                 }
                 return false;
@@ -82,13 +89,14 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-       // etDate.setText(getToday());
+        // etDate.setText(getToday());
     }
 
     private void setToolbarText() {
         TextView tvAppbar = findViewById(R.id.toolbar_text);
         tvAppbar.setText(getString(R.string.txt_receipt_list));
     }
+
     private void closeKeyPad() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);

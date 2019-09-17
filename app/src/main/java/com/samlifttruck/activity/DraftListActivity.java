@@ -9,6 +9,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,10 @@ import com.samlifttruck.activity.Adapters.DraftListAdapter;
 import com.samlifttruck.activity.DataGenerators.DataGenerator;
 import com.samlifttruck.activity.Fragments.DraftListFragment;
 
+import org.json.JSONObject;
+
+import java.util.List;
+
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
 import ir.hamsaa.persiandatepicker.util.PersianCalendar;
@@ -30,6 +35,8 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
     private ImageView datepickerImgv;
     private PersianDatePickerDialog datepicker;
     DraftListFragment draftListFragment;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -40,8 +47,6 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         setToolbarText();
         setupViews();
 
-        draftListFragment = DraftListFragment.newInstance((etDate != null) ? etDate.getText().toString().trim() : "1398/08/02");
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
         datepickerImgv.setOnClickListener(this);
         etDate.setOnTouchListener(new View.OnTouchListener() {
 
@@ -55,10 +60,13 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
                     if (event.getRawX() >= (etDate.getRight() - 25 - etDate.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         // your action here
                         if (etDate.getText().toString().equals("")) {
-                            etDate.setError("خالی است");
+                            etDate.setError("لطفا تاریخ را وارد نمایید");
                             etDate.requestFocus();
+                        } else if (etDate.length() != 10) {
+                            etDate.setError(getString(R.string.enter_date_correctly));
                         } else {
-                            // new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etDate.getText().toString());
+                            draftListFragment = DraftListFragment.newInstance(etDate.getText().toString().trim());
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
                         }
 
                         closeKeyPad();

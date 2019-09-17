@@ -19,12 +19,17 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
+
+import org.json.JSONObject;
+
+import java.util.List;
 
 import lib.kingja.switchbutton.SwitchMultiButton;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -39,6 +44,8 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     private TextInputEditText etProductName, etShelfNum, etCounting1, etCounting2, etCounting3, etResult_1_2, etFinalResult;
     private Button btnSave;
     private ImageButton btnCountingRegList;
+    List<JSONObject> list = null;
+    ProgressBar progressBar;
 
 
     @SuppressLint("ClickableViewAccessibility")

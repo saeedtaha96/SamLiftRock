@@ -14,17 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Fragments.DraftListInfoAllFragment;
-import com.samlifttruck.activity.Models.DraftListModel;
+import com.samlifttruck.activity.Models.DetailsModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListInfoAllAdapter.MyViewHolder> {
 
-    private List<DraftListModel> list;
+    private List<DetailsModel> list;
 
-    public ReceiptListInfoAllAdapter(List<DraftListModel> draft) {
-        this.list = (draft == null) ? new ArrayList<DraftListModel>() : draft;
+    public ReceiptListInfoAllAdapter(List<DetailsModel> draft) {
+        this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
     }
 
     @NonNull
@@ -74,20 +74,17 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
             orderId = itemView.findViewById(R.id.adapter_receipt_info_all_rv_order_id);
         }
 
-        void bind(final DraftListModel item) {
-            mTechNum = item.getDraftNum();
-            mProductName = item.getPermNum();
-            mUnit = item.getReceiver();
-            mCount = item.getDate();
-            mBuyCost = item.getDraftType();
-            mOrderId = item.getServicePage();
+        void bind(final DetailsModel item) {
+            mTechNum = item.getTechNo();
+            mProductName = item.getProductName();
+            mUnit = item.getUnitName();
+            mCount = item.getQty();
+
 
             techNum.setText(mTechNum);
             productName.setText(mProductName);
             unit.setText(mUnit);
             count.setText(mCount);
-            buyCost.setText(mBuyCost);
-            orderId.setText(mOrderId);
 
         }
     }

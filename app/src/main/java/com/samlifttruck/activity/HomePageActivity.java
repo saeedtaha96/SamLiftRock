@@ -174,7 +174,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
             //Product
             case R.id.btn_menu_product:
 
-                startActivity(new Intent(HomePageActivity.this, ProdcutActivity.class));
+                startActivity(new Intent(HomePageActivity.this, ProductActivity.class));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

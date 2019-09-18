@@ -14,17 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Fragments.DraftListInfoAllFragment;
-import com.samlifttruck.activity.Models.DraftListModel;
+import com.samlifttruck.activity.Models.DetailsModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAllAdapter.MyViewHolder> {
 
-    private List<DraftListModel> list;
+    private List<DetailsModel> list;
 
-    public PermListInfoAllAdapter(List<DraftListModel> draft) {
-        this.list = (draft == null) ? new ArrayList<DraftListModel>() : draft;
+    public PermListInfoAllAdapter(List<DetailsModel> draft) {
+        this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
     }
 
     @NonNull
@@ -75,12 +75,12 @@ public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAll
             activity = (AppCompatActivity) itemView.getContext();
         }
 
-        void bind(final DraftListModel item) {
-            mTechNum = item.getDraftNum();
-            mProductName = item.getPermNum();
-            mUnit = item.getReceiver();
-            mCount = item.getDate();
-            mInventory = item.getDraftType();
+        void bind(final DetailsModel item) {
+            mTechNum = item.getTechNo();
+            mProductName = item.getProductName();
+            mUnit = item.getUnitName();
+            mCount = item.getQty();
+            mInventory = item.getOnHand();
 
             techNum.setText(mTechNum);
             productName.setText(mProductName);

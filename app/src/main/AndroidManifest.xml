@@ -38,7 +38,7 @@
             android:name=".activity.DraftListActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".activity.ProdcutActivity"
+            android:name=".activity.ProductActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.CardexActivity"

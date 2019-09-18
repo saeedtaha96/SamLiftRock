@@ -1,15 +1,15 @@
 package com.samlifttruck.activity.Models;
 
 public class ReceiptListModel {
-
-    private String receiptNum = "";
-    private String date = "";
-    private String productSource = "";
-    private String receiptType = "";
-    private String condition = "";
-    private String descrip1 = "";
-    private String descrip2 = "";
-    private String descrip3 = "";
+    private String businessID = "-";
+    private String receiptNum = "-";
+    private String date = "-";
+    private String productSource = "-";
+    private String receiptType = "-";
+    private String condition = "-";
+    private String descrip1 = "-";
+    private String descrip2 = "-";
+    private String descrip3 = "-";
 
     public ReceiptListModel() {
     }
@@ -23,6 +23,14 @@ public class ReceiptListModel {
         this.descrip1 = descrip1;
         this.descrip2 = descrip2;
         this.descrip3 = descrip3;
+    }
+
+    public String getBusinessID() {
+        return businessID;
+    }
+
+    public void setBusinessID(String businessID) {
+        this.businessID = businessID;
     }
 
     public String getReceiptNum() {

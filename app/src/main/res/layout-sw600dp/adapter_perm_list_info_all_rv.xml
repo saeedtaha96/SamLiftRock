@@ -162,6 +162,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/relative_adapter_perm_list_info_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -63,7 +63,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
         private View myItem;
         AppCompatActivity activity;
         DraftListInfoAllFragment frag;
-        private String sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip, sCondition;
+        private String sBusinessID,sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip, sCondition;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -85,6 +85,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             sServicePage = item.getServicePage();
             sDescrip = item.getDescription();
             sCondition = item.getCondition();
+            sBusinessID = item.getBusinessID();
 
             draftNumb.setText(sDraftNum);
             permNumb.setText(sPermNum);
@@ -95,7 +96,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    frag = DraftListInfoAllFragment.newInstance(sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip);
+                    frag = DraftListInfoAllFragment.newInstance(sBusinessID,sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
                 }
             });

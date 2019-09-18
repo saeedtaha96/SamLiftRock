@@ -1,13 +1,13 @@
 package com.samlifttruck.activity.Models;
 
 public class PermListModel {
-
-    private String permNum = "";
-    private String date = "";
-    private String custName = "";
-    private String preFactorNum = "";
-    private String condition = "";
-    private String descrip = "";
+    private String businessID = "-";
+    private String permNum = "-";
+    private String date = "-";
+    private String custName = "-";
+    private String preFactorNum = "-";
+    private String condition = "-";
+    private String descrip = "-";
 
     public PermListModel() {
     }
@@ -19,6 +19,14 @@ public class PermListModel {
         this.preFactorNum = preFactorNum;
         this.condition = condition;
         this.descrip = descrip;
+    }
+
+    public String getBusinessID() {
+        return businessID;
+    }
+
+    public void setBusinessID(String businessID) {
+        this.businessID = businessID;
     }
 
     public String getPermNum() {

@@ -31,8 +31,8 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class DraftListFragment extends Fragment {
-    List<JSONObject> list = null;
-    List<DraftListModel> draftList;
+    private List<JSONObject> list = null;
+    private List<DraftListModel> draftList;
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String DATE = "date";
 
@@ -97,11 +97,15 @@ public class DraftListFragment extends Fragment {
                         DraftListModel model;
                         for (int i = 0; i < list.size(); i++) {
                             model = new DraftListModel();
+                            model.setBusinessID(list.get(i).getString("BusinessID"));
                             model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
                             model.setDraftNum(list.get(i).getString("BusinessNominal"));
                             model.setReceiver(list.get(i).getString("PersonName"));
                             model.setCondition(list.get(i).getString("StatusName"));
                             model.setDate(list.get(i).getString("PersianBusinessDate"));
+                            model.setDescription(list.get(i).getString("Description1"));
+                            model.setDraftType(list.get(i).getString("HavalehTypeName"));
+
                             draftList.add(model);
                         }
 
@@ -116,6 +120,7 @@ public class DraftListFragment extends Fragment {
 
                 } catch (ExecutionException | JSONException | InterruptedException e) {
                     e.printStackTrace();
+                    Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

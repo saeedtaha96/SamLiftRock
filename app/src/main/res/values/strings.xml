@@ -133,4 +133,5 @@
     <string name="txt_eta">اعطا</string>
     <string name="txt_wrong_name_pass">نام کاربری یا رمز عبور اشتباه و یا دستگاه شما در سامانه ثبت نشده است.</string>
     <string name="enter_date_correctly">لطفا تاریخ را به فرم صحیح **/**/**13 وارد کنید</string>
+    <string name="please_fill">خالی است</string>
 </resources>

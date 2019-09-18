@@ -289,7 +289,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/relative_tv"
             android:background="@color/color_white_FFFFFF"
-            android:clipToPadding="true"
+            android:clipToPadding="false"
             android:paddingStart="@dimen/margin16"
             android:paddingEnd="@dimen/margin16"
             android:paddingBottom="@dimen/margin8" />

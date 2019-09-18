@@ -37,6 +37,9 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String METHOD_GET_CYCLE_COUNT_MIDDLE = "GetCycleCountMiddle";
     public static final String METHOD_DELETE_CYCLE_COUNT = "DeleteCycleCount";
     public static final String METHOD_GET_LOGIN_INFO = "GetLoginInfo";
+    public static final String METHOD_GET_UNIT_INFO = "GetUnitInfo";
+    public static final String METHOD_GET_PRODUCT_TYPE_INFO = "GetProductTypeInfo";
+
 
     public static final String SOAP_ACTION_GET_PRODUCT = NAMESPACE + METHOD_GET_PRODUCT;
     public static final String SOAP_ACTION_EXECUTE_MIDTERM_COUNT = NAMESPACE + METHOD_EXECUTE_MIDTERM_COUNT;
@@ -53,6 +56,8 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String SOAP_ACTION_GET_CYCLE_COUNT_MIDDLE = NAMESPACE + METHOD_GET_CYCLE_COUNT_MIDDLE;
     public static final String SOAP_ACTION_DELETE_CYCLE_COUNT = NAMESPACE + METHOD_DELETE_CYCLE_COUNT;
     public static final String SOAP_ACTION_GET_LOGIN_INFO = NAMESPACE + METHOD_GET_LOGIN_INFO;
+    public static final String SOAP_ACTION_GET_UNIT_INFO  = NAMESPACE + METHOD_GET_UNIT_INFO;
+    public static final String SOAP_ACTION_GET_PRODUCT_TYPE_INFO = NAMESPACE + METHOD_GET_PRODUCT_TYPE_INFO;
 
     public static final int TIMEOUT = 15000;
 

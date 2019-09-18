@@ -62,7 +62,7 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
         private View myItem;
         AppCompatActivity activity;
         ReceiptListInfoAllFragment frag;
-        private String mReceiptNum, mReceiptType, mProductSource, mDate, mCondition, mDescrip1, mDescrip2, mDescrip3;
+        private String mBusinessID,mReceiptNum, mReceiptType, mProductSource, mDate, mCondition, mDescrip1, mDescrip2, mDescrip3;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -84,6 +84,7 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
             mDescrip1 = item.getDescrip1();
             mDescrip2 = item.getDescrip2();
             mDescrip3 = item.getDescrip3();
+            mBusinessID = item.getBusinessID();
 
             tvReceiptNum.setText(mReceiptNum);
             tvReceiptType.setText(mReceiptType);
@@ -94,7 +95,7 @@ public class ReceiptListAdapter extends RecyclerView.Adapter<ReceiptListAdapter.
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    frag = ReceiptListInfoAllFragment.newInstance(mReceiptNum, mReceiptType, mProductSource, mDate, mDescrip1, mDescrip2, mDescrip3);
+                    frag = ReceiptListInfoAllFragment.newInstance(mBusinessID,mReceiptNum, mReceiptType, mProductSource, mDate, mDescrip1, mDescrip2, mDescrip3);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, frag).addToBackStack(null).commit();
                 }
             });

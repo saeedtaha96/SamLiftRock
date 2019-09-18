@@ -93,11 +93,15 @@ public class ReceiptListFragment extends Fragment {
                         ReceiptListModel model;
                         for (int i = 0; i < list.size(); i++) {
                             model = new ReceiptListModel();
+                            model.setBusinessID(list.get(i).getString("BusinessID"));
                             model.setReceiptNum(list.get(i).getString("BusinessNominal"));
                             model.setReceiptType(list.get(i).getString("HavalehTypeName"));
                             model.setProductSource(list.get(i).getString("PersonName"));
                             model.setCondition(list.get(i).getString("StatusName"));
                             model.setDate(list.get(i).getString("PersianBusinessDate"));
+                            model.setDescrip1(list.get(i).getString("Description1"));
+                            model.setDescrip2(list.get(i).getString("Description2"));
+                            model.setDescrip3(list.get(i).getString("Description3"));
                             receiptList.add(model);
                         }
 
@@ -112,6 +116,7 @@ public class ReceiptListFragment extends Fragment {
 
                 } catch (ExecutionException | JSONException | InterruptedException e) {
                     e.printStackTrace();
+                    Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

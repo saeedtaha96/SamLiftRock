@@ -1,18 +1,20 @@
 package com.samlifttruck.activity.Models;
 
 public class DraftListModel {
-
-    private String draftNum = "";
-    private String permNum = "";
-    private String receiver = "";
-    private String date = "";
-    private String draftType = "";
-    private String servicePage = "";
-    private String condition = "";
-    private String description = "";
+    private String businessID = "-";
+    private String draftNum = "-";
+    private String permNum = "-";
+    private String receiver = "-";
+    private String date = "-";
+    private String draftType = "-";
+    private String servicePage = "-";
+    private String condition = "-";
+    private String description = "-";
 
     public DraftListModel() {
     }
+
+
 
     public DraftListModel(String draftNum, String permNum, String receiver, String date, String draftType, String servicePage, String condition, String description) {
         this.draftNum = draftNum;
@@ -23,6 +25,14 @@ public class DraftListModel {
         this.servicePage = servicePage;
         this.condition = condition;
         this.description = description;
+    }
+
+    public String getBusinessID() {
+        return businessID;
+    }
+
+    public void setBusinessID(String businessID) {
+        this.businessID = businessID;
     }
 
     public String getDraftNum() {

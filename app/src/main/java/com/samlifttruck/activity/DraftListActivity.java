@@ -47,7 +47,15 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
         setToolbarText();
         setupViews();
 
+
         datepickerImgv.setOnClickListener(this);
+
+
+        etDate.setText(getToday());
+        draftListFragment = DraftListFragment.newInstance("1398/06/26");
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
+
+
         etDate.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
@@ -89,7 +97,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
                 return false;
             }
         });
-        //etDate.setText(getToday());
+
     }
 
     private void closeKeyPad() {

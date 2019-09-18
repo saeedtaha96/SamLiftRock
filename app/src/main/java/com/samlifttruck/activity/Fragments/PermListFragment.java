@@ -99,11 +99,13 @@ public class PermListFragment extends Fragment {
                         PermListModel model;
                         for (int i = 0; i < list.size(); i++) {
                             model = new PermListModel();
+                            model.setBusinessID(list.get(i).getString("BusinessID"));
                             model.setPreFactorNum(list.get(i).getString("ReferalBusinessNominal"));
                             model.setPermNum(list.get(i).getString("BusinessNominal"));
                             model.setCustName(list.get(i).getString("PersonName"));
                             model.setCondition(list.get(i).getString("StatusName"));
                             model.setDate(list.get(i).getString("PersianBusinessDate"));
+                            model.setDescrip(list.get(i).getString("Description1"));
                             permList.add(model);
                         }
 
@@ -118,6 +120,7 @@ public class PermListFragment extends Fragment {
 
                 } catch (ExecutionException | JSONException | InterruptedException e) {
                     e.printStackTrace();
+                    Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

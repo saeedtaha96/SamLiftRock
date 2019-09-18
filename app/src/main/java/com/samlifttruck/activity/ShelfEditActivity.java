@@ -148,8 +148,8 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                         if (list.get(0).getString("boolean").equals("true")) {
                             Toast.makeText(ShelfEditActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
                             etShelfNum.setText("");
-                            tvShelfNum.setText("");
-                            tvProductName.setText("");
+                            tvShelfNum.setText("-");
+                            tvProductName.setText("-");
                             etFanniNumb.setText("");
                             etFanniNumb.requestFocus();
                         } else if (list.get(0).toString().equals("false")) {

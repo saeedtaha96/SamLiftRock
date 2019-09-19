@@ -52,7 +52,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
 
 
         etDate.setText(getToday());
-        draftListFragment = DraftListFragment.newInstance("1398/06/26");
+        draftListFragment = DraftListFragment.newInstance(getToday());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, draftListFragment).commit();
 
 

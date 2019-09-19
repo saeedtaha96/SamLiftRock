@@ -43,18 +43,17 @@ dependencies {
     //  implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
     // progressbar
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
-
     //ksoap2  webservice connecting library
     //  implementation files('libs/ksoap2-android-assembly-3.6.4-jar-with-dependencies.jar')
-
     // ios alert dialog
     implementation 'com.gdacciaro:iosdialog:1.0.3'
-
     //RadioGroup
     implementation 'lib.kingja.switchbutton:switchbutton:1.1.8'
-
     // Animations
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
 
+
+
+    //
 }

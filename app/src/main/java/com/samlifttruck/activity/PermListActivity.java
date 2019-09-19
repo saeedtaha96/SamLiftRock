@@ -56,7 +56,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
         datepickerImgv.setOnClickListener(this);
 
         etDate.setText(getToday());
-        permListFragment = PermListFragment.newInstance("1398/06/26");
+        permListFragment = PermListFragment.newInstance(getToday());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, permListFragment).commit();
 
         etDate.setOnTouchListener(new View.OnTouchListener() {

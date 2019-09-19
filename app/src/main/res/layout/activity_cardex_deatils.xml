@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-     >
+        android:orientation="vertical">
 
         <include
             android:id="@+id/activity_cardex_deatils_toolbar"
@@ -51,6 +50,7 @@
                         android:textSize="@dimen/text_size16" />
 
                     <TextView
+                        android:id="@+id/activity_cardex_details_product_name"
                         style="@style/AppFont"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -87,6 +87,7 @@
                             android:textSize="@dimen/text_size14" />
 
                         <TextView
+                            android:id="@+id/activity_cardex_details_tech_num"
                             style="@style/AppFont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -123,6 +124,7 @@
                             android:textSize="@dimen/text_size14" />
 
                         <TextView
+                            android:id="@+id/activity_cardex_details_shelf_num"
                             style="@style/AppFont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -160,6 +162,7 @@
                             android:textSize="@dimen/text_size13" />
 
                         <TextView
+                            android:id="@+id/activity_cardex_details_incoming"
                             style="@style/AppFont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -196,6 +199,7 @@
                             android:textSize="@dimen/text_size13" />
 
                         <TextView
+                            android:id="@+id/activity_cardex_details_outgoing"
                             style="@style/AppFont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -232,6 +236,7 @@
                             android:textSize="@dimen/text_size13" />
 
                         <TextView
+                            android:id="@+id/activity_cardex_details_inventory"
                             style="@style/AppFont"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

@@ -123,7 +123,7 @@
         app:SpinKit_Color="@color/colorAccent" />
 
     <EditText
-        android:id="@+id/activity_shelf_et_enter_shelf"
+        android:id="@+id/activity_midterm_et_input_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin32"
@@ -134,7 +134,8 @@
         android:gravity="center"
         android:maxLines="2"
         android:ems="4"
-        android:inputType="textMultiLine"
+        android:imeOptions="actionDone"
+        android:inputType="textImeMultiLine"
         android:maxLength="15"
         android:textAlignment="center"
         android:textColor="@color/color_black_000000"

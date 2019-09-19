@@ -36,11 +36,11 @@
         android:id="@+id/activity_midterm_count_layout_tech_no"
         layout="@layout/layout_tech_number"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/scanner_midterm"
         android:layout_marginStart="@dimen/shelf_edit_side_margin"
         android:layout_marginTop="@dimen/margin8"
-        android:layout_marginEnd="@dimen/shelf_edit_side_margin"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/scanner_midterm"/>
+        android:layout_marginEnd="@dimen/shelf_edit_side_margin" />
 
     <com.github.ybq.android.spinkit.SpinKitView
         android:id="@+id/activity_midterm_pbar"
@@ -68,6 +68,7 @@
         android:textSize="@dimen/text_size18" />
 
     <TextView
+        android:id="@+id/activity_midterm_tv_product_name"
         style="@style/AppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
         android:textSize="@dimen/text_size18" />
 
     <TextView
+        android:id="@+id/activity_midterm_tv_shelf_number"
         style="@style/AppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -119,6 +121,7 @@
         android:textSize="@dimen/text_size18" />
 
     <TextView
+        android:id="@+id/activity_midterm_tv_unit"
         style="@style/AppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,7 +174,7 @@
 
 
     <EditText
-        android:id="@+id/activity_shelf_et_enter_shelf"
+        android:id="@+id/activity_midterm_et_input_new"
         style="@style/AppFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -181,6 +184,7 @@
         android:backgroundTint="@color/color_blue_theme_004677"
         android:fitsSystemWindows="true"
         android:gravity="center"
+        android:inputType="number"
         android:lines="1"
         android:maxEms="5"
         android:maxLength="15"
@@ -191,6 +195,7 @@
         android:textSize="@dimen/text_size18" />
 
     <Button
+        android:id="@+id/activity_midterm_counting_btn_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -2,13 +2,12 @@ package com.samlifttruck.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -22,27 +21,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.gdacciaro.iOSDialog.iOSDialog;
-import com.gdacciaro.iOSDialog.iOSDialogBuilder;
-import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
-import com.samlifttruck.activity.Models.ProductModel;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -196,6 +184,9 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                         tvProductName.setText(list.get(0).getString("ProductName"));
                         tvShelfNum.setText(list.get(0).getString("shelf"));
                         myProductCode = list.get(0).getInt("productCode");
+                        etShelfNum.requestFocus();
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.showSoftInput(etShelfNum, InputMethodManager.SHOW_IMPLICIT);
                     } else if (ss.get() == null) {
                         tvProductName.setText(getResources().getText(R.string.dash));
                         tvShelfNum.setText(getResources().getText(R.string.dash));
@@ -226,7 +217,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     }
 
     private void setupViews() {
-        etShelfNum = findViewById(R.id.activity_shelf_et_enter_shelf);
+        etShelfNum = findViewById(R.id.activity_midterm_et_input_new);
         btnConfirm = findViewById(R.id.activity_shelf_edit_btn_confirm);
         scannerView = findViewById(R.id.scanner_shelf);
         etFanniNumb = findViewById(R.id.layout_et_tech_no);

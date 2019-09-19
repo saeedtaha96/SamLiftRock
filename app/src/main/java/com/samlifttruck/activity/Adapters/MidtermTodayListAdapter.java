@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Adapters;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,31 +13,43 @@ import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
-import com.samlifttruck.activity.Models.ReceiptListModel;
+import com.samlifttruck.activity.MidtermTodayListActivity;
+import com.samlifttruck.activity.Models.MidtermControlModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayListAdapter.MyViewHolder> {
 
-    private List<ReceiptListModel> list;
-    Context context;
+    private List<MidtermControlModel> midlist;
+    private Context context;
     private int workgroupID;
     private SharedPreferences pref;
+    List<JSONObject> list = null;
 
-    public MidtermTodayListAdapter(Context context, List<ReceiptListModel> draft) {
+    public MidtermTodayListAdapter(Context context, List<MidtermControlModel> mylist) {
         this.context = context;
-        this.list = (draft == null) ? new ArrayList<ReceiptListModel>() : draft;
+        this.midlist = (mylist == null) ? new ArrayList<MidtermControlModel>() : mylist;
         pref = context.getSharedPreferences("myprefs", MODE_PRIVATE);
         if (pref.contains(Utility.LOGIN_WORKGROUP_ID)) {
             workgroupID = pref.getInt(Utility.LOGIN_WORKGROUP_ID, 56);
@@ -53,7 +66,7 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.bind(list.get(position));
+        holder.bind(midlist.get(position));
         //  Configuration config = context.getResources().getConfiguration();
         //  if (config.smallestScreenWidthDp >= 600) {
         // sw600dp code goes here
@@ -66,7 +79,7 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return midlist.size();
     }
 
     private void setFadeAnimation(View view) {
@@ -86,6 +99,7 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
         TextView shomareFanni, productName, inventory, currCount;
         LinearLayout ll_Inventory;
         Button btnReject;
+        int productCode;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -97,13 +111,14 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
             btnReject = itemView.findViewById(R.id.today_list_reject);
         }
 
-        void bind(final ReceiptListModel item) {
+        void bind(final MidtermControlModel item) {
 
+            shomareFanni.setText(item.getTechNo());
+            productName.setText(item.getProductName());
+            inventory.setText(item.getInventory());
+            currCount.setText(item.getCurrCount());
+            productCode = item.getProductCode();
 
-            shomareFanni.setText(item.getCondition());
-            productName.setText(item.getReceiptNum());
-            inventory.setText(item.getReceiptType());
-            currCount.setText(item.getDate());
 
             if (workgroupID == 56) {
                 ll_Inventory.setVisibility(View.GONE);
@@ -112,11 +127,64 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
             btnReject.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    list.remove(getAdapterPosition());
-                    notifyItemRemoved(getAdapterPosition());
-                    notifyItemRangeChanged(getAdapterPosition(), list.size());
+                    iOSDialogBuilder ios = Utility.newIOSdialog(context);
+                    ios.setTitle(item.getTechNo())
+                            .setSubtitle("اطمینان از حذف شماره فنی فوق دارید؟")
+                            .setPositiveListener("بله", new iOSDialogClickListener() {
+                                @Override
+                                public void onClick(iOSDialog dialog) {
+                                    deleteCycleCountItem(productCode, getAdapterPosition());
+                                    dialog.dismiss();
+                                }
+                            }).setNegativeListener("خیر", new iOSDialogClickListener() {
+                        @Override
+                        public void onClick(iOSDialog dialog) {
+                            dialog.dismiss();
+                        }
+                    }).build().show();
+
+
                 }
             });
         }
+    }
+
+    public void deleteCycleCountItem(int productCode, final int position) {
+        PropertyInfo p0 = new PropertyInfo();
+        p0.setName("passCode");
+        p0.setValue(Utility.pw);
+        p0.setType(String.class);
+
+        PropertyInfo p1 = new PropertyInfo();
+        p1.setName("productCode");
+        p1.setValue(productCode);
+        p1.setType(Integer.class);
+
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_DELETE_CYCLE_COUNT, SoapCall.SOAP_ACTION_DELETE_CYCLE_COUNT);
+        ss.execute(p0, p1);
+
+
+        new Handler().post(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (ss.get() != null) {
+                        list = ss.get();
+                        if (list.get(0).getString("boolean").equals("true")) {
+                            Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
+                            midlist.remove(position);
+                            notifyItemRemoved(position);
+                            notifyItemRangeChanged(position, midlist.size());
+                        }
+                    } else if (ss.get() == null) {
+                        Toast.makeText(context, "خطا در حذف آیتم مورد نظر", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (ExecutionException | InterruptedException | JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

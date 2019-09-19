@@ -50,7 +50,7 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         datepickerImgv.setOnClickListener(this);
 
         etDate.setText(getToday());
-        receiptListFragment = ReceiptListFragment.newInstance("1398/06/26");
+        receiptListFragment = ReceiptListFragment.newInstance(getToday());
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_receipt_list, receiptListFragment).commit();
 
         etDate.setOnTouchListener(new View.OnTouchListener() {

@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObject>> {
-    public static final String URL = "http://192.168.1.10:8090/samWebService.asmx";
+    public static final String URL = "2.186.112.233/samWebService.asmx";
     public static final String NAMESPACE = "http://tempuri.org/";
 
     public static final String METHOD_GET_PRODUCT = "GetProductByTechNo";
@@ -56,7 +56,7 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String SOAP_ACTION_GET_CYCLE_COUNT_MIDDLE = NAMESPACE + METHOD_GET_CYCLE_COUNT_MIDDLE;
     public static final String SOAP_ACTION_DELETE_CYCLE_COUNT = NAMESPACE + METHOD_DELETE_CYCLE_COUNT;
     public static final String SOAP_ACTION_GET_LOGIN_INFO = NAMESPACE + METHOD_GET_LOGIN_INFO;
-    public static final String SOAP_ACTION_GET_UNIT_INFO  = NAMESPACE + METHOD_GET_UNIT_INFO;
+    public static final String SOAP_ACTION_GET_UNIT_INFO = NAMESPACE + METHOD_GET_UNIT_INFO;
     public static final String SOAP_ACTION_GET_PRODUCT_TYPE_INFO = NAMESPACE + METHOD_GET_PRODUCT_TYPE_INFO;
 
     public static final int TIMEOUT = 15000;
@@ -107,12 +107,17 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
 
                 if (ss.getProperty(0).toString().equals("true")) {
                     childObjectList = new ArrayList<>();
-
                     String ans = "[{\"boolean\":\"true\" }]";
                     jsonArray = new JSONArray(ans);
                     childObject = jsonArray.getJSONObject(0);
                     childObjectList.add(childObject);
                     // publishProgress(childObject.getString("boolean"));
+                } else if (ss.getProperty(0).toString().equals("false")) {
+                    childObjectList = new ArrayList<>();
+                    String ans = "[{\"boolean\":\"false\" }]";
+                    jsonArray = new JSONArray(ans);
+                    childObject = jsonArray.getJSONObject(0);
+                    childObjectList.add(childObject);
                 } else {
                     childObjectList = new ArrayList<>(ss.getPropertyCount());
                     jsonArray = new JSONArray(ss.getProperty(0).toString());
@@ -146,6 +151,5 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     protected void onPostExecute(ArrayList<JSONObject> jsonObjects) {
         super.onPostExecute(jsonObjects);
         if (progressBar != null) progressBar.setVisibility(View.GONE);
-
     }
 }

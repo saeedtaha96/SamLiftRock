@@ -12,12 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.Models.CardexDetailsModel;
+import com.samlifttruck.activity.Models.DetailsModel;
 
+import java.util.List;
 import java.util.Random;
 
 public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdapter.MyViewHolder> {
 
     Random r;
+    List<CardexDetailsModel> cardexList;
+
+    public CardexDetailsAdapter(List<CardexDetailsModel> cardexList) {
+        this.cardexList = cardexList;
+    }
 
     @NonNull
     @Override
@@ -33,13 +41,13 @@ public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdap
         int random2 = r.nextInt(255) + 1;
         int random3 = r.nextInt(255) + 1;
         int cc = Color.rgb(random1, random2, random3);
-        holder.bind(cc);
+        holder.bind(cardexList.get(position), cc);
         setFadeAnimation(holder.itemView);
     }
 
     @Override
     public int getItemCount() {
-        return 28;
+        return cardexList.size();
     }
 
     private void setFadeAnimation(View view) {
@@ -63,8 +71,14 @@ public class CardexDetailsAdapter extends RecyclerView.Adapter<CardexDetailsAdap
             colorLine = itemView.findViewById(R.id.adapter_cardex_rv_view);
         }
 
-        void bind(int rgb) {
+        void bind(CardexDetailsModel item, int rgb) {
             colorLine.setBackgroundColor(rgb);
+            tvId.setText(item.getID());
+            tvCustName.setText(item.getPersonName());
+            tvDate.setText(item.getPersianBusinessDate());
+            tvIncoming.setText(String.valueOf(item.getIncoming()));
+            tvOutgoing.setText(String.valueOf(item.getOutGoing()));
+            tvInventory.setText(String.valueOf(item.getOnHand()));
         }
     }
 }

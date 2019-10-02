@@ -160,7 +160,7 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
         p1.setValue(productCode);
         p1.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_DELETE_CYCLE_COUNT, SoapCall.SOAP_ACTION_DELETE_CYCLE_COUNT);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_DELETE_CYCLE_COUNT);
         ss.execute(p0, p1);
 
 

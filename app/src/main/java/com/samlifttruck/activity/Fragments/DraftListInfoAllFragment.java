@@ -140,7 +140,7 @@ public class DraftListInfoAllFragment extends Fragment {
         p2.setValue(4);
         p2.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_BUSINESS_DETAILS, SoapCall.SOAP_ACTION_GET_BUSINESS_DETAILS);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_BUSINESS_DETAILS);
         ss.execute(p0, p1,p2);
 
 

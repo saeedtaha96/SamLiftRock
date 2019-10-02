@@ -162,7 +162,7 @@ public class ProductActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT_TYPE_INFO, SoapCall.SOAP_ACTION_GET_PRODUCT_TYPE_INFO);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT_TYPE_INFO);
         ss.execute(p0);
 
 
@@ -207,7 +207,7 @@ public class ProductActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_UNIT_INFO, SoapCall.SOAP_ACTION_GET_UNIT_INFO);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_UNIT_INFO);
         ss.execute(p0);
 
 
@@ -290,7 +290,7 @@ public class ProductActivity extends AppCompatActivity {
         p8.setValue(userID);
         p8.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_INSERT_PRODUCT, SoapCall.SOAP_ACTION_INSERT_PRODUCT);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_INSERT_PRODUCT);
         ss.execute(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
 

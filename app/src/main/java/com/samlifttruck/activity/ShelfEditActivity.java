@@ -92,11 +92,10 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(etShelfNum.getText().toString().equals("")){
+                if (etShelfNum.getText().toString().equals("")) {
                     etShelfNum.setError("خالی است");
                     etShelfNum.requestFocus();
-                }
-                else if((!tvProductName.getText().toString().equals("")) & (!tvProductName.getText().toString().equals("-")) & (myProductCode != NOT_FOUND_CODE)){
+                } else if ((!tvProductName.getText().toString().equals("")) & (!tvProductName.getText().toString().equals("-")) & (myProductCode != NOT_FOUND_CODE)) {
                     setProductNewShelfNum();
                 }
             }
@@ -117,13 +116,13 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
 
         PropertyInfo p2 = new PropertyInfo();
         p2.setName("shelf");
-        if(etShelfNum.getText().toString().equals("")) {
+        if (etShelfNum.getText().toString().equals("")) {
             etShelfNum.setText(" ");
         }
         p2.setValue(etShelfNum.getText().toString());
         p2.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_SHELF, SoapCall.SOAP_ACTION_UPDATE_SHELF);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_SHELF);
         ss.execute(p0, p1, p2);
 
 
@@ -171,13 +170,11 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT, SoapCall.SOAP_ACTION_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
-
-
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
+new Handler().post(new Runnable() {
+    @Override
+    public void run() {
                 try {
                     if (ss.get() != null) {
                         list = ss.get();
@@ -204,6 +201,7 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
             }
         });
     }
+
 
     private void closeKeyPad() {
         try {

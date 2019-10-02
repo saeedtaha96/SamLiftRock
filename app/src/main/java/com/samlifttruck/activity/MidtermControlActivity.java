@@ -284,7 +284,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT, SoapCall.SOAP_ACTION_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
 
 
@@ -363,7 +363,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         p7.setValue(myProductCode);
         p7.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_MIDTERM_COUNT, SoapCall.SOAP_ACTION_UPDATE_MIDTERM_COUNT);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_MIDTERM_COUNT);
         ss.execute(p0, p1, p2, p3, p4, p5, p6, p7);
 
 

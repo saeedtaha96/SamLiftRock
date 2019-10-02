@@ -79,7 +79,7 @@ public class ReceiptListFragment extends Fragment {
         p1.setValue(mDate);
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_RECEIPT_LIST, SoapCall.SOAP_ACTION_GET_RECEIPT_LIST);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_RECEIPT_LIST);
         ss.execute(p0, p1);
 
 

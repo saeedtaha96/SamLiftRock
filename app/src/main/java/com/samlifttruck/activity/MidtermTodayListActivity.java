@@ -156,7 +156,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_CYCLE_COUNT_MIDDLE, SoapCall.SOAP_ACTION_GET_CYCLE_COUNT_MIDDLE);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_CYCLE_COUNT_MIDDLE);
         ss.execute(p0);
 
 
@@ -196,7 +196,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                     Toast.makeText(MidtermTodayListActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, 500);
+        }, 300);
     }
 
     private void executeCycleCount() {
@@ -205,7 +205,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_EXECUTE_MIDTERM_COUNT, SoapCall.SOAP_ACTION_EXECUTE_MIDTERM_COUNT);
+        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_EXECUTE_MIDTERM_COUNT);
         ss.execute(p0);
 
 
@@ -237,7 +237,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                     Toast.makeText(MidtermTodayListActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
             }
-        }, 500);
+        }, 300);
     }
 
 }

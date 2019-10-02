@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -216,6 +217,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 closeKeyPad();
 
                 if (isFilled()) {
+
                     PropertyInfo p0 = new PropertyInfo();
                     p0.setName("passCode");
                     p0.setValue("x4fg54-D9ib");
@@ -237,7 +239,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     p3.setType(String.class);
 
 
-                    final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_LOGIN_INFO, SoapCall.SOAP_ACTION_GET_LOGIN_INFO);
+                    final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_LOGIN_INFO);
                     ss.execute(p0, p1, p2, p3);
 
 
@@ -250,8 +252,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     for (int i = 0; i < list.size(); i++) {
                                         SharedPreferences.Editor edt = pref.edit();
                                         edt.putString(Utility.LOGIN_USERNAME, list.get(i).getString("FullName"));
-                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID,list.get(i).getInt("WorkgroupID"));
-                                        edt.putInt(Utility.LOGIN_USER_ID,list.get(i).getInt("UserID"));
+                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID, list.get(i).getInt("WorkgroupID"));
+                                        edt.putInt(Utility.LOGIN_USER_ID, list.get(i).getInt("UserID"));
                                         edt.putBoolean(Utility.IS_LOGIN, true);
                                         edt.apply();
                                         startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
@@ -273,12 +275,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                             .build().show();
                                 }
 
-                            } catch (ExecutionException e) {
+                            } catch (ExecutionException | InterruptedException | JSONException e) {
                                 e.printStackTrace();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
+
+
                             }
                         }
                     });

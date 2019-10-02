@@ -276,7 +276,7 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT, SoapCall.SOAP_ACTION_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
 
 

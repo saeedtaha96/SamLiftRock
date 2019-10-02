@@ -11,7 +11,6 @@ import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpResponseException;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -19,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObject>> {
-    public static final String URL = "2.186.112.233/samWebService.asmx";
+    public static final String URL = "http://2.186.112.233/samWebService.asmx";
     public static final String NAMESPACE = "http://tempuri.org/";
 
     public static final String METHOD_GET_PRODUCT = "GetProductByTechNo";
@@ -40,25 +39,6 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String METHOD_GET_UNIT_INFO = "GetUnitInfo";
     public static final String METHOD_GET_PRODUCT_TYPE_INFO = "GetProductTypeInfo";
 
-
-    public static final String SOAP_ACTION_GET_PRODUCT = NAMESPACE + METHOD_GET_PRODUCT;
-    public static final String SOAP_ACTION_EXECUTE_MIDTERM_COUNT = NAMESPACE + METHOD_EXECUTE_MIDTERM_COUNT;
-    public static final String SOAP_ACTION_GET_DRAFT_LIST = NAMESPACE + METHOD_GET_DRAFT_LIST;
-    public static final String SOAP_ACTION_GET_PERM_LIST = NAMESPACE + METHOD_GET_PERM_LIST;
-    public static final String SOAP_ACTION_GET_RECEIPT_LIST = NAMESPACE + METHOD_GET_RECEIPT_LIST;
-    public static final String SOAP_ACTION_INSERT_PRODUCT = NAMESPACE + METHOD_INSERT_PRODUCT;
-    public static final String SOAP_ACTION_LOGIN_CHECK = NAMESPACE + METHOD_LOGIN_CHECK;
-    public static final String SOAP_ACTION_UPDATE_MIDTERM_COUNT = NAMESPACE + METHOD_UPDATE_MIDTERM_COUNT;
-    public static final String SOAP_ACTION_UPDATE_SHELF = NAMESPACE + METHOD_UPDATE_SHELF;
-    public static final String SOAP_ACTION_GET_BUSINESS_DETAILS = NAMESPACE + METHOD_GET_BUSINESS_DETAILS;
-    public static final String SOAP_ACTION_GET_CARDEX = NAMESPACE + METHOD_GET_CARDEX;
-    public static final String SOAP_ACTION_GET_CYCLE_COUNT = NAMESPACE + METHOD_GET_CYCLE_COUNT;
-    public static final String SOAP_ACTION_GET_CYCLE_COUNT_MIDDLE = NAMESPACE + METHOD_GET_CYCLE_COUNT_MIDDLE;
-    public static final String SOAP_ACTION_DELETE_CYCLE_COUNT = NAMESPACE + METHOD_DELETE_CYCLE_COUNT;
-    public static final String SOAP_ACTION_GET_LOGIN_INFO = NAMESPACE + METHOD_GET_LOGIN_INFO;
-    public static final String SOAP_ACTION_GET_UNIT_INFO = NAMESPACE + METHOD_GET_UNIT_INFO;
-    public static final String SOAP_ACTION_GET_PRODUCT_TYPE_INFO = NAMESPACE + METHOD_GET_PRODUCT_TYPE_INFO;
-
     public static final int TIMEOUT = 15000;
 
     private ProgressBar progressBar;
@@ -69,10 +49,10 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     private ArrayList<JSONObject> childObjectList = null;
 
 
-    public SoapCall(ProgressBar progressBar, String method, String soapAction) {
+    public SoapCall(ProgressBar progressBar, String method) {
         this.progressBar = progressBar;
         this.method = method;
-        this.soapAction = soapAction;
+        this.soapAction = NAMESPACE + method;
     }
 
     @Override
@@ -128,13 +108,7 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
                 }
             }
 
-        } catch (HttpResponseException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException | JSONException | XmlPullParserException e) {
             e.printStackTrace();
         }
         return childObjectList;

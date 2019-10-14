@@ -56,7 +56,6 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_midterm_today_list);
 
-        progressBar = findViewById(R.id.activity_midterm_today_list_pbar);
         rvMidtermList = findViewById(R.id.activity_midterm_today_list_recyclerview);
         btnConfirm = findViewById(R.id.activity_midterm_today_list_btn_confirm);
         btnSearch = findViewById(R.id.activity_midterm_imgv_search);
@@ -93,7 +92,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                 if (rvMidtermList != null) {
                     List<MidtermControlModel> myList = new ArrayList<>();
                     for (MidtermControlModel item : midtermList) {
-                        if (item.getTechNo().startsWith(newText)) {
+                        if (item.getTechNo().toLowerCase().startsWith(newText.toLowerCase())) {
                             myList.add(item);
                         }
                     }
@@ -156,7 +155,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_CYCLE_COUNT_MIDDLE);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_CYCLE_COUNT_MIDDLE);
         ss.execute(p0);
 
 
@@ -205,7 +204,7 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_EXECUTE_MIDTERM_COUNT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_EXECUTE_MIDTERM_COUNT);
         ss.execute(p0);
 
 

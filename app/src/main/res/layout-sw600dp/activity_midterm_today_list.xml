@@ -12,14 +12,7 @@
         android:id="@+id/toolbar_midterm_today_list"
         layout="@layout/toolbar_custom_search_btn" />
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/activity_midterm_today_list_pbar"
-        style="@style/SpinKitView.Large.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+    <include layout="@layout/layout_loading"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_midterm_today_list_recyclerview"

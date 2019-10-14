@@ -4,6 +4,9 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObject>> {
-    public static final String URL = "http://2.186.112.233/samWebService.asmx";
+    public static final String URL = "http://192.168.1.10:8090/samWebService.asmx";
     public static final String NAMESPACE = "http://tempuri.org/";
 
     public static final String METHOD_GET_PRODUCT = "GetProductByTechNo";
@@ -27,7 +30,6 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String METHOD_GET_PERM_LIST = "GetListMojavez";
     public static final String METHOD_GET_RECEIPT_LIST = "GetListResid";
     public static final String METHOD_INSERT_PRODUCT = "InsertProduct";
-    public static final String METHOD_LOGIN_CHECK = "LoginCheck";
     public static final String METHOD_UPDATE_MIDTERM_COUNT = "UpdateCycleCount";
     public static final String METHOD_UPDATE_SHELF = "UpdateProductShelf";
     public static final String METHOD_GET_BUSINESS_DETAILS = "GetBusinessDetails";
@@ -41,7 +43,7 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
 
     public static final int TIMEOUT = 15000;
 
-    private ProgressBar progressBar;
+    private AppCompatActivity activity;
     private String method;
     private String soapAction;
     private JSONObject childObject = null;
@@ -49,8 +51,8 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     private ArrayList<JSONObject> childObjectList = null;
 
 
-    public SoapCall(ProgressBar progressBar, String method) {
-        this.progressBar = progressBar;
+    public SoapCall(@NonNull AppCompatActivity activity, @NonNull String method) {
+        this.activity = activity;
         this.method = method;
         this.soapAction = NAMESPACE + method;
     }
@@ -58,7 +60,8 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
+       // if (progressBar != null) progressBar.setVisibility(View.VISIBLE);
+        new CustomProgressBar(activity).showProgress();
     }
 
 
@@ -124,6 +127,7 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     @Override
     protected void onPostExecute(ArrayList<JSONObject> jsonObjects) {
         super.onPostExecute(jsonObjects);
-        if (progressBar != null) progressBar.setVisibility(View.GONE);
+      //  if (progressBar != null) progressBar.setVisibility(View.GONE);
+        new CustomProgressBar(activity).dismissProgress();
     }
 }

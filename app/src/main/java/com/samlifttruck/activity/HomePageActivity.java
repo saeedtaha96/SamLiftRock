@@ -216,6 +216,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                         edt.apply();
                         startActivity(new Intent(HomePageActivity.this, LoginActivity.class
                         ));
+                        dialog.dismiss();
                         finish();
                     }
                 });

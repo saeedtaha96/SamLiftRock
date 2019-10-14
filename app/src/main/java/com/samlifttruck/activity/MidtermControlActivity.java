@@ -126,7 +126,6 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
 
     private void setupViews() {
         btnSave = findViewById(R.id.activity_midterm_counting_btn_save);
-        progressBar = findViewById(R.id.activity_midterm_pbar);
         tvInventoryRelative = findViewById(R.id.relative_midterm_tv_inventory);
         tvInventory = findViewById(R.id.activity_midterm_counting_inventory);
         scannerView = findViewById(R.id.scanner_midterm);
@@ -284,7 +283,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
 
 
@@ -363,7 +362,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         p7.setValue(myProductCode);
         p7.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_MIDTERM_COUNT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_UPDATE_MIDTERM_COUNT);
         ss.execute(p0, p1, p2, p3, p4, p5, p6, p7);
 
 

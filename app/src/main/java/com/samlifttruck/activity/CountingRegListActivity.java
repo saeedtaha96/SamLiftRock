@@ -62,17 +62,17 @@ public class CountingRegListActivity extends AppCompatActivity {
         msv.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (draftList != null) {
+              /*  if (draftList != null) {
                     List<DraftListModel> myList = new ArrayList<>();
                     for (DraftListModel item : draftList) {
-                        if (item.getCondition().startsWith(query)) {
+                        if (item.getCondition().toLowerCase().startsWith(query.toLowerCase())) {
                             myList.add(item);
                         }
                     }
 
                     adapter = new CountingRegListAdapter(myList);
                     rv.setAdapter(adapter);
-                }
+                }*/
                 return false;
             }
 
@@ -80,7 +80,7 @@ public class CountingRegListActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 List<DraftListModel> myList = new ArrayList<>();
                 for (DraftListModel item : draftList) {
-                    if (item.getCondition().startsWith(newText)) {
+                    if (item.getCondition().toLowerCase().startsWith(newText.toLowerCase())) {
                         myList.add(item);
                     }
                 }

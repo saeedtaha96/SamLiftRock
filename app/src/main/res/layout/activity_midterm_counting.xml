@@ -42,16 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/scanner_midterm"/>
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/activity_midterm_pbar"
-        style="@style/SpinKitView.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/relative_midterm_tv_unit"
-        android:layout_centerHorizontal="true"
-        android:translationY="-14dp"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+    <include layout="@layout/layout_loading"/>
 
     <TextView
         android:id="@+id/relative_midterm_tv_product_name"

@@ -100,7 +100,7 @@ public class CardexDeatilsActivity extends AppCompatActivity {
         p3.setValue(date + "/12/29");
         p3.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_CARDEX);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_CARDEX);
         ss.execute(p0, p1, p2, p3);
 
 

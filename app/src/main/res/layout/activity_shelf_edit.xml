@@ -110,17 +110,7 @@
         android:textColor="@color/color_gray_text"
         android:textSize="@dimen/text_size18" />
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/activity_shelf_pbar"
-        style="@style/SpinKitView.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/relative_midterm_tv_shelf_number"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin48"
-        android:translationY="-14dp"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+    <include layout="@layout/layout_loading"/>
 
     <EditText
         android:id="@+id/activity_midterm_et_input_new"

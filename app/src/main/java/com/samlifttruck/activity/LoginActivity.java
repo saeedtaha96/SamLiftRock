@@ -215,8 +215,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // btn Login
             case R.id.login_btn_login:
                 closeKeyPad();
-
-                if (isFilled()) {
+                if (!isFilled()) {
+                    startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                } else if (isFilled()) {
 
                     PropertyInfo p0 = new PropertyInfo();
                     p0.setName("passCode");
@@ -239,11 +240,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     p3.setType(String.class);
 
 
-                    final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_LOGIN_INFO);
+                    final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_LOGIN_INFO);
                     ss.execute(p0, p1, p2, p3);
 
-
-                    new Handler().post(new Runnable() {
+                    SoapCall.execute(new Runnable() {
                         @Override
                         public void run() {
                             try {
@@ -264,15 +264,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         //  System.out.println(ss.get());
                                     }
                                 } else if (ss.get() == null) {
-                                    iOSDialogBuilder ios = Utility.newIOSdialog(LoginActivity.this);
-                                    ios.setTitle(getString(R.string.txt_error)).setPositiveListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
+                                    LoginActivity.this.runOnUiThread(new Runnable() {
                                         @Override
-                                        public void onClick(iOSDialog dialog) {
-                                            dialog.dismiss();
+                                        public void run() {
+                                            iOSDialogBuilder ios = Utility.newIOSdialog(LoginActivity.this);
+                                            ios.setTitle(getString(R.string.txt_error)).setPositiveListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
+                                                @Override
+                                                public void onClick(iOSDialog dialog) {
+                                                    dialog.dismiss();
+                                                }
+                                            })
+                                                    .setSubtitle(getString(R.string.txt_wrong_name_pass))
+                                                    .build().show();
                                         }
-                                    })
-                                            .setSubtitle(getString(R.string.txt_wrong_name_pass))
-                                            .build().show();
+                                    });
+
                                 }
 
                             } catch (ExecutionException | InterruptedException | JSONException e) {

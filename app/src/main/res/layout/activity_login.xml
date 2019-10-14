@@ -9,6 +9,8 @@
     android:layoutDirection="rtl"
     tools:context=".activity.LoginActivity">
 
+    <include layout="@layout/layout_loading"/>
+
     <include
         android:id="@+id/activity_login_toolbar"
         layout="@layout/toolbar_custom_simple" />

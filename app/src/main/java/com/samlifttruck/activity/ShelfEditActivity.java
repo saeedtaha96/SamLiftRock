@@ -47,8 +47,8 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
     TextView tvProductName;
     TextView tvShelfNum;
     Button btnConfirm;
-    private EditText etShelfNum;
-    private int myProductCode;
+    EditText etShelfNum;
+    int myProductCode;
     private static final int NOT_FOUND_CODE = -404;
     List<JSONObject> list = null;
 
@@ -122,37 +122,46 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         p2.setValue(etShelfNum.getText().toString());
         p2.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_UPDATE_SHELF);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_UPDATE_SHELF);
         ss.execute(p0, p1, p2);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
                     if (ss.get() != null) {
                         list = ss.get();
-                        if (list.get(0).getString("boolean").equals("true")) {
-                            Toast.makeText(ShelfEditActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
-                            etShelfNum.setText("");
-                            tvShelfNum.setText("-");
-                            tvProductName.setText("-");
-                            etFanniNumb.setText("");
-                            etFanniNumb.requestFocus();
-                        } else if (list.get(0).toString().equals("false")) {
-                            Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_LONG).show();
+                        final String isTrue = list.get(0).getString("boolean");
+                        ShelfEditActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (isTrue.equals("true")) {
 
-                        }
+                                    Toast.makeText(ShelfEditActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
+                                    etShelfNum.setText("");
+                                    tvShelfNum.setText("-");
+                                    tvProductName.setText("-");
+                                    etFanniNumb.setText("");
+                                    etFanniNumb.requestFocus();
+                                } else if (isTrue.equals("false")) {
+                                    Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_LONG).show();
+                                }
+                            }
 
+                        });
                     } else if (ss.get() == null) {
-                        Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                        ShelfEditActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(ShelfEditActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+
                     }
 
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
+                } catch (ExecutionException | InterruptedException | JSONException e) {
                     e.printStackTrace();
                 }
             }
@@ -170,38 +179,47 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(progressBar, SoapCall.METHOD_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
-new Handler().post(new Runnable() {
-    @Override
-    public void run() {
+        SoapCall.execute(new Runnable() {
+            @Override
+            public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        tvProductName.setText(list.get(0).getString("ProductName"));
-                        tvShelfNum.setText(list.get(0).getString("shelf"));
-                        myProductCode = list.get(0).getInt("productCode");
-                        etShelfNum.requestFocus();
-                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(etShelfNum, InputMethodManager.SHOW_IMPLICIT);
-                    } else if (ss.get() == null) {
-                        tvProductName.setText(getResources().getText(R.string.dash));
-                        tvShelfNum.setText(getResources().getText(R.string.dash));
-                        myProductCode = NOT_FOUND_CODE;
-                        Toast.makeText(ShelfEditActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
+                    list = ss.get();
+                    ShelfEditActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (list != null) {
 
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
+                                    tvProductName.setText(list.get(0).getString("ProductName"));
+
+                                    tvShelfNum.setText(list.get(0).getString("shelf"));
+                                    myProductCode = list.get(0).getInt("productCode");
+                                    etShelfNum.requestFocus();
+                                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    imm.showSoftInput(etShelfNum, InputMethodManager.SHOW_IMPLICIT);
+                                } else {
+                                    tvProductName.setText(getResources().getText(R.string.dash));
+                                    tvShelfNum.setText(getResources().getText(R.string.dash));
+                                    myProductCode = NOT_FOUND_CODE;
+                                    Toast.makeText(ShelfEditActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         });
-    }
 
+    }
 
     private void closeKeyPad() {
         try {
@@ -219,7 +237,6 @@ new Handler().post(new Runnable() {
         btnConfirm = findViewById(R.id.activity_shelf_edit_btn_confirm);
         scannerView = findViewById(R.id.scanner_shelf);
         etFanniNumb = findViewById(R.id.layout_et_tech_no);
-        progressBar = findViewById(R.id.activity_shelf_pbar);
         tvProductName = findViewById(R.id.activity_shelf_tv_product_name);
         tvShelfNum = findViewById(R.id.activity_shelf_tv_shelf_number);
 
@@ -275,7 +292,8 @@ new Handler().post(new Runnable() {
         scannerView.stopCamera();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0) {
@@ -307,7 +325,8 @@ new Handler().post(new Runnable() {
         }
     }
 
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener
+            okListener) {
         new AlertDialog.Builder(ShelfEditActivity.this)
                 .setMessage(message)
                 .setPositiveButton(getString(R.string.txt_ok), new DialogInterface.OnClickListener() {

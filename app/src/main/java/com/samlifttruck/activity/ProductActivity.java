@@ -44,14 +44,14 @@ import java.util.concurrent.ExecutionException;
 public class ProductActivity extends AppCompatActivity {
     private Spinner typeSpinner, unitSpinner;
     private CustomSpinnerAdapter unitAdapter, productTypeAdapter;
-    private List<JSONObject> list = null;
+    List<JSONObject> list = null;
     private String[] unitItems;
-    private String[] productTypeItems;
+    String[] productTypeItems;
     private int userID;
     private int unitID;
-    private int productTypeId;
+    int productTypeId;
     private List<UnitInfoModel> unitList;
-    private List<ProductTypeInfoModel> productTypeList;
+    List<ProductTypeInfoModel> productTypeList;
     private SharedPreferences pref;
     Button btnReg;
     private EditText etProductName, etTechNum, etShelfNum;
@@ -114,7 +114,7 @@ public class ProductActivity extends AppCompatActivity {
 
             }
         }
-       //Toast.makeText(ProductActivity.this, String.valueOf(unitID), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ProductActivity.this, String.valueOf(unitID), Toast.LENGTH_SHORT).show();
     }
 
     public void getProductTypeID() {
@@ -124,7 +124,7 @@ public class ProductActivity extends AppCompatActivity {
 
             }
         }
-       // Toast.makeText(ProductActivity.this, String.valueOf(productTypeId), Toast.LENGTH_SHORT).show();
+        // Toast.makeText(ProductActivity.this, String.valueOf(productTypeId), Toast.LENGTH_SHORT).show();
     }
 
     private void setToolbarText() {
@@ -138,7 +138,7 @@ public class ProductActivity extends AppCompatActivity {
         unitSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
     }
 
-    private void setupSpinnerOfType() {
+    void setupSpinnerOfType() {
         typeSpinner.setAdapter(productTypeAdapter);
         typeSpinner.setBackground(getDrawable(R.drawable.spinner_cars));
     }
@@ -162,38 +162,48 @@ public class ProductActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT_TYPE_INFO);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_PRODUCT_TYPE_INFO);
         ss.execute(p0);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        productTypeList = new ArrayList<>(list.size());
-                        productTypeItems = new String[list.size()];
-                        ProductTypeInfoModel model;
+                    list = ss.get();
+                    ProductActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
 
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new ProductTypeInfoModel();
-                            model.setProductTypeID(list.get(i).getInt("ProductTypeID"));
-                            model.setProductTypeName(list.get(i).getString("ProductTypeName"));
-                            productTypeList.add(model);
+                                productTypeList = new ArrayList<>(list.size());
+                                productTypeItems = new String[list.size()];
+                                ProductTypeInfoModel model;
+                                try {
+                                    for (int i = 0; i < list.size(); i++) {
+                                        model = new ProductTypeInfoModel();
+                                        model.setProductTypeID(list.get(i).getInt("ProductTypeID"));
+                                        model.setProductTypeName(list.get(i).getString("ProductTypeName"));
+                                        productTypeList.add(model);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                for (int i = 0; i < list.size(); i++) {
+                                    productTypeItems[i] = productTypeList.get(i).getProductTypeName();
+                                }
+                                productTypeAdapter = new CustomSpinnerAdapter(getApplicationContext(), productTypeItems);
+                                setupSpinnerOfType();
+                                productTypeId = productTypeList.get(0).getProductTypeID();
+
+                            } else {
+                                Toast.makeText(ProductActivity.this, "خطا در بارگیری DropDown", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        for (int i = 0; i < list.size(); i++) {
-                            productTypeItems[i] = productTypeList.get(i).getProductTypeName();
-                        }
-                        productTypeAdapter = new CustomSpinnerAdapter(getApplicationContext(), productTypeItems);
-                        setupSpinnerOfType();
-                        productTypeId = productTypeList.get(0).getProductTypeID();
+                    });
 
-                    } else if (ss.get() == null) {
-                        Toast.makeText(ProductActivity.this, "خطا در بارگیری DropDown", Toast.LENGTH_SHORT).show();
-                    }
 
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(ProductActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -207,36 +217,48 @@ public class ProductActivity extends AppCompatActivity {
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_UNIT_INFO);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_UNIT_INFO);
         ss.execute(p0);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        unitList = new ArrayList<>(list.size());
-                        UnitInfoModel model;
-                        unitItems = new String[list.size()];
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new UnitInfoModel();
-                            model.setUnitID(list.get(i).getInt("UnitID"));
-                            model.setUnitName(list.get(i).getString("UnitName"));
-                            unitList.add(model);
-                        }
-                        for (int i = 0; i < list.size(); i++) {
-                            unitItems[i] = unitList.get(i).getUnitName();
-                        }
-                        unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems);
-                        setupSpinnerofUnit();
-                        unitID = unitList.get(0).getUnitID();
-                    } else if (ss.get() == null) {
-                        Toast.makeText(ProductActivity.this, "خطا در بارگیری DropDown", Toast.LENGTH_SHORT).show();
-                    }
+                    list = ss.get();
 
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                    ProductActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                unitList = new ArrayList<>(list.size());
+                                UnitInfoModel model;
+                                unitItems = new String[list.size()];
+                                try {
+                                    for (int i = 0; i < list.size(); i++) {
+                                        model = new UnitInfoModel();
+                                        model.setUnitID(list.get(i).getInt("UnitID"));
+                                        model.setUnitName(list.get(i).getString("UnitName"));
+                                        unitList.add(model);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                for (int i = 0; i < list.size(); i++) {
+                                    unitItems[i] = unitList.get(i).getUnitName();
+                                }
+                                unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems);
+                                setupSpinnerofUnit();
+                                unitID = unitList.get(0).getUnitID();
+                            } else {
+                                Toast.makeText(ProductActivity.this, "خطا در بارگیری DropDown", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(ProductActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -290,28 +312,37 @@ public class ProductActivity extends AppCompatActivity {
         p8.setValue(userID);
         p8.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_INSERT_PRODUCT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_INSERT_PRODUCT);
         ss.execute(p0, p1, p2, p3, p4, p5, p6, p7, p8);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        if (list.get(0).getString("boolean").equals("true")) {
-                            Toast.makeText(ProductActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
-                            etShelfNum.setText("");
-                            etProductName.setText("");
-                            etTechNum.setText("");
-                            etProductName.requestFocus();
+                    list = ss.get();
+                    ProductActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+                                try {
+                                    if (list.get(0).getString("boolean").equals("true")) {
+                                        Toast.makeText(ProductActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
+                                        etShelfNum.setText("");
+                                        etProductName.setText("");
+                                        etTechNum.setText("");
+                                        etProductName.requestFocus();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                Toast.makeText(ProductActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                    else {
-                        Toast.makeText(ProductActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                    });
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(ProductActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 

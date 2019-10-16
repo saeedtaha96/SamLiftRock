@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <!-- draft From Perm-->
-    <!--   <LinearLayout
+  <LinearLayout
            android:id="@+id/btn_menu_havale_az_mojavez"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                android:layout_weight="1.5"
                android:padding="@dimen/padding_imgv_menu"
                android:scaleType="fitCenter"
-               android:src="@drawable/licensing"
+               android:src="@drawable/ic_dfp"
                android:tint="@color/color_blue_theme_004677" />
 
            <TextView
@@ -88,7 +88,7 @@
                android:textColor="@color/color_black_000000"
                android:textSize="@dimen/menu_text_size" />
        </LinearLayout>
-   -->
+
     <!-- draft list-->
     <LinearLayout
         android:id="@+id/btn_menu_permission_list"

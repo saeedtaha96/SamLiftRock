@@ -42,7 +42,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import static android.Manifest.permission.CAMERA;
 
 public class MidtermControlActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
-    private TextInputEditText etFanniNumb;
+    TextInputEditText etFanniNumb;
     private int workgroupID;
     private ImageView btnTodayList;
     private TextView tvInventoryRelative;
@@ -50,12 +50,12 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
     private ZXingScannerView scannerView;
     private SharedPreferences pref;
     private ProgressBar progressBar;
-    private int myProductCode = -404;
-    private String myTechNo = "-404";
-    private List<JSONObject> list = null;
-    EditText etCurrentCount;
+    int myProductCode = -404;
+    String myTechNo = "-404";
+    List<JSONObject> list = null;
+    EditText etCurrentCount, etNewShelf;
     Button btnSave;
-    private TextView tvProductName, tvShelfNum, tvUnit, tvInventory;
+    TextView tvProductName, tvShelfNum, tvUnit, tvInventory;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -121,6 +121,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                 }
             }
         });
+        etFanniNumb.requestFocus();
 
     }
 
@@ -135,6 +136,7 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         tvUnit = findViewById(R.id.activity_midterm_tv_unit);
         tvProductName = findViewById(R.id.activity_midterm_tv_product_name);
         etCurrentCount = findViewById(R.id.activity_midterm_et_input_new);
+        etNewShelf = findViewById(R.id.activity_midterm_et_input_new_shelf);
     }
 
     public void checkQRcodePremission() {
@@ -287,33 +289,48 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         ss.execute(p0, p1);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        tvProductName.setText(list.get(0).getString("ProductName"));
-                        tvShelfNum.setText(list.get(0).getString("shelf"));
-                        tvInventory.setText(list.get(0).getString("onHand"));
-                        tvUnit.setText(list.get(0).getString("MainUnitID"));
-                        myProductCode = list.get(0).getInt("productCode");
-                        myTechNo = etFanniNumb.getText().toString().trim();
-                        etCurrentCount.requestFocus();
-                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                        imm.showSoftInput(etCurrentCount, InputMethodManager.SHOW_IMPLICIT);
-                    } else if (ss.get() == null) {
-                        tvProductName.setText(getResources().getText(R.string.dash));
-                        tvShelfNum.setText(getResources().getText(R.string.dash));
-                        tvUnit.setText(getResources().getText(R.string.dash));
-                        tvInventory.setText(getResources().getText(R.string.dash));
-                        etCurrentCount.setText("");
-                        myProductCode = Utility.NOT_FOUND_CODE;
-                        myTechNo = String.valueOf(Utility.NOT_FOUND_CODE);
-                        Toast.makeText(MidtermControlActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
+                    list = ss.get();
 
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                    MidtermControlActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                try {
+                                    tvProductName.setText(list.get(0).getString("ProductName"));
+                                    tvShelfNum.setText(list.get(0).getString("shelf"));
+                                    tvInventory.setText(list.get(0).getString("onHand"));
+                                    tvUnit.setText(list.get(0).getString("MainUnitID"));
+                                    myProductCode = list.get(0).getInt("productCode");
+
+                                    myTechNo = etFanniNumb.getText().toString().trim();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                etCurrentCount.requestFocus();
+                                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                if (imm != null) {
+                                    imm.showSoftInput(etCurrentCount, InputMethodManager.SHOW_IMPLICIT);
+                                }
+                            } else {
+                                tvProductName.setText(getResources().getText(R.string.dash));
+                                tvShelfNum.setText(getResources().getText(R.string.dash));
+                                tvUnit.setText(getResources().getText(R.string.dash));
+                                tvInventory.setText(getResources().getText(R.string.dash));
+                                etCurrentCount.setText("");
+                                myProductCode = Utility.NOT_FOUND_CODE;
+                                myTechNo = String.valueOf(Utility.NOT_FOUND_CODE);
+                                Toast.makeText(MidtermControlActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(MidtermControlActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -354,8 +371,12 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
 
         PropertyInfo p6 = new PropertyInfo();
         p6.setName("shelf");
-        p6.setValue(tvShelfNum.getText().toString());
         p6.setType(String.class);
+        if (etNewShelf.getText().toString().trim().equals("")) {
+            p6.setValue(tvShelfNum.getText().toString());
+        }else {
+            p6.setValue(etNewShelf.getText().toString());
+        }
 
         PropertyInfo p7 = new PropertyInfo();
         p7.setName("productCode");
@@ -366,32 +387,40 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
         ss.execute(p0, p1, p2, p3, p4, p5, p6, p7);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        if (list.get(0).getString("boolean").equals("true")) {
-                            Toast.makeText(MidtermControlActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
-                            etCurrentCount.setText("");
-                            tvShelfNum.setText("-");
-                            tvProductName.setText("-");
-                            tvInventory.setText("-");
-                            tvUnit.setText("-");
-                            etFanniNumb.setText("");
-                            etFanniNumb.requestFocus();
+                    list = ss.get();
+
+                    MidtermControlActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                try {
+                                    if (list.get(0).getString("boolean").equals("true")) {
+                                        Toast.makeText(MidtermControlActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
+                                        etCurrentCount.setText("");
+                                        tvShelfNum.setText("-");
+                                        tvProductName.setText("-");
+                                        tvInventory.setText("-");
+                                        tvUnit.setText("-");
+                                        etNewShelf.setText("");
+                                        etFanniNumb.setText("");
+                                        etFanniNumb.requestFocus();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                Toast.makeText(MidtermControlActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    } else if (ss.get() == null) {
-                        Toast.makeText(MidtermControlActivity.this, "خطا در ثبت", Toast.LENGTH_SHORT).show();
-                    }
+                    });
 
 
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (JSONException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                 }
             }

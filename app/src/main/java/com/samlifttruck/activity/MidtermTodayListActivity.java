@@ -128,9 +128,9 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(rvMidtermList != null){
+                if (rvMidtermList != null) {
                     executeCycleCount();
-                }else {
+                } else {
                     Toast.makeText(MidtermTodayListActivity.this, "موردی برای ثبت وجود ندارد", Toast.LENGTH_SHORT).show();
                 }
 
@@ -159,43 +159,56 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         ss.execute(p0);
 
 
-        new Handler().postDelayed(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        midtermList = new ArrayList<>(list.size());
-                        MidtermControlModel model;
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new MidtermControlModel();
-                            model.setProductName(list.get(i).getString("ProductName"));
-                            model.setTechNo(list.get(i).getString("TechNo"));
-                            model.setCurrCount(list.get(i).getString("CurrentCount"));
-                            model.setInventory(list.get(i).getString("onHand"));
-                            model.setProductCode(list.get(i).getInt("ProductCode"));
-                            midtermList.add(model);
-                        }
+                    list = ss.get();
 
-                        midtermListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, midtermList);
-                        Configuration config = getResources().getConfiguration();
-                        if (config.smallestScreenWidthDp >= 600) {
-                            rvMidtermList.setLayoutManager(new GridLayoutManager(MidtermTodayListActivity.this, 2));
-                        } else {
-                            rvMidtermList.setLayoutManager(new LinearLayoutManager(MidtermTodayListActivity.this, RecyclerView.VERTICAL, false));
-                        }
-                        rvMidtermList.setAdapter(midtermListAdapter);
-                    } else if (ss.get() == null) {
-                        rvMidtermList = null;
-                        Toast.makeText(MidtermTodayListActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
+                    MidtermTodayListActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
 
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                                midtermList = new ArrayList<>(list.size());
+                                MidtermControlModel model;
+
+                                for (int i = 0; i < list.size(); i++) {
+                                    model = new MidtermControlModel();
+                                    try {
+                                        model.setProductName(list.get(i).getString("ProductName"));
+                                        model.setTechNo(list.get(i).getString("TechNo"));
+                                        model.setCurrCount(list.get(i).getString("CurrentCount"));
+                                        model.setInventory(list.get(i).getString("onHand"));
+                                        model.setProductCode(list.get(i).getInt("ProductCode"));
+                                        midtermList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    midtermListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, midtermList);
+                                    Configuration config = getResources().getConfiguration();
+                                    if (config.smallestScreenWidthDp >= 600) {
+                                        rvMidtermList.setLayoutManager(new GridLayoutManager(MidtermTodayListActivity.this, 2));
+                                    } else {
+                                        rvMidtermList.setLayoutManager(new LinearLayoutManager(MidtermTodayListActivity.this, RecyclerView.VERTICAL, false));
+                                    }
+                                    rvMidtermList.setAdapter(midtermListAdapter);
+                                }
+                            } else {
+                                rvMidtermList = null;
+                                Toast.makeText(MidtermTodayListActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(MidtermTodayListActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, 300);
+        });
     }
 
     private void executeCycleCount() {
@@ -208,35 +221,47 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         ss.execute(p0);
 
 
-        new Handler().postDelayed(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        if (list.get(0).getString("boolean").equals("true")) {
-                            Toast.makeText(getApplicationContext(), "موارد با موفقیت ثبت شدند", Toast.LENGTH_LONG).show();
-                            midtermListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, null);
-                            Configuration config = getResources().getConfiguration();
-                            if (config.smallestScreenWidthDp >= 600) {
-                                rvMidtermList.setLayoutManager(new GridLayoutManager(MidtermTodayListActivity.this, 2));
-                            } else {
-                                rvMidtermList.setLayoutManager(new LinearLayoutManager(MidtermTodayListActivity.this, RecyclerView.VERTICAL, false));
+                    list = ss.get();
+
+                    MidtermTodayListActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                try {
+                                    if (list.get(0).getString("boolean").equals("true")) {
+                                        Toast.makeText(getApplicationContext(), "موارد با موفقیت ثبت شدند", Toast.LENGTH_LONG).show();
+                                        midtermListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, null);
+                                        Configuration config = getResources().getConfiguration();
+                                        if (config.smallestScreenWidthDp >= 600) {
+                                            rvMidtermList.setLayoutManager(new GridLayoutManager(MidtermTodayListActivity.this, 2));
+                                        } else {
+                                            rvMidtermList.setLayoutManager(new LinearLayoutManager(MidtermTodayListActivity.this, RecyclerView.VERTICAL, false));
+                                        }
+                                        rvMidtermList.setAdapter(midtermListAdapter);
+                                        rvMidtermList = null;
+                                    } else if (list.get(0).getString("boolean").equals("false")) {
+                                        Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_LONG).show();
+                                    } else if (list == null) {
+                                        Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
                             }
-                            rvMidtermList.setAdapter(midtermListAdapter);
-                            rvMidtermList = null;
-                        } else if (list.get(0).getString("boolean").equals("false")) {
-                            Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_LONG).show();
-                        } else if (ss.get() == null) {
-                            Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
                         }
-                    }
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                    });
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(MidtermTodayListActivity.this, e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 }
             }
-        }, 300);
+        });
     }
 
 }

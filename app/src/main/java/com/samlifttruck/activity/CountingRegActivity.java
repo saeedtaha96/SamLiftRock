@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -26,10 +27,15 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.SoapCall;
+import com.samlifttruck.activity.DataGenerators.Utility;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import lib.kingja.switchbutton.SwitchMultiButton;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -41,8 +47,9 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
     private TextInputEditText etFanniNumb;
-    private TextInputEditText etProductName, etShelfNum, etCounting1, etCounting2, etCounting3, etResult_1_2, etFinalResult;
+    private TextInputEditText etProductName, etShelfNum, etCounting1, etCounting2, etCounting3, etResult_1_2, etFinalResult, etInventory;
     private Button btnSave;
+    private int myProductCode;
     private ImageButton btnCountingRegList;
     List<JSONObject> list = null;
     ProgressBar progressBar;
@@ -78,6 +85,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
                             etFanniNumb.requestFocus();
                         } else {
                             //  new ShelfEditActivity.soapCall().execute("x4fg54-D9ib", etFanniNumb.getText().toString());
+                            getProduct();
                         }
 
                         closeKeyPad();
@@ -137,13 +145,16 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         etFinalResult = findViewById(R.id.activity_counting_reg_final_result);
         btnSave = findViewById(R.id.activity_counting_reg_btn_save);
         btnCountingRegList = findViewById(R.id.activity_imgv_today_list);
+        etInventory = findViewById(R.id.activity_counting_reg_inventory);
     }
 
-    private void closeKeyPad() {
+    void closeKeyPad() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
             }
         } catch (Exception e) {
             // TODO: handle exception
@@ -250,7 +261,68 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     public void handleResult(final Result result) {
         // String myResult = result.getText();
         etFanniNumb.setText(result.getText());
+        getProduct();
         onResume();
+    }
+
+    private void getProduct() {
+        PropertyInfo p0 = new PropertyInfo();
+        p0.setName("passCode");
+        p0.setValue(Utility.pw);
+        p0.setType(String.class);
+
+        PropertyInfo p1 = new PropertyInfo();
+        p1.setName("techNo");
+        p1.setValue(etFanniNumb.getText().toString());
+        p1.setType(String.class);
+
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_PRODUCT);
+        ss.execute(p0, p1);
+        SoapCall.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    list = ss.get();
+
+                    CountingRegActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                if (list != null) {
+
+                                    etProductName.setText(list.get(0).getString("ProductName"));
+                                    etShelfNum.setText(list.get(0).getString("shelf"));
+                                    myProductCode = list.get(0).getInt("productCode");
+                                    etInventory.setText(list.get(0).getString("onHand"));
+                                    etCounting1.requestFocus();
+                                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    imm.showSoftInput(etShelfNum, InputMethodManager.SHOW_IMPLICIT);
+                                } else {
+                                    etCounting1.setText("");
+                                    etCounting2.setText("");
+                                    etCounting3.setText("");
+                                    etShelfNum.setText(getString(R.string.whitespace));
+                                    etProductName.setText(getString(R.string.whitespace));
+                                    etInventory.setText(getString(R.string.zero));
+                                    etFinalResult.setText(getString(R.string.zero));
+                                    etResult_1_2.setText(getString(R.string.zero));
+                                    myProductCode = Utility.NOT_FOUND_CODE;
+                                    Toast.makeText(CountingRegActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    });
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
     }
 
 

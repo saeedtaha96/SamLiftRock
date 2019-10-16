@@ -92,7 +92,7 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    private void closeKeyPad() {
+    void closeKeyPad() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {

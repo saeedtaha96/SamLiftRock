@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layoutDirection="rtl"
-    >
+    android:layoutDirection="rtl">
 
-    <include layout="@layout/toolbar_custom_back_btn"
+    <include
         android:id="@+id/activity_cardex_toolbar"
-        android:layout_alignParentTop="true"
+        layout="@layout/toolbar_custom_back_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/relative_cardview"
-        android:layout_below="@id/activity_cardex_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/margin4"
+        android:layout_below="@id/activity_cardex_toolbar"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/margin4"
         app:cardCornerRadius="0dp"
         app:cardElevation="@dimen/margin12">
 
@@ -31,10 +31,10 @@
 
             <me.dm7.barcodescanner.zxing.ZXingScannerView
                 android:id="@+id/scanner_cardex"
-                android:layout_weight="5"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginBottom="@dimen/margin16"
+                android:layout_weight="5"
                 android:background="@drawable/shape_rect_white"
                 app:borderColor="@color/color_blue_theme_004677"
                 app:borderLength="@dimen/margin64"
@@ -42,18 +42,19 @@
                 app:laserColor="@color/color_red_refuse"
                 app:laserEnabled="true" />
 
-            <include layout="@layout/layout_tech_number"
+            <include
+                layout="@layout/layout_tech_number"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin24"
-                android:layout_width="match_parent"/>
+                android:layout_marginTop="@dimen/margin24" />
 
             <LinearLayout
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/margin48"
                 android:layout_marginTop="@dimen/margin32"
+                android:layout_marginBottom="@dimen/margin48"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -73,8 +74,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="2"
                     android:layout_marginStart="@dimen/margin32"
+                    android:layout_weight="2"
                     android:dropDownSelector="@drawable/selector_rect10_menu_items"
                     android:gravity="center"
                     android:hint="@string/txt_spin_type"
@@ -90,5 +91,6 @@
 
     </androidx.cardview.widget.CardView>
 
+    <include layout="@layout/layout_loading" />
 
 </RelativeLayout>

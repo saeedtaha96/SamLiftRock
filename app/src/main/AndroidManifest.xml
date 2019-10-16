@@ -24,6 +24,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".activity.DraftFromPermActivity"></activity>
         <activity
             android:name=".activity.CountingRegListActivity"
             android:screenOrientation="portrait"

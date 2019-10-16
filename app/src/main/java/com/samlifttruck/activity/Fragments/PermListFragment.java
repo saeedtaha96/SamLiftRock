@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,6 +29,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class PermListFragment extends Fragment {
@@ -38,8 +40,8 @@ public class PermListFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private String mDate;
-    private RecyclerView rvPermList;
-    private PermListAdapter permListAdapter;
+    RecyclerView rvPermList;
+    PermListAdapter permListAdapter;
     ProgressBar progressBar;
 
     public PermListFragment() {
@@ -85,40 +87,52 @@ public class PermListFragment extends Fragment {
         p1.setValue(mDate);
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PERM_LIST);
+        final SoapCall ss = new SoapCall((AppCompatActivity) Objects.requireNonNull(getActivity()), SoapCall.METHOD_GET_PERM_LIST);
         ss.execute(p0, p1);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        permList = new ArrayList<>(list.size());
-                        PermListModel model;
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new PermListModel();
-                            model.setBusinessID(list.get(i).getString("BusinessID"));
-                            model.setPreFactorNum(list.get(i).getString("ReferalBusinessNominal"));
-                            model.setPermNum(list.get(i).getString("BusinessNominal"));
-                            model.setCustName(list.get(i).getString("PersonName"));
-                            model.setCondition(list.get(i).getString("StatusName"));
-                            model.setDate(list.get(i).getString("PersianBusinessDate"));
-                            model.setDescrip(list.get(i).getString("Description1"));
-                            permList.add(model);
+                    list = ss.get();
+
+                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                permList = new ArrayList<>(list.size());
+                                PermListModel model;
+                                for (int i = 0; i < list.size(); i++) {
+                                    model = new PermListModel();
+                                    try {
+                                        model.setBusinessID(list.get(i).getString("BusinessID"));
+                                        model.setPreFactorNum(list.get(i).getString("ReferalBusinessNominal"));
+                                        model.setPermNum(list.get(i).getString("BusinessNominal"));
+                                        model.setCustName(list.get(i).getString("PersonName"));
+                                        model.setCondition(list.get(i).getString("StatusName"));
+                                        model.setDate(list.get(i).getString("PersianBusinessDate"));
+                                        model.setDescrip(list.get(i).getString("Description1"));
+                                        permList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                                permListAdapter = new PermListAdapter(permList);
+                                rvPermList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                rvPermList.setAdapter(permListAdapter);
+
+                            } else {
+                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                    });
 
-                        permListAdapter = new PermListAdapter(permList);
-                        rvPermList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                        rvPermList.setAdapter(permListAdapter);
 
-                    } else if (ss.get() == null) {
-                        Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

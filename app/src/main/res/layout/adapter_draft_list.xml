@@ -19,7 +19,6 @@
         android:paddingTop="@dimen/margin16">
 
 
-
         <RelativeLayout
             android:id="@+id/relative_col1"
             android:layout_width="match_parent"

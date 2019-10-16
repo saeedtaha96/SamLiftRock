@@ -257,16 +257,47 @@
             android:textColor="@color/color_black_000000"
             android:textSize="@dimen/text_size18" />
 
-        <com.github.ybq.android.spinkit.SpinKitView
-            android:id="@+id/fragment_perm_info_all_pbar"
-            style="@style/SpinKitView.Large.Circle"
+        <TextView
+            android:id="@+id/relative_tv_count"
+            style="@style/AppFont"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/relative_tv"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin80"
-            android:visibility="gone"
-            app:SpinKit_Color="@color/colorAccent" />
+            android:layout_alignTop="@id/relative_tv"
+            android:layout_alignBottom="@id/relative_tv"
+            android:layout_marginStart="@dimen/margin128"
+            android:layout_marginTop="@dimen/margin4"
+            android:layout_marginBottom="@dimen/margin4"
+            android:layout_toEndOf="@id/relative_tv"
+            android:alpha="0.9"
+            android:background="@drawable/selector_btn_reject"
+            android:clickable="false"
+            android:gravity="center"
+            android:paddingStart="@dimen/margin12"
+            android:paddingEnd="@dimen/margin12"
+            android:text="@string/list_tv_count_value"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size15" />
+
+        <TextView
+            android:id="@+id/fragment_draft_list_info_all_list_size"
+            style="@style/AppFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/relative_tv"
+            android:layout_alignBottom="@id/relative_tv"
+            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginTop="@dimen/margin4"
+            android:layout_marginBottom="@dimen/margin4"
+            android:layout_toEndOf="@id/relative_tv_count"
+            android:background="@drawable/selector_btn_save"
+            android:clickable="false"
+            android:gravity="center"
+            android:minWidth="@dimen/margin48"
+            android:paddingStart="@dimen/margin12"
+            android:paddingEnd="@dimen/margin12"
+            tools:text="8"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size15" />
 
 
     </RelativeLayout>

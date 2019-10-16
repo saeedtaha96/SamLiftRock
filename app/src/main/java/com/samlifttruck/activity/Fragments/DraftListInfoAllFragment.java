@@ -2,6 +2,7 @@ package com.samlifttruck.activity.Fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,11 +28,12 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class DraftListInfoAllFragment extends Fragment {
-    private List<JSONObject> list = null;
-    private List<DetailsModel> detailsList;
+    List<JSONObject> list = null;
+    List<DetailsModel> detailsList;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String DRAFT_NUM_KEY = "draftNum";
@@ -45,8 +47,9 @@ public class DraftListInfoAllFragment extends Fragment {
 
     // Views
     private TextView tvDraftNum, tvPermNum, tvCustName, tvDate, tvDraftType, tvServicePage, tvDescrip;
-    private RecyclerView rvDraftListStuff;
-    private DraftListInfoAllAdapter draftAdapter;
+    TextView tvListSize;
+    RecyclerView rvDraftListStuff;
+    DraftListInfoAllAdapter draftAdapter;
 
     // TODO: Rename and change types of parameters
     private String mDraftNum;
@@ -107,6 +110,7 @@ public class DraftListInfoAllFragment extends Fragment {
         tvServicePage = rootView.findViewById(R.id.fragment_draft_info_all_service_page);
         tvDescrip = rootView.findViewById(R.id.fragment_draft_info_all_descrip);
         rvDraftListStuff = rootView.findViewById(R.id.fragment_draft_info_all_recyclerview);
+        tvListSize = rootView.findViewById(R.id.fragment_draft_list_info_all_list_size);
 
         if (getArguments() != null) {
             tvDraftNum.setText(mDraftNum);
@@ -140,39 +144,52 @@ public class DraftListInfoAllFragment extends Fragment {
         p2.setValue(4);
         p2.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_BUSINESS_DETAILS);
-        ss.execute(p0, p1,p2);
+        final SoapCall ss = new SoapCall((AppCompatActivity) Objects.requireNonNull(getActivity()), SoapCall.METHOD_GET_BUSINESS_DETAILS);
+        ss.execute(p0, p1, p2);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        detailsList = new ArrayList<>(list.size());
-                        DetailsModel model;
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new DetailsModel();
-                            model.setOnHand(list.get(i).getString("onHand"));
-                            model.setProductName(list.get(i).getString("ProductName"));
-                            model.setQty(list.get(i).getString("Qty"));
-                            model.setTechNo(list.get(i).getString("TechNo"));
-                            model.setUnitName(list.get(i).getString("UnitName"));
+                    list = ss.get();
 
-                            detailsList.add(model);
+                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                detailsList = new ArrayList<>(list.size());
+                                DetailsModel model;
+                                for (int i = 0; i < list.size(); i++) {
+                                    model = new DetailsModel();
+                                    try {
+                                        model.setOnHand(list.get(i).getString("onHand"));
+                                        model.setProductName(list.get(i).getString("ProductName"));
+                                        model.setQty(list.get(i).getString("Qty"));
+                                        model.setTechNo(list.get(i).getString("TechNo"));
+                                        model.setUnitName(list.get(i).getString("UnitName"));
+
+                                        detailsList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                                tvListSize.setText(String.valueOf(detailsList.size()));
+                                draftAdapter = new DraftListInfoAllAdapter(detailsList);
+                                rvDraftListStuff.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                rvDraftListStuff.setAdapter(draftAdapter);
+
+                            } else {
+                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                    });
 
-                        draftAdapter = new DraftListInfoAllAdapter(detailsList);
-                        rvDraftListStuff.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                        rvDraftListStuff.setAdapter(draftAdapter);
 
-                    } else if (ss.get() == null) {
-                        Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

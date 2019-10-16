@@ -31,9 +31,9 @@ public class CardexDeatilsActivity extends AppCompatActivity {
     CardexDetailsAdapter cardexAdapter;
     List<JSONObject> list = null;
     ProgressBar progressBar;
-    private static int INCOMING = 0;
-    private static int OUTGOING = 0;
-    private static int INVENTORY = 0;
+    static int INCOMING = 0;
+    static int OUTGOING = 0;
+    static int INVENTORY = 0;
 
     List<CardexDetailsModel> cardexList;
     private int myProductCode;
@@ -104,42 +104,55 @@ public class CardexDeatilsActivity extends AppCompatActivity {
         ss.execute(p0, p1, p2, p3);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        cardexList = new ArrayList<>(list.size());
-                        CardexDetailsModel model;
-                        for (int i = 0; i < list.size(); i++) {
+                    list = ss.get();
 
-                            model = new CardexDetailsModel();
+                    CardexDeatilsActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
 
-                            model.setID(list.get(i).getString("BusinessName") + " شماره  " + list.get(i).getString("BusinessNominal"));
-                            model.setPersonName(list.get(i).getString("PersonName"));
-                            model.setPersianBusinessDate(list.get(i).getString("PersianBusinessDate"));
-                            model.setIncoming(list.get(i).getInt("Incoming"));
-                            model.setOutGoing(list.get(i).getInt("OutGoing"));
-                            model.setOnHand(list.get(i).getInt("OnHand"));
-                            INCOMING += model.getIncoming();
-                            OUTGOING += model.getOutGoing();
+                                cardexList = new ArrayList<>(list.size());
+                                CardexDetailsModel model;
+                                for (int i = 0; i < list.size(); i++) {
 
-                            cardexList.add(model);
+                                    model = new CardexDetailsModel();
+
+                                    try {
+                                        model.setID(list.get(i).getString("BusinessName") + " شماره  " + list.get(i).getString("BusinessNominal"));
+                                        model.setPersonName(list.get(i).getString("PersonName"));
+                                        model.setPersianBusinessDate(list.get(i).getString("PersianBusinessDate"));
+                                        model.setIncoming(list.get(i).getInt("Incoming"));
+                                        model.setOutGoing(list.get(i).getInt("OutGoing"));
+                                        model.setOnHand(list.get(i).getInt("OnHand"));
+                                        INCOMING += model.getIncoming();
+                                        OUTGOING += model.getOutGoing();
+
+                                        cardexList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                                INVENTORY = INCOMING - OUTGOING;
+                                tvIncoming.setText(String.valueOf(INCOMING));
+                                tvOutgoing.setText(String.valueOf(OUTGOING));
+                                tvInventory.setText(String.valueOf(INVENTORY));
+                                rv.setLayoutManager(new LinearLayoutManager(CardexDeatilsActivity.this, RecyclerView.VERTICAL, false));
+                                cardexAdapter = new CardexDetailsAdapter(cardexList);
+                                rv.setAdapter(cardexAdapter);
+
+                            } else {
+                                Toast.makeText(CardexDeatilsActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        INVENTORY = INCOMING - OUTGOING;
-                        tvIncoming.setText(String.valueOf(INCOMING));
-                        tvOutgoing.setText(String.valueOf(OUTGOING));
-                        tvInventory.setText(String.valueOf(INVENTORY));
-                        rv.setLayoutManager(new LinearLayoutManager(CardexDeatilsActivity.this, RecyclerView.VERTICAL, false));
-                        cardexAdapter = new CardexDetailsAdapter(cardexList);
-                        rv.setAdapter(cardexAdapter);
+                    });
 
-                    } else if (ss.get() == null) {
-                        Toast.makeText(CardexDeatilsActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
 
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(CardexDeatilsActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

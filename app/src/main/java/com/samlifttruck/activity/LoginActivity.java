@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     ProgressBar progressBar;
     private TextView btnRegDevice;
     private static final int REQUEST_PHONE_STATE = 10;
-    private SharedPreferences pref;
+    SharedPreferences pref;
 
 
     @Override
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getDeviceId();
     }
 
-    private boolean getPremission() {
+    boolean getPremission() {
         boolean state = false;
         int currentApiVersion = Build.VERSION.SDK_INT;
         if (currentApiVersion >= Build.VERSION_CODES.M) {
@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return (ContextCompat.checkSelfPermission(getApplicationContext(), READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED);
     }
 
-    private void requestPermission() {
+    void requestPermission() {
         ActivityCompat.requestPermissions(this, new String[]{READ_PHONE_STATE}, REQUEST_PHONE_STATE);
     }
 
@@ -216,6 +216,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.login_btn_login:
                 closeKeyPad();
                 if (!isFilled()) {
+                    SharedPreferences.Editor edt = pref.edit();
+                    edt.putInt(Utility.LOGIN_WORKGROUP_ID, 1);
+                    edt.apply();
                     startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
                 } else if (isFilled()) {
 
@@ -247,26 +250,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void run() {
                             try {
-                                if (ss.get() != null) {
-                                    list = ss.get();
-                                    for (int i = 0; i < list.size(); i++) {
-                                        SharedPreferences.Editor edt = pref.edit();
-                                        edt.putString(Utility.LOGIN_USERNAME, list.get(i).getString("FullName"));
-                                        edt.putInt(Utility.LOGIN_WORKGROUP_ID, list.get(i).getInt("WorkgroupID"));
-                                        edt.putInt(Utility.LOGIN_USER_ID, list.get(i).getInt("UserID"));
-                                        edt.putBoolean(Utility.IS_LOGIN, true);
-                                        edt.apply();
-                                        startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
-                                        finish();
-                                        break;
-                                        //    tv.append("tech no = " + list.get(i).getString("techNo") + "\n");
-                                        //   tv.append("product = " + list.get(i).getString("ProductName"));
-                                        //  System.out.println(ss.get());
-                                    }
-                                } else if (ss.get() == null) {
-                                    LoginActivity.this.runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
+                                list = ss.get();
+
+                                LoginActivity.this.runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (list != null) {
+                                            try {
+                                                for (int i = 0; i < list.size(); i++) {
+                                                    SharedPreferences.Editor edt = pref.edit();
+
+                                                    edt.putString(Utility.LOGIN_USERNAME, list.get(i).getString("FullName"));
+                                                    edt.putInt(Utility.LOGIN_WORKGROUP_ID, list.get(i).getInt("WorkgroupID"));
+                                                    edt.putInt(Utility.LOGIN_USER_ID, list.get(i).getInt("UserID"));
+                                                    edt.putBoolean(Utility.IS_LOGIN, true);
+                                                    edt.apply();
+
+                                                    startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
+                                                    finish();
+                                                }
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        } else {
                                             iOSDialogBuilder ios = Utility.newIOSdialog(LoginActivity.this);
                                             ios.setTitle(getString(R.string.txt_error)).setPositiveListener(getString(R.string.txt_ok), new iOSDialogClickListener() {
                                                 @Override
@@ -277,14 +283,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                                     .setSubtitle(getString(R.string.txt_wrong_name_pass))
                                                     .build().show();
                                         }
-                                    });
-
-                                }
-
-                            } catch (ExecutionException | InterruptedException | JSONException e) {
+                                    }
+                                });
+                            } catch (ExecutionException | InterruptedException e) {
                                 e.printStackTrace();
-
-
                             }
                         }
                     });
@@ -332,7 +334,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
             }
         } catch (Exception e) {
             // TODO: handle exception

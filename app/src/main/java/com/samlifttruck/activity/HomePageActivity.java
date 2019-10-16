@@ -96,6 +96,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnMenuPermList.setOnClickListener(this);
         btnMenuDraftList.setOnClickListener(this);
         btnMenuReceiptList.setOnClickListener(this);
+        btnMenuHavaleAzMojavez.setOnClickListener(this);
     }
 
 
@@ -106,7 +107,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
         btnShelfEdit = findViewById(R.id.btn_shelf_edit);
         btnMidtermControl = findViewById(R.id.btn_midterm_control);
         btnMenuProduct = findViewById(R.id.btn_menu_product);
-        //  btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
+        btnMenuHavaleAzMojavez = findViewById(R.id.btn_menu_havale_az_mojavez);
         btnMenuRegCount = findViewById(R.id.btn_menu_register_counting);
         //   btnMenuInventoryRep = findViewById(R.id.btn_menu_inventory_report);
         btnMenuMidtermControl = findViewById(R.id.btn_menu_midterm_control);
@@ -210,9 +211,9 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                     public void onClick(iOSDialog dialog) {
                         SharedPreferences.Editor edt = pref.edit();
                         edt.putBoolean(Utility.IS_LOGIN, false);
-                        edt.putString(Utility.LOGIN_USERNAME," ");
-                        edt.putInt(Utility.LOGIN_WORKGROUP_ID,56);
-                        edt.putInt(Utility.LOGIN_USER_ID,0);
+                        edt.putString(Utility.LOGIN_USERNAME, " ");
+                        edt.putInt(Utility.LOGIN_WORKGROUP_ID, 56);
+                        edt.putInt(Utility.LOGIN_USER_ID, 0);
                         edt.apply();
                         startActivity(new Intent(HomePageActivity.this, LoginActivity.class
                         ));
@@ -306,6 +307,19 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.btn_menu_shelf_edit:
                 startActivity(new Intent(HomePageActivity.this, ShelfEditActivity.class));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (drawer.isDrawerOpen(GravityCompat.START)) {
+                            drawer.closeDrawer(GravityCompat.START);
+                        }
+                    }
+                }, 300);
+
+                break;
+
+            case R.id.btn_menu_havale_az_mojavez:
+                startActivity(new Intent(HomePageActivity.this, DraftFromPermActivity.class));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

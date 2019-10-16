@@ -22,6 +22,7 @@ import java.util.List;
 public class DraftListInfoAllAdapter extends RecyclerView.Adapter<DraftListInfoAllAdapter.MyViewHolder> {
 
     private List<DetailsModel> list;
+    int COUNTER = 1;
 
     public DraftListInfoAllAdapter(List<DetailsModel> draft) {
         this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
@@ -59,11 +60,12 @@ public class DraftListInfoAllAdapter extends RecyclerView.Adapter<DraftListInfoA
     }
 
     // View Holder //
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView techNum, productName, unit, count, inventory;
         AppCompatActivity activity;
         DraftListInfoAllFragment frag;
         private String mTechNum, mProductName, mUnit, mCount, mInventory;
+        private TextView raw;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +74,7 @@ public class DraftListInfoAllAdapter extends RecyclerView.Adapter<DraftListInfoA
             unit = itemView.findViewById(R.id.adapter_draft_info_all_rv_unit);
             count = itemView.findViewById(R.id.adapter_draft_info_all_rv_count);
             inventory = itemView.findViewById(R.id.adapter_draft_info_all_rv_inventory);
+            raw = itemView.findViewById(R.id.list_tv_counter);
             activity = (AppCompatActivity) itemView.getContext();
         }
 
@@ -82,6 +85,7 @@ public class DraftListInfoAllAdapter extends RecyclerView.Adapter<DraftListInfoA
             mCount = item.getQty();
             mInventory = item.getOnHand();
 
+            raw.setText(String.valueOf(COUNTER++));
             techNum.setText(mTechNum);
             productName.setText(mProductName);
             unit.setText(mUnit);

@@ -90,6 +90,6 @@
 
     </androidx.cardview.widget.CardView>
 
-
+    <include layout="@layout/layout_loading"/>
 
 </RelativeLayout>

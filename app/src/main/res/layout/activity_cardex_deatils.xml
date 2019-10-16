@@ -273,12 +273,6 @@
 
     </LinearLayout>
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/activity_cardex_details_pbar"
-        style="@style/SpinKitView.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+    <include layout="@layout/layout_loading"/>
+
 </RelativeLayout>

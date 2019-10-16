@@ -8,6 +8,8 @@
     android:fitsSystemWindows="true"
     android:layoutDirection="rtl">
 
+    <include layout="@layout/layout_loading" />
+
     <include
         android:id="@+id/activity_shelf_toolbar"
         layout="@layout/toolbar_custom_back_btn" />
@@ -18,13 +20,13 @@
         android:layout_below="@id/activity_shelf_toolbar">
 
         <LinearLayout
-            android:padding="@dimen/margin32"
             android:id="@+id/relative_linear_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/color_white_FFFFFF"
             android:fitsSystemWindows="true"
             android:orientation="vertical"
+            android:padding="@dimen/margin32"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".activity.ProdcutActivity">
 
@@ -49,9 +51,9 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/product_name"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:hint="@string/txt_product_name_simple"
                     android:imeOptions="actionNext"
@@ -90,11 +92,11 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/product_shomare_fanni"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin16"
                     android:layout_marginBottom="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:hint="@string/shomare_fanni"
                     android:imeOptions="actionNext"
@@ -132,10 +134,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/product_shelf_number"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:hint="@string/txt_shelf_numb_simple"
                     android:inputType="text"
@@ -177,13 +179,12 @@
                         android:padding="@dimen/margin24"
                         android:text="@string/txt_spin_type"
                         android:textAlignment="center"
-                        android:textSize="@dimen/text_size18"
-                        />
+                        android:textSize="@dimen/text_size18" />
 
                     <TextView
+                        style="@style/AppFont"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        style="@style/AppFont"
                         android:layout_gravity="center_vertical|start"
                         android:layout_marginStart="@dimen/margin32"
                         android:hint="@string/txt_spin_type"
@@ -211,16 +212,15 @@
                         android:padding="@dimen/margin24"
                         android:text="@string/txt_unit"
                         android:textAlignment="center"
-                        android:textSize="@dimen/text_size18"
-                         />
+                        android:textSize="@dimen/text_size18" />
 
                     <TextView
+                        style="@style/AppFont"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical|start"
                         android:layout_marginStart="@dimen/margin32"
                         android:hint="@string/txt_unit"
-                        style="@style/AppFont"
                         android:textSize="@dimen/text_size14" />
                 </FrameLayout>
 
@@ -232,6 +232,7 @@
 
     <Button
         android:id="@+id/activity_product_btn_confirm"
+        style="@style/AppFont"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -239,7 +240,6 @@
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
         android:background="@drawable/selector_btn_confrim"
-        style="@style/AppFont"
         android:padding="@dimen/margin8"
         android:text="@string/confirm"
         android:textColor="@color/color_white_FFFFFF"

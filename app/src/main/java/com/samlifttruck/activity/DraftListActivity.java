@@ -100,7 +100,7 @@ public class DraftListActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    private void closeKeyPad() {
+    void closeKeyPad() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {

@@ -22,7 +22,7 @@ import java.util.List;
 public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAllAdapter.MyViewHolder> {
 
     private List<DetailsModel> list;
-
+    int COUNTER = 1;
     public PermListInfoAllAdapter(List<DetailsModel> draft) {
         this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
     }
@@ -59,11 +59,13 @@ public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAll
     }
 
     // View Holder //
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView techNum, productName, unit, count, inventory;
         AppCompatActivity activity;
         DraftListInfoAllFragment frag;
         private String mTechNum, mProductName, mUnit, mCount, mInventory;
+
+        private TextView raw;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,6 +75,7 @@ public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAll
             count = itemView.findViewById(R.id.adapter_perm_info_all_rv_count);
             inventory = itemView.findViewById(R.id.adapter_perm_info_all_rv_inventory);
             activity = (AppCompatActivity) itemView.getContext();
+            raw = itemView.findViewById(R.id.list_tv_counter);
         }
 
         void bind(final DetailsModel item) {
@@ -82,6 +85,7 @@ public class PermListInfoAllAdapter extends RecyclerView.Adapter<PermListInfoAll
             mCount = item.getQty();
             mInventory = item.getOnHand();
 
+            raw.setText(String.valueOf(COUNTER++));
             techNum.setText(mTechNum);
             productName.setText(mProductName);
             unit.setText(mUnit);

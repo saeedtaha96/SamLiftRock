@@ -47,15 +47,15 @@ import static android.Manifest.permission.CAMERA;
 public class CardexActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private static final int REQUEST_CAMERA = 1;
     private ZXingScannerView scannerView;
-    private Spinner spinnerDateChoose;
-    private CheckBox chbxSetDate;
-    private TextInputEditText etFanniNumb;
+    Spinner spinnerDateChoose;
+    CheckBox chbxSetDate;
+    TextInputEditText etFanniNumb;
     private PersianCalendar calendar;
     private int year;
     List<JSONObject> list = null;
     ProgressBar progressBar;
-    private int myProductCode;
-    private String myTechNo, myShelfNum, myProductName;
+    int myProductCode;
+    String myTechNo, myShelfNum, myProductName;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -242,7 +242,7 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
 
     }
 
-    private void closeKeyPad() {
+    void closeKeyPad() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {
@@ -265,7 +265,7 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
         finish();
     }
 
-    private void getProduct(final String date) {
+    void getProduct(final String date) {
         PropertyInfo p0 = new PropertyInfo();
         p0.setName("passCode");
         p0.setValue(Utility.pw);
@@ -276,37 +276,50 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
         p1.setValue(etFanniNumb.getText().toString());
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_PRODUCT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_PRODUCT);
         ss.execute(p0, p1);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        myProductCode = list.get(0).getInt("productCode");
-                        myTechNo = etFanniNumb.getText().toString().trim();
-                        myShelfNum = list.get(0).getString("shelf");
-                        myProductName = list.get(0).getString("ProductName");
-                        Intent intent = new Intent(CardexActivity.this, CardexDeatilsActivity.class);
-                        intent.putExtra("productCode", myProductCode);
-                        intent.putExtra("date", date);
-                        intent.putExtra("techNo", myTechNo);
-                        intent.putExtra("shelfNo", myShelfNum);
-                        intent.putExtra("productName", myProductName);
-                        startActivity(intent);
+                    list = ss.get();
 
-                    } else if (ss.get() == null) {
-                        myProductCode = Utility.NOT_FOUND_CODE;
-                        myProductName = String.valueOf(Utility.NOT_FOUND_CODE);
-                        myTechNo = String.valueOf(Utility.NOT_FOUND_CODE);
-                        myShelfNum = String.valueOf(Utility.NOT_FOUND_CODE);
-                        Toast.makeText(CardexActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
+                    CardexActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
 
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                                try {
+                                    myProductCode = list.get(0).getInt("productCode");
+                                    myTechNo = etFanniNumb.getText().toString().trim();
+                                    myShelfNum = list.get(0).getString("shelf");
+                                    myProductName = list.get(0).getString("ProductName");
+                                    Intent intent = new Intent(CardexActivity.this, CardexDeatilsActivity.class);
+                                    intent.putExtra("productCode", myProductCode);
+                                    intent.putExtra("date", date);
+                                    intent.putExtra("techNo", myTechNo);
+                                    intent.putExtra("shelfNo", myShelfNum);
+                                    intent.putExtra("productName", myProductName);
+                                    startActivity(intent);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            } else {
+                                myProductCode = Utility.NOT_FOUND_CODE;
+                                myProductName = String.valueOf(Utility.NOT_FOUND_CODE);
+                                myTechNo = String.valueOf(Utility.NOT_FOUND_CODE);
+                                myShelfNum = String.valueOf(Utility.NOT_FOUND_CODE);
+                                Toast.makeText(CardexActivity.this, "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(CardexActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

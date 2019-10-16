@@ -22,6 +22,7 @@ import java.util.List;
 public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListInfoAllAdapter.MyViewHolder> {
 
     private List<DetailsModel> list;
+    int COUNTER = 1;
 
     public ReceiptListInfoAllAdapter(List<DetailsModel> draft) {
         this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
@@ -41,6 +42,7 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
         setFadeAnimation(holder.itemView);
     }
 
+
     @Override
     public int getItemCount() {
         return list.size();
@@ -52,17 +54,19 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
         view.startAnimation(anim);
     }
 
-    private void setScaleAnimation(View view) {
+  /*  private void setScaleAnimation(View view) {
         ScaleAnimation anim = new ScaleAnimation(0.5f, 1.0f, 0.3f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         anim.setDuration(800);
         view.startAnimation(anim);
-    }
+    }*/
 
     // View Holder //
-    static class MyViewHolder extends RecyclerView.ViewHolder {
+     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView techNum, productName, unit, count, buyCost, orderId;
+        private TextView raw;
         DraftListInfoAllFragment frag;
         private String mTechNum, mProductName, mUnit, mCount, mBuyCost, mOrderId;
+
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +76,7 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
             count = itemView.findViewById(R.id.adapter_receipt_info_all_rv_count);
             buyCost = itemView.findViewById(R.id.adapter_receipt_info_all_rv_buy_cost);
             orderId = itemView.findViewById(R.id.adapter_receipt_info_all_rv_order_id);
+            raw = itemView.findViewById(R.id.list_tv_counter);
         }
 
         void bind(final DetailsModel item) {
@@ -81,6 +86,7 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
             mCount = item.getQty();
 
 
+            raw.setText(String.valueOf(COUNTER++));
             techNum.setText(mTechNum);
             productName.setText(mProductName);
             unit.setText(mUnit);

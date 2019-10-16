@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,8 +42,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayListAdapter.MyViewHolder> {
 
-    private List<MidtermControlModel> midlist;
-    private Context context;
+    List<MidtermControlModel> midlist;
+    Context context;
     private int workgroupID;
     private SharedPreferences pref;
     List<JSONObject> list = null;
@@ -160,27 +161,39 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
         p1.setValue(productCode);
         p1.setType(Integer.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_DELETE_CYCLE_COUNT);
+        final SoapCall ss = new SoapCall((AppCompatActivity) context, SoapCall.METHOD_DELETE_CYCLE_COUNT);
         ss.execute(p0, p1);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        if (list.get(0).getString("boolean").equals("true")) {
-                            Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
-                            midlist.remove(position);
-                            notifyItemRemoved(position);
-                            notifyItemRangeChanged(position, midlist.size());
-                        }
-                    } else if (ss.get() == null) {
-                        Toast.makeText(context, "خطا در حذف آیتم مورد نظر", Toast.LENGTH_SHORT).show();
-                    }
+                    list = ss.get();
 
-                } catch (ExecutionException | InterruptedException | JSONException e) {
+                    AppCompatActivity activity = (AppCompatActivity) context;
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+                                try {
+                                    if (list.get(0).getString("boolean").equals("true")) {
+                                        Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
+                                        midlist.remove(position);
+                                        notifyItemRemoved(position);
+                                        notifyItemRangeChanged(position, midlist.size());
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                Toast.makeText(context, "خطا در حذف آیتم مورد نظر", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(context, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

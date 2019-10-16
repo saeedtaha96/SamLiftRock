@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.icu.util.UniversalTimeScale;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,7 +46,7 @@ public class ProductActivity extends AppCompatActivity {
     private Spinner typeSpinner, unitSpinner;
     private CustomSpinnerAdapter unitAdapter, productTypeAdapter;
     List<JSONObject> list = null;
-    private String[] unitItems;
+    String[] unitItems;
     String[] productTypeItems;
     private int userID;
     private int unitID;
@@ -68,7 +69,7 @@ public class ProductActivity extends AppCompatActivity {
         setupViews();
         setToolbarText();
         getUnitInfo();
-        getProductTypeInfo();
+        //getProductTypeInfo();
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -224,6 +225,9 @@ public class ProductActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
 
@@ -240,17 +244,21 @@ public class ProductActivity extends AppCompatActivity {
                                         model = new UnitInfoModel();
                                         model.setUnitID(list.get(i).getInt("UnitID"));
                                         model.setUnitName(list.get(i).getString("UnitName"));
+                                        unitItems[i] = list.get(i).getString("UnitName");
                                         unitList.add(model);
+
                                     }
+                                    unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems);
+                                    setupSpinnerofUnit();
+                                    unitID = list.get(0).getInt("UnitID");
+
+                                    getProductTypeInfo();
+
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                for (int i = 0; i < list.size(); i++) {
-                                    unitItems[i] = unitList.get(i).getUnitName();
-                                }
-                                unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems);
-                                setupSpinnerofUnit();
-                                unitID = unitList.get(0).getUnitID();
+
+
                             } else {
                                 Toast.makeText(ProductActivity.this, "خطا در بارگیری DropDown", Toast.LENGTH_SHORT).show();
                             }

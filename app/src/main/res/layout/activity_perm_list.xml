@@ -9,6 +9,8 @@
     android:orientation="vertical"
     tools:context=".activity.DraftListActivity">
 
+    <include layout="@layout/layout_loading"/>
+
     <include
         android:id="@+id/activity_receipt_appbar"
         layout="@layout/toolbar_custom_back_btn" />

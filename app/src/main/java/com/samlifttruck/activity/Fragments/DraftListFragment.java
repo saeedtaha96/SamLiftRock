@@ -3,6 +3,7 @@ package com.samlifttruck.activity.Fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,18 +29,19 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class DraftListFragment extends Fragment {
-    private List<JSONObject> list = null;
-    private List<DraftListModel> draftList;
+    List<JSONObject> list = null;
+    List<DraftListModel> draftList;
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String DATE = "date";
 
     // TODO: Rename and change types of parameters
     private String mDate;
-    private RecyclerView rvDraftList;
-    private DraftListAdapter draftListAdapter;
+    RecyclerView rvDraftList;
+    DraftListAdapter draftListAdapter;
 
     public DraftListFragment() {
         // Required empty public constructor
@@ -83,42 +85,55 @@ public class DraftListFragment extends Fragment {
         p1.setValue(mDate);
         p1.setType(String.class);
 
-        final SoapCall ss = new SoapCall(null, SoapCall.METHOD_GET_DRAFT_LIST);
+        final SoapCall ss = new SoapCall((AppCompatActivity) Objects.requireNonNull(getActivity()), SoapCall.METHOD_GET_DRAFT_LIST);
         ss.execute(p0, p1);
 
 
-        new Handler().post(new Runnable() {
+        SoapCall.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-                    if (ss.get() != null) {
-                        list = ss.get();
-                        draftList = new ArrayList<>(list.size());
-                        DraftListModel model;
-                        for (int i = 0; i < list.size(); i++) {
-                            model = new DraftListModel();
-                            model.setBusinessID(list.get(i).getString("BusinessID"));
-                            model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
-                            model.setDraftNum(list.get(i).getString("BusinessNominal"));
-                            model.setReceiver(list.get(i).getString("PersonName"));
-                            model.setCondition(list.get(i).getString("StatusName"));
-                            model.setDate(list.get(i).getString("PersianBusinessDate"));
-                            model.setDescription(list.get(i).getString("Description1"));
-                            model.setDraftType(list.get(i).getString("HavalehTypeName"));
+                    list = ss.get();
 
-                            draftList.add(model);
+                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
+
+                                draftList = new ArrayList<>(list.size());
+                                DraftListModel model;
+                                for (int i = 0; i < list.size(); i++) {
+                                    model = new DraftListModel();
+                                    try {
+                                        model.setBusinessID(list.get(i).getString("BusinessID"));
+                                        model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
+                                        model.setDraftNum(list.get(i).getString("BusinessNominal"));
+                                        model.setReceiver(list.get(i).getString("PersonName"));
+                                        model.setCondition(list.get(i).getString("StatusName"));
+                                        model.setDate(list.get(i).getString("PersianBusinessDate"));
+                                        model.setDescription(list.get(i).getString("Description1"));
+                                        model.setDraftType(list.get(i).getString("HavalehTypeName"));
+
+                                        draftList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+
+                                draftListAdapter = new DraftListAdapter(draftList);
+                                rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                rvDraftList.setAdapter(draftListAdapter);
+
+                            } else {
+                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                    });
 
-                        draftListAdapter = new DraftListAdapter(draftList);
-                        rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                        //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                        rvDraftList.setAdapter(draftListAdapter);
 
-                    } else if (ss.get() == null) {
-                        Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
-                    }
-
-                } catch (ExecutionException | JSONException | InterruptedException e) {
+                } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }

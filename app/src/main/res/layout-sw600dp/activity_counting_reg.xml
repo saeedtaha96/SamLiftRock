@@ -108,7 +108,7 @@
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
                         android:singleLine="true"
-                        android:text="@string/txt_inventory"
+                        android:text="@string/whitespace"
                         android:textAlignment="viewStart"
                         android:textColor="@color/color_black_000000"
                         android:textColorHint="@color/color_black_000000"
@@ -153,7 +153,7 @@
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
                         android:singleLine="true"
-                        android:text="@string/txt_incoming"
+                        android:text="@string/whitespace"
                         android:textAlignment="viewStart"
                         android:textColor="@color/color_black_000000"
                         android:textColorHint="@color/color_black_000000"
@@ -285,7 +285,7 @@
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
                         android:singleLine="true"
-                        android:text="12"
+                        android:text="@string/zero"
                         android:textAlignment="center"
                         android:textColor="@color/color_black_000000"
                         android:textColorHint="@color/color_black_000000"
@@ -376,7 +376,7 @@
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
                         android:singleLine="true"
-                        android:text="15"
+                        android:text="@string/zero"
                         android:textAlignment="center"
                         android:textColor="@color/color_black_000000"
                         android:textColorHint="@color/color_black_000000"
@@ -421,7 +421,7 @@
                     android:paddingTop="@dimen/margin24"
                     android:paddingEnd="@dimen/margin32"
                     android:singleLine="true"
-                    android:text="50"
+                    android:text="@string/zero"
                     android:textAlignment="center"
                     android:textColor="@color/color_black_000000"
                     android:textColorHint="@color/color_black_000000"
@@ -447,14 +447,6 @@
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size21" />
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:id="@+id/activity_counting_reg_pbar"
-        style="@style/SpinKitView.Large.Circle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:translationY="@dimen/margin192"
-        android:visibility="gone"
-        app:SpinKit_Color="@color/colorAccent" />
+    <include layout="@layout/layout_loading"/>
 
 </RelativeLayout>

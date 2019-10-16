@@ -10,6 +10,8 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.MidtermControlActivity">
 
+    <include layout="@layout/layout_loading" />
+
     <include
         android:id="@+id/activity_shelf_toolbar"
         layout="@layout/toolbar_custom_list" />
@@ -42,7 +44,6 @@
         android:layout_marginTop="@dimen/margin8"
         android:layout_marginEnd="@dimen/shelf_edit_side_margin" />
 
-    <include layout="@layout/layout_loading"/>
 
     <TextView
         android:id="@+id/relative_midterm_tv_product_name"
@@ -181,6 +182,39 @@
         android:maxLength="15"
         android:maxLines="1"
         android:minEms="4"
+        android:textAlignment="center"
+        android:textColor="@color/color_black_000000"
+        android:textSize="@dimen/text_size18" />
+
+    <TextView
+        android:id="@+id/relative_midterm_tv_midterm_enter_new"
+        style="@style/AppFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative_midterm_tv_shelf_enter_new"
+        android:layout_marginStart="@dimen/margin32"
+        android:layout_marginTop="@dimen/margin24"
+        android:layout_marginEnd="@dimen/margin8"
+        android:text="@string/txt_enter_new_shelf_num"
+        android:textColor="@color/color_gray_text"
+        android:textSize="@dimen/text_size18" />
+
+
+    <EditText
+        android:id="@+id/activity_midterm_et_input_new_shelf"
+        style="@style/AppFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/relative_midterm_tv_midterm_enter_new"
+        android:layout_marginEnd="@dimen/margin32"
+        android:layout_toEndOf="@id/relative_midterm_tv_midterm_enter_new"
+        android:backgroundTint="@color/color_blue_theme_004677"
+        android:ems="4"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:inputType="textImeMultiLine"
+        android:maxLength="15"
+        android:maxLines="2"
         android:textAlignment="center"
         android:textColor="@color/color_black_000000"
         android:textSize="@dimen/text_size18" />

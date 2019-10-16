@@ -12,181 +12,189 @@
     app:cardCornerRadius="@dimen/radius12"
     app:cardElevation="@dimen/margin6">
 
-
     <LinearLayout
-        android:id="@+id/relative_linear_draft_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/margin16">
+        android:orientation="horizontal">
+
+        <include layout="@layout/layout_counter" />
 
         <LinearLayout
+            android:id="@+id/relative_linear_draft_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin8"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="@dimen/margin16">
 
-            <TextView
-                style="@style/AppFont"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:drawableStart="@drawable/ic_build_black_24dp"
-                android:drawablePadding="@dimen/margin8"
-                android:drawableTint="@color/color_green_products"
-                android:gravity="center|start"
-                android:padding="@dimen/margin4"
-                android:text="@string/txt_shomare_fanni"
-                android:textColor="@color/color_green_products"
-                android:textSize="@dimen/text_size13" />
+                android:layout_marginBottom="@dimen/margin8"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/adapter_perm_info_all_rv_tech_num"
-                style="@style/AppFont"
-                android:layout_width="0dp"
+                <TextView
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:drawableStart="@drawable/ic_build_black_24dp"
+                    android:drawablePadding="@dimen/margin8"
+                    android:drawableTint="@color/color_green_products"
+                    android:gravity="center|start"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_shomare_fanni"
+                    android:textColor="@color/color_green_products"
+                    android:textSize="@dimen/text_size13" />
+
+                <TextView
+                    android:id="@+id/adapter_perm_info_all_rv_tech_num"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="H98-E-5"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/text_size13" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="@dimen/margin4"
-                android:text="H98-E-5"
-                android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
+                android:layout_marginBottom="@dimen/margin8"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:drawableStart="@drawable/ic_product"
+                    android:drawablePadding="@dimen/margin8"
+                    android:drawableTint="@color/color_green_products"
+                    android:gravity="center|start"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_product_name"
+                    android:textColor="@color/color_green_products"
+                    android:textSize="@dimen/text_size13" />
+
+                <TextView
+                    android:id="@+id/adapter_perm_info_all_rv_product_name"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="OIL"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/text_size13" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:drawableStart="@drawable/ic_ac_unit_black_24dp"
+                    android:drawablePadding="@dimen/margin8"
+                    android:drawableTint="@color/color_green_products"
+                    android:gravity="center|start"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_unit_dd"
+                    android:textColor="@color/color_green_products"
+                    android:textSize="@dimen/text_size13" />
+
+                <TextView
+                    android:id="@+id/adapter_perm_info_all_rv_unit"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="32"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/text_size13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/relative_adapter_perm_list_info_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:drawableStart="@drawable/ic_inventory"
+                    android:drawablePadding="@dimen/margin8"
+                    android:drawableTint="@color/color_green_products"
+                    android:gravity="center|start"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_inventory_dd"
+                    android:textColor="@color/color_green_products"
+                    android:textSize="@dimen/text_size13" />
+
+                <TextView
+                    android:id="@+id/adapter_perm_info_all_rv_inventory"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="32"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/text_size13" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+                    android:drawableStart="@drawable/ic_current_count"
+                    android:drawablePadding="@dimen/margin8"
+                    android:drawableTint="@color/color_green_products"
+                    android:gravity="center|start"
+                    android:padding="@dimen/margin4"
+                    android:text="@string/txt_tedad_dd"
+                    android:textColor="@color/color_green_products"
+                    android:textSize="@dimen/text_size13" />
+
+                <TextView
+                    android:id="@+id/adapter_perm_info_all_rv_count"
+                    style="@style/AppFont"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:padding="@dimen/margin4"
+                    android:text="20"
+                    android:textColor="@color/color_black_000000"
+                    android:textSize="@dimen/text_size13" />
+            </LinearLayout>
 
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin8"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:drawableStart="@drawable/ic_product"
-                android:drawablePadding="@dimen/margin8"
-                android:drawableTint="@color/color_green_products"
-                android:gravity="center|start"
-                android:padding="@dimen/margin4"
-                android:text="@string/txt_product_name"
-                android:textColor="@color/color_green_products"
-                android:textSize="@dimen/text_size13" />
-
-            <TextView
-                android:id="@+id/adapter_perm_info_all_rv_product_name"
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="@dimen/margin4"
-                android:text="OIL"
-                android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin8"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:drawableStart="@drawable/ic_ac_unit_black_24dp"
-                android:drawablePadding="@dimen/margin8"
-                android:drawableTint="@color/color_green_products"
-                android:gravity="center|start"
-                android:padding="@dimen/margin4"
-                android:text="@string/txt_unit_dd"
-                android:textColor="@color/color_green_products"
-                android:textSize="@dimen/text_size13" />
-
-            <TextView
-                android:id="@+id/adapter_perm_info_all_rv_unit"
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="@dimen/margin4"
-                android:text="32"
-                android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/relative_adapter_perm_list_info_all"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin8"
-            android:visibility="gone"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:drawableStart="@drawable/ic_inventory"
-                android:drawablePadding="@dimen/margin8"
-                android:drawableTint="@color/color_green_products"
-                android:gravity="center|start"
-                android:padding="@dimen/margin4"
-                android:text="@string/txt_inventory_dd"
-                android:textColor="@color/color_green_products"
-                android:textSize="@dimen/text_size13" />
-
-            <TextView
-                android:id="@+id/adapter_perm_info_all_rv_inventory"
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="@dimen/margin4"
-                android:text="32"
-                android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.3"
-                android:drawableStart="@drawable/ic_current_count"
-                android:drawablePadding="@dimen/margin8"
-                android:drawableTint="@color/color_green_products"
-                android:gravity="center|start"
-                android:padding="@dimen/margin4"
-                android:text="@string/txt_tedad_dd"
-                android:textColor="@color/color_green_products"
-                android:textSize="@dimen/text_size13" />
-
-            <TextView
-                android:id="@+id/adapter_perm_info_all_rv_count"
-                style="@style/AppFont"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:padding="@dimen/margin4"
-                android:text="20"
-                android:textColor="@color/color_black_000000"
-                android:textSize="@dimen/text_size13" />
-        </LinearLayout>
-
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

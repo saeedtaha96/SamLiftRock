@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layoutDirection="rtl"
     android:padding="@dimen/margin8">
 
     <TextView
-        android:id="@+id/custom_spinner_tv"
+        android:id="@+id/custom_spinner_reg_pdf_tv"
         style="@style/AppFont"
-        android:gravity="center"
-        tools:text="hello world"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textColor="@color/color_blue_theme_004677"
-        android:textSize="@dimen/text_size16" />
+        android:gravity="start"
+        android:layout_alignParentStart="true"
+        android:paddingStart="@dimen/_8sdp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/color_gray_text"
+        android:textSize="@dimen/_11sdp"
+        tools:text="hello world" />
 
 </RelativeLayout>

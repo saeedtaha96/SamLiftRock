@@ -446,6 +446,6 @@
         android:textColor="@color/color_white_FFFFFF"
         android:textSize="@dimen/text_size21" />
 
-    <include layout="@layout/layout_loading"/>
+    <include layout="@layout/layout_loading" />
 
 </RelativeLayout>

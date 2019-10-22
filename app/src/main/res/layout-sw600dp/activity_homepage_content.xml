@@ -20,19 +20,12 @@
             android:id="@+id/activity_homepage_toolbar_menu"
             layout="@layout/toolbar_custom_menu_btn" />
 
-        <ImageView
-            android:id="@+id/relative_imgv"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/margin300"
-            android:layout_below="@id/activity_homepage_toolbar_menu"
-            android:scaleType="fitXY"
-            android:src="@drawable/sam_liftrock_2" />
 
         <ScrollView
             android:id="@+id/relative_scrollview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/relative_imgv">
+            android:layout_below="@id/activity_homepage_toolbar_menu">
 
 
             <LinearLayout

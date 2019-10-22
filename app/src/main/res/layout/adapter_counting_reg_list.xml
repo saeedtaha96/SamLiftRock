@@ -32,11 +32,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_build_black_24dp"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_shomare_fanni"
@@ -45,9 +45,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_tech_num"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="H98-E-5"
@@ -63,11 +63,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_inventory"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_inventory_dd"
@@ -101,11 +101,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_product"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_product_name"
@@ -114,9 +114,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_product_name"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="OIL"
@@ -132,11 +132,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_shelf_number"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_shelf_numb"
@@ -145,9 +145,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_shelf_num"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="32"
@@ -169,11 +169,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_counting_1"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_counting_1_dd"
@@ -182,9 +182,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_counting_1"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="20"
@@ -199,11 +199,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_counting_2"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_counting_2_dd"
@@ -212,9 +212,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_counting_2"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="20"
@@ -237,11 +237,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_result"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_count_1_2_result_dd"
@@ -250,9 +250,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_result_1_2"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="start"
                     android:padding="@dimen/margin4"
                     android:paddingStart="@dimen/margin64"
@@ -277,11 +277,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_counting_3"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_counting_3_dd"
@@ -290,9 +290,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_counting_3"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="20"
@@ -307,11 +307,11 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    style="@style/AppFont"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_final_result"
                     android:drawablePadding="@dimen/margin8"
-                    style="@style/AppFont"
                     android:gravity="start|center"
                     android:padding="@dimen/margin4"
                     android:text="@string/txt_result_dd"
@@ -320,9 +320,9 @@
 
                 <TextView
                     android:id="@+id/adapter_counting_reg_tv_final_result"
+                    style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/AppFont"
                     android:gravity="center"
                     android:padding="@dimen/margin4"
                     android:text="20"
@@ -332,21 +332,23 @@
 
         </LinearLayout>
 
+
         <Button
-            android:id="@+id/counting_reg_list_reject"
+            android:id="@+id/counting_reg_list_btn_edit"
             style="@style/AppFont"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginStart="@dimen/margin8"
+            android:layout_marginStart="@dimen/margin16"
             android:layout_marginTop="@dimen/margin16"
             android:layout_marginEnd="@dimen/margin8"
             android:layout_marginBottom="@dimen/margin12"
-            android:background="@drawable/selector_btn_reject"
+            android:background="@drawable/selector_btn_save"
             android:gravity="center"
-            android:text="@string/txt_reject"
+            android:text="@string/txt_edit"
             android:textColor="@color/color_white_FFFFFF"
             android:textSize="@dimen/text_size15" />
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

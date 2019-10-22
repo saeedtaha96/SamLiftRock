@@ -138,4 +138,8 @@
     <string name="whitespace">\u0020</string>
     <string name="zero">0</string>
     <string name="txt_draft_from_perm">حواله از مجوز</string>
+    <string name="txt_date_simple">تاریخ</string>
+    <string name="txt_edit">ویرایش</string>
+    <string name="txt_delete">حذف</string>
+    <string name="txt_back">بازگشت</string>
 </resources>

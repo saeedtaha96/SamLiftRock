@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_gray_F7F7F7"
+    android:fitsSystemWindows="true"
+    android:layoutDirection="rtl">
+
+    <include layout="@layout/layout_loading" />
+
+    <include
+        android:id="@+id/activity_shelf_toolbar"
+        layout="@layout/toolbar_custom_back_btn" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/activity_reg_dfp_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/activity_product_btn_confirm"
+        android:layout_below="@id/activity_shelf_toolbar"
+        android:layout_margin="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_40sdp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp"
+                android:paddingBottom="@dimen/_16sdp">
+
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieAnimationView"
+                    android:layout_width="@dimen/_72sdp"
+                    android:layout_height="@dimen/_72sdp"
+                    android:scaleX="2"
+                    android:scaleY="2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="dfp.json"
+                    app:lottie_loop="true" />
+
+
+                <LinearLayout
+                    android:id="@+id/relative_linear_lay_dash"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_bg_dfp_dashboard"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lottieAnimationView">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/activity_reg_dfp_tv_draft_type"
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="M98-0003"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_draft_num"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0.8dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/activity_reg_dfp_tv_perm_num"
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="H98-0003"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <TextView
+                            style="@style/AppFont"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/txt_perm_num_2"
+                            android:textColor="@color/color_gray_text"
+                            android:textSize="@dimen/_10sdp" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/relative_et1_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="start"
+                    android:hint="@string/txt_receiver"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relative_linear_lay_dash">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_reg_dfp_reciever"
+                        style="@style/AppFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:nextFocusForward="@id/product_shomare_fanni"
+                        android:paddingStart="@dimen/padding_start_et"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_gray_text"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/relative_et1_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="start"
+                    android:hint="@string/txt_date_simple"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relative_et1_1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_reg_dfp_date"
+                        style="@style/AppFont"
+                        android:drawableEnd="@drawable/ic_date_dfp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:inputType="number|text"
+                        android:nextFocusForward="@id/product_shomare_fanni"
+                        android:paddingStart="@dimen/padding_start_et"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Spinner
+                    android:id="@+id/activity_reg_dfp_spinner"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:gravity="start"
+                    android:paddingTop="@dimen/_8sdp"
+                    app:layout_constraintEnd_toStartOf="@id/relative_et3_2"
+                    app:layout_constraintHorizontal_weight="1.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/relative_et1_2"
+                >
+
+
+                </Spinner>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/relative_et3_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="start"
+                    android:hint="@string/txt_service_page"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel"
+                    app:layout_constraintBottom_toBottomOf="@id/activity_reg_dfp_spinner"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/activity_reg_dfp_spinner"
+                    app:layout_constraintTop_toTopOf="@id/activity_reg_dfp_spinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_reg_dfp_service_page"
+                        style="@style/AppFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:nextFocusForward="@id/product_shomare_fanni"
+                        android:paddingStart="@dimen/padding_start_et"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/relative_et2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:gravity="start"
+                    android:hint="@string/txt_product_descrip"
+                    android:textColorHint="@color/color_gray_text"
+                    app:boxBackgroundColor="@color/color_white_FFFFFF"
+                    app:boxBackgroundMode="filled"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextAppearance="@style/hintTextLabel"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/activity_reg_dfp_spinner">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_reg_dfp_descrip"
+                        style="@style/AppFont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:nextFocusForward="@id/product_shomare_fanni"
+                        android:paddingStart="@dimen/padding_start_et"
+                        android:paddingTop="@dimen/_8sdp"
+                        android:paddingEnd="@dimen/_12sdp"
+                        android:singleLine="true"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/color_black_000000"
+                        android:textColorHint="@color/color_black_000000"
+                        android:textSize="@dimen/_11sdp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/activity_product_btn_confirm"
+        style="@style/AppFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin32"
+        android:layout_marginBottom="@dimen/margin32"
+        android:background="@drawable/selector_btn_confrim"
+        android:text="@string/confirm"
+        android:textColor="@color/color_white_FFFFFF"
+        android:textSize="@dimen/_16sdp" />
+
+</RelativeLayout>

@@ -193,7 +193,7 @@ public class ProductActivity extends AppCompatActivity {
                                 for (int i = 0; i < list.size(); i++) {
                                     productTypeItems[i] = productTypeList.get(i).getProductTypeName();
                                 }
-                                productTypeAdapter = new CustomSpinnerAdapter(getApplicationContext(), productTypeItems);
+                                productTypeAdapter = new CustomSpinnerAdapter(getApplicationContext(), productTypeItems,CustomSpinnerAdapter.SPINNER_DATE);
                                 setupSpinnerOfType();
                                 productTypeId = productTypeList.get(0).getProductTypeID();
 
@@ -248,7 +248,7 @@ public class ProductActivity extends AppCompatActivity {
                                         unitList.add(model);
 
                                     }
-                                    unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems);
+                                    unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems,CustomSpinnerAdapter.SPINNER_DATE);
                                     setupSpinnerofUnit();
                                     unitID = list.get(0).getInt("UnitID");
 

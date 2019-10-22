@@ -22,7 +22,6 @@ import java.util.List;
 public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListInfoAllAdapter.MyViewHolder> {
 
     private List<DetailsModel> list;
-    int COUNTER = 1;
 
     public ReceiptListInfoAllAdapter(List<DetailsModel> draft) {
         this.list = (draft == null) ? new ArrayList<DetailsModel>() : draft;
@@ -86,7 +85,7 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
             mCount = item.getQty();
 
 
-            raw.setText(String.valueOf(COUNTER++));
+            raw.setText(String.valueOf(getAdapterPosition()+1));
             techNum.setText(mTechNum);
             productName.setText(mProductName);
             unit.setText(mUnit);

@@ -2,14 +2,21 @@ package com.samlifttruck.activity.DataGenerators;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.samlifttruck.R;
 
-public class Utility {
+import java.util.Objects;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
+public class Utility {
+    private static final String TAG = "Utility";
     public static final String IS_LOGIN = "isLogin";
     public static final String LOGIN_USERNAME = "LoginUserName";
     public static final String LOGIN_WORKGROUP_ID = "LoginWorkgroupID";
@@ -26,6 +33,21 @@ public class Utility {
                 .setCancelable(false)
                 .setFont(font);
         return ios;
+    }
+
+
+    public static void closeKeyPad(AppCompatActivity activity) {
+        try {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
+            if (activity.getCurrentFocus() != null) {
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(Objects.requireNonNull(activity.getCurrentFocus()).getWindowToken(), 0);
+                }
+            }
+        } catch (Exception e) {
+            // TODO: handle exception
+            Log.e(TAG, "closeKeyPad: " +e.getLocalizedMessage());
+        }
     }
 
 

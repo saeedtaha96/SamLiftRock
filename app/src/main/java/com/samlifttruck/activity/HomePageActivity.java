@@ -230,7 +230,7 @@ public class HomePageActivity extends AppCompatActivity implements View.OnClickL
                 ios.build().show();
                 break;
             case R.id.btn_menu_register_counting:
-                startActivity(new Intent(HomePageActivity.this, CountingRegActivity.class));
+                startActivity(new Intent(HomePageActivity.this, CountingRegListActivity.class));
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

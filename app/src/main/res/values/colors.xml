@@ -6,7 +6,7 @@
     <color name="colorNavigationBar">#004677</color>
     <color name="colorWindowBackground">#FFFFFF</color>
 
-   <!-- Initial Colors -->
+    <!-- Initial Colors -->
     <color name="color_green_havale_635555">#635555</color>
     <color name="color_red_havale_FF0000">#FF0000</color>
     <color name="color_gray_837171">#837171</color>
@@ -26,7 +26,8 @@
     <color name="gray_spinner">#DF858484</color>
     <color name="cardex_product_name_bg_color">#C90000</color>
     <color name="color_yellow_F9FF55">#F9FF55</color>
-
     <color name="color_green_products">#0A4E0C</color>
+    <color name="color_gray_F9F9F9">#F9F9F9</color>
+    <color name="color_gray_F7F7F7">#F7F7F7</color>
 
 </resources>

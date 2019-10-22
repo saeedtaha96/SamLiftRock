@@ -9,15 +9,21 @@ import android.widget.TextView;
 
 import com.samlifttruck.R;
 
+import java.util.Objects;
+
 public class CustomSpinnerAdapter extends BaseAdapter {
 
     private Context context;
     private String[] items;
-    private LayoutInflater inflater;
+    public static final int SPINNER_DATE = 0;
+    public static final int SPINNER_DRAFT_TYPE = 1;
+    private int spinnerType;
 
-    public CustomSpinnerAdapter(Context context, String[] items) {
+
+    public CustomSpinnerAdapter(Context context, String[] items, int spinnerType) {
         this.items = items;
         this.context = context;
+        this.spinnerType = spinnerType;
     }
 
 
@@ -40,8 +46,12 @@ public class CustomSpinnerAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.adapter_custom_spinner_adapter, viewGroup, false);
-            holder = new ViewHolder(convertView);
+            if (spinnerType == SPINNER_DATE) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.adapter_custom_spinner_adapter, viewGroup, false);
+            } else if (spinnerType == SPINNER_DRAFT_TYPE) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.adapter_spinner_reg_dfp, viewGroup, false);
+            }
+            holder = new ViewHolder(Objects.requireNonNull(convertView));
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -53,14 +63,18 @@ public class CustomSpinnerAdapter extends BaseAdapter {
 
 
     public class ViewHolder {
-        TextView item;
+        TextView item, item1;
 
         ViewHolder(View itemView) {
             item = itemView.findViewById(R.id.custom_spinner_tv);
+            item1 = itemView.findViewById(R.id.custom_spinner_reg_pdf_tv);
         }
 
         void fill(int position) {
-            item.setText(items[position]);
+            if (spinnerType == SPINNER_DRAFT_TYPE) {
+                item1.setText(items[position]);
+            } else if (spinnerType == SPINNER_DATE)
+                item.setText(items[position]);
         }
     }
 }

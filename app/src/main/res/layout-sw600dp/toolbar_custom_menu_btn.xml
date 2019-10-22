@@ -1,58 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.appbar.AppBarLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:theme="@style/AppTheme.AppBarOverlay"
     android:background="@color/colorPrimaryDark"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/custom_toolbar_menu"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/colorPrimary"
-    android:gravity="center"
-    android:layoutDirection="rtl"
-    app:contentInsetLeft="0dp"
-    app:contentInsetStart="0dp">
+    android:theme="@style/AppTheme.AppBarOverlay"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar_menu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:layoutDirection="rtl"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
 
-        <ImageButton
-            android:id="@+id/toolbar_homepage_menu_btn"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@color/color_blue_theme_004677"
-            android:padding="@dimen/margin12"
-            android:layout_marginStart="@dimen/margin8"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_menu_black_24dp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="9"
-            style="@style/AppFont"
             android:gravity="center"
-            android:text="@string/app_toolbar_subject"
-            android:textColor="@color/color_white_FFFFFF"
-            android:textSize="@dimen/text_size21"
-             />
-        <androidx.legacy.widget.Space
-            android:layout_width="0dp"
-            android:layout_marginEnd="@dimen/margin8"
-            android:layout_weight="1.5"
-            android:layout_height="match_parent"/>
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/toolbar_homepage_menu_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin8"
+                android:layout_weight="1.5"
+                android:background="@color/color_blue_theme_004677"
+                android:padding="@dimen/margin12"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_menu_black_24dp" />
+
+            <TextView
+                style="@style/AppFont"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="9"
+                android:gravity="center"
+                android:text="@string/app_toolbar_subject"
+                android:textColor="@color/color_white_FFFFFF"
+                android:textSize="@dimen/text_size21" />
+
+            <androidx.legacy.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/margin8"
+                android:layout_weight="1.5" />
 
 
-    </LinearLayout>
-</androidx.appcompat.widget.Toolbar>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/relative_imgv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin300"
+        android:layout_below="@id/activity_homepage_toolbar_menu"
+        android:scaleType="fitXY"
+        android:src="@drawable/sam_liftrock_2" />
 </com.google.android.material.appbar.AppBarLayout>

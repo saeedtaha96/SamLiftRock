@@ -137,7 +137,7 @@ public class CardexActivity extends AppCompatActivity implements ZXingScannerVie
             years[i - 1] = String.valueOf(year - i);
         }
 
-        CustomSpinnerAdapter spinnerAdapter = new CustomSpinnerAdapter(this, years);
+        CustomSpinnerAdapter spinnerAdapter = new CustomSpinnerAdapter(this, years,CustomSpinnerAdapter.SPINNER_DATE);
         spinnerDateChoose.setAdapter(spinnerAdapter);
     }
 

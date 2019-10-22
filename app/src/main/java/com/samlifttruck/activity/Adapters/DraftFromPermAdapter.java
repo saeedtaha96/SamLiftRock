@@ -1,18 +1,24 @@
 package com.samlifttruck.activity.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DraftFromPermActivity;
 import com.samlifttruck.activity.Models.PermListModel;
+import com.samlifttruck.activity.RegDFPActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,12 +44,13 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         r = new Random();
-        int random1 = r.nextInt(255) + 1;
-        int random2 = r.nextInt(255) + 1;
-        int random3 = r.nextInt(255) + 1;
+        int random1 = r.nextInt(200) + 1;
+        int random2 = r.nextInt(200) + 1;
+        int random3 = r.nextInt(200) + 1;
         int cc = Color.rgb(random1, random2, random3);
         holder.bind(list.get(position), cc);
         setFadeAnimation(holder.itemView);
+
 
 
     }
@@ -63,7 +70,10 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
 
         private TextView tvPermNum, tvCustName, tvDate, tvPreFactorNum, tvCondition;
         View counterBar;
-
+        TextView tvCounter;
+        Button btnDFP;
+        Context ctx;
+        Drawable shapeRaw,shapeCounterBar;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPermNum = itemView.findViewById(R.id.adapter_dfp_tv_perm_num);
@@ -72,16 +82,37 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
             tvDate = itemView.findViewById(R.id.adapter_dfp_tv_date);
             tvCondition = itemView.findViewById(R.id.adapter_dfp_tv_condition);
             counterBar = itemView.findViewById(R.id.view_counter_bar);
-
+            tvCounter = itemView.findViewById(R.id.list_tv_counter);
+            btnDFP = itemView.findViewById(R.id.adapter_dfp_btn_draft);
+            ctx = itemView.getContext();
+            shapeRaw = ctx.getResources().getDrawable(R.drawable.shape_raw);
+            shapeCounterBar = ctx.getResources().getDrawable(R.drawable.shape_gradiant);
         }
 
         void bind(PermListModel model, int color) {
-            counterBar.setBackgroundColor(color);
+            tvCounter.setText(String.valueOf(getAdapterPosition()+1));
+
+            shapeRaw.setTint(color);
+            shapeCounterBar.setTint(color);
+            tvCounter.setBackground(shapeRaw);
+            counterBar.setBackground(shapeCounterBar);
             tvPreFactorNum.setText(model.getPreFactorNum());
             tvPermNum.setText(model.getPermNum());
             tvCustName.setText(model.getCustName());
             tvDate.setText(model.getDate());
             tvCondition.setText(model.getCondition());
+
+
+
+            btnDFP.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    view.getContext().startActivity(new Intent(view.getContext(),RegDFPActivity.class));
+                }
+            });
+
+
+
         }
     }
 

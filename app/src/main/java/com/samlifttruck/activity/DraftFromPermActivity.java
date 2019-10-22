@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.DraftFromPermAdapter;
@@ -14,6 +15,7 @@ public class DraftFromPermActivity extends AppCompatActivity {
 
     RecyclerView rv;
     DraftFromPermAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,5 +27,9 @@ public class DraftFromPermActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.VERTICAL,false));
         rv.setAdapter(adapter);
 
+    }
+
+    public void onBackBtnClick(View view) {
+        finish();
     }
 }

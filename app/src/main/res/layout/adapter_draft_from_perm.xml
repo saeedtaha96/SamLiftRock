@@ -46,7 +46,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start|center_vertical"
                         android:textColor="@color/color_blue_theme_004677"
-                        android:textSize="@dimen/text_size14"
+                        android:textSize="@dimen/_11sdp"
                         android:text="@string/txt_perm_num_2" />
 
                     <TextView
@@ -60,7 +60,7 @@
                         android:layout_toEndOf="@id/relative_adapter_dfp_tv_id"
                         android:gravity="start|center_vertical"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size14"
+                        android:textSize="@dimen/_11sdp"
                         tools:text="M98-0003" />
 
                 </RelativeLayout>
@@ -73,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="start|center_vertical"
                     android:textColor="@color/color_gray_text"
-                    android:textSize="@dimen/text_size11"
+                    android:textSize="@dimen/_9sdp"
                     android:textStyle="bold"
                     tools:text="شرکت صنعت نوین جناب آقای مهندس بزاز" />
 
@@ -91,7 +91,7 @@
                         android:gravity="center_vertical|start"
                         android:text="@string/txt_pre_factor_numb"
                         android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size11" />
+                        android:textSize="@dimen/_9sdp" />
 
                     <TextView
                         android:id="@+id/adapter_dfp_tv_prefactor_num"
@@ -103,7 +103,7 @@
                         android:gravity="center"
                         android:text="920"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size11" />
+                        android:textSize="@dimen/_9sdp" />
 
 
                 </LinearLayout>
@@ -122,7 +122,7 @@
                         android:drawablePadding="@dimen/margin8"
                         android:gravity="start|center_vertical"
                         android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size11"
+                        android:textSize="@dimen/_9sdp"
                         tools:text="1398/05/23" />
 
 
@@ -136,7 +136,7 @@
                         android:layout_alignParentStart="true"
                         android:text="@string/txt_condition"
                         android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/text_size11" />
+                        android:textSize="@dimen/_9sdp" />
 
                     <TextView
                         android:id="@+id/adapter_dfp_tv_condition"
@@ -149,14 +149,14 @@
                         android:gravity="center"
                         android:text="عادی"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size11" />
+                        android:textSize="@dimen/_9sdp" />
 
                 </RelativeLayout>
 
 
 
                 <Button
-                    android:id="@+id/adapter_dfp_btn_havale"
+                    android:id="@+id/adapter_dfp_btn_draft"
                     style="@style/AppFont"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_23sdp"
@@ -169,7 +169,7 @@
                     android:gravity="center"
                     android:text="@string/txt_draft_from_perm"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_size13" />
+                    android:textSize="@dimen/_10sdp" />
 
             </LinearLayout>
 

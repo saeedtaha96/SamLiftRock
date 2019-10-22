@@ -3,6 +3,9 @@ package com.samlifttruck.activity.Adapters;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +15,19 @@ import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Models.DraftListModel;
+import com.samlifttruck.activity.CountingRegActivity;
+import com.samlifttruck.activity.CountingRegListActivity;
+import com.samlifttruck.activity.DataGenerators.ConstCntReg;
+import com.samlifttruck.activity.Models.CountingRegModel;
 
 import java.util.List;
 
 public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegListAdapter.MyViewHolder> {
 
-    List<DraftListModel> list;
+    List<CountingRegModel> list;
+    private Context context;
 
-    public CountingRegListAdapter(List<DraftListModel> list) {
+    public CountingRegListAdapter(@NonNull List<CountingRegModel> list) {
         this.list = list;
     }
 
@@ -28,6 +35,7 @@ public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegList
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_counting_reg_list, parent, false);
+        context = parent.getContext();
         return new MyViewHolder(view);
     }
 
@@ -41,49 +49,60 @@ public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegList
     }
 
 
-
     @Override
     public int getItemCount() {
         return list.size();
     }
 
-     class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvInventory, tvTechNum, tvProductName, tvShelfNum, tvCounting1, tvEtCounting2, tvEtCounting3, tvResult_1_2, tvFinalResult;
-        private Button btnReject;
+    class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView tvInventory, tvTechNum, tvProductName, tvShelfNum, tvCounting1, tvCounting2, tvCounting3, tvResult_1_2, tvFinalResult;
+        private Button btnEdit;
+        private int productCode;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvProductName = itemView.findViewById(R.id.adapter_counting_reg_tv_product_name);
             tvShelfNum = itemView.findViewById(R.id.adapter_counting_reg_tv_shelf_num);
             tvCounting1 = itemView.findViewById(R.id.adapter_counting_reg_tv_counting_1);
-            tvEtCounting2 = itemView.findViewById(R.id.adapter_counting_reg_tv_counting_2);
-            tvEtCounting3 = itemView.findViewById(R.id.adapter_counting_reg_tv_counting_3);
+            tvCounting2 = itemView.findViewById(R.id.adapter_counting_reg_tv_counting_2);
+            tvCounting3 = itemView.findViewById(R.id.adapter_counting_reg_tv_counting_3);
             tvResult_1_2 = itemView.findViewById(R.id.adapter_counting_reg_tv_result_1_2);
             tvFinalResult = itemView.findViewById(R.id.adapter_counting_reg_tv_final_result);
             tvTechNum = itemView.findViewById(R.id.adapter_counting_reg_tv_tech_num);
             tvInventory = itemView.findViewById(R.id.adapter_counting_reg_tv_inventory);
-            btnReject = itemView.findViewById(R.id.counting_reg_list_reject);
+            btnEdit = itemView.findViewById(R.id.counting_reg_list_btn_edit);
         }
 
-        void bind(DraftListModel item) {
-            tvInventory.setText(item.getDate());
-            tvTechNum.setText(item.getCondition());
-            tvProductName.setText(item.getDraftNum());
-            tvShelfNum.setText(item.getServicePage());
-            tvCounting1.setText(item.getPermNum());
-            tvEtCounting2.setText(item.getReceiver());
-            tvEtCounting3.setText(item.getReceiver());
-            tvResult_1_2.setText(item.getDraftType());
-            tvFinalResult.setText(item.getPermNum());
+        void bind(final CountingRegModel item) {
+            productCode = item.getProductCode();
+            tvInventory.setText(String.valueOf(item.getOnHand()));
+            tvTechNum.setText(item.getTechNo());
+            tvProductName.setText(item.getProductName());
+            tvShelfNum.setText(item.getShelfNum());
+            tvCounting1.setText(String.valueOf(item.getCount1()));
+            tvCounting2.setText(String.valueOf(item.getCount2()));
+            tvCounting3.setText(String.valueOf(item.getCount3()));
+            tvResult_1_2.setText(String.valueOf(item.getCountResult_1_2()));
+            tvFinalResult.setText(String.valueOf(item.getFinalResult()));
 
-            btnReject.setOnClickListener(new View.OnClickListener() {
+            btnEdit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    list.remove(getAdapterPosition());
-                    notifyItemRemoved(getAdapterPosition());
-                    notifyItemRangeChanged(getAdapterPosition(), list.size());
+                    Intent intent = new Intent(context, CountingRegActivity.class);
+                    intent.putExtra(ConstCntReg.ON_HAND, item.getOnHand());
+                    intent.putExtra(ConstCntReg.PRODUCT_NAME, item.getProductName());
+                    intent.putExtra(ConstCntReg.PRODUCT_CODE, item.getProductCode());
+                    intent.putExtra(ConstCntReg.TECH_NO, item.getTechNo());
+                    intent.putExtra(ConstCntReg.SHELF_NUM, item.getShelfNum());
+                    intent.putExtra(ConstCntReg.COUNT_1, item.getCount1());
+                    intent.putExtra(ConstCntReg.COUNT_2, item.getCount2());
+                    intent.putExtra(ConstCntReg.COUNT_3, item.getCount3());
+                    intent.putExtra(ConstCntReg.RESULT_1_2, item.getCountResult_1_2());
+                    intent.putExtra(ConstCntReg.FINAL_RESULT, item.getFinalResult());
+                    context.startActivity(intent);
                 }
             });
+
 
         }
 

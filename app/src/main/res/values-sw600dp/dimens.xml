@@ -68,7 +68,7 @@
     <dimen name="drawables_size">26dp</dimen>
     <dimen name="lists_text_size">16sp</dimen>
     <dimen name="margin6">6dp</dimen>
-    <dimen name="adapter_counting_reg_text_size">14sp</dimen>
+    <dimen name="adapter_counting_reg_text_size">16sp</dimen>
     <dimen name="margin192">192dp</dimen>
     <dimen name="margin400">400dp</dimen>
     <dimen name="margin560">560dp</dimen>

@@ -39,6 +39,30 @@
 
     <style name="AppFont" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/iran_sans_web</item>
+    </style>
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+
+        <!-- Define color properties as desired -->
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
+        <item name="android:textColorHighlight">@color/color_gray_text</item>
+
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="colorControlNormal">@color/color_red_havale_FF0000</item>
+        <!-- Define window properties as desired -->
+
+        <item name="android:width">@dimen/_250sdp</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="android:windowFullscreen">true</item>
+
+        <item name="android:windowIsFloating">true</item>
+
+        <item name="android:windowCloseOnTouchOutside">false</item>
 
     </style>
 </resources>

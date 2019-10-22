@@ -27,8 +27,10 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.Result;
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.ConstCntReg;
 import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Models.CountingRegModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +55,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
     private ImageButton btnCountingRegList;
     List<JSONObject> list = null;
     ProgressBar progressBar;
+    CountingRegModel model;
 
 
     @SuppressLint("ClickableViewAccessibility")
@@ -66,6 +69,7 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
         setToolbarText();
         checkQRcodePremission();
 
+        getActivityBundle();
         etCounting2.setEnabled(false);
         etCounting3.setEnabled(false);
 
@@ -130,6 +134,25 @@ public class CountingRegActivity extends AppCompatActivity implements ZXingScann
             }
         });
 
+    }
+
+    private CountingRegModel getActivityBundle() {
+        CountingRegModel myModel = new CountingRegModel();
+        if(getIntent().getExtras() != null){
+            Bundle extras = getIntent().getExtras();
+
+            etInventory.setText(extras.getInt(ConstCntReg.ON_HAND));
+            etProductName.setText(extras.getInt(ConstCntReg.PRODUCT_NAME));
+            etFanniNumb.setText(extras.getInt(ConstCntReg.TECH_NO));
+            myModel.setOnHand(extras.getInt(ConstCntReg.SHELF_NUM));
+            myModel.setOnHand(extras.getInt(ConstCntReg.COUNT_1));
+            myModel.setOnHand(extras.getInt(ConstCntReg.COUNT_2));
+            myModel.setOnHand(extras.getInt(ConstCntReg.COUNT_3));
+            myModel.setOnHand(extras.getInt(ConstCntReg.RESULT_1_2));
+            myModel.setOnHand(extras.getInt(ConstCntReg.FINAL_RESULT));
+            myModel.setProductCode(extras.getInt(ConstCntReg.PRODUCT_CODE));
+        }
+        return myModel;
     }
 
     private void setupViews() {

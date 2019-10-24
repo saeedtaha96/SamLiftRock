@@ -89,59 +89,60 @@ public class DraftListFragment extends Fragment {
         ss = new SoapCall((AppCompatActivity) Objects.requireNonNull(getActivity()), SoapCall.METHOD_GET_DRAFT_LIST);
         ss.execute(p0, p1);
 
-        if (ss.isCancelled()) {
-            SoapCall.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        list = ss.get();
 
-                        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (list != null) {
+        SoapCall.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    list = ss.get();
 
-                                    draftList = new ArrayList<>(list.size());
-                                    DraftListModel model;
-                                    for (int i = 0; i < list.size(); i++) {
-                                        model = new DraftListModel();
-                                        try {
-                                            model.setBusinessID(list.get(i).getString("BusinessID"));
-                                            model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
-                                            model.setDraftNum(list.get(i).getString("BusinessNominal"));
-                                            model.setReceiver(list.get(i).getString("PersonName"));
-                                            model.setCondition(list.get(i).getString("StatusName"));
-                                            model.setDate(list.get(i).getString("PersianBusinessDate"));
-                                            model.setDescription(list.get(i).getString("Description1"));
-                                            model.setDraftType(list.get(i).getString("HavalehTypeName"));
+                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (list != null) {
 
-                                            draftList.add(model);
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
+                                draftList = new ArrayList<>(list.size());
+                                DraftListModel model;
+                                for (int i = 0; i < list.size(); i++) {
+                                    model = new DraftListModel();
+                                    try {
+                                        model.setBusinessID(list.get(i).getString("BusinessID"));
+                                        model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
+                                        model.setDraftNum(list.get(i).getString("BusinessNominal"));
+                                        model.setReceiver(list.get(i).getString("PersonName"));
+                                        model.setCondition(list.get(i).getString("StatusName"));
+                                        model.setDate(list.get(i).getString("PersianBusinessDate"));
+                                        model.setDescription(list.get(i).getString("Description1"));
+                                        model.setDraftType(list.get(i).getString("HavalehTypeName"));
 
+                                        draftList.add(model);
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                        Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
-                                    draftListAdapter = new DraftListAdapter(draftList);
-                                    rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                                    //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                                    rvDraftList.setAdapter(draftListAdapter);
-
-                                } else {
-                                    Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                                 }
+
+                                draftListAdapter = new DraftListAdapter(draftList);
+                                rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                rvDraftList.setAdapter(draftListAdapter);
+
+                            } else {
+                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                             }
-                        });
+                        }
+                    });
 
 
-                    } catch (ExecutionException | InterruptedException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                    }
+                } catch (ExecutionException | InterruptedException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+            }
+        });
     }
+
 
     @Override
     public void onDestroy() {

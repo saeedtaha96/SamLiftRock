@@ -1,38 +1,26 @@
 package com.samlifttruck.activity;
 
 import android.content.SharedPreferences;
-import android.icu.util.UniversalTimeScale;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CustomSpinnerAdapter;
-import com.samlifttruck.activity.Adapters.DraftListAdapter;
 import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
-import com.samlifttruck.activity.Models.DraftListModel;
-import com.samlifttruck.activity.Models.ProductModel;
 import com.samlifttruck.activity.Models.ProductTypeInfoModel;
 import com.samlifttruck.activity.Models.UnitInfoModel;
 
-import org.angmarch.views.NiceSpinner;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.serialization.PropertyInfo;
@@ -145,7 +133,7 @@ public class ProductActivity extends AppCompatActivity {
     }
 
     private void setupViews() {
-        btnReg = findViewById(R.id.activity_product_btn_confirm);
+        btnReg = findViewById(R.id.activity_dfp_btn_reg);
         typeSpinner = findViewById(R.id.spinner_type);
         unitSpinner = findViewById(R.id.spinner_unit);
         etProductName = findViewById(R.id.product_name);

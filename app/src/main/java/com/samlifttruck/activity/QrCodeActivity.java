@@ -1,92 +1,51 @@
-package com.samlifttruck.activity.Fragments;
+package com.samlifttruck.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
 import com.google.zxing.Result;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.CountingRegActivity;
-import com.samlifttruck.activity.DataGenerators.ScanResultReceiver;
-
-import java.util.Objects;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 import static android.Manifest.permission.CAMERA;
 
-public class QrCodeDialogFragment extends AppCompatDialogFragment implements ZXingScannerView.ResultHandler {
+public class QrCodeActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
 
+    private static final int REQUEST_CAMERA = 1;
     ZXingScannerView scanner;
     Button btnBack;
-    private static final int REQUEST_CAMERA = 1;
-
-    public QrCodeDialogFragment() {
-        // Empty constructor is required for DialogFragment
-        // Make sure not to add arguments to the constructor
-        // Use `newInstance` instead as shown below
-    }
-
-
-    public static QrCodeDialogFragment newInstance() {
-        QrCodeDialogFragment frag = new QrCodeDialogFragment();
-        Bundle args = new Bundle();
-        //args.putString("title", );
-        frag.setArguments(args);
-
-        return frag;
-
-    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_qr_code);
 
-        setStyle(AppCompatDialogFragment.STYLE_NO_TITLE, R.style.AppDialogTheme);
+        scanner = findViewById(R.id.scanner__dialog_qr_code);
+        btnBack = findViewById(R.id.activity_dialog_qr_code_btn_back);
+
+        checkQRcodePremission();
+
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dialog_qr_code, container);
-        Rect displayRectangle = new Rect();
-        Window window = getDialog().getWindow();
-        window.getDecorView().getWindowVisibleDisplayFrame(displayRectangle);
-
-        view.setMinimumWidth((int) (displayRectangle.width() * 0.8f));
-        view.setMinimumHeight((int) (displayRectangle.height() * 0.6f));
-
-        return view;
-    }
-
-
-    @Override
-
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        // Get field from view
-        scanner = view.findViewById(R.id.scanner__dialog_qr_code);
-        btnBack = view.findViewById(R.id.fragment_dialog_qr_code_btn_back);
-
-
-        //getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-
-    }
 
     public void checkQRcodePremission() {
         int currentApiVersion = Build.VERSION.SDK_INT;
@@ -100,11 +59,11 @@ public class QrCodeDialogFragment extends AppCompatDialogFragment implements ZXi
     }
 
     private boolean checkPermission() {
-        return (ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), CAMERA) == PackageManager.PERMISSION_GRANTED);
+        return (ContextCompat.checkSelfPermission(this, CAMERA) == PackageManager.PERMISSION_GRANTED);
     }
 
     private void requestPermission() {
-        ActivityCompat.requestPermissions(Objects.requireNonNull(getActivity()), new String[]{CAMERA}, REQUEST_CAMERA);
+        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, REQUEST_CAMERA);
     }
 
     @Override
@@ -135,9 +94,9 @@ public class QrCodeDialogFragment extends AppCompatDialogFragment implements ZXi
 
                     boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                     if (cameraAccepted) {
-                        Toast.makeText(getActivity(), getString(R.string.state_toast_premission_granted_persian), Toast.LENGTH_LONG).show();
+                        Toast.makeText(QrCodeActivity.this, getString(R.string.state_toast_premission_granted_persian), Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getActivity(), getString(R.string.state_toast_premission_denied_persian), Toast.LENGTH_LONG).show();
+                        Toast.makeText(QrCodeActivity.this, getString(R.string.state_toast_premission_denied_persian), Toast.LENGTH_LONG).show();
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(CAMERA)) {
                                 showMessageOKCancel((getString(R.string.state_toast_premission_allow_persian)),
@@ -161,7 +120,7 @@ public class QrCodeDialogFragment extends AppCompatDialogFragment implements ZXi
     }
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(getContext())
+        new AlertDialog.Builder(this)
                 .setMessage(message)
                 .setPositiveButton(getString(R.string.txt_ok), new DialogInterface.OnClickListener() {
                     @Override
@@ -177,8 +136,12 @@ public class QrCodeDialogFragment extends AppCompatDialogFragment implements ZXi
     @Override
     public void handleResult(Result result) {
         // String myResult = result.getText()
-        ScanResultReceiver parentActivity = (ScanResultReceiver) this.getActivity();
-            // send received data
-            parentActivity.scanResultData(result.getText());
+
+        setResult(RESULT_OK, new Intent().putExtra("result", result.getText()));
+        finish();
+    }
+
+    public void onBackBtnClick(View view) {
+        finish();
     }
 }

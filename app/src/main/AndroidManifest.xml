@@ -24,7 +24,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.RegDFPActivity"></activity>
+        <activity android:name=".activity.DfpProductDetailsActivity"></activity>
+        <activity android:name=".activity.QrCodeActivity" />
+        <activity android:name=".activity.RegDFPActivity" />
         <activity android:name=".activity.DraftFromPermActivity" />
         <activity
             android:name=".activity.CountingRegListActivity"

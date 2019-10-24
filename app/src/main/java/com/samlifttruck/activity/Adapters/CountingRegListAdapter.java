@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.CountingRegActivity;
-import com.samlifttruck.activity.CountingRegListActivity;
-import com.samlifttruck.activity.DataGenerators.ConstCntReg;
+import com.samlifttruck.activity.DataGenerators.Consts;
 import com.samlifttruck.activity.Models.CountingRegModel;
 
 import java.util.List;
@@ -89,16 +87,16 @@ public class CountingRegListAdapter extends RecyclerView.Adapter<CountingRegList
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(context, CountingRegActivity.class);
-                    intent.putExtra(ConstCntReg.ON_HAND, item.getOnHand());
-                    intent.putExtra(ConstCntReg.PRODUCT_NAME, item.getProductName());
-                    intent.putExtra(ConstCntReg.PRODUCT_CODE, item.getProductCode());
-                    intent.putExtra(ConstCntReg.TECH_NO, item.getTechNo());
-                    intent.putExtra(ConstCntReg.SHELF_NUM, item.getShelfNum());
-                    intent.putExtra(ConstCntReg.COUNT_1, item.getCount1());
-                    intent.putExtra(ConstCntReg.COUNT_2, item.getCount2());
-                    intent.putExtra(ConstCntReg.COUNT_3, item.getCount3());
-                    intent.putExtra(ConstCntReg.RESULT_1_2, item.getCountResult_1_2());
-                    intent.putExtra(ConstCntReg.FINAL_RESULT, item.getFinalResult());
+                    intent.putExtra(Consts.CntReg.ON_HAND, item.getOnHand());
+                    intent.putExtra(Consts.CntReg.PRODUCT_NAME, item.getProductName());
+                    intent.putExtra(Consts.CntReg.PRODUCT_CODE, item.getProductCode());
+                    intent.putExtra(Consts.CntReg.TECH_NO, item.getTechNo());
+                    intent.putExtra(Consts.CntReg.SHELF_NUM, item.getShelfNum());
+                    intent.putExtra(Consts.CntReg.COUNT_1, item.getCount1());
+                    intent.putExtra(Consts.CntReg.COUNT_2, item.getCount2());
+                    intent.putExtra(Consts.CntReg.COUNT_3, item.getCount3());
+                    intent.putExtra(Consts.CntReg.RESULT_1_2, item.getCountResult_1_2());
+                    intent.putExtra(Consts.CntReg.FINAL_RESULT, item.getFinalResult());
                     context.startActivity(intent);
                 }
             });

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:foregroundGravity="center"
+    android:gravity="center"
+    app:layout_anchorGravity="center">
+
+    <include
+        android:id="@+id/activity_qr_code_toolbar"
+        layout="@layout/toolbar_custom_back_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+
+    <me.dm7.barcodescanner.zxing.ZXingScannerView
+        android:id="@+id/scanner__dialog_qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/activity_dialog_qr_code_btn_back"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/activity_qr_code_toolbar"
+        app:borderColor="@color/color_blue_theme_004677"
+        app:borderLength="@dimen/margin64"
+        app:borderWidth="@dimen/margin4"
+        app:laserColor="@color/color_red_refuse"
+        app:laserEnabled="true" />
+
+    <Button
+        android:id="@+id/activity_dialog_qr_code_btn_back"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/selector_list_item"
+        android:fontFamily="@font/iran_sans_web"
+        android:text="@string/txt_back"
+        android:textColor="@color/color_blue_theme_004677"
+        android:textSize="@dimen/_16sdp" />
+
+
+</RelativeLayout>

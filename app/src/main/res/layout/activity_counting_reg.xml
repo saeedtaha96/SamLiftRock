@@ -11,7 +11,7 @@
 
     <include
         android:id="@+id/activity_counting_reg_appbar"
-        layout="@layout/toolbar_custom_list" />
+        layout="@layout/toolbar_custom_back_btn" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,32 +21,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin16"
             android:background="@color/color_white_FFFFFF"
             android:orientation="vertical">
 
-            <me.dm7.barcodescanner.zxing.ZXingScannerView
-                android:id="@+id/scanner_counting_reg"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/margin400"
-                android:layout_marginStart="@dimen/shelf_edit_side_margin"
-                android:layout_marginTop="@dimen/margin32"
-                android:layout_marginEnd="@dimen/shelf_edit_side_margin"
-                android:layout_marginBottom="@dimen/margin16"
-                android:background="@drawable/shape_rect_white"
-                app:borderColor="@color/color_blue_theme_004677"
-                app:borderLength="@dimen/margin64"
-                app:borderWidth="@dimen/margin4"
-                app:laserColor="@color/color_red_refuse"
-                app:laserEnabled="true" />
 
-            <include
-                android:id="@+id/activity_counting_reg_layout_tech_no"
-                layout="@layout/layout_tech_number"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/shelf_edit_side_margin"
-                android:layout_marginTop="@dimen/margin8"
-                android:layout_marginEnd="@dimen/shelf_edit_side_margin" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/light_gray"
+                android:orientation="vertical"
+                android:padding="@dimen/margin8">
+
+                <TextView
+                    android:id="@+id/activity_counting_reg_layout_tech_no"
+                    style="@style/AppFont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="a21553"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size21" />
+
+                <TextView
+                    android:id="@+id/relative_counting_reg_layout_tech_no"
+                    style="@style/AppFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/txt_shomare_fanni_2"
+                    android:textColor="@color/color_gray_text"
+                    android:textSize="@dimen/text_size15" />
+
+            </LinearLayout>
 
             <lib.kingja.switchbutton.SwitchMultiButton
                 android:id="@+id/activity_counting_reg_switchbutton"
@@ -69,7 +79,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin16"
+                android:layout_marginTop="@dimen/margin24"
                 android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -191,11 +201,11 @@
                         style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start|center"
+                        android:gravity="start|center_vertical"
                         android:hint="@string/txt_counting_1"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
-
+                        android:inputType="number"
+                        android:textDirection="ltr"
                         android:nextFocusForward="@id/product_shomare_fanni"
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
@@ -203,6 +213,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/color_black_000000"
                         android:textColorHint="@color/color_black_000000"
+
                         android:textSize="@dimen/product_text_size" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -233,10 +244,11 @@
                         style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start|center"
+                        android:gravity="start|center_vertical"
                         android:hint="@string/txt_counting_2"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="number"
+                        android:textDirection="ltr"
                         android:nextFocusForward="@id/product_shomare_fanni"
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"
@@ -248,50 +260,52 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/margin24"
-                    android:layout_marginTop="@dimen/margin4"
-                    android:layout_marginEnd="@dimen/margin32"
-                    android:layout_weight="1.8"
-                    android:gravity="start"
-                    android:hint="@string/txt_count_1_2_result"
-                    android:textColorHint="@color/colorAccent"
-                    app:boxBackgroundColor="@color/color_white_FFFFFF"
-                    app:boxBackgroundMode="filled"
-                    app:boxCornerRadiusBottomEnd="@dimen/radius18"
-                    app:boxCornerRadiusBottomStart="@dimen/radius18"
-                    app:boxCornerRadiusTopEnd="@dimen/radius18"
-                    app:boxCornerRadiusTopStart="@dimen/radius18"
-                    app:boxStrokeColor="@color/color_black_000000"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextAppearance="@style/hintTextLabel">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/activity_counting_reg_result_1_2"
-                        style="@style/AppFont"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:clickable="false"
-                        android:enabled="false"
-                        android:focusable="false"
-                        android:gravity="start|center"
-                        android:imeOptions="actionNext"
-                        android:inputType="text"
-                        android:nextFocusForward="@id/product_shomare_fanni"
-                        android:paddingTop="@dimen/margin24"
-                        android:paddingEnd="@dimen/margin32"
-                        android:singleLine="true"
-                        android:text="@string/zero"
-                        android:textAlignment="center"
-                        android:textColor="@color/color_black_000000"
-                        android:textColorHint="@color/color_black_000000"
-                        android:textSize="@dimen/product_text_size" />
-
-                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin24"
+                android:layout_marginTop="@dimen/margin4"
+                android:layout_marginEnd="@dimen/margin32"
+                android:gravity="start"
+                android:hint="@string/txt_count_1_2_result"
+                android:textAlignment="viewStart"
+                android:textColorHint="@color/colorAccent"
+                app:boxBackgroundColor="@color/color_white_FFFFFF"
+                app:boxBackgroundMode="filled"
+                app:boxCornerRadiusBottomEnd="@dimen/radius18"
+                app:boxCornerRadiusBottomStart="@dimen/radius18"
+                app:boxCornerRadiusTopEnd="@dimen/radius18"
+                app:boxCornerRadiusTopStart="@dimen/radius18"
+                app:boxStrokeColor="@color/color_black_000000"
+                app:hintAnimationEnabled="true"
+                app:hintTextAppearance="@style/hintTextLabel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/activity_counting_reg_result_1_2"
+                    style="@style/AppFont"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:gravity="start|center"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:nextFocusForward="@id/product_shomare_fanni"
+                    android:paddingTop="@dimen/margin24"
+                    android:paddingEnd="@dimen/margin32"
+                    android:singleLine="true"
+                    android:text="@string/zero"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_black_000000"
+                    android:textColorHint="@color/color_black_000000"
+                    android:textSize="@dimen/product_text_size" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -324,10 +338,11 @@
                         style="@style/AppFont"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="start|center"
+                        android:gravity="start|center_vertical"
                         android:hint="@string/txt_counting_3"
                         android:imeOptions="actionNext"
-                        android:inputType="text"
+                        android:inputType="number"
+                        android:textDirection="ltr"
                         android:nextFocusForward="@id/product_shomare_fanni"
                         android:paddingTop="@dimen/margin24"
                         android:paddingEnd="@dimen/margin32"

@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".activity.DraftListActivity">
 
-    <include layout="@layout/layout_loading" />
 
     <include
         android:id="@+id/activity_receipt_appbar"
@@ -24,14 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.github.ybq.android.spinkit.SpinKitView
-            android:id="@+id/activity_perm_list_pbar"
-            style="@style/SpinKitView.Large.Circle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            app:SpinKit_Color="@color/colorAccent" />
+
+        <include layout="@layout/layout_loading"/>
 
     </FrameLayout>
 

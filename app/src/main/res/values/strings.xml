@@ -142,4 +142,9 @@
     <string name="txt_edit">ویرایش</string>
     <string name="txt_delete">حذف</string>
     <string name="txt_back">بازگشت</string>
+    <string name="txt_shomare_fanni_2">شماره فنی</string>
+    <string name="put_zero">(حداقل مقدار مجاز = 0)</string>
+    <string name="txt_see_products">مشاهده کالاها</string>
+    <string name="txt_register_draft">ثبت حواله</string>
+    <string name="txt_product">کالا</string>
 </resources>

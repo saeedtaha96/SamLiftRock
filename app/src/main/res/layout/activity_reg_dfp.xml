@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_gray_F7F7F7"
@@ -18,7 +17,7 @@
         android:id="@+id/activity_reg_dfp_cardview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/activity_product_btn_confirm"
+        android:layout_above="@id/realative_linear_btns"
         android:layout_below="@id/activity_shelf_toolbar"
         android:layout_margin="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_40sdp"
@@ -62,7 +61,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lottieAnimationView">
 
-                    <LinearLayout
+               <!--     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -96,12 +95,14 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="@dimen/_4sdp"
                         android:layout_marginBottom="@dimen/_4sdp"
-                        android:background="@color/black" />
+                        android:background="@color/black" />-->
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
@@ -190,9 +191,9 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/activity_reg_dfp_date"
                         style="@style/AppFont"
-                        android:drawableEnd="@drawable/ic_date_dfp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableEnd="@drawable/ic_date_dfp"
                         android:gravity="start|center"
                         android:imeOptions="actionNext"
                         android:inputType="number|text"
@@ -222,8 +223,7 @@
                     app:layout_constraintEnd_toStartOf="@id/relative_et3_2"
                     app:layout_constraintHorizontal_weight="1.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/relative_et1_2"
-                >
+                    app:layout_constraintTop_toBottomOf="@id/relative_et1_2">
 
 
                 </Spinner>
@@ -313,18 +313,42 @@
         </androidx.core.widget.NestedScrollView>
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/activity_product_btn_confirm"
-        style="@style/AppFont"
+    <LinearLayout
+        android:id="@+id/realative_linear_btns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="@dimen/margin32"
         android:layout_marginEnd="@dimen/margin32"
         android:layout_marginBottom="@dimen/margin32"
-        android:background="@drawable/selector_btn_confrim"
-        android:text="@string/confirm"
-        android:textColor="@color/color_white_FFFFFF"
-        android:textSize="@dimen/_16sdp" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/activity_product_btn_observe_products"
+            style="@style/AppFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:background="@drawable/selector_btn_save"
+            android:text="@string/txt_see_products"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:textColor="@color/color_white_FFFFFF"
+            android:textSize="@dimen/_15sdp" />
+
+        <Button
+            android:id="@+id/activity_dfp_btn_reg"
+            style="@style/AppFont"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:background="@drawable/selector_btn_confrim"
+            android:text="@string/txt_register_draft"
+            android:textColor="@color/color_white_FFFFFF"
+            android:textSize="@dimen/_15sdp" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

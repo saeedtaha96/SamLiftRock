@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
@@ -36,7 +37,7 @@ public class Utility {
     }
 
 
-    public static void closeKeyPad(AppCompatActivity activity) {
+    public static void closeKeyPad(@NonNull AppCompatActivity activity) {
         try {
             InputMethodManager imm = (InputMethodManager) activity.getSystemService(INPUT_METHOD_SERVICE);
             if (activity.getCurrentFocus() != null) {
@@ -46,7 +47,14 @@ public class Utility {
             }
         } catch (Exception e) {
             // TODO: handle exception
-            Log.e(TAG, "closeKeyPad: " +e.getLocalizedMessage());
+            Log.e(TAG, "closeKeyPad: " + e.getLocalizedMessage());
+        }
+    }
+
+    public static void showKeyPad(@NonNull AppCompatActivity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.showSoftInput(activity.getCurrentFocus(), InputMethodManager.SHOW_IMPLICIT);
         }
     }
 

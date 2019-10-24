@@ -121,7 +121,6 @@ public class PermListActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setupViews() {
-        progressBar = findViewById(R.id.activity_perm_list_pbar);
         etDate = findViewById(R.id.activity_datepicker_input_datepicker);
         datepickerImgv = findViewById(R.id.activity_datepicker_imgv_datepicker);
     }

@@ -8,7 +8,7 @@
     android:background="@color/color_white_FFFFFF"
     tools:context=".activity.MidtermTodayListActivity">
 
-    <include layout="@layout/toolbar_custom_search_btn"
+    <include layout="@layout/toolbar_custom_qrcode"
         android:id="@+id/toolbar_counting_reg_list"/>
 
     <androidx.recyclerview.widget.RecyclerView

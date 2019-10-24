@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="vertical"
+    tools:context=".activity.Fragments.DfpProductsListFragment">
+
+    <include layout="@layout/toolbar_custom_back_btn" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_dfp_products_list_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_white_FFFFFF"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/margin16" />
+
+</LinearLayout>

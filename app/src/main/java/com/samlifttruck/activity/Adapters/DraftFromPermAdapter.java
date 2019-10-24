@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
+import com.samlifttruck.activity.DataGenerators.Consts;
 import com.samlifttruck.activity.DraftFromPermActivity;
 import com.samlifttruck.activity.Models.PermListModel;
 import com.samlifttruck.activity.RegDFPActivity;
@@ -32,6 +33,7 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
 
     public DraftFromPermAdapter(Context context, List<PermListModel> draft) {
         this.list = (draft == null) ? new ArrayList<PermListModel>() : draft;
+        this.context = context;
     }
 
     @NonNull
@@ -89,7 +91,7 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
             shapeCounterBar = ctx.getResources().getDrawable(R.drawable.shape_gradiant);
         }
 
-        void bind(PermListModel model, int color) {
+        void bind(final PermListModel model, int color) {
             tvCounter.setText(String.valueOf(getAdapterPosition()+1));
 
             shapeRaw.setTint(color);
@@ -107,7 +109,11 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
             btnDFP.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    view.getContext().startActivity(new Intent(view.getContext(),RegDFPActivity.class));
+                    Intent intent = new Intent(view.getContext(),RegDFPActivity.class);
+                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
+                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
+                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
+                    context.startActivity(intent);
                 }
             });
 

@@ -1,18 +1,14 @@
 package com.samlifttruck.activity;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.res.Configuration;
+import android.content.Intent;
 import android.os.Bundle;
-import android.transition.Explode;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -20,13 +16,9 @@ import android.widget.Toast;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CountingRegListAdapter;
-import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.DataGenerators.ScanResultReceiver;
 import com.samlifttruck.activity.DataGenerators.SoapCall;
 import com.samlifttruck.activity.DataGenerators.Utility;
 import com.samlifttruck.activity.Models.CountingRegModel;
-import com.samlifttruck.activity.Models.ReceiptListModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,15 +30,16 @@ import java.util.concurrent.ExecutionException;
 
 import ir.oveissi.materialsearchview.MaterialSearchView;
 
-public class CountingRegListActivity extends AppCompatActivity implements ScanResultReceiver {
+public class CountingRegListActivity extends AppCompatActivity {
     private static final String TAG = "CountingRegListActivity";
     private RecyclerView rv;
     private CountingRegListAdapter adapter;
-    private ImageButton btnSearch,btnScanQrCode;
+    private ImageButton btnSearch, btnScanQrCode;
     private MaterialSearchView msv;
     private List<CountingRegModel> countingRegModelList;
     List<JSONObject> list = null;
     ProgressBar progressBar;
+    public static final int SCAN_RESULT_REQ = 12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +52,14 @@ public class CountingRegListActivity extends AppCompatActivity implements ScanRe
 
         getProduct();
 
+
+        btnScanQrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CountingRegListActivity.this,QrCodeActivity.class);
+                startActivityForResult(intent,SCAN_RESULT_REQ);
+            }
+        });
 
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -88,18 +89,38 @@ public class CountingRegListActivity extends AppCompatActivity implements ScanRe
             @Override
             public boolean onQueryTextChange(String newText) {
                 List<CountingRegModel> myList = new ArrayList<>();
-                for (CountingRegModel item : countingRegModelList) {
-                    if (item.getTechNo().toLowerCase().startsWith(newText.toLowerCase())) {
-                        myList.add(item);
+                if (countingRegModelList != null) {
+                    for (CountingRegModel item : countingRegModelList) {
+                        if (item.getTechNo().toLowerCase().startsWith(newText.toLowerCase())) {
+                            myList.add(item);
+                        }
                     }
-                }
 
-                adapter = new CountingRegListAdapter(myList);
-                rv.setAdapter(adapter);
+                    adapter = new CountingRegListAdapter(myList);
+                    rv.setAdapter(adapter);
+
+                }
                 return false;
             }
         });
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SCAN_RESULT_REQ) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    msv.showSearch();
+                    msv.setQuery(data.getStringExtra("result"), false);
+                }
+
+            } else if (resultCode == RESULT_CANCELED) {
+                // RESET THE VIEWS
+            }
+        }
     }
 
     private void findViews() {
@@ -125,7 +146,7 @@ public class CountingRegListActivity extends AppCompatActivity implements ScanRe
         p0.setValue(Utility.pw);
         p0.setType(String.class);
 
-        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_CYCLE_COUNT);
+        final SoapCall ss = new SoapCall(this, SoapCall.METHOD_GET_COUNTING_REG_LIST);
         ss.execute(p0);
         SoapCall.execute(new Runnable() {
             @Override
@@ -179,10 +200,18 @@ public class CountingRegListActivity extends AppCompatActivity implements ScanRe
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if(msv.isSearchOpen()){
+            msv.closeSearch();
+        }else {
+           super.onBackPressed();
+        }
+    }
 
     @Override
-    public void scanResultData(String result) {
-        msv.showSearch();
-        msv.setQuery(result,true);
+    protected void onResume() {
+        super.onResume();
+        getProduct();
     }
 }

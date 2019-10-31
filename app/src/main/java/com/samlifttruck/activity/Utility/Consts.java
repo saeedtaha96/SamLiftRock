@@ -1,4 +1,4 @@
-package com.samlifttruck.activity.DataGenerators;
+package com.samlifttruck.activity.Utility;
 
 public class Consts {
 
@@ -23,6 +23,8 @@ public class Consts {
         public static final String DATE = "date";
         public static final String PRE_FACTOR_NUM = "preFactorNum";
         public static final String CONDITION = "condition";
+        public static final String BUSINESS_ID = "businessId";
+        public static final String DESCRIPTION = "description";
     }
 
 }

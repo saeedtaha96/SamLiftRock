@@ -6,12 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.os.Handler;
-import android.provider.ContactsContract;
-import android.view.MenuItem;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,14 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.CountingRegListAdapter;
 import com.samlifttruck.activity.Adapters.MidtermTodayListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
-import com.samlifttruck.activity.Models.DraftListModel;
-import com.samlifttruck.activity.Models.MidtermControlModel;
-import com.samlifttruck.activity.Models.ProductModel;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.MidtermControlModel;
 
 import org.json.JSONException;
@@ -162,6 +154,9 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
 
@@ -224,6 +219,9 @@ public class MidtermTodayListActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
 

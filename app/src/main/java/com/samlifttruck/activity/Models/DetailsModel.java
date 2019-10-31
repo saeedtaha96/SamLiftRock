@@ -3,26 +3,44 @@ package com.samlifttruck.activity.Models;
 
 public class DetailsModel {
 
-    private String onHand;
-    private String productCode;
-    private String productName;
-    private String qty;
-    private String techNo;
+    private int onHand;
+    private int productCode;
+    private String productName = "-";
+    private int qty;
+    private String techNo = "-";
     private String unitName;
+    private int unitId;
+    private int row;
 
-    public String getOnHand() {
+    public int getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(int unitId) {
+        this.unitId = unitId;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getOnHand() {
         return onHand;
     }
 
-    public void setOnHand(String onHand) {
+    public void setOnHand(int onHand) {
         this.onHand = onHand;
     }
 
-    public String getProductCode() {
+    public int getProductCode() {
         return productCode;
     }
 
-    public void setProductCode(String productCode) {
+    public void setProductCode(int productCode) {
         this.productCode = productCode;
     }
 
@@ -34,11 +52,11 @@ public class DetailsModel {
         this.productName = productName;
     }
 
-    public String getQty() {
+    public int getQty() {
         return qty;
     }
 
-    public void setQty(String qty) {
+    public void setQty(int qty) {
         this.qty = qty;
     }
 
@@ -58,3 +76,4 @@ public class DetailsModel {
         this.unitName = unitName;
     }
 }
+

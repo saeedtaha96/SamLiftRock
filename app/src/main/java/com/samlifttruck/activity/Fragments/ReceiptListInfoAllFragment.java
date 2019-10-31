@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.DraftListInfoAllAdapter;
 import com.samlifttruck.activity.Adapters.ReceiptListInfoAllAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.DetailsModel;
 
 import org.json.JSONException;
@@ -142,42 +140,46 @@ public class ReceiptListInfoAllFragment extends Fragment {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
-                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (list != null) {
+                    if (getActivity() != null) {
+                        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (list != null) {
 
-                                detailsList = new ArrayList<>(list.size());
-                                DetailsModel model;
-                                for (int i = 0; i < list.size(); i++) {
-                                    model = new DetailsModel();
-                                    try {
-                                        model.setOnHand(list.get(i).getString("onHand"));
-                                        model.setProductName(list.get(i).getString("ProductName"));
-                                        model.setQty(list.get(i).getString("Qty"));
-                                        model.setTechNo(list.get(i).getString("TechNo"));
-                                        model.setUnitName(list.get(i).getString("UnitName"));
+                                    detailsList = new ArrayList<>(list.size());
+                                    DetailsModel model;
+                                    for (int i = 0; i < list.size(); i++) {
+                                        model = new DetailsModel();
+                                        try {
+                                            model.setOnHand(list.get(i).getInt("onHand"));
+                                            model.setProductName(list.get(i).getString("ProductName"));
+                                            model.setQty(list.get(i).getInt("Qty"));
+                                            model.setTechNo(list.get(i).getString("TechNo"));
+                                            model.setUnitName(list.get(i).getString("UnitName"));
 
-                                        detailsList.add(model);
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                                            detailsList.add(model);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
                                     }
+                                    tvListSize.setText(String.valueOf(detailsList.size()));
+                                    receiptAdapter = new ReceiptListInfoAllAdapter(detailsList);
+                                    rvReceiptListStuff.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                    rvReceiptListStuff.setAdapter(receiptAdapter);
 
+
+                                } else {
+                                    Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                                 }
-                                tvListSize.setText(String.valueOf(detailsList.size()));
-                                receiptAdapter = new ReceiptListInfoAllAdapter(detailsList);
-                                rvReceiptListStuff.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                                rvReceiptListStuff.setAdapter(receiptAdapter);
-
-
-                            } else {
-                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    });
-
+                        });
+                    }
 
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();

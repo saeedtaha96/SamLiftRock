@@ -81,8 +81,8 @@ public class ReceiptListInfoAllAdapter extends RecyclerView.Adapter<ReceiptListI
         void bind(final DetailsModel item) {
             mTechNum = item.getTechNo();
             mProductName = item.getProductName();
-            mUnit = item.getUnitName();
-            mCount = item.getQty();
+            mUnit =  String.valueOf(item.getUnitName());
+            mCount =  String.valueOf(item.getQty());
 
 
             raw.setText(String.valueOf(getAdapterPosition()+1));

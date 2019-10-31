@@ -98,7 +98,7 @@
                     android:layout_marginTop="@dimen/margin16"
                     android:layout_marginBottom="@dimen/margin8"
                     android:gravity="start|center"
-                    android:hint="@string/shomare_fanni"
+                    android:hint="@string/txt_tech_no"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:nextFocusForward="@id/product_shelf_number"

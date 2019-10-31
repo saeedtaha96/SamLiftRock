@@ -19,7 +19,7 @@ import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.navigation.NavigationView;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.Utility;
 
 public class HomePageActivity extends AppCompatActivity implements View.OnClickListener {
     private int workgroupID;

@@ -28,7 +28,7 @@
         android:drawableStart="@drawable/ic_search_black_24dp"
         style="@style/AppFont"
         android:gravity="start|center"
-        android:hint="@string/shomare_fanni"
+        android:hint="@string/txt_tech_no"
         android:inputType="text"
         android:layoutDirection="ltr"
         android:paddingStart="@dimen/margin24"

@@ -16,9 +16,9 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.Consts;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.Consts;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.CountingRegModel;
 
 import org.json.JSONException;

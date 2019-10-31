@@ -80,9 +80,9 @@ public class DraftListInfoAllAdapter extends RecyclerView.Adapter<DraftListInfoA
         void bind(final DetailsModel item) {
             mTechNum = item.getTechNo();
             mProductName = item.getProductName();
-            mUnit = item.getUnitName();
-            mCount = item.getQty();
-            mInventory = item.getOnHand();
+            mUnit = String.valueOf(item.getUnitName());
+            mCount = String.valueOf(item.getQty());
+            mInventory = String.valueOf(item.getOnHand());
 
             raw.setText(String.valueOf(getAdapterPosition()+1));
             techNum.setText(mTechNum);

@@ -2,35 +2,18 @@ package com.samlifttruck.activity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.PermListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
 import com.samlifttruck.activity.Fragments.PermListFragment;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.ksoap2.serialization.PropertyInfo;
-
-import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import ir.hamsaa.persiandatepicker.Listener;
 import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;

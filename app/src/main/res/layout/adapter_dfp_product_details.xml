@@ -46,7 +46,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="start|center_vertical"
-                        android:text="@string/shomare_fanni"
+                        android:text="@string/txt_tech_no"
                         android:textColor="@color/color_blue_theme_004677"
                         android:textSize="@dimen/_11sdp" />
 
@@ -76,13 +76,14 @@
                         style="@style/AppFont"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin12"
+                        android:alpha="0.7"
                         android:gravity="start|center_vertical"
                         android:textColor="@color/color_blue_theme_004677"
-                        android:alpha="0.7"
-                        android:textSize="@dimen/_9sdp"
-                        android:layout_marginEnd="@dimen/margin12"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold"
-                        tools:text="@string/txt_product" />
+                        android:text="@string/txt_product" />
+
                     <TextView
                         android:id="@+id/adapter_dfp_product_details_tv_product_name"
                         style="@style/AppFont"
@@ -90,7 +91,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="start|center_vertical"
                         android:textColor="@color/color_gray_text"
-                        android:textSize="@dimen/_9sdp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold"
                         tools:text="شرکت صنعت نوین جناب آقای مهندس بزاز" />
                 </LinearLayout>
@@ -203,22 +204,43 @@
 
                 </LinearLayout>
 
-
-                <Button
-                    android:id="@+id/adapter_dfp_product_details_btn_edit"
-                    style="@style/AppFont"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="24dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/margin8"
                     android:layout_marginTop="@dimen/margin16"
                     android:layout_marginEnd="@dimen/margin24"
                     android:layout_marginBottom="@dimen/margin6"
-                    android:background="@drawable/selector_btn_save"
-                    android:gravity="center"
-                    android:text="@string/txt_edit"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_10sdp" />
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/adapter_dfp_product_details_btn_delete"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_btn_reject"
+                        android:gravity="center"
+                        android:layout_marginEnd="@dimen/_6sdp"
+                        android:text="@string/txt_delete"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <Button
+                        android:id="@+id/adapter_dfp_product_details_btn_edit"
+                        style="@style/AppFont"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_22sdp"
+                        android:layout_weight="2"
+                        android:background="@drawable/selector_btn_save"
+                        android:gravity="center"
+                        android:text="@string/txt_edit"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp" />
+
+
+                </LinearLayout>
 
             </LinearLayout>
 

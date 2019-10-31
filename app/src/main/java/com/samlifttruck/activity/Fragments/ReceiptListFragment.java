@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +16,8 @@ import android.widget.Toast;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.ReceiptListModel;
 
 import org.json.JSONException;
@@ -88,44 +88,48 @@ public class ReceiptListFragment extends Fragment {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
-                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (list != null) {
+                    if (getActivity() != null) {
+                        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (list != null) {
 
-                                receiptList = new ArrayList<>(list.size());
-                                ReceiptListModel model;
-                                for (int i = 0; i < list.size(); i++) {
-                                    model = new ReceiptListModel();
-                                    try {
-                                        model.setBusinessID(list.get(i).getString("BusinessID"));
-                                        model.setReceiptNum(list.get(i).getString("BusinessNominal"));
-                                        model.setReceiptType(list.get(i).getString("HavalehTypeName"));
-                                        model.setProductSource(list.get(i).getString("PersonName"));
-                                        model.setCondition(list.get(i).getString("StatusName"));
-                                        model.setDate(list.get(i).getString("PersianBusinessDate"));
-                                        model.setDescrip1(list.get(i).getString("Description1"));
-                                        model.setDescrip2(list.get(i).getString("Description2"));
-                                        model.setDescrip3(list.get(i).getString("Description3"));
-                                        receiptList.add(model);
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
+                                    receiptList = new ArrayList<>(list.size());
+                                    ReceiptListModel model;
+                                    for (int i = 0; i < list.size(); i++) {
+                                        model = new ReceiptListModel();
+                                        try {
+                                            model.setBusinessID(list.get(i).getString("BusinessID"));
+                                            model.setReceiptNum(list.get(i).getString("BusinessNominal"));
+                                            model.setReceiptType(list.get(i).getString("HavalehTypeName"));
+                                            model.setProductSource(list.get(i).getString("PersonName"));
+                                            model.setCondition(list.get(i).getString("StatusName"));
+                                            model.setDate(list.get(i).getString("PersianBusinessDate"));
+                                            model.setDescrip1(list.get(i).getString("Description1"));
+                                            model.setDescrip2(list.get(i).getString("Description2"));
+                                            model.setDescrip3(list.get(i).getString("Description3"));
+                                            receiptList.add(model);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
+
+                                    receiptListAdapter = new ReceiptListAdapter(receiptList);
+                                    rvReceiptList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                    //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                    rvReceiptList.setAdapter(receiptListAdapter);
+
+                                } else {
+                                    Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                                 }
-
-                                receiptListAdapter = new ReceiptListAdapter(receiptList);
-                                rvReceiptList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                                rvReceiptList.setAdapter(receiptListAdapter);
-
-                            } else {
-                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    });
-
+                        });
+                    }
 
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();

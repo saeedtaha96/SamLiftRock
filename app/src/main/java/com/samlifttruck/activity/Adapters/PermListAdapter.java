@@ -65,7 +65,8 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
         private View myItem;
         AppCompatActivity activity;
         PermListInfoAllFragment frag;
-        private String mBusinessID,mPermNum, mDate, mCustName, mPreFactorNum, mDescrip, mCondition;
+        private String mPermNum, mDate, mCustName, mPreFactorNum, mDescrip, mCondition;
+        private int mBusinessID;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,7 +97,7 @@ public class PermListAdapter extends RecyclerView.Adapter<PermListAdapter.MyView
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    frag = PermListInfoAllFragment.newInstance(mBusinessID,mPermNum,mDate,mCustName,mPreFactorNum,mDescrip);
+                    frag = PermListInfoAllFragment.newInstance(mBusinessID, mPermNum, mDate, mCustName, mPreFactorNum, mDescrip);
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_perm_list, frag).addToBackStack(null).commit();
                 }
             });

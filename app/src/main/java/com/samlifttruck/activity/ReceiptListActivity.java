@@ -13,14 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.ReceiptListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.Fragments.PermListFragment;
 import com.samlifttruck.activity.Fragments.ReceiptListFragment;
 
 import org.json.JSONObject;
@@ -105,10 +99,12 @@ public class ReceiptListActivity extends AppCompatActivity implements View.OnCli
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             if (getCurrentFocus() != null) {
-                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
             }
         } catch (Exception e) {
-            // TODO: handle exception
+           e.printStackTrace();
         }
     }
 

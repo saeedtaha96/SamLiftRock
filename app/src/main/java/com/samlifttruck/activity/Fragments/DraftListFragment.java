@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +16,9 @@ import android.widget.Toast;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.DraftListAdapter;
-import com.samlifttruck.activity.Adapters.PermListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.DraftListModel;
-import com.samlifttruck.activity.Models.PermListModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -93,47 +90,50 @@ public class DraftListFragment extends Fragment {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
+                    if (getActivity() != null) {
+                        Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (list != null) {
 
-                    Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (list != null) {
+                                    draftList = new ArrayList<>(list.size());
+                                    DraftListModel model;
+                                    for (int i = 0; i < list.size(); i++) {
+                                        model = new DraftListModel();
+                                        try {
+                                            model.setBusinessID(list.get(i).getInt("BusinessID"));
+                                            model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
+                                            model.setDraftNum(list.get(i).getString("BusinessNominal"));
+                                            model.setReceiver(list.get(i).getString("PersonName"));
+                                            model.setCondition(list.get(i).getString("StatusName"));
+                                            model.setDate(list.get(i).getString("PersianBusinessDate"));
+                                            model.setDescription(list.get(i).getString("Description1"));
+                                            model.setDraftType(list.get(i).getString("HavalehTypeName"));
 
-                                draftList = new ArrayList<>(list.size());
-                                DraftListModel model;
-                                for (int i = 0; i < list.size(); i++) {
-                                    model = new DraftListModel();
-                                    try {
-                                        model.setBusinessID(list.get(i).getString("BusinessID"));
-                                        model.setPermNum(list.get(i).getString("ReferalBusinessNominal"));
-                                        model.setDraftNum(list.get(i).getString("BusinessNominal"));
-                                        model.setReceiver(list.get(i).getString("PersonName"));
-                                        model.setCondition(list.get(i).getString("StatusName"));
-                                        model.setDate(list.get(i).getString("PersianBusinessDate"));
-                                        model.setDescription(list.get(i).getString("Description1"));
-                                        model.setDraftType(list.get(i).getString("HavalehTypeName"));
+                                            draftList.add(model);
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                            Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                                        }
 
-                                        draftList.add(model);
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
+                                    draftListAdapter = new DraftListAdapter(draftList);
+                                    rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                                    //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
+                                    rvDraftList.setAdapter(draftListAdapter);
+
+                                } else {
+                                    Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                                 }
-
-                                draftListAdapter = new DraftListAdapter(draftList);
-                                rvDraftList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                                //   rvDraftList.setItemAnimator(new DefaultItemAnimator());
-                                rvDraftList.setAdapter(draftListAdapter);
-
-                            } else {
-                                Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    });
-
+                        });
+                    }
 
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();

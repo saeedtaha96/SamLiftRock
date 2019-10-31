@@ -9,6 +9,12 @@
 
     <include layout="@layout/toolbar_custom_back_btn" />
 
+    <include layout="@layout/layout_loading" />
+
+    <include
+        android:id="@+id/activity_receipt_list_datepicker"
+        layout="@layout/layout_datepicker" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_dfp_rv"
         android:layout_width="match_parent"

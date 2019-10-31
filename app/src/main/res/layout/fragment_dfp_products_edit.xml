@@ -1,14 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:layoutDirection="rtl"
+    android:padding="@dimen/_8sdp"
     tools:context=".activity.Fragments.DfpProductsEditFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_above="@id/fragment_dfp_products_edit_btn_confirm"
+        android:layout_marginBottom="@dimen/_12sdp"
+        android:clickable="true"
+        android:contextClickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/relative_et1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="start"
+            android:hint="@string/txt_tech_no"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_dfp_products_edit_tiet_tech_no"
+                style="@style/AppFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="start|center"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@id/product_shomare_fanni"
+                android:paddingStart="@dimen/padding_start_et"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_gray_text"
+                android:textSize="@dimen/_11sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/relative_et2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="start"
+            android:hint="@string/txt_product_name_simple"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_dfp_products_edit_tiet_product_name"
+                style="@style/AppFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="start|center"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:nextFocusForward="@id/product_shomare_fanni"
+                android:paddingStart="@dimen/padding_start_et"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_gray_text"
+                android:textSize="@dimen/_11sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/relative_et3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="start"
+            android:hint="@string/txt_unit"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_dfp_products_edit_tiet_unit"
+                style="@style/AppFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="start|center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@id/product_shomare_fanni"
+                android:paddingStart="@dimen/padding_start_et"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_gray_text"
+                android:textSize="@dimen/_11sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/relative_et4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="start"
+            android:hint="@string/txt_inventory"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_dfp_products_edit_tiet_onhand"
+                style="@style/AppFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:gravity="start|center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@id/product_shomare_fanni"
+                android:paddingStart="@dimen/padding_start_et"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_gray_text"
+                android:textSize="@dimen/_11sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/relative_et5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_12sdp"
+            android:gravity="start"
+            android:hint="@string/txt_tedad"
+            android:textColorHint="@color/color_gray_text"
+            app:boxBackgroundColor="@color/color_white_FFFFFF"
+            app:boxBackgroundMode="filled"
+            app:hintAnimationEnabled="true"
+            app:hintTextAppearance="@style/hintTextLabel">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fragment_dfp_products_edit_tiet_qty"
+                style="@style/AppFont"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start|center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@id/product_shomare_fanni"
+                android:paddingStart="@dimen/padding_start_et"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textDirection="ltr"
+                android:textAlignment="viewStart"
+                android:textColor="@color/color_black_000000"
+                android:textColorHint="@color/color_gray_text"
+                android:textSize="@dimen/_11sdp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/fragment_dfp_products_edit_btn_confirm"
+        style="@style/AppFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_btn_save"
+        android:gravity="center"
+        android:text="@string/txt_reg_changes"
+        android:textColor="@color/color_white_FFFFFF"
+        android:textSize="@dimen/_14sdp" />
+
+</RelativeLayout>

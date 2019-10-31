@@ -1,7 +1,7 @@
 package com.samlifttruck.activity.Models;
 
 public class PermListModel {
-    private String businessID = "-";
+    private int businessID = 0;
     private String permNum = "-";
     private String date = "-";
     private String custName = "-";
@@ -21,11 +21,11 @@ public class PermListModel {
         this.descrip = descrip;
     }
 
-    public String getBusinessID() {
+    public int getBusinessID() {
         return businessID;
     }
 
-    public void setBusinessID(String businessID) {
+    public void setBusinessID(int businessID) {
         this.businessID = businessID;
     }
 

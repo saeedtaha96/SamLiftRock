@@ -12,14 +12,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gdacciaro.iOSDialog.iOSDialog;
+import com.gdacciaro.iOSDialog.iOSDialogBuilder;
+import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.Consts;
-import com.samlifttruck.activity.DraftFromPermActivity;
+import com.samlifttruck.activity.Utility.Consts;
 import com.samlifttruck.activity.Models.PermListModel;
 import com.samlifttruck.activity.RegDFPActivity;
+import com.samlifttruck.activity.Utility.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +56,6 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
         setFadeAnimation(holder.itemView);
 
 
-
     }
 
     @Override
@@ -75,12 +76,13 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
         TextView tvCounter;
         Button btnDFP;
         Context ctx;
-        Drawable shapeRaw,shapeCounterBar;
+        Drawable shapeRaw, shapeCounterBar;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tvPermNum = itemView.findViewById(R.id.adapter_dfp_tv_perm_num);
             tvCustName = itemView.findViewById(R.id.adapter_dfp_tv_cust_name);
-            tvPreFactorNum = itemView.findViewById(R.id.adapter_dfp_tv_prefactor_num);
+            // tvPreFactorNum = itemView.findViewById(R.id.adapter_dfp_tv_prefactor_num);
             tvDate = itemView.findViewById(R.id.adapter_dfp_tv_date);
             tvCondition = itemView.findViewById(R.id.adapter_dfp_tv_condition);
             counterBar = itemView.findViewById(R.id.view_counter_bar);
@@ -92,31 +94,48 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
         }
 
         void bind(final PermListModel model, int color) {
-            tvCounter.setText(String.valueOf(getAdapterPosition()+1));
+            tvCounter.setText(String.valueOf(getAdapterPosition() + 1));
 
             shapeRaw.setTint(color);
             shapeCounterBar.setTint(color);
             tvCounter.setBackground(shapeRaw);
             counterBar.setBackground(shapeCounterBar);
-            tvPreFactorNum.setText(model.getPreFactorNum());
+            //  tvPreFactorNum.setText(model.getPreFactorNum());
             tvPermNum.setText(model.getPermNum());
             tvCustName.setText(model.getCustName());
             tvDate.setText(model.getDate());
             tvCondition.setText(model.getCondition());
 
 
-
             btnDFP.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(view.getContext(),RegDFPActivity.class);
-                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
-                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
-                    intent.putExtra(Consts.dfp.CUST_NAME,model.getCustName());
-                    context.startActivity(intent);
+                    iOSDialogBuilder ios = Utility.newIOSdialog(context);
+                    ios.setTitle(model.getCustName())
+                            .setSubtitle("اطمینان از ایجاد حواله برای مشتری فوق دارید؟")
+                            .setPositiveListener("بله", new iOSDialogClickListener() {
+                                @Override
+                                public void onClick(iOSDialog dialog) {
+                                    Intent intent = new Intent(context, RegDFPActivity.class);
+                                    intent.putExtra(Consts.dfp.CUST_NAME, model.getCustName());
+                                    intent.putExtra(Consts.dfp.DATE, model.getDate());
+                                    intent.putExtra(Consts.dfp.PERM_NUM, model.getPermNum());
+                                    intent.putExtra(Consts.dfp.BUSINESS_ID, model.getBusinessID());
+                                    intent.putExtra(Consts.dfp.DESCRIPTION, model.getDescrip());
+                                    context.startActivity(intent);
+
+                                    dialog.dismiss();
+                                }
+                            }).setNegativeListener("خیر", new iOSDialogClickListener() {
+                        @Override
+                        public void onClick(iOSDialog dialog) {
+                            dialog.dismiss();
+                        }
+                    }).build().show();
+
+
                 }
             });
-
 
 
         }

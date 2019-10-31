@@ -1,6 +1,7 @@
-package com.samlifttruck.activity.DataGenerators;
+package com.samlifttruck.activity.Utility;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
@@ -56,6 +57,11 @@ public class Utility {
         if (imm != null) {
             imm.showSoftInput(activity.getCurrentFocus(), InputMethodManager.SHOW_IMPLICIT);
         }
+    }
+
+    public static SharedPreferences returnPref(Context context) {
+        SharedPreferences pref = context.getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+        return pref;
     }
 
 

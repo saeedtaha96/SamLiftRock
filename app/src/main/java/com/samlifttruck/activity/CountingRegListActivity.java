@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,8 +17,8 @@ import android.widget.Toast;
 
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CountingRegListAdapter;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.CountingRegModel;
 
 import org.json.JSONException;
@@ -151,6 +152,9 @@ public class CountingRegListActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
                     CountingRegListActivity.this.runOnUiThread(new Runnable() {

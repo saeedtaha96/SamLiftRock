@@ -35,6 +35,7 @@
 
                 <!-- Property type container -->
                 <TableRow
+                    android:id="@+id/fragment_draft_info_all_table_draft_num"
                     android:background="@color/color_white_FFFFFF"
                     android:divider="@color/color_gray_border"
                     android:showDividers="middle">
@@ -198,6 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
+                        android:drawableEnd="@drawable/ic_edit"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
                         android:textColor="@color/color_black_000000"
@@ -208,6 +210,7 @@
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/fragment_draft_info_all_table_service_page"
                     android:background="@color/color_background_homepage"
                     android:divider="@color/color_gray_border"
                     android:showDividers="middle">
@@ -259,13 +262,15 @@
                         android:textSize="@dimen/draft_all_info_table_text_size" />
 
                     <!-- Property type content -->
-                    <TextView
+                    <EditText
                         android:id="@+id/fragment_draft_info_all_descrip"
                         style="@style/AppFont"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
+                        android:background="@android:color/transparent"
+                        android:drawableEnd="@drawable/ic_edit"
                         android:ellipsize="end"
                         android:gravity="center"
                         android:maxLines="2"
@@ -357,9 +362,9 @@
             android:minWidth="@dimen/margin48"
             android:paddingStart="@dimen/margin12"
             android:paddingEnd="@dimen/margin12"
-            tools:text="8"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size15" />
+            android:textSize="@dimen/text_size15"
+            tools:text="8" />
 
 
     </RelativeLayout>

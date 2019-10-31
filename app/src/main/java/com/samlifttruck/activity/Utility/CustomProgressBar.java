@@ -1,4 +1,4 @@
-package com.samlifttruck.activity.DataGenerators;
+package com.samlifttruck.activity.Utility;
 
 import android.view.View;
 

@@ -1,9 +1,7 @@
-package com.samlifttruck.activity.DataGenerators;
+package com.samlifttruck.activity.Utility;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
-import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +44,10 @@ public class SoapCall extends AsyncTask<PropertyInfo, Object, ArrayList<JSONObje
     public static final String METHOD_GET_DRAFT_FROM_PERM = "HavalehFromMojavez";
     public static final String METHOD_ACCEPT_BUSINESS = "AcceptBusiness";
     public static final String METHOD_UPDATE_COUNTING_REG = "UpdateCycleCountkol";
+    public static final String METHOD_EXECUTE_TEMP_BUSINESS_DETAILS = "usp_ExecTempBusinessDetail";
+    public static final String METHOD_GET_PERM_LIST_TO_CONVERT = "GetListMojavezForConvert";
+    public static final String METHOD_GET_DRAFT_TYPES = "GetHavalehTypes";
+    public static final String METHOD_GET_TEMP_BUSINESS_DETAILS = "GetTempBusinessDetails";
 
     public static final int TIMEOUT = 15000;
 

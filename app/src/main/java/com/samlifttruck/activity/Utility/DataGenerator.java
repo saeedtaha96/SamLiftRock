@@ -1,4 +1,4 @@
-package com.samlifttruck.activity.DataGenerators;
+package com.samlifttruck.activity.Utility;
 
 import com.samlifttruck.activity.Models.DraftListModel;
 import com.samlifttruck.activity.Models.PermListModel;
@@ -21,8 +21,9 @@ public class DataGenerator {
             if (a < 10) {
                 mDate = "0" + (int) a;
             }
-            draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" + mDate, "123", "hassan", "con" + i, String.valueOf((int) a * i));
-            list.add(draftModel);
+         //   draftModel = new DraftListModel(draftNum, permNum, "saeed" + i, "98/08/" + mDate, "123", "hassan", "con" + i, (int)a * i))
+            ;
+        //    list.add(draftModel);
         }
         return list;
     }

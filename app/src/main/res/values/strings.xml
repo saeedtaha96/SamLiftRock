@@ -35,7 +35,7 @@
     <string name="menu_txt_mojavez_havale">حواله از مجوز</string>
     <string name="menu_txt_gozaresh_mojudi">گزارش موجودی</string>
     <string name="menu_txt_control">کنترل میاندوره</string>
-    <string name="shomare_fanni">شماره فنی</string>
+    <string name="txt_tech_no">شماره فنی</string>
     <string name="txt_product_name">نام کالا:</string>
     <string name="txt_product_name_simple">نام کالا</string>
     <string name="txt_shelf_numb">شماره قفسه:</string>
@@ -147,4 +147,5 @@
     <string name="txt_see_products">مشاهده کالاها</string>
     <string name="txt_register_draft">ثبت حواله</string>
     <string name="txt_product">کالا</string>
+    <string name="txt_reg_changes">ثبت تغییرات</string>
 </resources>

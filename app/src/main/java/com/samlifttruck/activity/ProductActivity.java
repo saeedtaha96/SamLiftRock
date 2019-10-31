@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.CustomSpinnerAdapter;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.ProductTypeInfoModel;
 import com.samlifttruck.activity.Models.UnitInfoModel;
 
@@ -158,6 +158,9 @@ public class ProductActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
                     ProductActivity.this.runOnUiThread(new Runnable() {
@@ -315,6 +318,9 @@ public class ProductActivity extends AppCompatActivity {
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
                     ProductActivity.this.runOnUiThread(new Runnable() {

@@ -10,9 +10,8 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
+import android.os.Looper;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -30,8 +29,8 @@ import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -249,6 +248,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     SoapCall.execute(new Runnable() {
                         @Override
                         public void run() {
+                            if (Looper.myLooper() == null) {
+                                Looper.prepare();
+                            }
                             try {
                                 list = ss.get();
 

@@ -2,14 +2,11 @@ package com.samlifttruck.activity.Adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,17 +14,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.gdacciaro.iOSDialog.iOSDialog;
 import com.gdacciaro.iOSDialog.iOSDialogBuilder;
 import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.DataGenerators.SoapCall;
-import com.samlifttruck.activity.DataGenerators.Utility;
-import com.samlifttruck.activity.MidtermTodayListActivity;
+import com.samlifttruck.activity.Utility.SoapCall;
+import com.samlifttruck.activity.Utility.Utility;
 import com.samlifttruck.activity.Models.MidtermControlModel;
 
 import org.json.JSONException;
@@ -168,30 +162,33 @@ public class MidtermTodayListAdapter extends RecyclerView.Adapter<MidtermTodayLi
         SoapCall.execute(new Runnable() {
             @Override
             public void run() {
+                if (Looper.myLooper() == null) {
+                    Looper.prepare();
+                }
                 try {
                     list = ss.get();
-
                     AppCompatActivity activity = (AppCompatActivity) context;
-                    activity.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (list != null) {
-                                try {
-                                    if (list.get(0).getString("boolean").equals("true")) {
-                                        Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
-                                        midlist.remove(position);
-                                        notifyItemRemoved(position);
-                                        notifyItemRangeChanged(position, midlist.size());
+                    if (activity != null) {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (list != null) {
+                                    try {
+                                        if (list.get(0).getString("boolean").equals("true")) {
+                                            Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
+                                            midlist.remove(position);
+                                            notifyItemRemoved(position);
+                                            notifyItemRangeChanged(position, midlist.size());
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                                } else {
+                                    Toast.makeText(context, "خطا در حذف آیتم مورد نظر", Toast.LENGTH_SHORT).show();
                                 }
-                            } else {
-                                Toast.makeText(context, "خطا در حذف آیتم مورد نظر", Toast.LENGTH_SHORT).show();
                             }
-                        }
-                    });
-
+                        });
+                    }
 
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();

@@ -15,7 +15,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.CountingRegActivity;
-import com.samlifttruck.activity.DataGenerators.Consts;
+import com.samlifttruck.activity.Utility.Consts;
 import com.samlifttruck.activity.Models.CountingRegModel;
 
 import java.util.List;

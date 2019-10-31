@@ -13,13 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.samlifttruck.R;
-import com.samlifttruck.activity.Adapters.DraftListAdapter;
-import com.samlifttruck.activity.DataGenerators.DataGenerator;
 import com.samlifttruck.activity.Fragments.DraftListFragment;
 
 import org.json.JSONObject;

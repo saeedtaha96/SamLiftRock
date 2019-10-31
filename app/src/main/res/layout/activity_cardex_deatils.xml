@@ -82,7 +82,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="@string/shomare_fanni"
+                            android:text="@string/txt_tech_no"
                             android:textColor="@color/color_gray_text"
                             android:textSize="@dimen/text_size14" />
 

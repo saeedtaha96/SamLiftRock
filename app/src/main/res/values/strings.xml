@@ -148,4 +148,6 @@
     <string name="txt_register_draft">ثبت حواله</string>
     <string name="txt_product">کالا</string>
     <string name="txt_reg_changes">ثبت تغییرات</string>
+    <string name="txt_successfully_saved">حواله با موفقیت انجام شد</string>
+    <string name="txt_solved">حله</string>
 </resources>

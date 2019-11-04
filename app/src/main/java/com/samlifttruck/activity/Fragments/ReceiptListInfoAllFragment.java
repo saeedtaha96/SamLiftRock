@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ public class ReceiptListInfoAllFragment extends Fragment {
     List<JSONObject> list = null;
     List<DetailsModel> detailsList;
     //TODO: Fix need class
+    private static final String TAG = "ReceiptListInfoAllFragm";
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String RECEIPT_NUM_KEY = "1";
     private static final String DATE_KEY = "2";
@@ -165,6 +167,7 @@ public class ReceiptListInfoAllFragment extends Fragment {
                                             detailsList.add(model);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
+                                            Log.i(TAG, "run: "+ e.getLocalizedMessage());
                                         }
 
                                     }
@@ -183,6 +186,7 @@ public class ReceiptListInfoAllFragment extends Fragment {
 
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
+                    Log.i(TAG, "run: "+ e.getLocalizedMessage());
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

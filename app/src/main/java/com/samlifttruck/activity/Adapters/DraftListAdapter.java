@@ -97,7 +97,7 @@ public class DraftListAdapter extends RecyclerView.Adapter<DraftListAdapter.MyVi
             myItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    frag = DraftListInfoAllFragment.newInstance(DraftListInfoAllFragment.ACTIVITY_DRAFT_LIST, sBusinessID, sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip);
+                    frag = DraftListInfoAllFragment.newInstance(DraftListInfoAllFragment.ACTIVITY_DRAFT_LIST, sBusinessID, sDraftNum, sPermNum, sReceiver, sDate, sDraftType, sServicePage, sDescrip,0," ");
                     activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_draft_list, frag).addToBackStack(null).commit();
                 }
             });

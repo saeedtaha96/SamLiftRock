@@ -91,9 +91,7 @@ public class DfpProductsEditFragment extends Fragment {
 
             mUserId = Utility.returnPref(Objects.requireNonNull(getActivity())).getInt(Utility.LOGIN_USER_ID, 1);
 
-            Toast.makeText(getActivity(), String.valueOf(mUserId) + String.valueOf(mRow), Toast.LENGTH_SHORT).show();
-
-
+            //Toast.makeText(getActivity(), String.valueOf(mUserId) + String.valueOf(mRow), Toast.LENGTH_SHORT).show();
 
 
         }
@@ -136,6 +134,7 @@ public class DfpProductsEditFragment extends Fragment {
             }
         });
 
+        etQty.requestFocus();
         return view;
     }
 
@@ -247,7 +246,7 @@ public class DfpProductsEditFragment extends Fragment {
                                             new Handler().postDelayed(new Runnable() {
                                                 @Override
                                                 public void run() {
-
+                                                    getActivity().onBackPressed();
                                                 }
                                             }, 1500);
                                             //

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,8 @@ public class PermListInfoAllFragment extends Fragment {
     // TODO: fix this class
     List<JSONObject> list = null;
     List<DetailsModel> detailsList;
+
+    private static final String TAG = "PermListInfoAllFragment";
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String PERM_NUM_KEY = "1";
     private static final String DATE_KEY = "2";
@@ -54,7 +57,7 @@ public class PermListInfoAllFragment extends Fragment {
     private String mCustName;
     private String mPreFactorNum;
     private String mDescrip;
-    private String mBusinessID;
+    private int mBusinessID;
 
 
     public PermListInfoAllFragment() {
@@ -84,7 +87,7 @@ public class PermListInfoAllFragment extends Fragment {
             mCustName = getArguments().getString(CUSTOMER_NAME_KEY);
             mPreFactorNum = getArguments().getString(PRE_FACTOR_KEY);
             mDescrip = getArguments().getString(DESCRIPTION_KEY);
-            mBusinessID = getArguments().getString(BUSINESS_ID_KEY);
+            mBusinessID = getArguments().getInt(BUSINESS_ID_KEY);
             //Toast.makeText(getActivity(), mBusinessID, Toast.LENGTH_SHORT).show();
         }
     }
@@ -162,6 +165,7 @@ public class PermListInfoAllFragment extends Fragment {
                                             detailsList.add(model);
                                         } catch (JSONException e) {
                                             e.printStackTrace();
+                                            Log.i(TAG, "run: " +  e.getMessage());
                                         }
 
                                     }
@@ -179,6 +183,7 @@ public class PermListInfoAllFragment extends Fragment {
                     }
                 } catch (ExecutionException | InterruptedException e) {
                     e.printStackTrace();
+                    Log.i(TAG, "run: " +  e.getMessage());
                     Toast.makeText(getActivity(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
             }

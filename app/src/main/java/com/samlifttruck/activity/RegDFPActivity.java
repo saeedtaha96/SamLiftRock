@@ -41,8 +41,8 @@ public class RegDFPActivity extends AppCompatActivity {
 
     private List<DetailsModel> detailsList;
     private ImageButton btnRegisterDFP;
-    static private String custName, condition, date, permNum, preFactorNum, descrip;
-    static private int mUserId;
+    static private String custName, condition, date, permNum, preFactorNum, descrip, referalID;
+    static private int mUserId, personId;
     private int businessId;
     public static int STATIC_DRAFT_TYPE = 0;
 
@@ -63,16 +63,18 @@ public class RegDFPActivity extends AppCompatActivity {
             permNum = bundle.getString(Consts.dfp.PERM_NUM);
             businessId = bundle.getInt(Consts.dfp.BUSINESS_ID);
             descrip = bundle.getString(Consts.dfp.DESCRIPTION);
+            personId = bundle.getInt(Consts.dfp.PERSON_ID);
+            referalID = bundle.getString(Consts.dfp.REFERAL_ID);
 
             SharedPreferences pref = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
             mUserId = pref.getInt(Utility.LOGIN_USER_ID, 1);
 
-            Toast.makeText(this, String.valueOf(businessId) + "\n" + String.valueOf(mUserId), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, String.valueOf(businessId) + "\n" + String.valueOf(mUserId), Toast.LENGTH_SHORT).show();
 
 
             makeTemplate();
 
-            DraftListInfoAllFragment frag = DraftListInfoAllFragment.newInstance(DraftListInfoAllFragment.ACTIVITY_DFP, businessId, " ", permNum, custName, date, " ", " ", descrip);
+            DraftListInfoAllFragment frag = DraftListInfoAllFragment.newInstance(DraftListInfoAllFragment.ACTIVITY_DFP, businessId, " ", permNum, custName, date, " ", " ", descrip, personId,referalID);
             getSupportFragmentManager().beginTransaction().replace(R.id.activity_reg_dfp_container, frag).commit();
         }
 
@@ -140,7 +142,7 @@ public class RegDFPActivity extends AppCompatActivity {
                             if (list != null) {
                                 try {
                                     if (list.get(0).getString("boolean").equals("true")) {
-                                      //  Toast.makeText(RegDFPActivity.this, "تبدیل مجوز به حواله...", Toast.LENGTH_SHORT).show();
+                                        //  Toast.makeText(RegDFPActivity.this, "تبدیل مجوز به حواله...", Toast.LENGTH_SHORT).show();
 
                                     } else if (list.get(0).getString("boolean").equals("false")) {
                                         Toast.makeText(RegDFPActivity.this, "خطا در ثبت", Toast.LENGTH_LONG).show();

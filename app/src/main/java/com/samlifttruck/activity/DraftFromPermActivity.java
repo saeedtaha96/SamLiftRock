@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.samlifttruck.R;
@@ -50,6 +51,7 @@ public class DraftFromPermActivity extends AppCompatActivity {
         setContentView(R.layout.activity_draft_from_perm);
 
         findViews();
+        setToolbarText();
         etDate.setText(getToday());
         getDfpList(getToday());
         etDate.setOnTouchListener(new View.OnTouchListener() {
@@ -95,6 +97,11 @@ public class DraftFromPermActivity extends AppCompatActivity {
         btnDatePick = findViewById(R.id.activity_datepicker_imgv_datepicker);
         etDate = findViewById(R.id.activity_datepicker_input_datepicker);
         rv = findViewById(R.id.activity_dfp_rv);
+    }
+
+    private void setToolbarText() {
+        TextView tvAppbar = findViewById(R.id.toolbar_text);
+        tvAppbar.setText(getString(R.string.txt_draft_from_perm));
     }
 
     private void closeKeyPad() {
@@ -201,6 +208,8 @@ public class DraftFromPermActivity extends AppCompatActivity {
                                     model = new PermListModel();
                                     try {
                                         model.setBusinessID(list.get(i).getInt("BusinessID"));
+                                        model.setPersonID(list.get(i).getInt("personId"));
+                                        model.setReferalID(list.get(i).getString("ReferalID"));
                                         model.setPermNum(list.get(i).getString("BusinessNominal"));
                                         model.setCustName(list.get(i).getString("PersonName"));
                                         model.setCondition(list.get(i).getString("StatusName"));

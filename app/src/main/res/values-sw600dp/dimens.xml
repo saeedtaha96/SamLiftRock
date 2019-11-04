@@ -77,6 +77,8 @@
     <dimen name="margin76">76dp</dimen>
     <dimen name="margin200">200dp</dimen>
 
+    <dimen name="margin110">110dp</dimen>
+
     <item name="nav_menu_weight_digit" format="float" type="dimen">1.5</item>
 
 </resources>

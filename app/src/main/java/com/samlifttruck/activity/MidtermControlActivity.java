@@ -397,15 +397,15 @@ public class MidtermControlActivity extends AppCompatActivity implements ZXingSc
                     Looper.prepare();
                 }
                 try {
-                    list = ss.get();
+                    final List<JSONObject> list2 = ss.get();
 
                     MidtermControlActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (list != null) {
+                            if (list2 != null) {
 
                                 try {
-                                    if (list.get(0).getString("boolean").equals("true")) {
+                                    if (list2.get(0).getString("boolean").equals("true")) {
                                         Toast.makeText(MidtermControlActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
                                         etCurrentCount.setText("");
                                         tvShelfNum.setText("-");

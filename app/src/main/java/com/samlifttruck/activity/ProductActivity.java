@@ -220,28 +220,28 @@ public class ProductActivity extends AppCompatActivity {
                     Looper.prepare();
                 }
                 try {
-                    list = ss.get();
+                    final List<JSONObject> list2 = ss.get();
 
                     ProductActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (list != null) {
+                            if (list2 != null) {
 
-                                unitList = new ArrayList<>(list.size());
+                                unitList = new ArrayList<>(list2.size());
                                 UnitInfoModel model;
-                                unitItems = new String[list.size()];
+                                unitItems = new String[list2.size()];
                                 try {
-                                    for (int i = 0; i < list.size(); i++) {
+                                    for (int i = 0; i < list2.size(); i++) {
                                         model = new UnitInfoModel();
-                                        model.setUnitID(list.get(i).getInt("UnitID"));
-                                        model.setUnitName(list.get(i).getString("UnitName"));
-                                        unitItems[i] = list.get(i).getString("UnitName");
+                                        model.setUnitID(list2.get(i).getInt("UnitID"));
+                                        model.setUnitName(list2.get(i).getString("UnitName"));
+                                        unitItems[i] = list2.get(i).getString("UnitName");
                                         unitList.add(model);
 
                                     }
                                     unitAdapter = new CustomSpinnerAdapter(getApplicationContext(), unitItems,CustomSpinnerAdapter.SPINNER_DATE);
                                     setupSpinnerofUnit();
-                                    unitID = list.get(0).getInt("UnitID");
+                                    unitID = list2.get(0).getInt("UnitID");
 
                                     getProductTypeInfo();
 
@@ -322,13 +322,13 @@ public class ProductActivity extends AppCompatActivity {
                     Looper.prepare();
                 }
                 try {
-                    list = ss.get();
+                    final List<JSONObject> list3 = ss.get();
                     ProductActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (list != null) {
+                            if (list3 != null) {
                                 try {
-                                    if (list.get(0).getString("boolean").equals("true")) {
+                                    if (list3.get(0).getString("boolean").equals("true")) {
                                         Toast.makeText(ProductActivity.this, "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
                                         etShelfNum.setText("");
                                         etProductName.setText("");

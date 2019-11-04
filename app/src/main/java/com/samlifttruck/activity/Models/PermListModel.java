@@ -8,6 +8,8 @@ public class PermListModel {
     private String preFactorNum = "-";
     private String condition = "-";
     private String descrip = "-";
+    private int personID = 0;
+    private String referalID = "-";
 
     public PermListModel() {
     }
@@ -80,5 +82,21 @@ public class PermListModel {
     @Override
     public String toString() {
         return preFactorNum + " of " + custName;
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
+    }
+
+    public String getReferalID() {
+        return referalID;
+    }
+
+    public void setReferalID(String referalID) {
+        this.referalID = referalID;
     }
 }

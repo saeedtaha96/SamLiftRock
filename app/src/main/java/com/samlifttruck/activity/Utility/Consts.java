@@ -25,6 +25,8 @@ public class Consts {
         public static final String CONDITION = "condition";
         public static final String BUSINESS_ID = "businessId";
         public static final String DESCRIPTION = "description";
+        public static final String PERSON_ID = "personId";
+        public static final String REFERAL_ID = "referalID";
     }
 
 }

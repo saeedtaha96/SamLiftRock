@@ -223,15 +223,15 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                     Looper.prepare();
                 }
                 try {
-                    list = ss.get();
+                    final List<JSONObject> list2 = ss.get();
 
                     MidtermTodayListActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if (list != null) {
+                            if (list2 != null) {
 
                                 try {
-                                    if (list.get(0).getString("boolean").equals("true")) {
+                                    if (list2.get(0).getString("boolean").equals("true")) {
                                         Toast.makeText(getApplicationContext(), "موارد با موفقیت ثبت شدند", Toast.LENGTH_LONG).show();
                                         midtermListAdapter = new MidtermTodayListAdapter(MidtermTodayListActivity.this, null);
                                         Configuration config = getResources().getConfiguration();
@@ -242,9 +242,9 @@ public class MidtermTodayListActivity extends AppCompatActivity {
                                         }
                                         rvMidtermList.setAdapter(midtermListAdapter);
                                         rvMidtermList = null;
-                                    } else if (list.get(0).getString("boolean").equals("false")) {
+                                    } else if (list2.get(0).getString("boolean").equals("false")) {
                                         Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_LONG).show();
-                                    } else if (list == null) {
+                                    } else if (list2 == null) {
                                         Toast.makeText(getApplicationContext(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
                                     }
                                 } catch (JSONException e) {

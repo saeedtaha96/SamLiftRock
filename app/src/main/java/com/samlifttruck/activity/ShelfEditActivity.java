@@ -191,17 +191,17 @@ public class ShelfEditActivity extends AppCompatActivity implements ZXingScanner
                     Looper.prepare();
                 }
                 try {
-                    list = ss.get();
+                   final List<JSONObject> list2 = ss.get();
                     ShelfEditActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             try {
-                                if (list != null) {
+                                if (list2 != null) {
 
-                                    tvProductName.setText(list.get(0).getString("ProductName"));
+                                    tvProductName.setText(list2.get(0).getString("ProductName"));
 
-                                    tvShelfNum.setText(list.get(0).getString("shelf"));
-                                    myProductCode = list.get(0).getInt("productCode");
+                                    tvShelfNum.setText(list2.get(0).getString("shelf"));
+                                    myProductCode = list2.get(0).getInt("productCode");
                                     etShelfNum.requestFocus();
                                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                                     imm.showSoftInput(etShelfNum, InputMethodManager.SHOW_IMPLICIT);

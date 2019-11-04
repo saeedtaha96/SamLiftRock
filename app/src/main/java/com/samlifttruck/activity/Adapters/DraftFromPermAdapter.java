@@ -122,6 +122,8 @@ public class DraftFromPermAdapter extends RecyclerView.Adapter<DraftFromPermAdap
                                     intent.putExtra(Consts.dfp.PERM_NUM, model.getPermNum());
                                     intent.putExtra(Consts.dfp.BUSINESS_ID, model.getBusinessID());
                                     intent.putExtra(Consts.dfp.DESCRIPTION, model.getDescrip());
+                                    intent.putExtra(Consts.dfp.PERSON_ID, model.getPersonID());
+                                    intent.putExtra(Consts.dfp.REFERAL_ID, model.getReferalID());
                                     context.startActivity(intent);
 
                                     dialog.dismiss();

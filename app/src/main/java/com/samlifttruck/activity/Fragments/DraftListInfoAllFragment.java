@@ -48,11 +48,11 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class DraftListInfoAllFragment extends Fragment {
+
     private List<JSONObject> list = null;
     private List<JSONObject> list2 = null;
     private List<DetailsModel> detailsList;
     private Map<String, Integer> draftTypeMap;
-    private static boolean isFirst = true;
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String DRAFT_NUM_KEY = "draftNum";
@@ -64,6 +64,8 @@ public class DraftListInfoAllFragment extends Fragment {
     private static final String DESCRIPTION_KEY = "descrip";
     private static final String BUSINESS_ID_KEY = "businessID";
     private static final String SOURCE_ACTIVITY_KEY = "sourceActivity";
+    private static final String PERSON_ID_KEY = "personId";
+    private static final String REFERAL_ID_KEY = "referalID";
 
 
     public static final int ACTIVITY_DFP = 0;
@@ -89,6 +91,8 @@ public class DraftListInfoAllFragment extends Fragment {
     private int mBusinessID;
     private int mSourceActivity;
     private int mUserId;
+    private int mPersonId;
+    private String mReferalID;
 
 
     public DraftListInfoAllFragment() {
@@ -96,7 +100,7 @@ public class DraftListInfoAllFragment extends Fragment {
     }
 
 
-    public static DraftListInfoAllFragment newInstance(int sourceActivity, int businessID, String draftNum, String permNum, String custName, String date, String draftType, String servicePage, String descrip) {
+    public static DraftListInfoAllFragment newInstance(int sourceActivity, int businessID, String draftNum, String permNum, String custName, String date, String draftType, String servicePage, String descrip, int personId, String referalID) {
         DraftListInfoAllFragment fragment = new DraftListInfoAllFragment();
         Bundle args = new Bundle();
         args.putString(DRAFT_NUM_KEY, draftNum);
@@ -108,6 +112,9 @@ public class DraftListInfoAllFragment extends Fragment {
         args.putString(DESCRIPTION_KEY, descrip);
         args.putInt(BUSINESS_ID_KEY, businessID);
         args.putInt(SOURCE_ACTIVITY_KEY, sourceActivity);
+        args.putInt(PERSON_ID_KEY, personId);
+        args.putString(REFERAL_ID_KEY, referalID);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -125,6 +132,8 @@ public class DraftListInfoAllFragment extends Fragment {
             mDescrip = getArguments().getString(DESCRIPTION_KEY);
             mBusinessID = getArguments().getInt(BUSINESS_ID_KEY);
             mSourceActivity = getArguments().getInt(SOURCE_ACTIVITY_KEY);
+            mPersonId = getArguments().getInt(PERSON_ID_KEY);
+            mReferalID = getArguments().getString(REFERAL_ID_KEY);
 
             SharedPreferences pref = Objects.requireNonNull(getActivity()).getSharedPreferences("myprefs", Context.MODE_PRIVATE);
             mUserId = pref.getInt(Utility.LOGIN_USER_ID, 1);
@@ -163,6 +172,7 @@ public class DraftListInfoAllFragment extends Fragment {
             if (mSourceActivity == ACTIVITY_DFP) {
                 tblDraftNum.setVisibility(View.GONE);
                 tblServicePage.setVisibility(View.GONE);
+                getDraftTypes();
                 ImageButton btnConfrim = Objects.requireNonNull(getActivity()).findViewById(R.id.toolbar_imgbtn_reg_dfp);
                 btnConfrim.setVisibility(View.VISIBLE);
                 btnConfrim.setOnClickListener(new View.OnClickListener() {
@@ -174,12 +184,12 @@ public class DraftListInfoAllFragment extends Fragment {
                                 .setPositiveListener("بله", new iOSDialogClickListener() {
                                     @Override
                                     public void onClick(iOSDialog dialog) {
-                                      if(tvDraftType.getText().toString().equals("")){
-                                          tvDraftType.requestFocus();
-                                          tvDraftType.setError(getString(R.string.please_fill));
-                                      }else {
-                                          acceptBussiness();
-                                      }
+                                        if (tvDraftType.getText().toString().equals(" ")) {
+                                            tvDraftType.setError(getString(R.string.please_fill));
+                                            tvDraftType.requestFocus();
+                                        } else {
+                                            acceptBussiness();
+                                        }
                                         dialog.dismiss();
                                     }
                                 }).setNegativeListener("خیر", new iOSDialogClickListener() {
@@ -190,7 +200,7 @@ public class DraftListInfoAllFragment extends Fragment {
                         }).build().show();
                     }
                 });
-                getDraftTypes();
+
 
                 // getPermProductList();
                 //  tvListSize.setText(String.valueOf(detailsList.size()));
@@ -208,6 +218,31 @@ public class DraftListInfoAllFragment extends Fragment {
 
         }
         return rootView;
+    }
+
+
+    private void setDialogDraftType(Map<String, Integer> hashMap) {
+        Collection<String> keysets = hashMap.keySet();
+        final String[] draftTypeItems = keysets.toArray(new String[keysets.size()]);
+
+        tvDraftType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+                mBuilder.setTitle("نوع حواله را انتخاب کنید:");
+                mBuilder.setSingleChoiceItems(draftTypeItems, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        tvDraftType.setText(draftTypeItems[i]);
+                        if (draftTypeMap.get(draftTypeItems[i]) != null)
+                            dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog mDialog = mBuilder.create();
+                mDialog.show();
+            }
+        });
     }
 
 
@@ -338,35 +373,6 @@ public class DraftListInfoAllFragment extends Fragment {
         });
     }
 
-    private void setDialogDraftType(Map<String, Integer> hashMap) {
-        Collection<String> keysets = hashMap.keySet();
-        final String[] draftTypeItems = keysets.toArray(new String[keysets.size()]);
-
-        tvDraftType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder mBuilder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
-                mBuilder.setTitle("نوع حواله را انتخاب کنید:");
-                mBuilder.setSingleChoiceItems(draftTypeItems, -1, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        tvDraftType.setText(draftTypeItems[i]);
-                        if (draftTypeMap.get(draftTypeItems[i]) != null)
-                            dialogInterface.dismiss();
-                    }
-                });
-
-                AlertDialog mDialog = mBuilder.create();
-                mDialog.show();
-            }
-        });
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        isFirst = true;
-    }
 
     private void getDfpProducts(int businessId) {
         PropertyInfo p0 = new PropertyInfo();
@@ -435,7 +441,7 @@ public class DraftListInfoAllFragment extends Fragment {
 
 
                                 } else {
-                                   // Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                                    // Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -462,7 +468,7 @@ public class DraftListInfoAllFragment extends Fragment {
 
         PropertyInfo p2 = new PropertyInfo();
         p2.setName("personId");
-        p2.setValue("");
+        p2.setValue(mPersonId);
         p2.setType(Integer.class);
 
         PropertyInfo p3 = new PropertyInfo();
@@ -482,7 +488,7 @@ public class DraftListInfoAllFragment extends Fragment {
 
         PropertyInfo p6 = new PropertyInfo();
         p6.setName("mojavezId");
-        p6.setValue(mPermNum);
+        p6.setValue(mBusinessID);
         p6.setType(Integer.class);
 
         PropertyInfo p7 = new PropertyInfo();
@@ -523,26 +529,32 @@ public class DraftListInfoAllFragment extends Fragment {
                             @Override
                             public void run() {
                                 if (myList != null) {
-
+                                    Toast.makeText(getActivity(), myList.get(0).toString(), Toast.LENGTH_SHORT).show();
                                     try {
                                         if (myList.get(0).getString("boolean").equals("true")) {
-                                            Toast.makeText(getActivity(), "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
+                                            // Toast.makeText(getActivity(), "مورد با موفقیت ثبت شد", Toast.LENGTH_LONG).show();
 
                                             // TODO: whats gonna do after this
-                                                new Handler().postDelayed(new Runnable() {
-                                                    @Override
-                                                    public void run() {
-                                                        getActivity().finish();
-                                                    }
-                                                }, 1500);
+                                            iOSDialogBuilder ios = Utility.newIOSdialog(getActivity());
+                                            ios.setTitle("***")
+                                                    .setSubtitle(getString(R.string.txt_successfully_saved))
+                                                    .setPositiveListener(getString(R.string.txt_solved), new iOSDialogClickListener() {
+                                                        @Override
+                                                        public void onClick(iOSDialog dialog) {
+                                                            getActivity().finish();
+                                                            dialog.dismiss();
+                                                        }
+                                                    }).build().show();
                                             //
+                                        } else if (myList.get(0).getString("boolean").equals("false")) {
+                                            Toast.makeText(getActivity(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
 
                                 } else {
-                                    Toast.makeText(getActivity(), "موردی یافت نشد", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

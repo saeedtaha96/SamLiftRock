@@ -248,7 +248,7 @@ public class DfpProductsEditFragment extends Fragment {
                                                 public void run() {
                                                     getActivity().onBackPressed();
                                                 }
-                                            }, 1500);
+                                            }, 900);
                                             //
                                         }
                                     } catch (JSONException e) {

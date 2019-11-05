@@ -174,6 +174,12 @@ public class DraftFromPermActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getDfpList(etDate.getText().toString());
+    }
+
     private void getDfpList(String date) {
         PropertyInfo p0 = new PropertyInfo();
         p0.setName("passCode");

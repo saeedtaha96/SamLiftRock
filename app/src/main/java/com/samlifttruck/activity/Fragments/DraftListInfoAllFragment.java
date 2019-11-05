@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import com.gdacciaro.iOSDialog.iOSDialogClickListener;
 import com.samlifttruck.R;
 import com.samlifttruck.activity.Adapters.DfpProductDetailsAdapter;
 import com.samlifttruck.activity.Adapters.DraftListInfoAllAdapter;
+import com.samlifttruck.activity.DraftListActivity;
 import com.samlifttruck.activity.Models.UnitInfoModel;
 import com.samlifttruck.activity.RegDFPActivity;
 import com.samlifttruck.activity.Utility.SoapCall;
@@ -46,6 +48,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
+
+import ir.hamsaa.persiandatepicker.Listener;
+import ir.hamsaa.persiandatepicker.PersianDatePickerDialog;
+import ir.hamsaa.persiandatepicker.util.PersianCalendar;
 
 public class DraftListInfoAllFragment extends Fragment {
 
@@ -79,7 +85,7 @@ public class DraftListInfoAllFragment extends Fragment {
     DfpProductDetailsAdapter detailsAdapter;
     TableRow tblDraftNum, tblServicePage;
 
-
+    private PersianDatePickerDialog datepicker;
     // TODO: Rename and change types of parameters
     private String mDraftNum;
     private String mDate;
@@ -163,7 +169,7 @@ public class DraftListInfoAllFragment extends Fragment {
             tvDraftNum.setText(mDraftNum);
             tvPermNum.setText(mPermNum);
             tvCustName.setText(mCustName);
-            tvDate.setText(mDate);
+            tvDate.setText(getToday());
             tvDraftType.setText(mDraftType);
             tvServicePage.setText(mServicePage);
             tvDescrip.setText(mDescrip);
@@ -202,16 +208,13 @@ public class DraftListInfoAllFragment extends Fragment {
                 });
 
 
-                // getPermProductList();
-                //  tvListSize.setText(String.valueOf(detailsList.size()));
-                // rvDraftListStuff.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
-                // detailsAdapter = new DfpProductDetailsAdapter(getActivity(), detailsList);
-                // rvDraftListStuff.setAdapter(detailsAdapter);
-
             } else if (mSourceActivity == ACTIVITY_DRAFT_LIST) {
                 getProducts();
                 tvDraftType.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 tvDescrip.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+                tvDate.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+                //tvDate.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+
                 tvDescrip.setEnabled(false);
 
             }
@@ -220,6 +223,49 @@ public class DraftListInfoAllFragment extends Fragment {
         return rootView;
     }
 
+    private void setDateChoose() {
+        tvDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PersianCalendar initDate = new PersianCalendar();
+                int day = initDate.getPersianDay();
+                int month = initDate.getPersianMonth();
+                int year = initDate.getPersianYear();
+                initDate.setPersianDate(year, month, day);
+
+                // persian Date picker
+                datepicker = new PersianDatePickerDialog(getActivity())
+                        .setPositiveButtonString("تایید")
+                        .setNegativeButton("بیخیال")
+                        .setTodayButton("برو به امروز")
+                        .setTodayButtonVisible(true)
+                        .setInitDate(initDate)
+                        .setTitleColor(getResources().getColor(R.color.color_red_refuse))
+                        .setMaxYear(PersianDatePickerDialog.THIS_YEAR)
+                        .setMinYear(1380)
+                        .setActionTextColor(getResources().getColor(R.color.color_blue_theme_004677))
+                        .setListener(new Listener() {
+                            @Override
+                            public void onDateSelected(PersianCalendar persianCalendar) {
+                                int month = persianCalendar.getPersianMonth();
+                                int day = persianCalendar.getPersianDay();
+                                String formattedMonth = (month < 10) ? ("0" + month) : String.valueOf(month);
+                                String formattedDay = (day < 10) ? ("0" + day) : String.valueOf(day);
+
+                                String myDate = persianCalendar.getPersianYear() + "/" + formattedMonth + "/" + formattedDay;
+                                tvDate.setText(myDate);
+                            }
+
+                            @Override
+                            public void onDismissed() {
+
+                            }
+                        });
+
+                datepicker.show();
+            }
+        });
+    }
 
     private void setDialogDraftType(Map<String, Integer> hashMap) {
         Collection<String> keysets = hashMap.keySet();
@@ -243,6 +289,18 @@ public class DraftListInfoAllFragment extends Fragment {
                 mDialog.show();
             }
         });
+    }
+
+    private String getToday() {
+        PersianCalendar initDate = new PersianCalendar();
+        int day = initDate.getPersianDay();
+        int month = initDate.getPersianMonth();
+        int year = initDate.getPersianYear();
+        String formattedMonth = (month < 10) ? ("0" + month) : String.valueOf(month);
+        String formattedDay = (day < 10) ? ("0" + day) : String.valueOf(day);
+
+        String myDate = year + "/" + formattedMonth + "/" + formattedDay;
+        return myDate;
     }
 
 
@@ -355,6 +413,7 @@ public class DraftListInfoAllFragment extends Fragment {
                                     }
 
                                     setDialogDraftType(draftTypeMap);
+                                    setDateChoose();
 
                                     getDfpProducts(mBusinessID);
 
@@ -456,6 +515,8 @@ public class DraftListInfoAllFragment extends Fragment {
     }
 
     private void acceptBussiness() {
+
+        Log.i("saeed", "acceptBussiness: \n" + "user id "+mUserId+ "\n person id  " + mPersonId+"\n custname id " + mCustName +"\ndate id "+ tvDate.getText().toString() + mBusinessID) ;
         PropertyInfo p0 = new PropertyInfo();
         p0.setName("passCode");
         p0.setValue(Utility.pw);
@@ -478,7 +539,7 @@ public class DraftListInfoAllFragment extends Fragment {
 
         PropertyInfo p4 = new PropertyInfo();
         p4.setName("pDate");
-        p4.setValue(mDate);
+        p4.setValue(tvDate.getText().toString());
         p4.setType(String.class);
 
         PropertyInfo p5 = new PropertyInfo();
@@ -547,7 +608,7 @@ public class DraftListInfoAllFragment extends Fragment {
                                                     }).build().show();
                                             //
                                         } else if (myList.get(0).getString("boolean").equals("false")) {
-                                            Toast.makeText(getActivity(), "خطا در ثبت", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getActivity(), "ارسال پارامتر اشتباه..", Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();

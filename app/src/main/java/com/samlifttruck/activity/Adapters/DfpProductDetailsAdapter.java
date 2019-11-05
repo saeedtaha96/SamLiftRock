@@ -232,9 +232,9 @@ public class DfpProductDetailsAdapter extends RecyclerView.Adapter<DfpProductDet
                                         Toast.makeText(context, "مورد با موفقیت حذف شد", Toast.LENGTH_LONG).show();
 
                                         // TODO: whats gonna do after this
-                                        list.remove(adapterPos);
+                                        detailsList.remove(adapterPos);
                                         notifyItemRemoved(adapterPos);
-                                        notifyItemRangeChanged(adapterPos, list.size());
+                                        notifyItemRangeChanged(adapterPos, detailsList.size());
                                         //
                                     }
                                 } catch (JSONException e) {

@@ -94,6 +94,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin8"
                         android:layout_weight="2"
+                        android:drawableEnd="@drawable/ic_date_dfp"
+                        android:drawableTint="#474747"
                         android:gravity="center"
                         android:padding="@dimen/draft_all_info_table_padding"
                         android:textColor="@color/color_black_000000"
